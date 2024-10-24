@@ -18,15 +18,6 @@
                                 </span>
                             </li>
                             <li class="breadcrumbs-list__item">
-                                <a class="breadcrumbs-list__link" href="{{ route('home') }}">Electric Scooters</a> 
-                                <span class="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right">
-                                        <title>Right</title>
-                                        <polyline points="9 18 15 12 9 6"></polyline>
-                                    </svg>
-                                </span>
-                            </li>
-                            <li class="breadcrumbs-list__item">
                                 <a class="breadcrumbs-list__link" href="{{ route('productDetail', $product->id) }}" aria-current="page">{{ $product->name }}</a>
                             </li>
                         </ol>
@@ -177,7 +168,7 @@
                                         </a>
                                         <input aria-label="Quantity" id="quantity" type="number" name="quantity" value="1">
                                         <a href="#" data-quantity="up">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
                                                 <title>Plus</title>
                                                 <line x1="12" y1="5" x2="12" y2="19"></line>
                                                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -185,41 +176,6 @@
                                         </a>
                                     </div>
                                     <div class="quantity-submit-row__submit input-row"><button disabled class="button button--large" type="submit" data-add-to-cart-text="Add to Cart">Add to Cart</button>
-                                    </div>
-                                    <div data-shopify="payment-button" class="shopify-payment-button" style="display: block;">
-                                        <shopify-accelerated-checkout recommended="{&quot;name&quot;:&quot;shop_pay&quot;,&quot;wallet_params&quot;:{&quot;shopId&quot;:45951582357,&quot;merchantName&quot;:&quot;Skootz &quot;}}" fallback="{&quot;name&quot;:&quot;buy_it_now&quot;,&quot;wallet_params&quot;:{}}" access-token="cd2f999f10a6b8b6a34dcd8bb0c47b78" buyer-country="GB" buyer-locale="en" buyer-currency="GBP" variant-params="[{&quot;id&quot;:46574146191602,&quot;requiresShipping&quot;:true},{&quot;id&quot;:46574146257138,&quot;requiresShipping&quot;:true},{&quot;id&quot;:50759071629685,&quot;requiresShipping&quot;:true},{&quot;id&quot;:50759071662453,&quot;requiresShipping&quot;:true},{&quot;id&quot;:50759071695221,&quot;requiresShipping&quot;:true}]" shop-id="45951582357" requires-shipping="">
-                                            <shop-pay-wallet-button access-token="cd2f999f10a6b8b6a34dcd8bb0c47b78" buyer-country="GB" buyer-currency="GBP" wallet-params="{&quot;shopId&quot;:45951582357,&quot;merchantName&quot;:&quot;Skootz &quot;}" page-type="product" slot="button" requires-shipping="" call-to-action=""></shop-pay-wallet-button>
-                                            <more-payment-options-link buyer-country="GB" access-token="cd2f999f10a6b8b6a34dcd8bb0c47b78" recommended-instrument="ShopPay" slot="more-options">
-                                                <a class="shopify-payment-button__more-options" id="more-payment-options-link" href="#">More payment options</a>
-                                                <style>#more-payment-options-link{cursor:pointer}</style>
-                                            </more-payment-options-link>
-                                        </shopify-accelerated-checkout>
-                                        <small id="shopify-buyer-consent" class="hidden" aria-hidden="true"> This item is a recurring or deferred purchase. By continuing, I agree to the <span id="shopify-subscription-policy-button">cancellation policy</span> and authorize you to charge my payment method at the prices, frequency and dates listed on this page until my order is fulfilled or I cancel, if permitted. </small> 
-                                    </div>
-                                </div>
-                                <div class="store-availability-container-outer store-availability-initialized" data-store-availability-container="8534383886578" data-section-url="/variants/VARIANT_ID/?section_id=store-availability" style="">
-                                    <div class="store-availability-container" data-section-id="store-availability" data-section-type="store-availability">
-                                        <div class="store-availability-information">
-                                            <div class="store-availability-icon store-availability-icon--available">
-                                                <svg class="icon icon--small" stroke-width="1" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                                    <path fill-rule="evenodd" d="M14.441 3.733a.5.5 0 010 .707l-7.94 7.94a.5.5 0 01-.707 0L2.52 9.105a.5.5 0 11.707-.707l2.922 2.922 7.586-7.587a.5.5 0 01.707 0z" clip-rule="evenodd"></path>
-                                                </svg>
-                                            </div>
-                                            <div class="store-availability-information-container">
-                                                <p class="store-availability-information__title">
-                                                    Pickup available at <strong>Dundee</strong>
-                                                </p>
-                                                <p class="store-availability-information__stock store-availability-small-text">
-                                                    <small>Usually ready in 2 hours</small>
-                                                </p>
-                                                <p class="store-availability-information__stores rte">
-                                                    <a href="#" class="store-availability-information__link store-availability-small-text" data-store-availability-modal-open="" aria-haspopup="dialog">
-                                                    <small>Check availability at other stores
-                                                    </small>
-                                                    </a>
-                                                </p>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <input type="hidden" name="product-id" value="8534383886578"><input type="hidden" name="section-id" value="template--16718812184818__main">

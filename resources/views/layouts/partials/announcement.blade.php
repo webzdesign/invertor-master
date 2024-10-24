@@ -14,7 +14,7 @@
             <div class="announcement-bar__announcements">
                 <div class="announcement">
                     <div class="announcement__text">
-                        <p><strong>Upto £200 Trade-in on your old E-Scooter. Call 0333 188 8225 for more info. </strong></p>
+                        <p><strong>Upto £200 Trade-in on your old E-Scooter. Call 0333 888 0000 for more info. </strong></p>
                     </div>
                 </div>
             </div>
