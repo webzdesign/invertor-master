@@ -155,31 +155,28 @@
                         </div>
                         <hr class="not-in-quickbuy">
                         <div class="buy-buttons-row">
-                            <form method="post" action="#" id="product-form-template--16718812184818__main-8534383886578" accept-charset="UTF-8" class="form product-purchase-form" enctype="multipart/form-data" data-product-id="8534383886578">
-                                <input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓">
-                                <div class="quantity-submit-row input-row has-spb">
-                                    <label class="label" for="quantity">Quantity</label>
-                                    <div class="quantity-wrapper">
-                                        <a href="#" data-quantity="down">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
-                                                <title>Minus</title>
-                                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            </svg>
-                                        </a>
-                                        <input aria-label="Quantity" id="quantity" type="number" name="quantity" value="1">
-                                        <a href="#" data-quantity="up">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-                                                <title>Plus</title>
-                                                <line x1="12" y1="5" x2="12" y2="19"></line>
-                                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                    <div class="quantity-submit-row__submit input-row"><button disabled class="button button--large" type="submit" data-add-to-cart-text="Add to Cart">Add to Cart</button>
-                                    </div>
+                            <div class="quantity-submit-row input-row has-spb">
+                                <label class="label" for="quantity">Quantity</label>
+                                <div class="quantity-wrapper">
+                                    <a href="#" data-quantity="down">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus" style="height:45px !important;">
+                                            <title>Minus</title>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                    </a>
+                                    <input aria-label="Quantity" id="quantity" type="number" name="quantity" value="1">
+                                    <a href="#" data-quantity="up">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus" style="height:45px !important;">
+                                            <title>Plus</title>
+                                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        </svg>
+                                    </a>
                                 </div>
-                                <input type="hidden" name="product-id" value="8534383886578"><input type="hidden" name="section-id" value="template--16718812184818__main">
-                            </form>
+                                <input type="hidden" id="productId" name="productId" value="{{ encrypt($product->id) }}" />
+                                <div class="quantity-submit-row__submit input-row"><button class="button button--large AddToCartBtn"  data-add-to-cart-text="Add to Cart">Add to Cart</button>
+                                </div>
+                            </div>
                         </div>
                         <div class=" product-detail-accordion">
                             <div class="cc-accordion cc-initialized" data-allow-multi-open="true">
@@ -300,4 +297,60 @@
         </div>
     </div>
 </div>
+@endsection
+<script src="{{ asset('assets/js/jquery3-6-0.min.js') }}"></script>
+@section('script')
+<script>
+$(document).ready(function(){
+    function numberFormat(number, decimals) {
+        number = parseFloat(number);
+
+        const formatted = number.toLocaleString(undefined, {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals
+        });
+
+        return formatted;
+    }
+    $('.AddToCartBtn').click(function(e) {
+        e.preventDefault();
+
+        const productId = $('body').find('#productId').val();
+        var quantity = $('body').find('#quantity').val();
+        if (quantity == 0) {
+            quantity = 1;
+        }
+        $.ajax({
+            url: '{{ route("cart.add") }}',
+            type: 'POST',
+            data: {
+                productId: productId,
+                quantity: quantity,
+                _token: '{{ csrf_token() }}'
+            },
+            success: function(response) {
+                if (response.success) {
+                    var cartHtml = '';
+                    var cartTotal = 0;
+                    $.each(response.cart, function( key, value ) {
+                        cartHtml += '<div><div class="cart-item product-skootz-aovo-pro2-ew6"><div class="cart-item__column cart-item__image"><a href="'+value.url+'"><div class="rimage-outer-wrapper" style="max-width: 100px"><div class="rimage-wrapper " style="padding-top:100.0%"><img class="rimage__image fade-in lazyautosizes lazyloaded" src="'+value.image+'"><noscript><img class="rimage__image" src="'+value.image+'" alt=""></noscript></div></div></a></div><div class="cart-item__not-image"><div class="cart-item__column cart-item__description"><div class="lightly-spaced-row"><div class="cart-item__title"><a class="inh-col" href="'+value.url+'">'+value.name+'</a></div></div></div><div class="cart-item__column cart-item__price"><span class="theme-money cart-item__selling-price">£'+value.price.toFixed(2)+'</span></div><div class="cart-item__column cart-item__quantity"><div class="quantity buttoned-input"><a id="updates_dec_1" class="notabutton" href="#" aria-label="Decrease"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><title>Minus</title><line x1="5" y1="12" x2="19" y2="12"></line></svg></a><input class="cart-item__quantity-input" type="number" size="2" id="updates_1" name="updates[]" data-initial-value="1" data-line="1" value="'+value.quantity+'" aria-label="Quantity"><a id="updates_inc_1" class="notabutton " href="#" aria-label="Increase"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><title>Plus</title><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></a></div></div></div></div></div>';
+
+                        cartTotal += (value.price * value.quantity);
+                    });
+                    $('body').find('.cartSubTotal').text('£'+numberFormat(cartTotal, 2));
+                    $('body').find('.cartItemLists').empty().append(cartHtml);
+                    $('body').find('.cartCount').text(response.cartCount);
+                    $('body').find('.cartCountText').text('('+response.cartCount+')');
+                    $('body').find('.cart-link').click();
+                } else {
+
+                }
+            },
+            error: function(xhr) {
+                console.error(xhr.responseText);
+            }
+        });
+    });
+});
+</script>
 @endsection

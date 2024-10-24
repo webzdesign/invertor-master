@@ -54,7 +54,10 @@
                                     <line x1="12" y1="9" x2="12" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></line>
                                 </g>
                             </svg>
-                            <span class="cart-link__count">2</span>
+							@php
+								$cart = session()->get('cart', []);
+							@endphp
+                            <span class="cart-link__count cartCount">{{ count($cart) }}</span>
                         </span>
                     </a>
                 </div>

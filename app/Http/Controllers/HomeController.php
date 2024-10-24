@@ -39,4 +39,33 @@ class HomeController extends Controller
 
         return view('productDetail', compact('product', 'othersProducts'));
     }
+
+    public function addToCart(Request $request)
+    {
+        $cart = session()->get('cart', []);
+
+        $product = Product::with('images')->find(decrypt($request->productId));
+        if (!$product) {
+            return response()->json(['success' => false, 'cart' => $cart]);
+        }
+        
+        if (isset($cart[$product->id])) {
+            $cart[$product->id]['quantity'] += $request->quantity;
+        } else {
+            $cart[$product->id] = [
+                'quantity' => $request->quantity,
+                'name' => $product->name,
+                'price' => $product->web_sales_price,
+                'image' => isset($product->images[0]) ? env('APP_Image_URL').'storage/product-images/'.$product->images[0]->name : '',
+                'url' => route('productDetail', encrypt($product->id))
+            ];
+        }
+
+        session()->put('cart', $cart);
+        session()->save();
+
+        $cartCount = count($cart);
+
+        return response()->json(['success' => true, 'cart' => $cart, 'cartCount' => $cartCount]);
+    }
 }

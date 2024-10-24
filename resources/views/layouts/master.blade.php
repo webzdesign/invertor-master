@@ -405,5 +405,7 @@
         @include('layouts.partials.footer')
 
         <a href="#" class="page-shade" aria-label="Toggle menu"></a>
+
+        @yield('script')
     </body>
 </html>
