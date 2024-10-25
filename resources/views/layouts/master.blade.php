@@ -1,11 +1,12 @@
 <html lang="en">
     <head>
         <title>
-            Electric Scooters - Buy E-Scooters Online UK – Skootz 
+            Electric Scooters - Buy E-Scooters Online
         </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="preload" href="{{ asset('assets/js/vendor.min.js') }}" as="script">
         <link rel="preload" href="{{ asset('assets/js/theme.js') }}" as="script">
         <link rel="icon" href="{{ asset('assets/image/Untitled_design_22.png') }}" type="image/png">
@@ -389,7 +390,7 @@
         </div>
         <div id="shopify-section-announcement-bar" class="shopify-section section-announcement-bar">
              <!----- Announcement ----->
-             @include('layouts.partials.announcement')
+             {{-- @include('layouts.partials.announcement') --}}
         </div>
         <div id="shopify-section-header" class="shopify-section section-header">
             <!----- Header ----->

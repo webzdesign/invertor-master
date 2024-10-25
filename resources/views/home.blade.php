@@ -4,21 +4,6 @@
 <div class="container cf">
     <div id="shopify-section-template--16718811922674__main" class="shopify-section">
         <div data-section-id="template--16718811922674__main" data-section-type="collection-template" data-ajax-filtering="true" data-filter-section-id="template--16718811922674__main" data-components="accordion,modal,price-range" data-cc-animate="" class="cc-animate-init -in cc-animate-complete">
-            <div class="page-header page-header--with-background page-header--background-desktop-only image-overlay image-overlay--bg-shadow page-header--padded-large rimage-wrapper">
-                <div class="rimage-background fade-in lazyloaded" data-bgset="//skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_180x.jpg?v=1727084477 180w 101h,
-                    //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_360x.jpg?v=1727084477 360w 202h,
-                    //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_540x.jpg?v=1727084477 540w 304h,
-                    //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_720x.jpg?v=1727084477 720w 405h,
-                    //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_900x.jpg?v=1727084477 900w 506h,
-                    //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_1080x.jpg?v=1727084477 1080w 607h,
-                    //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_1296x.jpg?v=1727084477 1296w 729h,
-                    //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1.jpg?v=1727084477 1366w 768h" data-parent-fit="cover" style="background-image: url(&quot;https://skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1.jpg?v=1727084477&quot;);">
-                    <picture class="" style="display: none;">
-                        <source data-srcset="//skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_180x.jpg?v=1727084477 180w 101h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_360x.jpg?v=1727084477 360w 202h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_540x.jpg?v=1727084477 540w 304h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_720x.jpg?v=1727084477 720w 405h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_900x.jpg?v=1727084477 900w 506h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_1080x.jpg?v=1727084477 1080w 607h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_1296x.jpg?v=1727084477 1296w 729h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1.jpg?v=1727084477 1366w 768h" sizes="1903px" srcset="//skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_180x.jpg?v=1727084477 180w 101h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_360x.jpg?v=1727084477 360w 202h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_540x.jpg?v=1727084477 540w 304h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_720x.jpg?v=1727084477 720w 405h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_900x.jpg?v=1727084477 900w 506h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_1080x.jpg?v=1727084477 1080w 607h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1_1296x.jpg?v=1727084477 1296w 729h, //skootz-electricscooters.com/cdn/shop/collections/photo-1597260491651-ee327fc487b1.jpg?v=1727084477 1366w 768h">
-                        <img alt="" class="lazyautosizes lazyloaded" data-sizes="auto" data-parent-fit="cover" sizes="1903px">
-                    </picture>
-                </div>
-            </div>
             <div class="container container--no-max">
                 <div class="utility-bar" data-ajax-container="" data-ajax-scroll-to="">
                     <div class="utility-bar__left">
@@ -250,6 +235,7 @@
 
                             @foreach ($products as $product)
                                 <div class="product-block cc-animate-init -in cc-animate-complete">
+                                    <input type="hidden" name="productId" id="productId" value="{{ encrypt($product->id) }}" />
                                     <div class="block-inner" style="min-height: 440.031px;">
                                         <div class="block-inner-inner">
                                             <div class="image-cont image-cont--with-secondary-image ">
@@ -263,7 +249,7 @@
                                                                             <div class="rimage-wrapper" style="padding-top:100.0%">
                                                                                 <img class="rimage__image fade-in lazyautosizes lazyloaded" data-aspectratio="1.0" data-sizes="auto" alt="" src="{{ env('APP_Image_URL').'storage/product-images/'.$image->name }}">
                                                                                 <noscript>
-                                                                                    <img class="rimage__image" src="//skootz-electricscooters.com/cdn/shop/files/For_more_information_call_at_0333_188_8225_d2b4cd3e-4abd-492e-a9d9-b2b192074dfb_1024x1024.png?v=1729085820" alt="">
+                                                                                    <img class="rimage__image" src="{{ env('APP_Image_URL').'storage/product-images/'.$image->name }}" alt="">
                                                                                 </noscript>
                                                                             </div>
                                                                         </div>
@@ -295,7 +281,7 @@
                                                         <polyline points="9 18 15 12 9 6"></polyline>
                                                     </svg>
                                                 </a>
-                                                <a class="btn btn--secondary quickbuy-toggle" href="#">Quick buy</a>
+                                                <a class="btn btn--secondary quickbuy-toggle AddToCartBtn" href="#">Add To Cart</a>
                                             </div>
                                             <div class="product-info">
                                                 <div class="inner">
@@ -312,15 +298,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="quickbuy-container">
-                                        <a href="#" class="close-detail" aria-label="Close quick buy" tabindex="-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x" aria-hidden="true">
-                                                <line x1="18" y1="6" x2="6" y2="18"></line>
-                                                <line x1="6" y1="6" x2="18" y2="18"></line>
-                                            </svg>
-                                        </a>
-                                        <div class="inner"></div>
                                     </div>
                                 </div>
                             @endforeach
@@ -350,4 +327,101 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script>
+$(document).ready(function(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    function numberFormat(number, decimals) {
+        number = parseFloat(number);
+
+        const formatted = number.toLocaleString(undefined, {
+            minimumFractionDigits: decimals,
+            maximumFractionDigits: decimals
+        });
+
+        return formatted;
+    }
+    $('.AddToCartBtn').click(function(e) {
+        e.preventDefault();
+
+        const productId = $(this).closest('div.product-block').find('#productId').val();
+        var quantity = 1;
+        $.ajax({
+            url: '{{ route("cart.add") }}',
+            type: 'POST',
+            data: {
+                productId: productId,
+                quantity: quantity,
+            },
+            success: function(response) {
+                if (response.success) {
+                    var cartHtml = '';
+                    var cartTotal = 0;
+                    $.each(response.cart, function( key, value ) {
+                        cartHtml += '<div class="cartItemDiv"><input type="hidden" class="cartProductId" value="'+value.productId+'" /><div class="cart-item product-skootz-aovo-pro2-ew6"><div class="cart-item__column cart-item__image"><a href="'+value.url+'"><div class="rimage-outer-wrapper" style="max-width: 100px"><div class="rimage-wrapper " style="padding-top:100.0%"><img class="rimage__image fade-in lazyautosizes lazyloaded" src="'+value.image+'"><noscript><img class="rimage__image" src="'+value.image+'" alt=""></noscript></div></div></a></div><div class="cart-item__not-image"><div class="cart-item__column cart-item__description"><div class="lightly-spaced-row"><div class="cart-item__title"><a class="inh-col" href="'+value.url+'">'+value.name+'</a></div></div></div><div class="cart-item__column cart-item__price"><span class="theme-money cart-item__selling-price">£'+value.price.toFixed(2)+'</span></div><div class="cart-item__column cart-item__quantity"><div class="quantity buttoned-input"><a id="cartItemMinus" class="notabutton" href="#" aria-label="Decrease"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><title>Minus</title><line x1="5" y1="12" x2="19" y2="12"></line></svg></a><input class="cart-item__quantity-input cartQty" type="number" size="2" id="updates_1" name="updates[]" data-initial-value="1" data-line="1" value="'+value.quantity+'" aria-label="Quantity"><a id="cartItemPlus" class="notabutton" href="#" aria-label="Increase"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><title>Plus</title><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></a></div></div></div></div></div>';
+
+                        cartTotal += (value.price * value.quantity);
+                    });
+                    $('body').find('.cartSubTotal').text('£'+numberFormat(cartTotal, 2));
+                    $('body').find('.cartItemLists').empty().append(cartHtml);
+                    $('body').find('.cartCount').text(response.cartCount);
+                    $('body').find('.cartCountText').text('('+response.cartCount+')');
+                    $('body').find('.cart-link').click();
+                }
+            },
+            error: function(xhr) {
+                console.error(xhr.responseText);
+            }
+        });
+    });
+
+    $('body').on('click', '#cartItemMinus, #cartItemPlus', function(e){
+        var productId = $(this).closest('div.cartItemDiv').find('.cartProductId').val();
+        var quantity = parseInt($(this).closest('div.cartItemDiv').find('.cartQty').val());
+        if (isNaN(quantity) || quantity < 0) {
+            quantity = 1;
+        }
+        if ($(this).attr('id') === 'cartItemMinus') {
+            quantity = quantity - 1;
+        } else {
+            quantity = quantity + 1;
+        }
+
+        $.ajax({
+            url: '{{ route("cart.sync") }}',
+            type: 'POST',
+            data: {
+                productId: productId,
+                quantity: quantity,
+            },
+            success: function(response) {
+                if (response.success) {
+                    var cartHtml = '';
+                    var cartTotal = 0;
+                    $.each(response.cart, function( key, value ) {
+                        cartHtml += '<div class="cartItemDiv"><input type="hidden" class="cartProductId" value="'+value.productId+'" /><div class="cart-item product-skootz-aovo-pro2-ew6"><div class="cart-item__column cart-item__image"><a href="'+value.url+'"><div class="rimage-outer-wrapper" style="max-width: 100px"><div class="rimage-wrapper " style="padding-top:100.0%"><img class="rimage__image fade-in lazyautosizes lazyloaded" src="'+value.image+'"><noscript><img class="rimage__image" src="'+value.image+'" alt=""></noscript></div></div></a></div><div class="cart-item__not-image"><div class="cart-item__column cart-item__description"><div class="lightly-spaced-row"><div class="cart-item__title"><a class="inh-col" href="'+value.url+'">'+value.name+'</a></div></div></div><div class="cart-item__column cart-item__price"><span class="theme-money cart-item__selling-price">£'+value.price.toFixed(2)+'</span></div><div class="cart-item__column cart-item__quantity"><div class="quantity buttoned-input"><a id="cartItemMinus" class="notabutton" href="#" aria-label="Decrease"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus"><title>Minus</title><line x1="5" y1="12" x2="19" y2="12"></line></svg></a><input class="cart-item__quantity-input cartQty" type="number" size="2" id="updates_1" name="updates[]" data-initial-value="1" data-line="1" value="'+value.quantity+'" aria-label="Quantity"><a id="cartItemPlus" class="notabutton" href="#" aria-label="Increase"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus"><title>Plus</title><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></a></div></div></div></div></div>';
+
+                        cartTotal += (value.price * value.quantity);
+                    });
+                    $('body').find('.cartSubTotal').text('£'+numberFormat(cartTotal, 2));
+                    $('body').find('.cartItemLists').empty().append(cartHtml);
+                    $('body').find('.cartCount').text(response.cartCount);
+                    $('body').find('.cartCountText').text('('+response.cartCount+')');
+                    $('body').find('.cart-link').click();
+                }
+            },
+            error: function(xhr) {
+                console.error(xhr.responseText);
+            }
+        });
+        
+    });
+
+});
+</script>
 @endsection

@@ -29,6 +29,11 @@ class Product extends Model
         return $query->where('status', 1);
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     public function images()
     {
         return $this->hasMany(ProductImage::class, 'product_id', 'id');

@@ -30,8 +30,20 @@
                     <div class="navigation navigation--left navigation--tight-underline" role="navigation" aria-label="Primary navigation">
                         <div class="navigation__tier-1-container">
                             <ul class="navigation__tier-1">
-                                <li class="navigation__item navigation__item--with-children navigation__item--with-small-menu navigation__item--active">
+                                <li class="navigation__item navigation__item--with-children navigation__item--with-small-menu {{ request()->is('/') ? 'navigation__item--active' : '' }}">
                                     <a href="{{ route('home') }}" class="navigation__link" aria-haspopup="true" aria-expanded="false" aria-controls="NavigationTier2-1">Home</a>
+                                </li>
+
+                                <li class="navigation__item navigation__item--with-children navigation__item--with-small-menu {{ request()->is('about-us') ? 'navigation__item--active' : '' }}">
+                                    <a href="{{ route('about-us') }}" class="navigation__link" aria-haspopup="true" aria-expanded="false" aria-controls="NavigationTier2-1">About Us</a>
+                                </li>
+
+                                <li class="navigation__item navigation__item--with-children navigation__item--with-small-menu {{ request()->is('testimonial') ? 'navigation__item--active' : '' }}">
+                                    <a href="{{ route('testimonial') }}" class="navigation__link" aria-haspopup="true" aria-expanded="false" aria-controls="NavigationTier2-1">Testimonial</a>
+                                </li>
+
+                                <li class="navigation__item navigation__item--with-children navigation__item--with-small-menu {{ request()->is('contact-us') ? 'navigation__item--active' : '' }}">
+                                    <a href="{{ route('contact-us') }}" class="navigation__link" aria-haspopup="true" aria-expanded="false" aria-controls="NavigationTier2-1">Contact Us</a>
                                 </li>
                             </ul>
                         </div>
@@ -40,7 +52,7 @@
             </div>
             <div class="logo-area__middle logo-area__middle--logo-image">
                 <div class="logo-area__middle__inner">
-                    <div class="logo"><a class="logo__link" href="{{ route('home') }}" title="Skootz "><img class="logo__image" src="{{ env('APP_Image_URL').'assets/images/logo.png' }}" alt="Skootz " itemprop="logo" width="500" height="129"></a></div>
+                    <div class="logo"><a class="logo__link" href="{{ route('home') }}" title="Ebike"><img class="logo__image" src="{{ env('APP_Image_URL').'assets/images/logo.png' }}" alt="Ebike" itemprop="logo" width="500" height="129"></a></div>
                 </div>
             </div>
             <div class="logo-area__right">
@@ -97,6 +109,15 @@
 					<li class="navigation__item">
 						<a href="{{ route('home') }}" class="navigation__link" >Home</a>
 					</li>
+                    <li class="navigation__item">
+						<a href="{{ route('about-us') }}" class="navigation__link" >About Us</a>
+					</li>
+                    <li class="navigation__item">
+						<a href="{{ route('testimonial') }}" class="navigation__link" >Testimonial</a>
+					</li>
+                    <li class="navigation__item">
+						<a href="{{ route('contact-us') }}" class="navigation__link" >Contact Us</a>
+					</li>
 				</ul>
 			</div>
         </div>
@@ -113,6 +134,15 @@
 					<ul class="navigation__tier-1">
 						<li class="navigation__item">
 							<a href="{{ route('home') }}" class="navigation__link" >Home</a>
+						</li>
+                        <li class="navigation__item">
+							<a href="{{ route('about-us') }}" class="navigation__link" >About Us</a>
+						</li>
+                        <li class="navigation__item">
+							<a href="{{ route('testimonial') }}" class="navigation__link" >Testimonial</a>
+						</li>
+                        <li class="navigation__item">
+							<a href="{{ route('contact-us') }}" class="navigation__link" >Contact Us</a>
 						</li>
 					</ul>
 				</div>

@@ -30,12 +30,13 @@
                                             $cartTotal = 0;
                                         @endphp
                                         @foreach ($cart as $cKey => $cartItem)
-                                            <div>
+                                            <div class='cartItemDiv'>
+                                                <input type="hidden" class="cartProductId" value="{{ $cartItem['productId'] }}" />
                                                 <div class="cart-item product-skootz-aovo-pro2-ew6">
                                                     <div class="cart-item__column cart-item__image">
                                                         <a href="{{ route('productDetail', encrypt($cKey)) }}">
                                                             <div class="rimage-outer-wrapper" style="max-width: 100px">
-                                                                <div class="rimage-wrapper " style="padding-top:100.0%">
+                                                                <div class="rimage-wrapper" style="padding-top:100.0%">
                                                                     <img class="rimage__image fade-in lazyautosizes lazyloaded" src="{{ $cartItem['image'] }}">
                                                                     <noscript><img class="rimage__image" src="{{ $cartItem['image'] }}" alt=""></noscript>
                                                                 </div>
@@ -51,14 +52,14 @@
                                                         <div class="cart-item__column cart-item__price"><span class="theme-money cart-item__selling-price">£{{ number_format($cartItem['price'], 2) }}</span></div>
                                                         <div class="cart-item__column cart-item__quantity">
                                                             <div class="quantity buttoned-input">
-                                                                <a id="updates_dec_1" class="notabutton " href="#" aria-label="Decrease">
+                                                                <a id="cartItemMinus" class="notabutton" href="#" aria-label="Decrease">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus">
                                                                         <title>Minus</title>
                                                                         <line x1="5" y1="12" x2="19" y2="12"></line>
                                                                     </svg>
                                                                 </a>
-                                                                <input class="cart-item__quantity-input" type="number" size="2" id="updates_1" name="updates[]" data-initial-value="1" data-line="1" value="{{ $cartItem['quantity'] }}" aria-label="Quantity">
-                                                                <a id="updates_inc_1" class="notabutton  " href="#" aria-label="Increase">
+                                                                <input class="cart-item__quantity-input cartQty" type="number" size="2"  data-initial-value="1" data-line="1" value="{{ $cartItem['quantity'] }}" aria-label="Quantity">
+                                                                <a id="cartItemPlus" class="notabutton" href="#" aria-label="Increase">
                                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
                                                                         <title>Plus</title>
                                                                         <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -71,7 +72,7 @@
                                                 </div>
                                             </div>
                                             @php
-                                                $cartTotal += ($cartItem['price'] * $cartItem['quantity']);
+                                                $cartTotal += floatVal($cartItem['price']) * floatVal($cartItem['quantity']);
                                             @endphp
                                         @endforeach
                                     </div>
@@ -93,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="checkout-buttons" data-merge-attributes="checkout-buttons">
-                                <a href="#" class="button button--large button--wide">Check out</a>
+                                <a href="{{ route('checkout') }}" class="button button--large button--wide">Check out</a>
                             </div>
                         </div>
                         <div class="cart-drawer__empty-content cart-drawer__empty-content--hidden" data-merge-attributes="empty-container">
