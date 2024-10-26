@@ -110,7 +110,14 @@
                                         </svg>
                                     </span>
                                 </button>
-                                <div class="link-dropdown__options" id="sort-dropdown-optionsdupe"><a href="/collections/e-scooters?sort_by=manual" class="link-dropdown__link link-dropdown__link--active">Featured</a><a href="/collections/e-scooters?sort_by=best-selling" class="link-dropdown__link">Best selling</a><a href="/collections/e-scooters?sort_by=title-ascending" class="link-dropdown__link">Alphabetically, A-Z</a><a href="/collections/e-scooters?sort_by=title-descending" class="link-dropdown__link">Alphabetically, Z-A</a><a href="/collections/e-scooters?sort_by=price-ascending" class="link-dropdown__link">Price, low to high</a><a href="/collections/e-scooters?sort_by=price-descending" class="link-dropdown__link">Price, high to low</a><a href="/collections/e-scooters?sort_by=created-ascending" class="link-dropdown__link">Date, old to new</a><a href="/collections/e-scooters?sort_by=created-descending" class="link-dropdown__link">Date, new to old</a></div>
+                                <div class="link-dropdown__options" id="sort-dropdown-optionsdupe">
+                                    <a href="{{ route('home', ['sort_by' => 'title-asc']) }}" class="link-dropdown__link">Alphabetically, A-Z</a>
+                                    <a href="{{ route('home', ['sort_by' => 'title-desc']) }}" class="link-dropdown__link">Alphabetically, Z-A</a>
+                                    <a href="{{ route('home', ['sort_by' => 'price-asc']) }}" class="link-dropdown__link">Price, low to high</a>
+                                    <a href="{{ route('home', ['sort_by' => 'price-desc']) }}" class="link-dropdown__link">Price, high to low</a>
+                                    <a href="{{ route('home', ['sort_by' => 'created-asc']) }}" class="link-dropdown__link">Date, old to new</a>
+                                    <a href="{{ route('home', ['sort_by' => 'created-desc']) }}" class="link-dropdown__link">Date, new to old</a>
+                                </div>
                             </div>
                         </span>
                         <span class="utility-bar__item mobile-only">
