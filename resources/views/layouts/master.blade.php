@@ -9,7 +9,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="preload" href="{{ asset('assets/js/vendor.min.js') }}" as="script">
         <link rel="preload" href="{{ asset('assets/js/theme.js') }}" as="script">
-        <link rel="icon" href="{{ asset('assets/image/Untitled_design_22.png') }}" type="image/png">
+        <link rel="icon" href="{{ env('APP_Image_URL').'assets/images/favicon.ico' }}" type="image/png">
         <meta name="description" content="" />
         <style>
             @font-face {

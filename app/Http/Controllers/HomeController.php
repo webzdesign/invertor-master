@@ -21,7 +21,8 @@ use App\Helpers\{Helper, Distance};
 class HomeController extends Controller
 {
     public function index(Request $request)
-    {        
+    {
+        $sortBy = (isset($request->sort_by) && $request->sort_by != '') ? $request->sort_by : '';
         $perPage = 8;
         $page = 1;
         if (isset($request->page) && $request->page != '') {
@@ -36,13 +37,61 @@ class HomeController extends Controller
 
         $products = Product::with('images')->active();
 
+        
+
+        $getMaxPrice = Product::orderBy('web_sales_price', 'desc')->first();
+        if ($getMaxPrice) {
+            $getMaxPrice = ceil($getMaxPrice->web_sales_price);
+        } else {
+            $getMaxPrice = 0;
+        }
+
+        $priceGte = 0;
+        if (isset($request->pricegte) && $request->pricegte != '') {
+            $priceGte = $request->pricegte;
+        }
+
+        $priceLte = $getMaxPrice;
+        if (isset($request->pricelte) && $request->pricelte != '') {
+            $priceLte = $request->pricelte;
+        }
+
+        $products = $products->where('web_sales_price', '>=', $priceGte)->where('web_sales_price', '<=', $priceLte);
+
+        $products = $products->skip($skip)->take($perPage);
+
         $totalProducts = $products->count();
 
-        $products = $products->skip($skip)->take($perPage)->get();
+        if (isset($sortBy) && $sortBy != '') {
+            switch ($sortBy) {
+                case 'title-asc':
+                    $products = $products->orderBy('name', 'asc');
+                    break;
+                case 'title-desc':
+                    $products = $products->orderBy('name', 'desc');
+                    break;
+                case 'price-asc':
+                    $products = $products->orderBy('web_sales_price', 'asc');
+                    break;
+                case 'price-desc':
+                    $products = $products->orderBy('web_sales_price', 'desc');
+                    break;
+                case 'created-asc':
+                    $products = $products->orderBy('created_at', 'asc');
+                    break;
+                case 'created-desc':
+                    $products = $products->orderBy('created_at', 'desc');
+                    break;
+                default:
+                    $products = $products->orderBy('name', 'asc');
+            }
+        }
+        
+        $products = $products->get();
 
         $totalPages = ceil($totalProducts / $perPage);
 
-        return view('home', compact('products', 'totalProducts', 'totalPages', 'page'));
+        return view('home', compact('products', 'totalProducts', 'totalPages', 'page', 'sortBy', 'getMaxPrice', 'priceGte', 'priceLte'));
     }
 
     public function productDetail($productId)

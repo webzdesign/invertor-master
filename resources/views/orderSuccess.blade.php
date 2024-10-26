@@ -97,17 +97,17 @@ color: white;
                     <th>Price</th>
                     <th>Amount</th>
                 </tr>
-                @foreach ($order->items as $orderItem)     
+                @foreach ($order->items as $orderItem)
                     <tr>
                         <td><div>{{ $orderItem->product->name }}</div></td>
                         <td>{{ $orderItem->qty }}</td>
-                        <td>{{ number_format($orderItem->price, 2) }}</td>
-                        <td>{{ number_format($orderItem->amount, 2) }}</td>
+                        <td>{{ '£'.number_format($orderItem->price, 2) }}</td>
+                        <td>{{ '£'.number_format($orderItem->amount, 2) }}</td>
                     </tr>
                 @endforeach
                 <tr>
                     <td colspan="3" style="text-align: right;"><b>Total<b></td>
-                    <td>{{ number_format($order->total(), 2) }}</td>
+                    <td>{{ '£'.number_format($order->total(), 2) }}</td>
                 </tr>
             </table>
         </div>

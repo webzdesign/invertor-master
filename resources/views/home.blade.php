@@ -33,8 +33,10 @@
                             <div class="link-dropdown link-dropdown--right-aligned">
                                 <div class="visually-hidden" id="sort-dropdown-heading">Sort by</div>
                                 <button class="link-dropdown__button notabutton" aria-expanded="false" aria-controls="sort-dropdown-options" aria-describedby="sort-dropdown-heading">
-                                    <span class="link-dropdown__button-text">Featured
-                                    </span>
+                                    @php 
+                                        $sortNames = ['title-asc' => 'Alphabetically, A-Z', 'title-desc' => 'Alphabetically, Z-A', 'price-asc' => 'Price, low to high', 'price-desc' => 'Price, high to low', 'created-asc' => 'Date, old to new', 'created-desc' => 'Date, new to old'];
+                                    @endphp
+                                    <span class="link-dropdown__button-text">{{ $sortNames[$sortBy] ?? $sortNames['title-asc'] }}</span>
                                     <span class="link-dropdown__button-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
                                             <title>Down</title>
@@ -42,7 +44,14 @@
                                         </svg>
                                     </span>
                                 </button>
-                                <div class="link-dropdown__options" id="sort-dropdown-options"><a href="/collections/e-scooters?sort_by=manual" class="link-dropdown__link link-dropdown__link--active">Featured</a><a href="/collections/e-scooters?sort_by=best-selling" class="link-dropdown__link">Best selling</a><a href="/collections/e-scooters?sort_by=title-ascending" class="link-dropdown__link">Alphabetically, A-Z</a><a href="/collections/e-scooters?sort_by=title-descending" class="link-dropdown__link">Alphabetically, Z-A</a><a href="/collections/e-scooters?sort_by=price-ascending" class="link-dropdown__link">Price, low to high</a><a href="/collections/e-scooters?sort_by=price-descending" class="link-dropdown__link">Price, high to low</a><a href="/collections/e-scooters?sort_by=created-ascending" class="link-dropdown__link">Date, old to new</a><a href="/collections/e-scooters?sort_by=created-descending" class="link-dropdown__link">Date, new to old</a></div>
+                                <div class="link-dropdown__options" id="sort-dropdown-options">
+                                    <a href="{{ route('home', ['sort_by' => 'title-asc']) }}" class="link-dropdown__link link-dropdown__link--active">Alphabetically, A-Z</a>
+                                    <a href="{{ route('home', ['sort_by' => 'title-desc']) }}" class="link-dropdown__link">Alphabetically, Z-A</a>
+                                    <a href="{{ route('home', ['sort_by' => 'price-asc']) }}" class="link-dropdown__link">Price, low to high</a>
+                                    <a href="{{ route('home', ['sort_by' => 'price-desc']) }}" class="link-dropdown__link">Price, high to low</a>
+                                    <a href="{{ route('home', ['sort_by' => 'created-asc']) }}" class="link-dropdown__link">Date, old to new</a>
+                                    <a href="{{ route('home', ['sort_by' => 'created-desc']) }}" class="link-dropdown__link">Date, new to old</a>
+                                </div>
                             </div>
                         </span>
                         <span class="utility-bar__item mobile-only">
@@ -137,21 +146,6 @@
                                 </a>
                             </header>
                             <form id="CollectionFilterForm">
-                                <div class="filter-group filter-group--availability">
-                                    <div class="filter-toggle filter-toggle--inline">
-                                        <span class="filter-toggle__group-label">Out of stock</span>
-                                        <div class="filter-toggle__options">
-                                            <label class="filter-toggle__input-label">
-                                            <input class="filter-toggle__input" id="Filter-filter.v.availability-1" type="radio" name="filter.v.availability" value="" checked="">
-                                            <span class="filter-toggle__input-label-text">Show</span>
-                                            </label>
-                                            <label class="filter-toggle__input-label">
-                                            <input class="filter-toggle__input" id="Filter-filter.v.availability-2" type="radio" name="filter.v.availability" value="1">
-                                            <span class="filter-toggle__input-label-text">Hide</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="filter-group">
                                     <a href="#" class="filter-group__heading" data-toggle-target=".filter-group--3">
                                         <div class="filter-group__heading__text">Price</div>
@@ -164,22 +158,22 @@
                                     </a>
                                     <div class="filter-group__items filter-group--3 toggle-target">
                                         <div class="toggle-target-container">
-                                            <div class="cc-price-range cc-initialized">
+                                            <div class="cc-price-range">
                                                 <div class="cc-price-range__input-row">
                                                     <div class="cc-price-range__input-container">
                                                         <span class="cc-price-range__input-currency-symbol">£</span>
-                                                        <input class="cc-price-range__input cc-price-range__input--min" id="CCPriceRangeMin" name="filter.v.price.gte" placeholder="0" type="text" inputmode="numeric" pattern="[0-9]*" step="10" min="0" max="1455" aria-label="From">
+                                                        <input class="cc-price-range__input cc-price-range__input--min" id="CCPriceRangeMin" name="pricegte" placeholder="{{ $priceGte }}" type="text" inputmode="numeric" pattern="[0-9]*" step="10" min="0" max="{{ $getMaxPrice }}" aria-label="From" value="{{ $priceGte }}">
                                                     </div>
                                                     <div class="cc-price-range__input-container">
                                                         <span class="cc-price-range__input-currency-symbol">£</span>
-                                                        <input class="cc-price-range__input cc-price-range__input--max" id="CCPriceRangeMax" name="filter.v.price.lte" placeholder="1455" type="text" inputmode="numeric" pattern="[0-9]*" step="10" min="0" max="1455" aria-label="To">
+                                                        <input class="cc-price-range__input cc-price-range__input--max" id="CCPriceRangeMax" name="pricelte" placeholder="{{ $priceLte }}" type="text" inputmode="numeric" pattern="[0-9]*" step="10" min="0" max="{{ $getMaxPrice }}" aria-label="To" value="{{ $priceLte }}">
                                                     </div>
                                                 </div>
                                                 <div class="cc-price-range__bar">
                                                     <div class="cc-price-range__bar-inactive"></div>
                                                     <div class="cc-price-range__bar-active" style="left: 0%; right: 0%;"></div>
-                                                    <div class="cc-price-range__control cc-price-range__control--min" aria-valuemin="0" aria-valuemax="1455" tabindex="0" aria-valuenow="0" style="left: 0%;"></div>
-                                                    <div class="cc-price-range__control cc-price-range__control--max" aria-valuemin="0" aria-valuemax="1455" tabindex="0" aria-valuenow="1455" style="left: 100%;"></div>
+                                                    <div class="cc-price-range__control cc-price-range__control--min" aria-valuemin="0" aria-valuemax="{{ $getMaxPrice }}" tabindex="0" aria-valuenow="{{ $priceGte }}" style="left: 0%;"></div>
+                                                    <div class="cc-price-range__control cc-price-range__control--max" aria-valuemin="0" aria-valuemax="{{ $getMaxPrice }}" tabindex="0" aria-valuenow="{{ $priceLte }}" style="left: 100%;"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -196,30 +190,30 @@
                                         </span>
                                     </a>
                                     <div class="filter-group__items filter-group--sort toggle-target">
-                                        <div class="toggle-target-container"><label class="filter-group__item filter-group__item--active">
-                                            <input class="filter-group__checkbox" id="Filter-Sort-manual" type="radio" name="sort_by" value="manual" checked="">
-                                            <span class="filter-group__item__text">Featured</span>
-                                            </label><label class="filter-group__item">
-                                            <input class="filter-group__checkbox" id="Filter-Sort-best-selling" type="radio" name="sort_by" value="best-selling">
-                                            <span class="filter-group__item__text">Best selling</span>
-                                            </label><label class="filter-group__item">
-                                            <input class="filter-group__checkbox" id="Filter-Sort-title-ascending" type="radio" name="sort_by" value="title-ascending">
-                                            <span class="filter-group__item__text">Alphabetically, A-Z</span>
-                                            </label><label class="filter-group__item">
-                                            <input class="filter-group__checkbox" id="Filter-Sort-title-descending" type="radio" name="sort_by" value="title-descending">
-                                            <span class="filter-group__item__text">Alphabetically, Z-A</span>
-                                            </label><label class="filter-group__item">
-                                            <input class="filter-group__checkbox" id="Filter-Sort-price-ascending" type="radio" name="sort_by" value="price-ascending">
-                                            <span class="filter-group__item__text">Price, low to high</span>
-                                            </label><label class="filter-group__item">
-                                            <input class="filter-group__checkbox" id="Filter-Sort-price-descending" type="radio" name="sort_by" value="price-descending">
-                                            <span class="filter-group__item__text">Price, high to low</span>
-                                            </label><label class="filter-group__item">
-                                            <input class="filter-group__checkbox" id="Filter-Sort-created-ascending" type="radio" name="sort_by" value="created-ascending">
-                                            <span class="filter-group__item__text">Date, old to new</span>
-                                            </label><label class="filter-group__item">
-                                            <input class="filter-group__checkbox" id="Filter-Sort-created-descending" type="radio" name="sort_by" value="created-descending">
-                                            <span class="filter-group__item__text">Date, new to old</span>
+                                        <div class="toggle-target-container">
+                                            <label class="filter-group__item">
+                                                <input class="filter-group__checkbox" id="Filter-Sort-title-asc" type="radio" name="sort_by" value="title-asc" {{ ($sortBy == 'title-asc') ? 'checked' : '' }}>
+                                                <span class="filter-group__item__text">Alphabetically, A-Z</span>
+                                            </label>
+                                            <label class="filter-group__item">
+                                                <input class="filter-group__checkbox" id="Filter-Sort-title-desc" type="radio" name="sort_by" value="title-desc" {{ ($sortBy == 'title-desc') ? 'checked' : '' }}>
+                                                <span class="filter-group__item__text">Alphabetically, Z-A</span>
+                                            </label>
+                                            <label class="filter-group__item">
+                                                <input class="filter-group__checkbox" id="Filter-Sort-price-asc" type="radio" name="sort_by" value="price-asc" {{ ($sortBy == 'price-asc') ? 'checked' : '' }}>
+                                                <span class="filter-group__item__text">Price, low to high</span>
+                                            </label>
+                                            <label class="filter-group__item">
+                                                <input class="filter-group__checkbox" id="Filter-Sort-price-desc" type="radio" name="sort_by" value="price-desc" {{ ($sortBy == 'price-desc') ? 'checked' : '' }}>
+                                                <span class="filter-group__item__text">Price, high to low</span>
+                                            </label>
+                                            <label class="filter-group__item">
+                                                <input class="filter-group__checkbox" id="Filter-Sort-created-asc" type="radio" name="sort_by" value="created-asc" {{ ($sortBy == 'created-asc') ? 'selected' : '' }}>
+                                                <span class="filter-group__item__text">Date, old to new</span>
+                                            </label>
+                                            <label class="filter-group__item">
+                                                <input class="filter-group__checkbox" id="Filter-Sort-created-desc" type="radio" name="sort_by" value="created-desc" {{ ($sortBy == 'created-desc') ? 'checked' : '' }}>
+                                                <span class="filter-group__item__text">Date, new to old</span>
                                             </label>
                                         </div>
                                     </div>
@@ -305,25 +299,27 @@
                     </div>
                 </div>
             </div>
+            @if ($totalProducts > 0)
             <div class="container pagination-row" data-ajax-container="">
                 <div class="pagination">
                     @if ($page > 1)
-                        <a class="pagination__prev inh-col underline underline--on-hover" href="{{ route('home', ['page' => ($page-1)]) }}">« Previous</a>
+                        <a class="pagination__prev inh-col underline underline--on-hover" href="{{ route('home', ['page' => ($page-1), 'sort_by' => $sortBy, 'pricegte' => $priceGte, 'pricelte' => $priceLte]) }}">« Previous</a>
                         <span class="pagination__sep">·</span>
                     @endif
                     @for ($p=1; $p<=$totalPages; $p++)
                         @if ($page == $p)
                             <span class="pagination__number underline underline--not-link">{{ $p }}</span>
                         @else
-                            <span class="pagination__number"><a class="inh-col underline underline--on-hover" href="{{ route('home', ['page' => $p]) }}">{{ $p }}</a></span>
+                            <span class="pagination__number"><a class="inh-col underline underline--on-hover" href="{{ route('home', ['page' => $p, 'sort_by' => $sortBy, 'pricegte' => $priceGte, 'pricelte' => $priceLte]) }}">{{ $p }}</a></span>
                         @endif
                     @endfor
                     @if ($totalPages != $page)
                         <span class="pagination__sep">·</span>
-                        <a class="pagination__next inh-col underline underline--on-hover" href="{{ route('home', ['page' => ($page + 1)]) }}">Next »</a>
+                        <a class="pagination__next inh-col underline underline--on-hover" href="{{ route('home', ['page' => ($page + 1), 'sort_by' => $sortBy, 'pricegte' => $priceGte, 'pricelte' => $priceLte]) }}">Next »</a>
                     @endif
                 </div>
             </div>
+            @endif
         </div>
     </div>
 </div>
@@ -346,7 +342,12 @@ $(document).ready(function(){
 
         return formatted;
     }
-    $('.AddToCartBtn').click(function(e) {
+
+    $('body').on('click', '.link-dropdown__link', function(e){
+        $('body').find('.link-dropdown__button-text').text($(this).text());
+    });
+
+    $('body').on('click', '.AddToCartBtn', function(e){
         e.preventDefault();
 
         const productId = $(this).closest('div.product-block').find('#productId').val();

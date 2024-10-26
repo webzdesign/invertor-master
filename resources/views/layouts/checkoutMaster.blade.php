@@ -7,6 +7,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" crossorigin="" href="{{ asset('assets/checkoutCss/StackedMerchandisePreview._xnAOXmq.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
+        <link rel="icon" href="{{ env('APP_Image_URL').'assets/images/favicon.ico' }}" type="image/png">
         <style data-description="shop-js-font-faces">
             @font-face {
             font-family: 'SuisseIntl';
