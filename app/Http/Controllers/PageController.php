@@ -30,4 +30,12 @@ class PageController extends Controller
     {
         return view('pages.termConditions');
     }
+    public function blog()
+    {
+        return view('pages.blog');
+    }
+    public function faq()
+    {
+        return view('pages.faq');
+    }
 }

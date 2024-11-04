@@ -20,3 +20,5 @@ Route::get('testimonial', [PageController::class, 'testimonial'])->name('testimo
 Route::get('contact-us', [PageController::class, 'contactUs'])->name('contact-us');
 Route::get('privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('term-conditions', [PageController::class, 'termConditions'])->name('term-conditions');
+Route::get('blog', [PageController::class, 'blog'])->name('blog');
+Route::get('faq', [PageController::class, 'faq'])->name('faq');
