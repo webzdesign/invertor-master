@@ -1,5 +1,5 @@
 
-@extends('layouts.checkoutMaster')
+@extends('layouts.master')
 
 @section('content')
 <style>
@@ -62,15 +62,12 @@ width: 100%;
 border: 1px solid #dddddd;
 text-align: left;
 padding: 8px;
-color: white;
 }
 .thankSec .productTable{
     margin: 12px 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
 }
 .thankSec th{
-    font-weight: 500;
+    font-weight: 600;
 }
 </style>
 <div class="container">
@@ -111,8 +108,8 @@ color: white;
                 </tr>
             </table>
         </div>
-        <a href="{{ route('home') }}" class="btn btn-success">
-            <button id="checkout-pay-button" type="submit" class="_1m2hr9ge _1m2hr9gd _1fragemsq _1fragemlj _1fragemnk _1fragem2i _1fragems4 _1fragemsg _1fragemsl _1fragemsa _1m2hr9g1h _1m2hr9g1d _1fragemne _1m2hr9g16 _1m2hr9g13 _1fragemop _1fragemon _1fragemor _1fragemol _1fragempl _1fragemph _1fragempp _1fragempd _1fragemb4 _1fragemaf _1fragembt _1fragem9q _1fragemsa _1m2hr9g1q _1m2hr9g1o _1m2hr9g10 _1m2hr9gx _1m2hr9g12 _1m2hr9g11 _1fragemri _1m2hr9g1b _1m2hr9g19 _1fragems5" style="background-color: rgb(34,36,38);padding: 7px 40px 9px;"><span class="_1m2hr9gr _1m2hr9gq _1fragems0 _1fragemsf _1fragems9 _1fragemsm _1m2hr9gn _1m2hr9gl _1fragem28 _1fragem6t _1fragems2"><span class="_19gi7yt0 _19gi7yt10 _19gi7ytz _1fragemnw">Shop</span></span></button>
+        <a href="{{ route('shop') }}">
+            <button type="submit" class="site-btn">Shop</button>
         </a>
     </div>
 </div>
