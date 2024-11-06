@@ -100,9 +100,9 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="{{ route('home') }}">Home</a></li>
-                            <li><a href="#">Shop</a></li>
-                            <li><a href="{{ route('about-us') }}">About Us</a></li>
+                            <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
+                            <li class="{{ request()->is('shop') ? 'active' : '' }}"><a href="{{ route('shop') }}">Shop</a></li>
+                            <li class="{{ request()->is('about-us') ? 'active' : '' }}"><a href="{{ route('about-us') }}">About Us</a></li>
                            <!-- <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="./about.html">About Us</a></li>
@@ -112,17 +112,21 @@
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>-->
-                            <li><a href="{{ route('blog') }}">Blog</a></li>
-                            <li><a href="{{ route('contact-us') }}">Contacts</a></li>
+                            <li class="{{ request()->is('blog') ? 'active' : '' }}"><a href="{{ route('blog') }}">Blog</a></li>
+                            <li class="{{ request()->is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
+                @php
+                    $cart = session()->get('cart', []);
+                    $cartCount = count($cart);
+                @endphp
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
                       <!--<a href="#" class="search-switch"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a>-->
                        <!-- <a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a>-->
-                        <a href="#"><img src="{{ asset('assets/theme/img/icon/cart.png') }}" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
+                        <a href="{{ route('cart') }}" class="cart-link"><img src="{{ asset('assets/theme/img/icon/cart.png') }}" alt=""> <span>0</span></a>
+                        <div class="price cartCount">{{$cartCount}}</div>
                     </div>
                 </div>
             </div>
@@ -138,43 +142,32 @@
      <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="#"><img src="{{ asset('assets/theme/img/footer-logo.png') }}" alt=""></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/footer-logo.png') }}" alt=""></a>
                         </div>
                         <p>The customer is at the heart of our unique business model, which includes design.</p>
                         <!--<a href="#"><img src="{{ asset('assets/theme/img/payment.png') }}" alt=""></a>-->
                     </div>
                 </div>
-                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
+                
+                <div class="col-lg-3 col-md-3 col-sm-6">
                     <div class="footer__widget">
                         <h6>Shopping</h6>
                         <ul>
-                            <li><a href="{{ route('testimonial') }}">Testimonial</a></li>
-                            <li><a href="">FAQ</a></li>
-                          
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>Shopping</h6>
-                        <ul>
+                            <li><a href="{{ route('faq') }}">FAQ</a></li>
                             <li><a href="{{ route('term-conditions') }}">Terms and Condition</a></li>
                             <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 offset-lg-1 col-md-6 col-sm-6">
+                <div class="col-lg-4 offset-lg-1 col-md-6 col-sm-6">
                     <div class="footer__widget">
-                        <h6>NewLetter</h6>
+                        <h6>Visit Us Today!</h6>
                         <div class="footer__newslatter">
-                            <p>Be the first to know about new arrivals, look books, sales & promos!</p>
-                            <form action="#">
-                                <input type="text" placeholder="Your email">
-                                <button type="submit"><span class="icon_mail_alt"></span></button>
-                            </form>
+                            <p>Let’s find your perfect ride! Come and try one of ours out in our stores in Edinburgh or Glasgow and get expert advice. You may also browse our online store for easy shopping from home. Next day delivery is available, so your new scooter could be just a click away!</p>
+                            
                         </div>
                     </div>
                 </div>
@@ -212,6 +205,7 @@
     <!-- Js Plugins -->
     <script src="{{ asset('assets/theme/js/jquery-3.3.1.min.js') }}"></script>
     <script src="{{ asset('assets/theme/js/bootstrap.min.js') }}"></script>
+    
     <script src="{{ asset('assets/theme/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('assets/theme/js/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ asset('assets/theme/js/jquery.magnific-popup.min.js') }}"></script>
@@ -220,6 +214,28 @@
     <script src="{{ asset('assets/theme/js/mixitup.min.js') }}"></script>
     <script src="{{ asset('assets/theme/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('assets/theme/js/main.js') }}"></script>
+   
+    <script>
+        $(document).ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            
+            function numberFormat(number, decimals) {
+                number = parseFloat(number);
+
+                const formatted = number.toLocaleString(undefined, {
+                    minimumFractionDigits: decimals,
+                    maximumFractionDigits: decimals
+                });
+
+                return formatted;
+            }
+
+        });
+    </script>
     @yield('script')
 </body>
 

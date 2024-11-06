@@ -22,78 +22,36 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $sortBy = (isset($request->sort_by) && $request->sort_by != '') ? $request->sort_by : '';
-        $perPage = 8;
+        $Products = Product::with('images')->limit(8)->get();
+        return view('home', compact('Products'));
+    }
+
+    public function shop(Request $request)
+    {
+       
+        $perPage = 9;
         $page = 1;
         if (isset($request->page) && $request->page != '') {
             $page = $request->page;
         }
-
         if ($page == 1) {
             $skip = 0;
         } else {
             $skip = ($page - 1) * $perPage;
         }
 
+     
         $products = Product::with('images')->active();
-
-        
-
-        $getMaxPrice = Product::orderBy('web_sales_price', 'desc')->first();
-        if ($getMaxPrice) {
-            $getMaxPrice = ceil($getMaxPrice->web_sales_price);
-        } else {
-            $getMaxPrice = 0;
-        }
-
-        $priceGte = 0;
-        if (isset($request->pricegte) && $request->pricegte != '') {
-            $priceGte = $request->pricegte;
-        }
-
-        $priceLte = $getMaxPrice;
-        if (isset($request->pricelte) && $request->pricelte != '') {
-            $priceLte = $request->pricelte;
-        }
-
-        $products = $products->where('web_sales_price', '>=', $priceGte)->where('web_sales_price', '<=', $priceLte);
-
-        $products = $products->skip($skip)->take($perPage);
-
         $totalProducts = $products->count();
-
-        if (isset($sortBy) && $sortBy != '') {
-            switch ($sortBy) {
-                case 'title-asc':
-                    $products = $products->orderBy('name', 'asc');
-                    break;
-                case 'title-desc':
-                    $products = $products->orderBy('name', 'desc');
-                    break;
-                case 'price-asc':
-                    $products = $products->orderBy('web_sales_price', 'asc');
-                    break;
-                case 'price-desc':
-                    $products = $products->orderBy('web_sales_price', 'desc');
-                    break;
-                case 'created-asc':
-                    $products = $products->orderBy('created_at', 'asc');
-                    break;
-                case 'created-desc':
-                    $products = $products->orderBy('created_at', 'desc');
-                    break;
-                default:
-                    $products = $products->orderBy('name', 'asc');
-            }
-        }
+        $products = $products->skip($skip)->take($perPage);
         
         $products = $products->get();
 
         $totalPages = ceil($totalProducts / $perPage);
-
-        return view('home', compact('products', 'totalProducts', 'totalPages', 'page', 'sortBy', 'getMaxPrice', 'priceGte', 'priceLte'));
+      
+        return view('shop', compact('products', 'totalProducts', 'totalPages', 'page'));
+        
     }
-
     public function productDetail($productId)
     {
         $product = Product::with('images')->find(decrypt($productId));
@@ -104,6 +62,7 @@ class HomeController extends Controller
 
     public function addToCart(Request $request)
     {
+        
         $cart = session()->get('cart', []);
 
         $product = Product::with('images')->find(decrypt($request->productId));
@@ -136,27 +95,53 @@ class HomeController extends Controller
     {
         $cart = session()->get('cart', []);
 
-        $product = Product::with('images')->find(decrypt($request->productId));
-        if (!$product) {
-            return response()->json(['success' => false]);
+        $productArr = $request->productArr;
+        foreach($productArr as $pk=>$pv){
+           $productExtract = explode("-",$pv);
+           $id = $productExtract[0];
+           $qty = $productExtract[1];
+           $product = Product::with('images')->find($id);
+            if (!$product) {
+                return response()->json(['success' => false]);
+            }
+
+            if ($qty == 0) {
+                unset($cart[$id]);
+            }
+            
+            if (isset($cart[$id])) {
+                $cart[$id]['quantity'] = $qty;
+            }
+
+            session()->put('cart', $cart);
+            session()->save();
         }
 
-        if ($request->quantity == 0) {
-            unset($cart[$product->id]);
-        }
-        
-        if (isset($cart[$product->id])) {
-            $cart[$product->id]['quantity'] = $request->quantity;
-        }
-
-        session()->put('cart', $cart);
-        session()->save();
 
         $cartCount = count($cart);
 
         return response()->json(['success' => true, 'cart' => $cart, 'cartCount' => $cartCount]);
     }
+    public function cartRemove(Request $request)
+    {
+        $cart = session()->get('cart', []);
 
+        $id = $request->pid;
+        unset($cart[$id]);
+        session()->put('cart', $cart);
+        session()->save();
+        $cartCount = count($cart);
+        if ($cartCount == 0) {
+            return response()->json(['success' => false, 'cart' => $cart, 'cartCount' => $cartCount]);
+        }
+        return response()->json(['success' => true, 'cart' => $cart, 'cartCount' => $cartCount]);
+    }
+    public function cart(Request $request)
+    {
+        $cart = session()->get('cart', []);
+       
+        return view('cart', compact('cart'));
+    }
     public function checkout(Request $request)
     {
         $cartItems = session()->get('cart', []);

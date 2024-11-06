@@ -1,6 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
+<style>
+    .filter__controls {
+    text-align: center;
+    margin-bottom: 20px;
+}
+</style>
  <!-- Hero Section Begin -->
  <section class="hero">
     <div class="hero__slider owl-carousel">
@@ -9,17 +15,17 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
-                            <h6>Summer Collection</h6>
+                            <!--<h6>Summer Collection</h6>-->
                             <h2>Fall - Winter Collections 2030</h2>
                             <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
                             commitment to exceptional quality.</p>
                             <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
-                            <div class="hero__social">
+                            <!--<div class="hero__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-pinterest"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -30,17 +36,17 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
-                            <h6>Summer Collection</h6>
+                            <!--<h6>Summer Collection</h6>-->
                             <h2>Fall - Winter Collections 2030</h2>
                             <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
                             commitment to exceptional quality.</p>
                             <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
-                            <div class="hero__social">
+                            <!--<div class="hero__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
                                 <a href="#"><i class="fa fa-pinterest"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -50,9 +56,18 @@
 </section>
 <!-- Hero Section End -->
 
+
+
 <!-- Banner Section Begin -->
 <section class="banner spad">
     <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Your Premier Electric Scooter Destination </h2>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-7 offset-lg-4">
                 <div class="banner__item">
@@ -60,8 +75,8 @@
                         <img src="{{ asset('assets/theme/img/banner/banner-1.jpg') }}" alt="">
                     </div>
                     <div class="banner__item__text">
-                        <h2>Clothing Collections 2030</h2>
-                        <a href="#">Shop now</a>
+                        <h2>Elevate Your Commute</h2>
+                        <p>Get to know the Future of Urban Mobility with Skootz</p>
                     </div>
                 </div>
             </div>
@@ -71,8 +86,8 @@
                         <img src="{{ asset('assets/theme/img/banner/banner-2.jpg') }}" alt="">
                     </div>
                     <div class="banner__item__text">
-                        <h2>Accessories</h2>
-                        <a href="#">Shop now</a>
+                        <h2>Experience the Thrill of Sustainable Ridings</h2>
+                        <p>Skootz Electric Scooters are the first choice</p>
                     </div>
                 </div>
             </div>
@@ -82,8 +97,8 @@
                         <img src="{{ asset('assets/theme/img/banner/banner-3.jpg') }}" alt="">
                     </div>
                     <div class="banner__item__text">
-                        <h2>Shoes Spring 2030</h2>
-                        <a href="#">Shop now</a>
+                        <h2>Your Journey, Reimagined</h2>
+                        <p>Check Out Our Line of Cutting Edge E-Scooters</
                     </div>
                 </div>
             </div>
@@ -98,288 +113,33 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="filter__controls">
-                    <li class="active" data-filter="*">Best Sellers</li>
-                    <li data-filter=".new-arrivals">New Arrivals</li>
-                    <li data-filter=".hot-sales">Hot Sales</li>
+                    <li class="active" data-filter="*">Explore Our Products</li>
+                    <!--<li data-filter=".new-arrivals">New Arrivals</li>
+                    <li data-filter=".hot-sales">Hot Sales</li>-->
                 </ul>
+                
+                <div class="testimonial__text" style="padding: 5px 150px 20px;">
+                    <p>Head over to our electric scooters online collection of scooters for comfort and style. They each model with cutting edge technology, long lasting batteries, powerful motors with new and improved designs that improve the riding experience. </p>
+                </div>
             </div>
+            
         </div>
         <div class="row product__filter">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+            @foreach ($Products as $product)
+            <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                 <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/product/product-1.jpg') }}">
-                        <span class="label">New</span>
-                        <ul class="product__hover">
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a></li>
-                        </ul>
-                    </div>
+                   
+                        <a  href="{{ route('productDetail', encrypt($product->id)) }}"><div class="product__item__pic set-bg" data-setbg="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}"></div></a>
+                       
                     <div class="product__item__text">
-                        <h6>Piqué Biker Jacket</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$67.24</h5>
-                        <div class="product__color__select">
-                            <label for="pc-1">
-                                <input type="radio" id="pc-1">
-                            </label>
-                            <label class="active black" for="pc-2">
-                                <input type="radio" id="pc-2">
-                            </label>
-                            <label class="grey" for="pc-3">
-                                <input type="radio" id="pc-3">
-                            </label>
-                        </div>
+                        <h6>{{ $product->name }}</h6>
+                        <a href="#" class="add-cart AddToCartBtn" data-pid="{{encrypt($product->id)}}">Add To Cart</a>
+                        <h5>£{{ number_format($product->web_sales_price, 2) }}</h5>
+                    
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/product/product-2.jpg') }}">
-                        <ul class="product__hover">
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6>Piqué Biker Jacket</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$67.24</h5>
-                        <div class="product__color__select">
-                            <label for="pc-4">
-                                <input type="radio" id="pc-4">
-                            </label>
-                            <label class="active black" for="pc-5">
-                                <input type="radio" id="pc-5">
-                            </label>
-                            <label class="grey" for="pc-6">
-                                <input type="radio" id="pc-6">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/product/product-3.jpg') }}">
-                        <span class="label">Sale</span>
-                        <ul class="product__hover">
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6>Multi-pocket Chest Bag</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$43.48</h5>
-                        <div class="product__color__select">
-                            <label for="pc-7">
-                                <input type="radio" id="pc-7">
-                            </label>
-                            <label class="active black" for="pc-8">
-                                <input type="radio" id="pc-8">
-                            </label>
-                            <label class="grey" for="pc-9">
-                                <input type="radio" id="pc-9">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/product/product-4.jpg') }}">
-                        <ul class="product__hover">
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6>Diagonal Textured Cap</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$60.9</h5>
-                        <div class="product__color__select">
-                            <label for="pc-10">
-                                <input type="radio" id="pc-10">
-                            </label>
-                            <label class="active black" for="pc-11">
-                                <input type="radio" id="pc-11">
-                            </label>
-                            <label class="grey" for="pc-12">
-                                <input type="radio" id="pc-12">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/product/product-5.jpg') }}">
-                        <ul class="product__hover">
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6>Lether Backpack</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$31.37</h5>
-                        <div class="product__color__select">
-                            <label for="pc-13">
-                                <input type="radio" id="pc-13">
-                            </label>
-                            <label class="active black" for="pc-14">
-                                <input type="radio" id="pc-14">
-                            </label>
-                            <label class="grey" for="pc-15">
-                                <input type="radio" id="pc-15">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/product/product-6.jpg') }}">
-                        <span class="label">Sale</span>
-                        <ul class="product__hover">
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6>Ankle Boots</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$98.49</h5>
-                        <div class="product__color__select">
-                            <label for="pc-16">
-                                <input type="radio" id="pc-16">
-                            </label>
-                            <label class="active black" for="pc-17">
-                                <input type="radio" id="pc-17">
-                            </label>
-                            <label class="grey" for="pc-18">
-                                <input type="radio" id="pc-18">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/product/product-7.jpg') }}">
-                        <ul class="product__hover">
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6>T-shirt Contrast Pocket</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$49.66</h5>
-                        <div class="product__color__select">
-                            <label for="pc-19">
-                                <input type="radio" id="pc-19">
-                            </label>
-                            <label class="active black" for="pc-20">
-                                <input type="radio" id="pc-20">
-                            </label>
-                            <label class="grey" for="pc-21">
-                                <input type="radio" id="pc-21">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix hot-sales">
-                <div class="product__item">
-                    <div class="product__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/product/product-8.jpg') }}">
-                        <ul class="product__hover">
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/compare.png') }}" alt=""> <span>Compare</span></a></li>
-                            <li><a href="#"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6>Basic Flowing Scarf</h6>
-                        <a href="#" class="add-cart">+ Add To Cart</a>
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                        <h5>$26.28</h5>
-                        <div class="product__color__select">
-                            <label for="pc-22">
-                                <input type="radio" id="pc-22">
-                            </label>
-                            <label class="active black" for="pc-23">
-                                <input type="radio" id="pc-23">
-                            </label>
-                            <label class="grey" for="pc-24">
-                                <input type="radio" id="pc-24">
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        @endforeach
         </div>
     </div>
 </section>
@@ -391,7 +151,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="categories__text">
-                    <h2>Clothings Hot <br /> <span>Shoe Collection</span> <br /> Accessories</h2>
+                    <h2><span>Customer Satisfaction</span></h2>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -405,27 +165,8 @@
             </div>
             <div class="col-lg-4 offset-lg-1">
                 <div class="categories__deal__countdown">
-                    <span>Deal Of The Week</span>
-                    <h2>Multi-pocket Chest Bag Black</h2>
-                    <div class="categories__deal__countdown__timer" id="countdown">
-                        <div class="cd-item">
-                            <span>3</span>
-                            <p>Days</p>
-                        </div>
-                        <div class="cd-item">
-                            <span>1</span>
-                            <p>Hours</p>
-                        </div>
-                        <div class="cd-item">
-                            <span>50</span>
-                            <p>Minutes</p>
-                        </div>
-                        <div class="cd-item">
-                            <span>18</span>
-                            <p>Seconds</p>
-                        </div>
-                    </div>
-                    <a href="#" class="primary-btn">Shop now</a>
+                    <p>Head over to our electric scooters online collection of scooters for comfort and style. They each model with cutting edge technology, long lasting batteries, powerful motors with new and improved designs that improve the riding experience. </p>
+                   
                 </div>
             </div>
         </div>
@@ -433,81 +174,231 @@
 </section>
 <!-- Categories Section End -->
 
-<!-- Instagram Section Begin -->
-<section class="instagram spad">
-    <div class="container">
+<!-- Testimonial Section Begin -->
+<section class="about spad">
+    <div class="container-fluid ">
         <div class="row">
-            <div class="col-lg-8">
-                <div class="instagram__pic">
-                    <div class="instagram__pic__item set-bg" data-setbg="{{ asset('assets/theme/img/instagram/instagram-1.jpg') }}"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="{{ asset('assets/theme/img/instagram/instagram-2.jpg') }}"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="{{ asset('assets/theme/img/instagram/instagram-3.jpg') }}"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="{{ asset('assets/theme/img/instagram/instagram-4.jpg') }}"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="{{ asset('assets/theme/img/instagram/instagram-5.jpg') }}"></div>
-                    <div class="instagram__pic__item set-bg" data-setbg="{{ asset('assets/theme/img/instagram/instagram-6.jpg') }}"></div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="instagram__text">
-                    <h2>Instagram</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua.</p>
-                    <h3>#Male_Fashion</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Instagram Section End -->
+            <div class="col-lg-6 p-0">
+                <div id="demo" class="carousel slide" data-ride="carousel">
+                    <ul class="carousel-indicators">
+                      <li data-target="#demo" data-slide-to="0" class="active"></li>
+                      <li data-target="#demo" data-slide-to="1"></li>
+                      <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="{{ asset('assets/theme/img/white.jpg') }}" width="1100" height="500">
+                        <div class="carousel-caption">
+                            <p>I had an amazing time at Skootz! They took the time to assist me select the ideal scooter for my everyday journey, and the staff was really helpful. Their familiarity with the various models and features amazed me. I felt secure with my purchase as I walked out!</p>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ asset('assets/theme/img/testiicon.png') }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Emily Johnson</h5>
+                                    <p>Customer</p>
+                                </div>
+                            </div>
+                        </div>   
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('assets/theme/img/white.jpg') }}"  width="1100" height="500">
+                        <div class="carousel-caption">
+                           
+                            <p>Amazing service! I dropped my daughter’s scooter off at a repair shop and they fixed it in five minutes. Finally, the technician explained what had gone wrong and what to do if it happened to you again. I would like to commend their honesty and turnaround time.
+                            </p>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ asset('assets/theme/img/testiicon.png') }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>James Smith</h5>
+                                    <p>Customer</p>
+                                </div>
+                            </div>
+                        </div>   
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('assets/theme/img/white.jpg') }}" width="1100" height="500">
+                        <div class="carousel-caption">
+                          
+                          <p>The collection of electric scooters at Skootz is really cool. The staff were very knowledgeable, I found exactly what I was looking for.</p>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ asset('assets/theme/img/testiicon.png') }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Sophie Brown</h5>
+                                    <p>Customer</p>
+                                </div>
+                            </div>
+                        </div>   
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('assets/theme/img/white.jpg') }}" width="1100" height="500">
+                        <div class="carousel-caption">
+                          
+                          <p>Skootz is an incredible team! Turning to a professional helped my puncture repair run quickly and professionally.</p>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ asset('assets/theme/img/testiicon.png') }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Oliver Wilson</h5>
+                                    <p>Customer</p>
+                                </div>
+                            </div>
+                        </div>   
+                      </div>                     
+                      <div class="carousel-item">
+                        <img src="{{ asset('assets/theme/img/white.jpg') }}" width="1100" height="500">
+                        <div class="carousel-caption">
+                          
+                          <p>I picked an electric scooter from Skootz and it's become awesome for my daily commute. Staff has helped me find a model which suits me perfectly and I love how easy to use it is. I couldn't go back to public transport now!.</p>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ asset('assets/theme/img/testiicon.png') }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Chloe Davis</h5>
+                                    <p>Customer</p>
+                                </div>
+                            </div>
+                        </div>   
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('assets/theme/img/white.jpg') }}" width="1100" height="500">
+                        <div class="carousel-caption">
+                          
+                          <p>I love my new scooter! They guided me through the options and I found the right one; the staff at Skootz.</p>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ asset('assets/theme/img/testiicon.png') }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Liam Taylor</h5>
+                                    <p>Customer</p>
+                                </div>
+                            </div>
+                        </div>   
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('assets/theme/img/white.jpg') }}" width="1100" height="500">
+                        <div class="carousel-caption">
+                          
+                          <p>I couldn't thank Mike and his team enough for their quick service when my son's scooter had a flat tire!" They were so nice and told me everything and my son in turn felt confident about it again</p>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ asset('assets/theme/img/testiicon.png') }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Mia Thompson</h5>
+                                    <p>Customer</p>
+                                </div>
+                            </div>
+                        </div>   
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('assets/theme/img/white.jpg') }}" width="1100" height="500">
+                        <div class="carousel-caption">
+                          
+                          <p>Skootz has Top-notch customer service! "They do care about their customers and they do go above and beyond.</p>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ asset('assets/theme/img/testiicon.png') }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Noah Anderson</h5>
+                                    <p>Customer</p>
+                                </div>
+                            </div>
+                        </div>   
+                      </div>
+                      <div class="carousel-item">
+                        <img src="{{ asset('assets/theme/img/white.jpg') }}" width="1100" height="500">
+                        <div class="carousel-caption">
+                          
+                          <p>We highly recommend anyone wanting to buy or repair an electric scooter to go to Skootz. Their expertise is unmatched! Plenty of people give you a pat on the back, everything they did was just to give me support through the whole process: choosing to and then aftercare, it made all the difference.</p>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ asset('assets/theme/img/testiicon.png') }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Olivia Martin</h5>
+                                    <p>Customer</p>
+                                </div>
+                            </div>
+                        </div>   
+                      </div>
 
-<!-- Latest Blog Section Begin -->
-<section class="latest spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <span>Latest News</span>
-                    <h2>Fashion New Trends</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/blog/blog-1.jpg') }}"></div>
-                    <div class="blog__item__text">
-                        <span><img src="{{ asset('assets/theme/img/icon/calendar.png') }}" alt=""> 16 February 2020</span>
-                        <h5>What Curling Irons Are The Best Ones</h5>
-                        <a href="#">Read More</a>
+                      <div class="carousel-item">
+                        <img src="{{ asset('assets/theme/img/white.jpg') }}" width="1100" height="500">
+                        <div class="carousel-caption">
+                          
+                          <p>Buying my first electric scooter with Skootz was so easy! I left the store, answered all my questions patiently and even showed me how to use it. This commitment to the satisfaction of customers is taken on us.</p>
+                            <div class="testimonial__author">
+                                <div class="testimonial__author__pic">
+                                    <img src="{{ asset('assets/theme/img/testiicon.png') }}" alt="">
+                                </div>
+                                <div class="testimonial__author__text">
+                                    <h5>Jack White</h5>
+                                    <p>Customer</p>
+                                </div>
+                            </div>
+                        </div>   
+                      </div>
                     </div>
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                      <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                      <span class="carousel-control-next-icon"></span>
+                    </a>
+                  </div>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/blog/blog-2.jpg') }}"></div>
-                    <div class="blog__item__text">
-                        <span><img src="{{ asset('assets/theme/img/icon/calendar.png') }}" alt=""> 21 February 2020</span>
-                        <h5>Eternity Bands Do Last Forever</h5>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="blog__item">
-                    <div class="blog__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/blog/blog-3.jpg') }}"></div>
-                    <div class="blog__item__text">
-                        <span><img src="{{ asset('assets/theme/img/icon/calendar.png') }}" alt=""> 28 February 2020</span>
-                        <h5>The Health Benefits Of Sunglasses</h5>
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
+            <div class="col-lg-6 p-0">
+                <div class="testimonial__pic set-bg" data-setbg="{{ asset('assets/theme/img/testi1.jpg') }}"></div>
             </div>
         </div>
     </div>
 </section>
-<!-- Latest Blog Section End -->
+<!-- Testimonial Section End -->
+
 @endsection
-
 @section('script')
+<script>
+$(document).ready(function(){
+   
+    $('body').on('click', '.AddToCartBtn', function(e){
+       
+        e.preventDefault();
+        var pid = $(this).data("pid");
+        var quantity = 1;
+       
+        $.ajax({
+            url: '{{ route("cart.add") }}',
+            type: 'POST',
+            data: {
+                productId: pid,
+                quantity: quantity,
+            },
+            success: function(response) {
+                if (response.success) {
+                  
+                    $('body').find('.cartCount').text(response.cartCount);
+                    var href = $('body').find('.cart-link').attr('href');
+                    window.location.href = href;
+                }
+            },
+            error: function(xhr) {
+                console.error(xhr.responseText);
+               
+            }
+        });
+        
+    });
 
+
+});
+</script>
 @endsection

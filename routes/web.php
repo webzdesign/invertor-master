@@ -5,9 +5,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('shop', [HomeController::class, 'shop'])->name('shop');
 Route::get('product-detail/{id}', [HomeController::class, 'productDetail'])->name('productDetail');
+Route::get('cart', [HomeController::class, 'cart'])->name('cart');
 Route::post('cart/add', [HomeController::class, 'addToCart'])->name('cart.add');
 Route::post('cart/sync', [HomeController::class, 'cartSync'])->name('cart.sync');
+Route::post('cart/remove', [HomeController::class, 'cartRemove'])->name('cart.remove');
 Route::get('checkout', [HomeController::class, 'checkout'])->name('checkout');
 Route::post('order', [HomeController::class, 'orderPlace'])->name('orderPlace');
 Route::get('order-success/{id}', [HomeController::class, 'orderSuccess'])->name('orderSuccess');
