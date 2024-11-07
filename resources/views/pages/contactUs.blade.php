@@ -4,7 +4,10 @@
 
     <!-- Map Begin -->
     <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d111551.9926412813!2d-90.27317134641879!3d38.606612219170856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1597926938024!5m2!1sen!2sbd" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.579562164561!2d-1.8864894877387377!3d52.522947471945436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870a31269ba69b1%3A0x24dd7c798f3d76b2!2sTop%20Cloud%20Logistics%20Limited!5e0!3m2!1sen!2sin!4v1730976289471!5m2!1sen!2sin" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+      
     </div>
     <!-- Map End -->
 
@@ -22,13 +25,10 @@
                         </div>
                         <ul>
                             <li>
-                                <h4>America</h4>
-                                <p>195 E Parker Square Dr, Parker, CO 801 <br />+43 982-314-0958</p>
+                                <h4>Top Cloud Logistics Ltd</h4>
+                                <p>Unit 12 Holford Ind. Park, Tameside Drive, Birmingham, B6 7AY <br> +44 7418356616</p>
                             </li>
-                            <li>
-                                <h4>France</h4>
-                                <p>109 Avenue Léon, 63 Clermont-Ferrand <br />+12 345-423-9893</p>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>

@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="about__pic">
-                        <img src="{{ asset('assets/theme/img/about/about-us.jpg') }}" alt="">
+                        <img src="{{ asset('assets/theme/img/about/aboutus.jpg') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -34,24 +34,39 @@
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="about__item">
                         <h4>Who We Are ?</h4>
-                        <p>Contextual advertising programs sometimes have strict policies that need to be adhered too.
-                        Let’s take Google as an example.</p>
+                        <p>Vehicle Solutions Limited otherwise known as Skootz is a UK based Company of high-quality e-scooters and e-bikes. It aims to encourage emission-free travel while delivering exceptional customer service</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="about__item">
-                        <h4>Who We Do ?</h4>
-                        <p>In this digital generation where information can be easily obtained within seconds, business
-                        cards still have retained their importance.</p>
+                        <h4>What is Skootz's mission? </h4>
+                        <p>Skootz is on a mission to boost emission-free travel through high quality e-scooters and e-bikes. Urban transportation is revolutionized and provides a more sustainable means by which to get around.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     <div class="about__item">
-                        <h4>Why Choose Us</h4>
-                        <p>A two or three storey house is the ideal way to maximise the piece of earth on which our home
-                        sits, but for older or infirm people.</p>
+                        <h4>What support Skootz offer? </h4>
+                        <p>Skootz offers a range of support services, including:<br>
+                         - Maintenance and repair expert technical support.<br>
+                         - Klarna and Laybuy as convenient payment options.<br>
+                        - Products of different select and range.<br>
+                        </p>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-4 col-sm-6">
+                    <div class="blog__details__quote">
+                     
+                        <h6>Which skateboarding goodies can I buy from you? </h6>
+                        <p>You can find their physical stores in Edinburgh and Glasgow, as well as get Skootz products online on their website.</p><br>
+
+                        <h6>What’s special about Skootz compared to other e-scooter retailers? </h6>
+                        <p>What sets Skootz apart is its unique combination of high quality products and excellent customer service, as well as extremely convenient payment options. What differentiates other retailers in the market is their commitment to sustainability and their team.</p>
+                    </div>
+                </div>
+
+                
             </div>
         </div>
     </section>

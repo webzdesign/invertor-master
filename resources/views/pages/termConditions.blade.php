@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb__text">
-                    <h4>Terms Condition</h4>
+                    <h5>Terms Condition</h5>
                     <div class="breadcrumb__links">
                         <a href="{{ route('home') }}">Home</a>
                         <span>Terms Condition</span>
@@ -19,21 +19,47 @@
 </section>
 <!-- Breadcrumb Section End -->
 
+
 <!-- About Section Begin -->
 <section class="about spad">
     <div class="container">
-       
-        <div class="row">
-            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-10">
+                <div class="blog__details__content">
+                    <div class="blog__details__text">
+                        <p>We at Skootz Electric Scooters welcome you. Agreement with the following terms and conditions is made by access to our website and purchase of our products. Please read them carefully.</p>
+                    </div>
 
-            <p>The standard Lorem Ipsum passage, used since the 1500s</p>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    <h5 >Acceptance of Terms</h5>
+                    <p >This site is a group of people and when you use this site you confirm that you have read, and agree with, the following terms and conditions. You may not use our website if you do not agree with any part of these terms.</p>
+                    <h5 >Product Information</h5>
+                    <p >Products available in our store are listed on our website first. Some product and price information may be error-free, however, we cannot guarantee all of our descriptions, prices or other content is error-free.</p>
+                    <h5 >Warranty</h5>
+                    <p >A One-year warranty comes with all scooters purchased from Skootz. This warranty covers manufacturing defects but excludes parts subject to wear and tear, including:<br/>
+                 
+                        1.Tires<br/>
+                        2.Brakes<br/>
+                        3.Chain<br/>
+                        4.Seat<br/>
+                    </p>
+                    <h5 >Ordering and Payment</h5>
+                    <p >If you place an order via our website, we assume that you agree to provide us with accurate and complete information. You need to pay at the time of purchase using one of the payment methods available on our site.</p>
+                    <h5 >Delivery</h5>
+                    <p >Our goal is to meet your estimated delivery time frame as specified at checkout. But we are not held responsible for any delay outside our control.</p>
+                    <h5 >Returns and Refunds</h5>
+                    <p >Please let us know within 14 days from the day of delivery, if you wish to return a product. An item must be unused and in its original packaging to be eligible for a return. After we receive your returned item we will process refunds in a reasonable timeframe.</p>
+                    <h5 >Limitation of Liability</h5>
+                    <p >Skootz Electric Scooters excludes itself from all liability for any loss or damage, whether direct, indirect, or consequential, resulting from the use of our products or services.</p>
+                    <h5 >Changes to Terms</h5>
+                    <p >These terms and conditions are subject to change at any time, so we reserve the right to do so. They will be effective immediately when posted on this website. Use of the site after changes are made means that you&rsquo;ve agreed to accept the new terms.</p>
+                    <h5 >Governing Law</h5>
+                    <p >The provisions of these terms shall be governed by and construed by the laws of the jurisdiction within which Skootz Electric Scooters operates.</p>
+                    <p >&nbsp;</p>
+                    <p >Wherever there are questions about these terms and conditions, please write to us on our contact form on our website. We are glad that you chose Skootz Electric Scooters!</p>
 
-            <p>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</p>
-            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-
-            <p>Why do we use it?</p>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                   
+                </div>
+            </div>
         </div>
     </div>
 </section>

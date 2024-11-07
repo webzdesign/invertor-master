@@ -55,9 +55,9 @@
             <div class="price">$0.00</div>
         </div>
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__text">
+        <!--<div class="offcanvas__text">
             <p>Free shipping, 30-day return or refund guarantee.</p>
-        </div>
+        </div>-->
     </div>
     <!-- Offcanvas Menu End -->
 
@@ -67,17 +67,23 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-md-7">
-                        <div class="header__top__left">
-                            <p>Free shipping, 30-day return or refund guarantee.</p>
-                        </div>
+                        <!--<div class="header__top__left">
+                            <p>Contact Us : +44 7418356616</p>
+                        </div>-->
                     </div>
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
+                                <div class="header__top__left">
+                                    <p>Contact Us : +44 7418356616</p>
+                                </div>
                                <!-- <a href="#">Sign in</a> -->
                                 <!--<a href="#">FAQs</a>-->
                             </div>
                             <div class="header__top__hover">
+                                <div class="header__top__left">
+                                    <p>Email : hello@runmax.com</p>
+                                </div>
                                 <!--<span>Usd <i class="arrow_carrot-down"></i></span>
                                 <ul>
                                     <li>USD</li>
@@ -112,7 +118,7 @@
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>-->
-                            <li class="{{ request()->is('blog') ? 'active' : '' }}"><a href="{{ route('blog') }}">Blog</a></li>
+                            <!--<li class="{{ request()->is('blog') ? 'active' : '' }}"><a href="{{ route('blog') }}">Blog</a></li>-->
                             <li class="{{ request()->is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}">Contacts</a></li>
                         </ul>
                     </nav>
@@ -147,7 +153,7 @@
                         <div class="footer__logo">
                             <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/footer-logo.png') }}" alt=""></a>
                         </div>
-                        <p>The customer is at the heart of our unique business model, which includes design.</p>
+                        <p>Skootz is unique combination of high quality products and excellent customer service.</p>
                         <!--<a href="#"><img src="{{ asset('assets/theme/img/payment.png') }}" alt=""></a>-->
                     </div>
                 </div>

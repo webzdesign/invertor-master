@@ -22,21 +22,69 @@
 <!-- About Section Begin -->
 <section class="about spad">
     <div class="container">
-       
-        <div class="row">
-            <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-10">
+                <div class="blog__details__content">
+                    <div class="blog__details__text">
+                        <p>Privacy protection is our top priority at Skootz. The information contained in this Privacy Policy explains how we collect, use and discloses your information on the website including any other media form or mobile application made available by us.</p>
+                    </div>
 
-            <p>The standard Lorem Ipsum passage, used since the 1500s</p>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                    <h5 >Information We Collect</h5>
+                    <p >We may collect personal information from you in various ways, including when you:</p>
+                    <ul style="padding:revert;font-size: 15px;font-family: 'Nunito Sans', sans-serif;color: #3d3d3d;font-weight: 400;line-height: 25px; margin: 0 0 15px 0;">
+                        <li>	Register on our site</li>
+                        <li>	Place an order</li>
+                        <li>	Subscribe to our newsletter</li>
+                        <li>	Fill out a form </li>
+                    </ul>
+                    <p></p>
+                    <h5 >The types of information we may collect include:</h5><p></p>
+                    <ul style="padding:revert;font-size: 15px;font-family: 'Nunito Sans', sans-serif;color: #3d3d3d;font-weight: 400;line-height: 25px; margin: 0 0 15px 0;">
+                        <li>	Name</li>
+                       <li> Email address</li>
+                        <li>	Phone number </li>
+                        <li>	Shipping and billing address</li>
+                       <li>	Account related details (Name, Email, Phone, PayPal address, Credit Card number, Expiry date, State, Address)</li>
+                    </ul>
+                   
 
-            <p>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</p>
-            <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+                    <p></p>
+                    <h5 >How We Use Your Information</h5>
+                    <p >We use the information we collect for the following purposes:</p>
+                 
+                    <ul style="padding:revert;font-size: 15px;font-family: 'Nunito Sans', sans-serif;color: #3d3d3d;font-weight: 400;line-height: 25px; margin: 0 0 15px 0;">
+                        <li>It is necessary to process transactions and manage orders.</li>
+                       <li> For improving its customer service to answer inquiries</li>
+                        <li>For purposes of sending periodic emails about your order or other products and services;</li>
+                        <li>We use it to personalize user experience and improve our site as a whole.</li>
+                      
+                    </ul>
+                   <p> </p>
+                    <h5 >Data Protection</h5>
+                    <p >There are different security steps that we take in order to keep your personal information secure. All your data is stored on secure servers and only accessible through authorized personnel.</p>
 
-            <p>Why do we use it?</p>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                    <h5 >Cookies</h5>
+                    <p >Cookies are used on our website to improve user experience. Through your browser settings, you can have your computer warn you each time a cookie is being sent, or you can turn off all cookies.</h5>
+
+                  
+                    <h5 >Third-Party Disclosure</h5>
+                    <p >In addition, we do not sell, trade, or transfer your personal information to outside parties without your consent (unless necessary to provide our services, e.g., payment processors).</p>
+
+                    <h5 >Your Rights</h5>
+                    <p >You should have the right of access to, correct or delete your personal information. If you wish to exercise these rights, please give notice to us by contacting us at hello@runmax.com.</p>
+
+                    <h5 >Changes to This Policy</h5>
+                    <p >It may be that we update this Privacy Policy from time to time. We will notify you by way of a notice to the email address you have provided to us or a notice on our Site, of any significant changes in the manner in which we will treat your personal information.</p>
+                    <p >&nbsp;</p>
+                    <p >Please forward any questions regarding this policy to hello@runmax.com.</p>
+
+                   
+                </div>
+            </div>
         </div>
     </div>
 </section>
 <!-- About Section End -->
+
 
 @endsection

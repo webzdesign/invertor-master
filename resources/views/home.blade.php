@@ -72,18 +72,19 @@
             <div class="col-lg-7 offset-lg-4">
                 <div class="banner__item">
                     <div class="banner__item__pic">
-                        <img src="{{ asset('assets/theme/img/banner/banner-1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/theme/img/banner/banner1.jpg') }}" alt="">
                     </div>
                     <div class="banner__item__text">
-                        <h2>Elevate Your Commute</h2>
-                        <p>Get to know the Future of Urban Mobility with Skootz</p>
+                        <h2>Your Journey, Reimagined</h2>
+                        <p>Check Out Our Line of Cutting Edge E-Scooters</p>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-lg-5">
                 <div class="banner__item banner__item--middle">
                     <div class="banner__item__pic">
-                        <img src="{{ asset('assets/theme/img/banner/banner-2.jpg') }}" alt="">
+                        <img src="{{ asset('assets/theme/img/banner/banner2.jpg') }}" alt="">
                     </div>
                     <div class="banner__item__text">
                         <h2>Experience the Thrill of Sustainable Ridings</h2>
@@ -94,11 +95,11 @@
             <div class="col-lg-7">
                 <div class="banner__item banner__item--last">
                     <div class="banner__item__pic">
-                        <img src="{{ asset('assets/theme/img/banner/banner-3.jpg') }}" alt="">
+                        <img src="{{ asset('assets/theme/img/banner/banner3.jpg') }}" alt="">
                     </div>
                     <div class="banner__item__text">
-                        <h2>Your Journey, Reimagined</h2>
-                        <p>Check Out Our Line of Cutting Edge E-Scooters</
+                        <h2>Elevate Your Commute</h2>
+                        <p>Get to know the Future of Urban Mobility with Skootz</p>
                     </div>
                 </div>
             </div>
@@ -145,38 +146,26 @@
 </section>
 <!-- Product Section End -->
 
-<!-- Categories Section Begin -->
-<section class="categories spad">
+<section class="about spad" style="padding-bottom: 0px;padding-top: 0px;">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
-                <div class="categories__text">
-                    <h2><span>Customer Satisfaction</span></h2>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="categories__hot__deal">
-                    <img src="{{ asset('assets/theme/img/product-sale.png') }}" alt="">
-                    <div class="hot__deal__sticker">
-                        <span>Sale Of</span>
-                        <h5>$29.99</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 offset-lg-1">
-                <div class="categories__deal__countdown">
+            <div class="col-lg-12 col-md-4 col-sm-6">
+                <div class="blog__details__quote">
+                    <i class="fa fa-quote-left"></i>
+                    <h6>Customer Satisfaction</h6>
                     <p>Head over to our electric scooters online collection of scooters for comfort and style. They each model with cutting edge technology, long lasting batteries, powerful motors with new and improved designs that improve the riding experience. </p>
-                   
+                    
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 <!-- Categories Section End -->
 
 <!-- Testimonial Section Begin -->
-<section class="about spad">
-    <div class="container-fluid ">
+<section class="about spad" style="padding-bottom: 0px;padding-top: 0px;">
+    <div class="container">
         <div class="row">
             <div class="col-lg-6 p-0">
                 <div id="demo" class="carousel slide" data-ride="carousel">
@@ -368,7 +357,7 @@
 @section('script')
 <script>
 $(document).ready(function(){
-   
+    $('.carousel').carousel()
     $('body').on('click', '.AddToCartBtn', function(e){
        
         e.preventDefault();
