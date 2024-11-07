@@ -14,8 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
     rel="stylesheet">
 
-  
     <!-- Css Styles -->
+    <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/theme/css/bootstrap.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/theme/css/font-awesome.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/theme/css/elegant-icons.css') }}" type="text/css">
@@ -209,9 +209,9 @@
 
     
     <!-- Js Plugins -->
-    <script src="{{ asset('assets/theme/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery3-6-0.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
     <script src="{{ asset('assets/theme/js/bootstrap.min.js') }}"></script>
-    
     <script src="{{ asset('assets/theme/js/jquery.nice-select.min.js') }}"></script>
     <script src="{{ asset('assets/theme/js/jquery.nicescroll.min.js') }}"></script>
     <script src="{{ asset('assets/theme/js/jquery.magnific-popup.min.js') }}"></script>

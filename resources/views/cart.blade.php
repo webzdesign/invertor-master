@@ -108,7 +108,7 @@
                             <li>Total <span>£{{ number_format($subtotal, 2) }}</span></li>
                             <!--<li>Total <span>$ 169.50</span></li>-->
                         </ul>
-                        <!--<a href="{{ route('checkout') }}" class="primary-btn">Proceed to checkout</a>-->
+                        <a href="{{ route('checkout') }}" class="primary-btn">Proceed to checkout</a>
                     </div>
                 @endif
             </div>

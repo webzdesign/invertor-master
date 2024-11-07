@@ -16,7 +16,7 @@ use App\Models\PaymentForDelivery;
 use App\Models\Setting;
 use App\Models\AddressLog;
 use App\Helpers\{Helper, Distance};
-
+use App\Http\Requests\CheckoutRequest;
 
 class HomeController extends Controller
 {
@@ -152,7 +152,7 @@ class HomeController extends Controller
         return view('checkout', compact('cartItems'));
     }
 
-    public function orderPlace(Request $request)
+    public function orderPlace(CheckoutRequest $request)
     {
         DB::beginTransaction();
 
