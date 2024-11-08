@@ -36,7 +36,9 @@ body {
 	font-family: "Nunito Sans", sans-serif;
 	-webkit-font-smoothing: antialiased;
 }
-
+.opacity-1{
+	opacity: 1 !important;
+}
 h1,
 h2,
 h3,
@@ -2150,7 +2152,9 @@ ol {
 
 .testimonial__text {
 	text-align: center;
-	padding: 130px 150px 175px;
+	max-width: 700px;
+	margin: auto;
+	padding-bottom: 20px;
 }
 
 .testimonial__text span {
@@ -3384,9 +3388,6 @@ ol {
 	.hero__slider.owl-carousel .owl-nav button.owl-next {
 		right: 2px;
 	}
-	.testimonial__text {
-		padding: 130px 45px 175px;
-	}
 }
 
 /* Tablet Device = 768px */
@@ -3434,9 +3435,6 @@ ol {
 	}
 	.cart__discount {
 		margin-top: 40px;
-	}
-	.testimonial__text {
-		padding: 100px 105px 100px;
 	}
 	.blog__details__share {
 		position: relative;
@@ -3663,11 +3661,12 @@ ol {
 	}
 	.hero__slider.owl-carousel .owl-nav button {
 		left: 15px;
-		top: 80%;
+		bottom: -80px;
 	}
 	.hero__slider.owl-carousel .owl-nav button.owl-next {
-		left: 75px;
-		right: 0;
+		left: 0;
+		right: auto;
+		margin-left: 80px;
 	}
 	.banner__item.banner__item--middle {
 		margin-top: 0;
@@ -3715,9 +3714,6 @@ ol {
 	.shop__sidebar {
 		padding-right: 0;
 		margin-bottom: 40px;
-	}
-	.testimonial__text {
-		padding: 100px 40px 100px;
 	}
 	.product__details__breadcrumb {
 		text-align: left;
@@ -3791,6 +3787,13 @@ ol {
 	.hero__social {
 		margin-top: 180px;
 	}
+	.product__details__pic .nav-tabs .nav-item:last-child{
+		display: flex;
+		overflow: auto;
+		flex-wrap: nowrap;
+		width: 100%;
+		margin-right: 0;
+	}
 }
 
 /* Small Device = 320px */
@@ -3800,9 +3803,8 @@ ol {
 		padding: 35px 30px 40px;
 	}
 	.hero__items {
-		height: auto;
-		padding-top: 130px;
-		padding-bottom: 40px;
+		height: 500px;
+		padding-top: 60px;
 	}
 	.hero__text h2 {
 		font-size: 36px;
@@ -3817,12 +3819,9 @@ ol {
 	.instagram__pic__item {
 		width: 100%;
 	}
-	.testimonial__text {
-		padding: 60px 40px 60px;
-	}
-	.product__details__pic .nav-tabs .nav-item .nav-link .product__thumb__pic {
+	/* .product__details__pic .nav-tabs .nav-item .nav-link .product__thumb__pic {
 		width: 100%;
-	}
+	} */
 	.product__details__pic .nav-tabs .nav-item {
 		margin-bottom: 10px;
 		width: calc(33.33% - 10px);
@@ -3846,5 +3845,22 @@ ol {
 	}
 	.categories__text:before {
 		height: 250px;
+	}
+	section.contact.spad,
+	section.about.spad,
+	section.shop.spad,
+	section.shopping-cart.spad,
+	section.related.spad,
+	section.checkout.spad {
+		padding: 50px 0;
+	}
+	.product__details__pic{
+		margin-bottom: 40px;
+	}
+	.product__details__cart__option{
+		margin-bottom: 0;
+	}
+	.testimonial__pic {
+		height: 320px;
 	}
 }

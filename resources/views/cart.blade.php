@@ -81,12 +81,12 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn">
-                            <a href="{{ route('shop') }}">Continue Shopping</a>
+                            <a href="{{ route('shop') }}" class="px-4">Continue Shopping</a>
                         </div>
                     </div>
                     @if(isset($cart) && !empty($cart))
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="continue__btn update__btn">
+                        <div class="col-lg-6 col-md-6 col-sm-6 mt-3 mt-sm-0">
+                            <div class="continue__btn update__btn mt-0">
                                 <a href="#" class="updateCart"><i class="fa fa-spinner"></i> Update cart</a>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                     </form>
                 </div>-->
                 @if(isset($cart) && !empty($cart))
-                    <div class="cart__total">
+                    <div class="cart__total mt-4 mt-lg-0">
                         <h6>Cart total</h6>
                         <ul>
                             <li>Total <span>£{{ number_format($subtotal, 2) }}</span></li>
