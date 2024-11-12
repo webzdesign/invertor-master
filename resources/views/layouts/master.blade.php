@@ -99,8 +99,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3">
-                    <div class="header__logo">
-                        <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/logo.png') }}" alt=""></a>
+                    <div class="header__logo position-relative h-100">
+                        <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/logo.png') }}" alt="logo" width="75"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -162,8 +162,8 @@
                     <div class="footer__widget">
                         <h6>Shopping</h6>
                         <ul>
-                            <li><a href="{{ route('faq') }}">FAQ</a></li>
-                            <li><a href="{{ route('term-conditions') }}">Terms and Condition</a></li>
+                            <li><a href="{{ route('FAQ') }}">FAQ</a></li>
+                            <li><a href="{{ route('terms-conditions') }}">Terms and Conditions</a></li>
                             <li><a href="{{ route('privacy-policy') }}">Privacy Policy</a></li>
                         </ul>
                     </div>

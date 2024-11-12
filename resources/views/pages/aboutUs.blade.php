@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="about__pic">
-                        <img src="{{ asset('assets/theme/img/about/aboutus.jpg') }}" alt="">
+                        <img src="{{ asset('assets/theme/img/about/aboutus.jpeg') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -58,8 +58,8 @@
                 <div class="col-lg-12 col-md-4 col-sm-6">
                     <div class="blog__details__quote">
                      
-                        <h6>Which skateboarding goodies can I buy from you? </h6>
-                        <p>You can find their physical stores in Edinburgh and Glasgow, as well as get Skootz products online on their website.</p><br>
+                        <h6>From where to get our products? </h6>
+                        <p>You can find different products at our physical stores in Edinburgh and Glasgow, as well as get Skootz products online on our website.</p><br>
 
                         <h6>What’s special about Skootz compared to other e-scooter retailers? </h6>
                         <p>What sets Skootz apart is its unique combination of high quality products and excellent customer service, as well as extremely convenient payment options. What differentiates other retailers in the market is their commitment to sustainability and their team.</p>

@@ -10,16 +10,15 @@
  <!-- Hero Section Begin -->
  <section class="hero">
     <div class="hero__slider owl-carousel">
-        <div class="hero__items set-bg" data-setbg="{{ asset('assets/theme/img/hero/hero-1.jpg') }}">
+        <div class="hero__items set-bg" data-setbg="{{ asset('assets/theme/img/hero/bike-1.png') }}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
                             <!--<h6>Summer Collection</h6>-->
-                            <h2>Fall - Winter Collections 2030</h2>
-                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
-                            commitment to exceptional quality.</p>
-                            <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                            <h2>Dominate Your Commute:</h2>
+                            <p>Pure Advance Black - The Ultimate Urban E-Scooter.</p>
+                            <a href="{{ route('shop') }}" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                             <!--<div class="hero__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -31,16 +30,15 @@
                 </div>
             </div>
         </div>
-        <div class="hero__items set-bg" data-setbg="{{ asset('assets/theme/img/hero/hero-2.jpg') }}">
+        <div class="hero__items set-bg" data-setbg="{{ asset('assets/theme/img/hero/bike-2.png') }}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
                             <!--<h6>Summer Collection</h6>-->
-                            <h2>Fall - Winter Collections 2030</h2>
-                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
-                            commitment to exceptional quality.</p>
-                            <a href="#" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                            <h2>Off-Road Ready,</h2>
+                            <p>Urban Approved: The iX6.</p>
+                            <a href="{{ route('shop') }}" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                             <!--<div class="hero__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -77,7 +75,6 @@
                     <div class="banner__item__text">
                         <h2>Your Journey, Reimagined</h2>
                         <p>Check Out Our Line of Cutting Edge E-Scooters</p>
-                        
                     </div>
                 </div>
             </div>
@@ -130,7 +127,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                 <div class="product__item">
                    
-                        <a  href="{{ route('productDetail', encrypt($product->id)) }}"><div class="product__item__pic set-bg" data-setbg="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}"></div></a>
+                        <a  href="{{ route('productDetail', $product->slug) }}"><div class="product__item__pic set-bg" data-setbg="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}"></div></a>
                        
                     <div class="product__item__text">
                         <h6>{{ $product->name }}</h6>
@@ -146,7 +143,7 @@
 </section>
 <!-- Product Section End -->
 
-<section class="about spad py-0">
+{{-- <section class="about spad py-0">
     <div class="container">
         <div class="blog__details__quote">
             <i class="fa fa-quote-left"></i>
@@ -155,7 +152,7 @@
             
         </div>
     </div>
-</section>
+</section> --}}
 
 <!-- Categories Section End -->
 

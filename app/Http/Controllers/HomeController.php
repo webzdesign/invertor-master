@@ -52,10 +52,13 @@ class HomeController extends Controller
         return view('shop', compact('products', 'totalProducts', 'totalPages', 'page'));
         
     }
-    public function productDetail($productId)
+    public function productDetail($slug)
     {
-        $product = Product::with('images')->find(decrypt($productId));
-        $othersProducts = Product::with('images')->where('id', '!=', decrypt($productId))->limit(4)->get();
+        $product = Product::with('images')->where('slug', $slug)->first();
+        if (!$product) {
+            abort(404);
+        }
+        $othersProducts = Product::with('images')->where('id', '!=', $product->id)->limit(4)->get();
 
         return view('productDetail', compact('product', 'othersProducts'));
     }
@@ -78,7 +81,7 @@ class HomeController extends Controller
                 'name' => $product->name,
                 'price' => $product->web_sales_price,
                 'image' => isset($product->images[0]) ? env('APP_Image_URL').'storage/product-images/'.$product->images[0]->name : '',
-                'url' => route('productDetail', encrypt($product->id)),
+                'url' => route('productDetail', $product->slug),
                 'productId' => encrypt($product->id)
             ];
         }

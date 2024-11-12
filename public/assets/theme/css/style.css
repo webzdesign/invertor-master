@@ -411,6 +411,10 @@ ol {
 
 .header__logo a {
 	display: inline-block;
+	position: absolute;
+    top: 50%;
+	left: 40px;
+    transform: translate(-50%,-50%);
 }
 
 .header__menu {
@@ -939,7 +943,11 @@ ol {
 
 .product__item {
 	overflow: hidden;
-	margin-bottom: 40px;
+    /* margin-bottom: 40px; */
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .product__item.sale .product__item__pic .label {
@@ -3471,7 +3479,7 @@ ol {
 		cursor: pointer;
 		position: absolute;
 		right: 15px;
-		top: 25px;
+		top: 12px;
 	}
 	.offcanvas-menu-overlay {
 		position: fixed;
@@ -3793,6 +3801,12 @@ ol {
 		flex-wrap: nowrap;
 		width: 100%;
 		margin-right: 0;
+	}
+	.header__logo img{
+		width: 50px;
+	}
+	.header__logo a {
+		left: 20px;
 	}
 }
 

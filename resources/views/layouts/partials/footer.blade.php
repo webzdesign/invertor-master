@@ -67,7 +67,7 @@
                     <div class="section-footer__row__col">
                         <div class="copyright">
                             <a target="_blank" rel="nofollow" href="{{ route('privacy-policy') }}">Privacy Policy  | </a>
-                            <a target="_blank" rel="nofollow" href="{{ route('term-conditions') }}">Terms & Conditions</a>
+                            <a target="_blank" rel="nofollow" href="{{ route('terms-conditions') }}">Terms & Conditions</a>
                         </div>
                     </div>
                     <div class="section-footer__row__col">

@@ -37,10 +37,10 @@
                     <h5 >Warranty</h5>
                     <p >A One-year warranty comes with all scooters purchased from Skootz. This warranty covers manufacturing defects but excludes parts subject to wear and tear, including:<br/>
                  
-                        1.Tires<br/>
-                        2.Brakes<br/>
-                        3.Chain<br/>
-                        4.Seat<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;1. Tires<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;2. Brakes<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;3. Chain<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;4. Seat<br/>
                     </p>
                     <h5 >Ordering and Payment</h5>
                     <p >If you place an order via our website, we assume that you agree to provide us with accurate and complete information. You need to pay at the time of purchase using one of the payment methods available on our site.</p>
