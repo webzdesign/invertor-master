@@ -100,7 +100,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="header__logo position-relative h-100">
-                        <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/logo.png') }}" alt="logo" width="75"></a>
+                        <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/logo.png?t='.time()) }}" alt="logo" width="75"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
