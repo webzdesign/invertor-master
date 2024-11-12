@@ -67,18 +67,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-7 offset-lg-4">
+            <div class="col-xl-7 offset-xl-4">
                 <div class="banner__item">
                     <div class="banner__item__pic">
                         <img src="{{ asset('assets/theme/img/banner/banner1.jpg') }}" alt="">
                     </div>
                     <div class="banner__item__text">
                         <h2>Your Journey, Reimagined</h2>
-                        <p>Check Out Our Line of Cutting Edge E-Scooters</p>
+                        <p class="max-w-200">Check Out Our Line of Cutting Edge E-Scooters</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-xl-5">
                 <div class="banner__item banner__item--middle">
                     <div class="banner__item__pic">
                         <img src="{{ asset('assets/theme/img/banner/banner2.jpg') }}" alt="">
@@ -89,14 +89,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7">
+            <div class="col-xl-7">
                 <div class="banner__item banner__item--last">
                     <div class="banner__item__pic">
                         <img src="{{ asset('assets/theme/img/banner/banner3.jpg') }}" alt="">
                     </div>
                     <div class="banner__item__text">
                         <h2>Elevate Your Commute</h2>
-                        <p>Get to know the Future of Urban Mobility with Skootz</p>
+                        <p class="max-w-200">Get to know the Future of Urban Mobility with Skootz</p>
                     </div>
                 </div>
             </div>

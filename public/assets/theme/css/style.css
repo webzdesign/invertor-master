@@ -3878,3 +3878,8 @@ ol {
 		height: 320px;
 	}
 }
+@media (min-width:768px) {
+	.max-w-200{
+		max-width: 200px;
+	}
+}
