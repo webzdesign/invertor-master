@@ -15,8 +15,11 @@ use App\Models\Notification;
 use App\Models\PaymentForDelivery;
 use App\Models\Setting;
 use App\Models\AddressLog;
+use App\Models\ContactUs;
 use App\Helpers\{Helper, Distance};
 use App\Http\Requests\CheckoutRequest;
+use App\Http\Requests\ContactUsRequest;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -65,7 +68,6 @@ class HomeController extends Controller
 
     public function addToCart(Request $request)
     {
-        
         $cart = session()->get('cart', []);
 
         $product = Product::with('images')->find(decrypt($request->productId));
@@ -417,5 +419,23 @@ class HomeController extends Controller
         } else {
             return ['exists' => false];
         }
+    }
+
+    public function contactUsStore(ContactUsRequest $request)
+    {
+        $contact = ContactUs::create(['name' => $request->name, 'email' => $request->email, 'message' => strip_tags($request->message)]);
+
+        $this->sendContactEmailToAdmin($contact);
+
+        return redirect()->back()->with('success', 'Thank you for contacting us!');
+    }
+
+    protected function sendContactEmailToAdmin($contact)
+    {
+        $adminEmail = 'hello@runmax.com';
+
+        Mail::send('emails.contact', ['contact' => $contact], function ($message) use ($adminEmail) {
+            $message->to($adminEmail)->subject('New Contact Us Message');
+        });
     }
 }

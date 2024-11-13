@@ -10,14 +10,14 @@
  <!-- Hero Section Begin -->
  <section class="hero">
     <div class="hero__slider owl-carousel">
-        <div class="hero__items set-bg" data-setbg="{{ asset('assets/theme/img/hero/bike-1.png') }}">
+        <div class="hero__items set-bg" data-setbg="{{ asset('assets/theme/img/hero/bike-3.png') }}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
                             <!--<h6>Summer Collection</h6>-->
-                            <h2>Dominate Your Commute:</h2>
-                            <p>Pure Advance Black - The Ultimate Urban E-Scooter.</p>
+                            <h2>Pure Advance Black</h2>
+                            <p>Dominate Your Commute - The Ultimate Urban E-Scooter.</p>
                             <a href="{{ route('shop') }}" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                             <!--<div class="hero__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -30,14 +30,14 @@
                 </div>
             </div>
         </div>
-        <div class="hero__items set-bg" data-setbg="{{ asset('assets/theme/img/hero/bike-2.png') }}">
+        <div class="hero__items set-bg" data-setbg="{{ asset('assets/theme/img/hero/bike-4.png') }}">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
                             <!--<h6>Summer Collection</h6>-->
-                            <h2>Off-Road Ready,</h2>
-                            <p>Urban Approved: The iX6.</p>
+                            <h2>The iX6</h2>
+                            <p>Off-Road Ready, Urban Approved.</p>
                             <a href="{{ route('shop') }}" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                             <!--<div class="hero__social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
@@ -70,7 +70,7 @@
             <div class="col-xl-7 offset-xl-4">
                 <div class="banner__item">
                     <div class="banner__item__pic">
-                        <img src="{{ asset('assets/theme/img/banner/banner1.jpg') }}" alt="">
+                        <img src="{{ asset('assets/theme/img/banner/banner-1.png') }}" alt="">
                     </div>
                     <div class="banner__item__text">
                         <h2>Your Journey, Reimagined</h2>
@@ -81,7 +81,7 @@
             <div class="col-xl-5">
                 <div class="banner__item banner__item--middle">
                     <div class="banner__item__pic">
-                        <img src="{{ asset('assets/theme/img/banner/banner2.jpg') }}" alt="">
+                        <img src="{{ asset('assets/theme/img/banner/banner-2.png') }}" alt="">
                     </div>
                     <div class="banner__item__text">
                         <h2>Experience the Thrill of Sustainable Ridings</h2>

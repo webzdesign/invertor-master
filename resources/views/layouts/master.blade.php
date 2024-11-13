@@ -119,7 +119,7 @@
                                 </ul>
                             </li>-->
                             <!--<li class="{{ request()->is('blog') ? 'active' : '' }}"><a href="{{ route('blog') }}">Blog</a></li>-->
-                            <li class="{{ request()->is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}">Contacts</a></li>
+                            <li class="{{ request()->is('contact-us') ? 'active' : '' }}"><a href="{{ route('contact-us') }}">Contact Us</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -151,7 +151,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/footer-logo.png') }}" alt=""></a>
+                            <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/logo.png?t='.time()) }}" height="60" alt=""></a>
                         </div>
                         <p>Skootz is unique combination of high quality products and excellent customer service.</p>
                         <!--<a href="#"><img src="{{ asset('assets/theme/img/payment.png') }}" alt=""></a>-->

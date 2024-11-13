@@ -21,6 +21,7 @@ Route::post('getAvailableDriver', [HomeController::class, 'getAvailableDriver'])
 Route::get('about-us', [PageController::class, 'aboutUs'])->name('about-us');
 Route::get('testimonial', [PageController::class, 'testimonial'])->name('testimonial');
 Route::get('contact-us', [PageController::class, 'contactUs'])->name('contact-us');
+Route::post('contactUs', [HomeController::class, 'contactUsStore'])->middleware('throttle:5,1')->name('contactUs.store');
 Route::get('privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('terms-conditions', [PageController::class, 'termConditions'])->name('terms-conditions');
 Route::get('blog', [PageController::class, 'blog'])->name('blog');
