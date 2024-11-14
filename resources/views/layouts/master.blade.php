@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('assets/theme/css/nice-select.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/theme/css/owl.carousel.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('assets/theme/css/slicknav.min.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('assets/theme/css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/theme/css/style.css?time='.time()) }}" type="text/css">
 </head>
 <body>
     <!-- Page Preloder -->
