@@ -9,11 +9,11 @@
 </style>
  <!-- Hero Section Begin -->
  <section class="hero">
-    <div class="hero__slider owl-carousel">
-        <div class="hero__items set-bg" data-setbg="{{ asset('assets/theme/img/hero/bike-3.png') }}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-5 col-lg-7 col-md-8">
+    <div class="hero__slider owl-carousel" style="background-image: url({{ asset('assets/theme/img/hero/bg.png') }});background-size: cover;background-repeat: no-repeat;background-position: center;">
+        <div class="hero__items">
+            <div class="container h-100">
+                <div class="d-flex h-100 align-items-center hero_row">
+                    <div class="col-xl-5 col-lg-6">
                         <div class="hero__text">
                             <!--<h6>Summer Collection</h6>-->
                             <h2>Pure Advance Black</h2>
@@ -27,13 +27,16 @@
                             </div>-->
                         </div>
                     </div>
+                    <div class="col-xl-7 col-lg-6">
+                        <img class="hero_items_product_img" src="{{ asset('assets/theme/img/hero/bike-pure.png') }}">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="hero__items set-bg" data-setbg="{{ asset('assets/theme/img/hero/bike-4.png') }}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-5 col-lg-7 col-md-8">
+        <div class="hero__items">
+            <div class="container h-100">
+                <div class="d-flex h-100 align-items-center hero_row">
+                    <div class="col-xl-5 col-lg-6">
                         <div class="hero__text">
                             <!--<h6>Summer Collection</h6>-->
                             <h2>The iX6</h2>
@@ -46,6 +49,9 @@
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>-->
                         </div>
+                    </div>
+                    <div class="col-xl-7 col-lg-6">
+                        <img class="hero_items_product_img" src="{{ asset('assets/theme/img/hero/bike-slider.png') }}">
                     </div>
                 </div>
             </div>
