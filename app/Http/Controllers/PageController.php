@@ -34,6 +34,16 @@ class PageController extends Controller
     {
         return view('pages.blog');
     }
+    public function blogDetail($slug)
+    {
+        if ($slug == 'Discover-Skootz-Electric-Scooters-Your-Ultimate-Destination-for-E-Scooters') {
+            return view('pages.blog1');
+        } else if ($slug == 'Unveiling-the-Advantages-of-Electric-Scooters-A-Comprehensive-Guide') {           
+            return view('pages.blog2');
+        } else {
+            abort(404);
+        }
+    }
     public function faq()
     {
         return view('pages.faq');

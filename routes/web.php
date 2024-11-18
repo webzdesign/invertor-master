@@ -25,4 +25,5 @@ Route::post('contactUs', [HomeController::class, 'contactUsStore'])->middleware(
 Route::get('privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacy-policy');
 Route::get('terms-conditions', [PageController::class, 'termConditions'])->name('terms-conditions');
 Route::get('blog', [PageController::class, 'blog'])->name('blog');
+Route::get('blog/{slug}', [PageController::class, 'blogDetail'])->name('blogDetail');
 Route::get('FAQ', [PageController::class, 'faq'])->name('FAQ');

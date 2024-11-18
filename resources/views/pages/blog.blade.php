@@ -1,39 +1,40 @@
 @extends('layouts.master')
 
 @section('content')
-<!-- Breadcrumb Section Begin -->
-<section class="breadcrumb-option">
+<section class="breadcrumb-blog set-bg" data-setbg="{{ asset('assets/theme/img/breadcrumb-bg.png') }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="breadcrumb__text">
-                    <h4>Blogs</h4>
-                    <div class="breadcrumb__links">
-                        <a href="{{ route('home') }}">Home</a>
-                        <span>Blogs</span>
+                <h2>Our Blog</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="blog spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/blog/blog-1.jpeg') }}"></div>
+                    <div class="blog__item__text">
+                        <span><img src="{{ asset('assets/theme/img/icon/calendar.png') }}" alt=""> 18 November 2024</span>
+                        <h5>Discover Skootz Electric Scooters: Your Ultimate Destination for E-Scooters</h5>
+                        <a href="{{ route('blogDetail', 'Discover-Skootz-Electric-Scooters-Your-Ultimate-Destination-for-E-Scooters') }}">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="blog__item">
+                    <div class="blog__item__pic set-bg" data-setbg="{{ asset('assets/theme/img/blog/blog-2.png') }}"></div>
+                    <div class="blog__item__text">
+                        <span><img src="{{ asset('assets/theme/img/icon/calendar.png') }}" alt=""> 18 November 2024</span>
+                        <h5>Unveiling the Advantages of Electric Scooters: A Comprehensive Guide</h5>
+                        <a href="{{ route('blogDetail', 'Unveiling-the-Advantages-of-Electric-Scooters-A-Comprehensive-Guide') }}">Read More</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Breadcrumb Section End -->
-
-
-<section class="about spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="about__pic">
-                    <img src="{{ asset('assets/theme/img/construction.jpg') }}">
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Testimonial Section Begin -->
-
-<!-- Testimonial Section End -->
-
-
 @endsection

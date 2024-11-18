@@ -108,6 +108,7 @@
                         <ul>
                             <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
                             <li class="{{ request()->is('shop') ? 'active' : '' }}"><a href="{{ route('shop') }}">Shop</a></li>
+                            <li class="{{ request()->is('blog*') ? 'active' : '' }}"><a href="{{ route('blog') }}">Blog</a></li>
                             <li class="{{ request()->is('about-us') ? 'active' : '' }}"><a href="{{ route('about-us') }}">About Us</a></li>
                            <!-- <li><a href="#">Pages</a>
                                 <ul class="dropdown">
