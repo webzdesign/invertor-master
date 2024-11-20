@@ -123,8 +123,8 @@
 <script>
 $(document).ready(function(){
 
-    $('body').on('keyup', '#qty', function(e){
-        if ($(this).val() < 1) {
+    $('body').on('change', '#qty', function(e){
+        if ($(this).val() == '' || $(this).val() < 1) {
             $(this).val(1);
         }
     });
