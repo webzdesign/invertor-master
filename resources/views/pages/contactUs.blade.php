@@ -67,7 +67,7 @@
                                         <span class="text-danger d-block">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-12">
+                                <div class="col-lg-12 mb-2">
                                     <textarea placeholder="Message" class="mb-0" name="message" id="message">{{ old('message') }}</textarea>
                                     @if ($errors->has('message'))
                                         <span class="text-danger d-block" >{{ $errors->first('message') }}</span>
