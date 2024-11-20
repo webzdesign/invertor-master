@@ -21,7 +21,7 @@
     <!-- Breadcrumb Section End -->
 
     <!-- About Section Begin -->
-    <section class="about spad">
+    <section class="about spad pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

@@ -16,7 +16,7 @@
     <!-- Map End -->
 
     <!-- Contact Section Begin -->
-    <section class="contact spad">
+    <section class="contact spad pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6">

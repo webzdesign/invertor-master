@@ -2938,7 +2938,7 @@ ol {
 
 .blog-hero {
 	background: #f3f2ee;
-	padding-top: 125px;
+	padding-top: 60px;
 	padding-bottom: 190px;
 }
 
@@ -3059,7 +3059,6 @@ ol {
 	padding: 50px 40px 35px;
 	border-radius: 5px;
 	position: relative;
-	margin-bottom: 45px;
 }
 
 .blog__details__quote i {
@@ -3681,7 +3680,7 @@ ol {
 		margin-top: 0;
 	}
 	.banner__item {
-		margin-bottom: 40px;
+		margin-bottom: 20px;
 	}
 	.banner {
 		padding-bottom: 60px;
@@ -3819,8 +3818,9 @@ ol {
 		padding-top: 60px;
 	}
 	.hero__text h2 {
-		font-size: 36px;
-		line-height: 48px;
+		font-size: 28px;
+		line-height: 38px;
+		margin-bottom: 8px;
 	}
 	.hero__social {
 		margin-top: 145px;
@@ -3939,15 +3939,15 @@ ol {
 	.privacy-section.spad,
 	.faq-section.spad,
 	.checkout.spad {
-		padding-top: 50px;
-		padding-bottom: 50px;
+		padding-top: 50px !important;
+		padding-bottom: 50px !important;
 	}
 	.testimonial__pic {
 		height: 340px;
 	}
-	.banner__item {
+	/* .banner__item {
 		margin-bottom: 0;
-	}
+	} */
 	.breadcrumb-option {
 		padding: 16px 0;
 	}
@@ -3972,6 +3972,42 @@ ol {
 		height: auto !important;
 		padding: 32px 16px !important;
 	}
+	.product__details__pic {
+		margin-bottom: 40px;
+	}
+	.related.spad{
+		padding-top: 30px;
+	}
+	.blog__hero__text h2 {
+		font-size: 28px;
+		line-height: 40px;
+	}
+	.blog-hero {
+		padding-top: 30px;
+		padding-bottom: 140px;
+	}
+	.blog__details__pic {
+		margin-bottom: 20px;
+	}
+	.blog__details__content h3{
+		font-size: 22px;
+		margin-bottom: 10px;
+	}
+	.blog__details__text p {
+		font-size: 16px;
+		line-height: 28px;
+	}
+}
+@media (max-width:768px) {
+	.blog__item__text {
+		padding: 16px;
+		margin: 0 20px;
+		margin-top: -35px;
+	}
+	.blog__item__text h5 {
+		line-height: 24px;
+		font-size: 16px;
+	}
 }
 @media (max-width:576px) {
 	.banner h2 {
@@ -3988,8 +4024,8 @@ ol {
 	.privacy-section.spad,
 	.faq-section.spad,
 	.checkout.spad {
-		padding-top:24px;
-		padding-bottom:24px;
+		padding-top:24px !important;
+		padding-bottom:24px !important; 
 	}
 	.section-title {
 		margin-bottom: 24px;
@@ -4045,5 +4081,9 @@ ol {
 	.testimonial__text p{
 		font-size: 16px;
 		margin-bottom: 8px;
+	}
+	.blog__hero__text h2 {
+		font-size: 20px;
+		line-height: 30px;
 	}
 }

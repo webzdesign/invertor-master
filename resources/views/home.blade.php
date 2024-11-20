@@ -11,8 +11,8 @@
  <section class="hero">
     <div class="hero__slider owl-carousel" style="background-image: url({{ asset('assets/theme/img/hero/bg.png') }});background-size: cover;background-repeat: no-repeat;background-position: center;">
         <div class="hero__items">
-            <div class="container h-100">
-                <div class="d-flex h-100 align-items-center hero_row">
+            <div class="container">
+                <div class="d-flex align-items-center hero_row">
                     <div class="col-xl-5 col-lg-6">
                         <div class="hero__text">
                             <!--<h6>Summer Collection</h6>-->
@@ -34,8 +34,8 @@
             </div>
         </div>
         <div class="hero__items">
-            <div class="container h-100">
-                <div class="d-flex h-100 align-items-center hero_row">
+            <div class="container">
+                <div class="d-flex align-items-center hero_row">
                     <div class="col-xl-5 col-lg-6">
                         <div class="hero__text">
                             <!--<h6>Summer Collection</h6>-->

@@ -25,7 +25,7 @@
 <!-- Blog Details Hero End -->
 
 <!-- Blog Details Section Begin -->
-<section class="blog-details spad">
+<section class="blog-details spad pb-0">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-lg-12">

@@ -21,7 +21,7 @@
 <!-- Breadcrumb Section End -->
 
   <!-- Shopping Cart Section Begin -->
-  <section class="shopping-cart spad">
+  <section class="shopping-cart spad py-5">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
