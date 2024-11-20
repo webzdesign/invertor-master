@@ -3997,6 +3997,14 @@ ol {
 		font-size: 16px;
 		line-height: 28px;
 	}
+	.checkout__input input,
+	.contact__form input {
+		height: 42px;
+		padding-left: 10px;
+	}
+	.contact__form textarea{
+		padding-left: 10px;
+	}
 }
 @media (max-width:768px) {
 	.blog__item__text {
@@ -4058,7 +4066,8 @@ ol {
 		margin-bottom: 12px;
 	}
 	.about .blog__details__quote p,
-	.filter__controls{
+	.filter__controls,
+	.checkout__total__products li{
 		margin-bottom: 0 !important;
 	}
 	.map {
@@ -4085,5 +4094,24 @@ ol {
 	.blog__hero__text h2 {
 		font-size: 20px;
 		line-height: 30px;
+	}
+	.checkout__order {
+		padding: 16px;
+	}
+	.checkout__order .order__title {
+		padding-bottom: 12px;
+		margin-bottom: 12px;
+		font-size: 18px;
+	}
+	.checkout__order__products,
+	.checkout__total__products {
+		margin-bottom: 8px;
+	}
+	.checkout__total__all {
+		padding: 4px 0;
+		margin-bottom: 8px;
+	}
+	.checkout__title {
+		margin-bottom: 16px;
 	}
 }
