@@ -70,8 +70,7 @@
                         <div class="product__details__cart__option">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1"  id="qty">
-                                    
+                                    <input type="number" value="1" id="qty">
                                 </div>
                             </div>
                             <input type="hidden" value="{{ encrypt($product->id)}}"  id="pid">
@@ -123,12 +122,22 @@
 @section('script')
 <script>
 $(document).ready(function(){
+
+    $('body').on('change', '#qty', function(e){
+        if ($(this).val() == '' || $(this).val() < 1) {
+            $(this).val(1);
+        }
+    });
    
     $('body').on('click', '.AddToCartBtn', function(e){
         
         e.preventDefault();
-        const productId = $('#pid').val();;
-        var quantity = $('#qty').val();;
+        const productId = $('#pid').val();
+        var quantity = $('#qty').val();
+
+        if (quantity < 1) {
+            quantity = 1;
+        }
         
         $.ajax({
             url: '{{ route("cart.add") }}',

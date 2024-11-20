@@ -57,7 +57,7 @@
                                         <td class="quantity__item">
                                             <div class="quantity">
                                                 <div class="pro-qty-2">
-                                                    <input type="text" name='qty' id="qty" value="{{$cv['quantity']}}" data-pid="{{$ck}}" >
+                                                    <input type="text" name='qty' class="cartQty" onkeypress="return isNumber(event)" id="qty" value="{{$cv['quantity']}}" data-pid="{{$ck}}" >
                                                     <input type="hidden" value="{{$ck}}"  id="pid" name="pid">
                                                 </div>
                                             </div>
@@ -119,9 +119,22 @@
 @endsection
 @section('script')
 <script>
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
 $(document).ready(function(){
-  
-   
+    
+    $('body').on('input', '.cartQty', function(e){
+        if ($(this).val() == '' || $(this).val() < 1) {
+            $(this).val(1);
+        }
+    });
+
     $('body').on('click', '.updateCart', function(e){
         e.preventDefault();
       
