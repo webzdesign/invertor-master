@@ -11,7 +11,7 @@
 </style>
     <!-- Map Begin -->
     <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.579562164561!2d-1.8864894877387377!3d52.522947471945436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870a31269ba69b1%3A0x24dd7c798f3d76b2!2sTop%20Cloud%20Logistics%20Limited!5e0!3m2!1sen!2sin!4v1730976289471!5m2!1sen!2sin" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>      
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.579562164561!2d-1.8864894877387377!3d52.522947471945436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870a31269ba69b1%3A0x24dd7c798f3d76b2!2sTop%20Cloud%20Logistics%20Limited!5e0!3m2!1sen!2sin!4v1730976289471!5m2!1sen!2sin" height="100%" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>      
     </div>
     <!-- Map End -->
 
@@ -55,22 +55,22 @@
                         <form action="{{ route('contactUs.store') }}" id="contactUs" method="post">
                             @csrf
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <input type="text" class="mb-2" placeholder="Name" name="name" id="name" value="{{ old('name') }}">
+                                <div class="col-lg-6 mb-2">
+                                    <input type="text" class="mb-0" placeholder="Name" name="name" id="name" value="{{ old('name') }}">
                                     @if ($errors->has('name'))
                                         <span class="text-danger d-block">{{ $errors->first('name') }}</span>
                                     @endif
                                 </div>
-                                <div class="col-lg-6">
-                                    <input type="email" class="mb-2" placeholder="Email" name="email" id="email" value="{{ old('email') }}">
+                                <div class="col-lg-6 mb-2">
+                                    <input type="email" class="mb-0" placeholder="Email" name="email" id="email" value="{{ old('email') }}">
                                     @if ($errors->has('email'))
                                         <span class="text-danger d-block">{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
                                 <div class="col-lg-12">
-                                    <textarea class="mb-2" placeholder="Message" name="message" id="message">{{ old('message') }}</textarea>
+                                    <textarea placeholder="Message" class="mb-0" name="message" id="message">{{ old('message') }}</textarea>
                                     @if ($errors->has('message'))
-                                        <span class="text-danger d-block">{{ $errors->first('message') }}</span>
+                                        <span class="text-danger d-block" >{{ $errors->first('message') }}</span>
                                     @endif
                                 </div>
                                 <div class="col-lg-12">

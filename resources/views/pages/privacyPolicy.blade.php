@@ -20,7 +20,7 @@
 <!-- Breadcrumb Section End -->
 
 <!-- About Section Begin -->
-<section class="about spad">
+<section class="about spad privacy-section">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-lg-10">

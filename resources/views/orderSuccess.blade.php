@@ -65,6 +65,8 @@ padding: 8px;
 }
 .thankSec .productTable{
     margin: 12px 0;
+    max-width:600px;
+    width: 100%;
 }
 .thankSec th{
     font-weight: 600;
@@ -87,26 +89,28 @@ padding: 8px;
         <h3>Your order place successfully!</h3>
         <h3 class="f-23 f-400 mb-4">Order ID : <b>{{ $order->order_no }}</b>.</h3>
         <div class="productTable">
-            <table>
-                <tr>
-                    <th>Product Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Amount</th>
-                </tr>
-                @foreach ($order->items as $orderItem)
+            <div class="table-responsive">
+                <table>
                     <tr>
-                        <td><div>{{ $orderItem->product->name }}</div></td>
-                        <td>{{ $orderItem->qty }}</td>
-                        <td>{{ '£'.number_format($orderItem->price, 2) }}</td>
-                        <td>{{ '£'.number_format($orderItem->amount, 2) }}</td>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Amount</th>
                     </tr>
-                @endforeach
-                <tr>
-                    <td colspan="3" style="text-align: right;"><b>Total<b></td>
-                    <td>{{ '£'.number_format($order->total(), 2) }}</td>
-                </tr>
-            </table>
+                    @foreach ($order->items as $orderItem)
+                        <tr>
+                            <td><div>{{ $orderItem->product->name }}</div></td>
+                            <td>{{ $orderItem->qty }}</td>
+                            <td>{{ '£'.number_format($orderItem->price, 2) }}</td>
+                            <td>{{ '£'.number_format($orderItem->amount, 2) }}</td>
+                        </tr>
+                    @endforeach
+                    <tr>
+                        <td colspan="3" style="text-align: right;"><b>Total<b></td>
+                        <td>{{ '£'.number_format($order->total(), 2) }}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <a href="{{ route('shop') }}">
             <button type="submit" class="site-btn">Shop</button>

@@ -20,7 +20,7 @@
 <!-- Breadcrumb Section End -->
 
 
-<section class="about spad">
+<section class="about spad faq-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

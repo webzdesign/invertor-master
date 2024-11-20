@@ -163,10 +163,10 @@
 <!-- Categories Section End -->
 
 <!-- Testimonial Section Begin -->
-<section class="about spad py-0">
+<section class="about spad pt-0 pb-5 about-home">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-5">
+            <div class="col-lg-8">
                 <div id="demo" class="carousel slide" data-ride="carousel">
                     <!-- <ul class="carousel-indicators position-static">
                       <li data-target="#demo" data-slide-to="0" class="active bg-dark"></li>
@@ -326,7 +326,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-4">
                 <div class="testimonial__pic set-bg" data-setbg="{{ asset('assets/theme/img/testi1.jpg') }}"></div>
             </div>
         </div>

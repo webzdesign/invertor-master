@@ -51,7 +51,7 @@
         <div class="offcanvas__nav__option">
             <a href="#" class="search-switch"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a>
             <!--<a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a>-->
-            <a href="#"><img src="{{ asset('assets/theme/img/icon/cart.png') }}" alt=""> <span>0</span></a>
+            <a href="#"><img src="{{ asset('assets/theme/img/icon/cart.png') }}" alt=""></a>
             <div class="price">$0.00</div>
         </div>
         <div id="mobile-menu-wrap"></div>
@@ -98,12 +98,12 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3">
+                <div class="col-md-2">
                     <div class="header__logo position-relative h-100">
                         <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/logo.png?t='.time()) }}" alt="logo" width="75"></a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
+                <div class="col-md-8">
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
@@ -128,11 +128,11 @@
                     $cart = session()->get('cart', []);
                     $cartCount = count($cart);
                 @endphp
-                <div class="col-lg-3 col-md-3">
+                <div class="col-md-2">
                     <div class="header__nav__option">
                       <!--<a href="#" class="search-switch"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a>-->
                        <!-- <a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a>-->
-                        <a href="{{ route('cart') }}" class="cart-link"><img src="{{ asset('assets/theme/img/icon/cart.png') }}" alt=""> <span>0</span></a>
+                        <a href="{{ route('cart') }}" class="cart-link"><img src="{{ asset('assets/theme/img/icon/cart.png') }}" alt=""></a>
                         <div class="price cartCount">{{$cartCount}}</div>
                     </div>
                 </div>
@@ -169,7 +169,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 offset-lg-1 col-md-6 col-sm-6">
+                <div class="col-lg-4 offset-lg-1">
                     <div class="footer__widget">
                         <h6>Visit Us Today!</h6>
                         <div class="footer__newslatter">
