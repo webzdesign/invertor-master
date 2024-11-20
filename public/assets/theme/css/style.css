@@ -2580,7 +2580,7 @@ ol {
 	width: 100%;
 	border: 1px solid #e1e1e1;
 	font-size: 14px;
-	color: #b7b7b7;
+	color: black;
 	padding-left: 20px;
 }
 
@@ -3316,7 +3316,7 @@ ol {
 	border: 1px solid #e1e1e1;
 	padding-left: 20px;
 	font-size: 15px;
-	color: #b7b7b7;
+	color: black;
 	margin-bottom: 30px;
 }
 
@@ -3347,7 +3347,7 @@ ol {
 	padding-left: 20px;
 	padding-top: 12px;
 	font-size: 15px;
-	color: #b7b7b7;
+	color: black;
 	margin-bottom: 24px;
 	resize: none;
 }

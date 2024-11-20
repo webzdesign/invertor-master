@@ -66,7 +66,7 @@
                       
                         <div class="checkout__input">
                             <p>Address<span>*</span></p>
-                            <input type="text" placeholder="Address" class="checkout__input__add" name="address" id="address" value="{{ old('address') }}">
+                            <input type="text" placeholder="Address" class="checkout__input__add mb-2" name="address" id="address" value="{{ old('address') }}">
                             <label id="address-error" class="error" for="address"></label>
                             @if ($errors->has('address'))
                                 <span class="text-danger error">{{ $errors->first('address') }}</span>
