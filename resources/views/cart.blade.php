@@ -57,7 +57,7 @@
                                         <td class="quantity__item">
                                             <div class="quantity">
                                                 <div class="pro-qty-2">
-                                                    <input type="text" name='qty' id="qty" value="{{$cv['quantity']}}" data-pid="{{$ck}}" >
+                                                    <input type="number" name='qty' class="cartQty" id="qty" value="{{$cv['quantity']}}" data-pid="{{$ck}}" >
                                                     <input type="hidden" value="{{$ck}}"  id="pid" name="pid">
                                                 </div>
                                             </div>
@@ -120,7 +120,12 @@
 @section('script')
 <script>
 $(document).ready(function(){
-  
+    
+    $('body').on('keyup', '.cartQty', function(e){
+        if ($(this).val() < 1) {
+            $(this).val(1);
+        }
+    });
    
     $('body').on('click', '.updateCart', function(e){
         e.preventDefault();
