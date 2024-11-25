@@ -87,7 +87,7 @@
             <div class="col-xl-5">
                 <div class="banner__item banner__item--middle">
                     <div class="banner__item__pic">
-                        <img src="{{ asset('assets/theme/img/banner/banner-2.png') }}" alt="">
+                        <img src="{{ asset('assets/theme/img/banner/banner-new-2.png') }}" alt="">
                     </div>
                     <div class="banner__item__text">
                         <h2>Experience the Thrill of Sustainable Ridings</h2>
