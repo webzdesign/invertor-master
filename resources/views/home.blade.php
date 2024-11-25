@@ -73,14 +73,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-7 offset-xl-4">
-                <div class="banner__item">
+            <div class="col-12">
+                <div class="banner__item banner__item--first">
                     <div class="banner__item__pic">
                         <img src="{{ asset('assets/theme/img/banner/banner-1.png') }}" alt="">
                     </div>
                     <div class="banner__item__text">
                         <h2>Your Journey, Reimagined</h2>
-                        <p class="max-w-200">Check Out Our Line of Cutting Edge E-Scooters</p>
+                        <p>Check Out Our Line of Cutting Edge E-Scooters</p>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,12 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                 <div class="product__item">
                    
-                        <a  href="{{ route('productDetail', $product->slug) }}"><div class="product__item__pic set-bg" data-setbg="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}"></div></a>
+                        <a  href="{{ route('productDetail', $product->slug) }}">
+                            <!-- <div class="product__item__pic set-bg" data-setbg="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}"></div> -->
+                             <div>
+                                <img src="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}" />
+                             </div>
+                        </a>
                        
                     <div class="product__item__text">
                         <h6>{{ $product->name }}</h6>

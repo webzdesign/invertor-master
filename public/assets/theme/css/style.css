@@ -946,6 +946,12 @@ ol {
 	color: #111111;
 }
 
+.product .product__item img{
+	height: 260px;
+    width: 100%;
+    object-fit: contain;
+}
+
 .product__item {
 	overflow: hidden;
     /* margin-bottom: 40px; */
@@ -953,6 +959,12 @@ ol {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.shop .product__item img{
+	height: 360px;
+	width: 100%;
+    object-fit: contain;
 }
 
 .product__item.sale .product__item__pic .label {
@@ -1542,7 +1554,7 @@ ol {
 }
 
 .product__details__pic .nav-tabs .nav-item .nav-link .product__thumb__pic {
-	height: 120px;
+	height: 100px;
 	width: 95px;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -1553,6 +1565,9 @@ ol {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
+	border: 1px solid #e9e9e9;
+    background-size: contain;
+    background-position: center;
 }
 
 .product__details__pic .nav-tabs .nav-item .nav-link .product__thumb__pic i {
@@ -2352,6 +2367,10 @@ ol {
 .shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__pic {
 	float: left;
 	margin-right: 30px;
+}
+
+.shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__pic img{
+	object-fit: contain;
 }
 
 .shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__text {
@@ -3798,6 +3817,11 @@ ol {
 		flex-wrap: nowrap;
 		width: 100%;
 		margin-right: 0;
+		column-gap: 4px;
+	}
+	.product__details__pic .nav-tabs .nav-item .nav-link .product__thumb__pic{
+		height: 80px;
+		width: 80px;
 	}
 	.header__logo img{
 		width: 50px;
@@ -3905,6 +3929,12 @@ ol {
 	}
 	.testimonial__pic {
 		height: 300px;
+	}
+	.shop .product__item img{
+		height: 260px;
+	}
+	.product .product__item img{
+		height: 200px;
 	}
 }
 @media (max-width:991px) {
@@ -4113,5 +4143,18 @@ ol {
 	}
 	.checkout__title {
 		margin-bottom: 16px;
+	}
+	.product__details__pic .nav-tabs {
+		margin-bottom: 16px;
+	}
+	.shop .product__item img,
+	.product .product__item img{
+		height: auto;
+	}
+}
+
+@media (min-width:992px) {
+	.banner__item.banner__item--first .banner__item__text {
+		max-width: none !important;
 	}
 }
