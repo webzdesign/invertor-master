@@ -946,7 +946,8 @@ ol {
 	color: #111111;
 }
 
-.product .product__item img{
+.product .product__item img,
+.related .product__item img{
 	height: 260px;
     width: 100%;
     object-fit: contain;
@@ -3933,7 +3934,8 @@ ol {
 	.shop .product__item img{
 		height: 260px;
 	}
-	.product .product__item img{
+	.product .product__item img,
+	.related .product__item img{
 		height: 200px;
 	}
 }
@@ -4148,7 +4150,8 @@ ol {
 		margin-bottom: 16px;
 	}
 	.shop .product__item img,
-	.product .product__item img{
+	.product .product__item img,
+	.related .product__item img{
 		height: auto;
 	}
 }

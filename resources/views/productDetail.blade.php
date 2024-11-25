@@ -100,7 +100,12 @@
                 <div class="col-lg-3 col-md-6 col-sm-6 col-sm-6">
                     <div class="product__item">
                        
-                            <a  href="{{ route('productDetail', $product->slug) }}"><div class="product__item__pic set-bg" data-setbg="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}"></div></a>
+                            <a  href="{{ route('productDetail', $product->slug) }}">
+                                <!-- <div class="product__item__pic set-bg" data-setbg="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}">
+
+                                </div> -->
+                                <img src="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}" alt="">
+                            </a>
                            
                         <div class="product__item__text">
                             <h6>{{ $product->name }}</h6>
