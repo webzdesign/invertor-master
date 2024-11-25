@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="{{ asset('assets/theme/css/style.css?time='.time()) }}" type="text/css">
 </head>
 <body>
+    @php
+        $cart = session()->get('cart', []);
+        $cartCount = count($cart);
+    @endphp
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -48,10 +52,10 @@
             </div>
         </div> -->
         <div class="offcanvas__nav__option">
-            <a href="#" class="search-switch"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a>
+            {{-- <a href="#" class="search-switch"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a> --}}
             <!--<a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a>-->
-            <a href="#"><img src="{{ asset('assets/theme/img/icon/cart.png') }}" alt=""></a>
-            <div class="price">$0.00</div>
+            <a href="{{ route('cart') }}"><img src="{{ asset('assets/theme/img/icon/cart.png') }}" alt=""></a>
+            <div class="price cartCount">{{ $cartCount }}</div>
         </div>
         <div id="mobile-menu-wrap"></div>
         <!--<div class="offcanvas__text">
@@ -123,10 +127,6 @@
                         </ul>
                     </nav>
                 </div>
-                @php
-                    $cart = session()->get('cart', []);
-                    $cartCount = count($cart);
-                @endphp
                 <div class="col-md-2">
                     <div class="header__nav__option">
                       <!--<a href="#" class="search-switch"><img src="{{ asset('assets/theme/img/icon/search.png') }}" alt=""></a>-->
