@@ -108,8 +108,8 @@
                             </a>
                            
                         <div class="product__item__text">
-                            <h6>{{ $product->name }}</h6>
                             <a href="#" class="add-cart AddToCartBtn1" data-pid="{{encrypt($product->id)}}">Add To Cart</a>
+                            <h6>{{ $product->name }}</h6>
                             
                             <h5>£{{ number_format($product->web_sales_price, 2) }}</h5>
                         
