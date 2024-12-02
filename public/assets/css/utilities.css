@@ -1,0 +1,140 @@
+/* Button */
+.button-dark{
+    color: white !important;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: var(--slate-900);
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: 50px;
+    border: none;
+}
+
+
+/* extra */
+.aspect-video{
+    aspect-ratio: 16/9;
+}
+.cursor-pointer{
+    cursor: pointer !important;
+}
+.whitespace-nowrap{
+    white-space: nowrap !important;
+}
+
+/* position */
+.left-0{
+    left: 0 !important;
+}
+.left-50{
+    left: 50%;
+}
+.right-0{
+    right: 0 !important;
+}
+
+/* Color */
+.text-slate-50{
+    color: var(--slate-50) !important;
+}
+.text-slate-300{
+    color: var(--slate-300) !important;
+}
+.text-slate-900{
+    color: var(--slate-900) !important;
+}
+.text-gray-500{
+    color: var(--gray-500) !important;
+}
+.text-gray-950{
+    color:var(--gray-950) !important;
+}
+.text-gray-800{
+    color:var(--gray-800) !important;
+}
+.text-gray-900{
+    color:var(--gray-900) !important;
+}
+.bg-slate-100{
+    background-color:var(--slate-100) !important;
+}
+.bg-slate-900{
+    background-color:var(--slate-900) !important;
+}
+.bg-slate-950{
+    background-color:var(--slate-950) !important;
+}
+.bg-gray-500{
+    background-color:var(--gray-500) !important;
+}
+.bg-gray-900{
+    background-color:var(--gray-900) !important;
+}
+.bg-gray-50{
+    background-color: var(--gray-50) !important;
+}
+
+/* font size */
+.text-sm{
+    font-size: 14px;
+    line-height: 20px;
+}
+.text-lg{
+    font-size: 18px !important;
+    line-height: 28px !important;
+}
+.text-xl{
+    font-size: 20px;
+    line-height: 28px;
+}
+.text-2xl{
+    font-size: 24px;
+    line-height: 32px;
+}
+
+/* font weight */
+.font-medium{
+    font-weight: 500 !important;
+}
+.font-semibold{
+    font-weight: 600 !important;
+}
+.font-bebas {
+    font-family: 'Bebas Neue' !important;
+}
+.font-inter-regular {
+    font-family: 'Inter' !important;
+}
+.font-inter-medium {
+    font-family: 'Inter-Medium' !important;
+}
+.font-inter-semibold {
+    font-family: 'Inter-Semibold' !important;
+}
+.font-manrope-semibold {
+    font-family: 'Manrope' !important;
+}
+.font-hubot{
+    font-family: 'Hubot Sans';
+}
+
+/* border */
+.rounded-3xl{
+    border-radius: 24px !important;
+}
+.rounded-lg{
+    border-radius: 8px !important;
+}
+.border-gray-300{
+    border-color: var(--gray-300) !important;
+}
+.border-gray-500{
+    border-color: var(--gray-500) !important;
+}
+.border-gray-400{
+    border-color: var(--gray-400) !important;
+}
+.border-slate-200{
+    border-color: var(--slate-200) !important;
+}

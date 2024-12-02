@@ -25,14 +25,15 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $Products = Product::with('images')->limit(8)->get();
-        return view('home', compact('Products'));
+        $Products = Product::with('images')->inRandomOrder()->limit(2)->get();
+        $slider_product = Product::with('images')->where('id', 13)->first();
+        return view('home', compact('Products', 'slider_product'));
     }
 
     public function shop(Request $request)
     {
        
-        $perPage = 9;
+        $perPage = 8;
         $page = 1;
         if (isset($request->page) && $request->page != '') {
             $page = $request->page;
@@ -43,7 +44,6 @@ class HomeController extends Controller
             $skip = ($page - 1) * $perPage;
         }
 
-     
         $products = Product::with('images')->active();
         $totalProducts = $products->count();
         $products = $products->skip($skip)->take($perPage);
@@ -91,9 +91,27 @@ class HomeController extends Controller
         session()->put('cart', $cart);
         session()->save();
 
-        $cartCount = count($cart);
+        $subtotal = 0;
+        $sz_cart_popup_html = '';
+        if( !empty($cart) ){
+            foreach ( $cart as $cp_key => $cp_val ) {
+                $sz_cart_popup_html .= '<li class="d-flex border-bottom border-gray-300 py-3" id="sz_product_' . $cp_key . '">
+                    <div class="bg-white rounded-lg">
+                        <img class="pro-img" src="' . $cp_val['image'] . '" alt="bike" width="92" height="92">
+                    </div>
+                    <div class="ms-3">
+                        <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">' . $cp_val['name'] . '</h3>
+                        <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">' . env( 'SZ_CURRENCY_SYMBOL' ) .' ' . number_format($cp_val['price'], 2) .'</p>
+                    </div>
+                    <div class="count font-inter-regular text-gray-500 text-end text-sm">x <span class="cz_pro_quantity">' . $cp_val['quantity'] . '</span> Item(s)</div>
+                </li>';
+                $total = $cp_val['price'] * $cp_val['quantity'];
+                $subtotal = $subtotal + $total;
+            }
+        }
+        $cart_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($subtotal, 2);
 
-        return response()->json(['success' => true, 'cart' => $cart, 'cartCount' => $cartCount]);
+        return response()->json([ 'success' => true, 'cart_total' => $cart_total, 'sz_cart_popup_html' => $sz_cart_popup_html ]);
     }
 
     public function cartSync(Request $request)

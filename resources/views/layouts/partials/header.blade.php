@@ -1,207 +1,168 @@
-<style data-shopify="">
-    .logo img {
-    width: 55px !important;
-    }
-    .logo-area__middle--logo-image {
-    max-width: 215px;
-    }
-    @media (max-width: 767.98px) {
-    .logo img {
-    width: 100px;
-    }
-    }.section-header {
-    position: -webkit-sticky;
-    position: sticky;
-    }
-</style>
-
-<div data-section-type="header" data-cc-animate="" class="cc-animate-init -in cc-animate-complete">
-    <div id="pageheader" class="pageheader pageheader--layout-inline-menu-center pageheader--sticky pageheader--layout-inline-permitted">
-        <div class="logo-area container container--no-max">
-            <div class="logo-area__left">
-                <div class="logo-area__left__inner" style="max-width: 1333px;">
-                    <button class="button notabutton mobile-nav-toggle" aria-label="Toggle menu" aria-controls="main-nav">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu" aria-hidden="true">
-                            <line x1="3" y1="12" x2="21" y2="12"></line>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <line x1="3" y1="18" x2="21" y2="18"></line>
-                        </svg>
-                    </button>
-                    <div class="navigation navigation--left navigation--tight-underline" role="navigation" aria-label="Primary navigation">
-                        <div class="navigation__tier-1-container">
-                            <ul class="navigation__tier-1">
-                                <li class="navigation__item navigation__item--with-children navigation__item--with-small-menu {{ request()->is('/') ? 'navigation__item--active' : '' }}">
-                                    <a href="{{ route('home') }}" class="navigation__link" aria-haspopup="true" aria-expanded="false" aria-controls="NavigationTier2-1">Home</a>
-                                </li>
-
-                                <li class="navigation__item navigation__item--with-children navigation__item--with-small-menu {{ request()->is('about-us') ? 'navigation__item--active' : '' }}">
-                                    <a href="{{ route('about-us') }}" class="navigation__link" aria-haspopup="true" aria-expanded="false" aria-controls="NavigationTier2-1">About Us</a>
-                                </li>
-
-                                <li class="navigation__item navigation__item--with-children navigation__item--with-small-menu {{ request()->is('testimonial') ? 'navigation__item--active' : '' }}">
-                                    <a href="{{ route('testimonial') }}" class="navigation__link" aria-haspopup="true" aria-expanded="false" aria-controls="NavigationTier2-1">Testimonial</a>
-                                </li>
-
-                                <li class="navigation__item navigation__item--with-children navigation__item--with-small-menu {{ request()->is('contact-us') ? 'navigation__item--active' : '' }}">
-                                    <a href="{{ route('contact-us') }}" class="navigation__link" aria-haspopup="true" aria-expanded="false" aria-controls="NavigationTier2-1">Contact Us</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="logo-area__middle logo-area__middle--logo-image">
-                <div class="logo-area__middle__inner">
-                    <div class="logo"><a class="logo__link" href="{{ route('home') }}" title="Ebike"><img class="logo__image" src="{{ env('APP_Image_URL').'assets/images/logo.png' }}" alt="Ebike" itemprop="logo" width="500" height="129"></a></div>
-                </div>
-            </div>
-            <div class="logo-area__right">
-                <div class="logo-area__right__inner">
-                    <a href="#" class="cart-link">
-                        <span class="cart-link__label">Cart</span>
-                        <span class="cart-link__icon">
-                            <svg width="24px" height="24px" viewBox="0 0 24 24" aria-hidden="true">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <polygon stroke="currentColor" stroke-width="1.5" points="2 9.25 22 9.25 18 21.25 6 21.25"></polygon>
-                                    <line x1="12" y1="9" x2="12" y2="3" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"></line>
-                                </g>
-                            </svg>
-							@php
-								$cart = session()->get('cart', []);
-							@endphp
-                            <span class="cart-link__count cartCount">{{ count($cart) }}</span>
-                        </span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div id="main-search" class="main-search " data-live-search="true" data-live-search-price="false" data-live-search-vendor="false" data-live-search-meta="false" data-per-row-mob="2">
-            <div class="main-search__container container">
-                <button class="main-search__close button notabutton" aria-label="Close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x" aria-hidden="true">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+<header class="d-flex align-items-center flex-column justify-content-center position-sticky top-0 bg-white" id="header">
+    <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="{{ route( 'home' ) }}">
+                <img src="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}">
+            </a>
+            <ul class="menu align-items-center d-lg-flex gap-5 m-0 p-0 d-none" id="nav-menu-container">
+                <li class="d-lg-none close-menu position-absolute">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Menu / Close_MD">
+                        <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                    </svg>
+                </li>
+                <li>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is( '/' ) ? 'active' : '' }}" href="{{ route( 'home' ) }}">Home</a>
+                </li>
+                <li>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is('shop') ? 'active' : '' }}" href="{{ route('shop') }}">Shop</a>
+                </li>
+                <li>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is('blog*') ? 'active' : '' }}" href="{{ route('blog') }}">Blog</a>
+                </li>
+                <li>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is( 'about-us' ) ? 'active' : '' }}" href="{{ route( 'about-us' ) }}">About Us</a>
+                </li>
+                <li>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is( 'contact-us' ) ? 'active' : '' }}" href="{{ route( 'contact-us' ) }}">Contact Us</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center gap-4" id="right-nav">
+                <button type="button" class="bg-transparent border-0 d-lg-block d-none sz_cart_btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                            d="M3.87289 17.0194L2.66933 9.83981C2.48735 8.75428 2.39637 8.21152 2.68773 7.85576C2.9791 7.5 3.51461 7.5 4.58564 7.5H19.4144C20.4854 7.5 21.0209 7.5 21.3123 7.85576C21.6036 8.21152 21.5126 8.75428 21.3307 9.83981L20.1271 17.0194C19.7282 19.3991 19.5287 20.5889 18.7143 21.2945C17.9 22 16.726 22 14.3782 22H9.62182C7.27396 22 6.10003 22 5.28565 21.2945C4.47127 20.5889 4.27181 19.3991 3.87289 17.0194Z"
+                            stroke="#141B34" stroke-width="1.5" />
+                        <path d="M17.5 7.5C17.5 4.46243 15.0376 2 12 2C8.96243 2 6.5 4.46243 6.5 7.5"
+                            stroke="#141B34" stroke-width="1.5" />
                     </svg>
                 </button>
-                <form class="main-search__form" action="/search" method="get" autocomplete="off">
-                    <input type="hidden" name="type" value="product,article,page">
-                    <input type="hidden" name="options[prefix]" value="last">
-                    <div class="main-search__input-container">
-                        <input class="main-search__input" type="text" name="q" autocomplete="off" placeholder="Search..." aria-label="Search Store">
-                    </div>
-                    <button class="main-search__button button notabutton" type="submit" aria-label="Submit">
-                        <svg width="24px" height="24px" viewBox="0 0 24 24" aria-hidden="true">
-                            <g transform="translate(3.000000, 3.000000)" stroke="currentColor" stroke-width="1.5" fill="none" fill-rule="evenodd">
-                                <circle cx="7.82352941" cy="7.82352941" r="7.82352941"></circle>
-                                <line x1="13.9705882" y1="13.9705882" x2="18.4411765" y2="18.4411765" stroke-linecap="square"></line>
-                            </g>
-                        </svg>
-                    </button>
-                </form>
-                <div class="main-search__results"></div>
+                <a href="javascript:;"
+                    class="login-btn d-lg-block d-none bg-slate-100 text-decoration-none font-medium text-slate-900 py-2 px-4 rounded-pill">
+                    Login
+                </a>
+                <div id="mobile-nav-toggle" class="d-lg-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <path d="M20 12.5H10" stroke="#141B34" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M20 5.5H4" stroke="#141B34" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M20 19.5H4" stroke="#141B34" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
-    <div id="main-nav" class="desktop-only">
-        <div class="navigation navigation--main" role="navigation" aria-label="Primary navigation">
-			<div class="navigation__tier-1-container">
-				<ul class="navigation__tier-1">
-					<li class="navigation__item">
-						<a href="{{ route('home') }}" class="navigation__link" >Home</a>
-					</li>
-                    <li class="navigation__item">
-						<a href="{{ route('about-us') }}" class="navigation__link" >About Us</a>
-					</li>
-                    <li class="navigation__item">
-						<a href="{{ route('testimonial') }}" class="navigation__link" >Testimonial</a>
-					</li>
-                    <li class="navigation__item">
-						<a href="{{ route('contact-us') }}" class="navigation__link" >Contact Us</a>
-					</li>
-				</ul>
-			</div>
+    <div class="fixed-menu bg-slate-900 position-fixed bottom-0 left-0 right-0 d-flex d-lg-none align-items-center justify-content-between px-4">
+        <a href="javascript:;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 17H12.009" stroke="#FEFEFE" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path
+                    d="M20 8.5V13.5C20 17.2712 20 19.1569 18.8284 20.3284C17.6569 21.5 15.7712 21.5 12 21.5C8.22876 21.5 6.34315 21.5 5.17157 20.3284C4 19.1569 4 17.2712 4 13.5V8.5"
+                    stroke="#FEFEFE" stroke-width="1.5" />
+                <path
+                    d="M22 10.5L17.6569 6.33548C14.9902 3.77849 13.6569 2.5 12 2.5C10.3431 2.5 9.00981 3.77849 6.34315 6.33548L2 10.5"
+                    stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+        </a>
+        <a href="javascript:;">
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M3.66699 10.9863V15.4917C3.66699 18.3235 3.66699 19.7395 4.54567 20.6192C5.42435 21.499 6.83856 21.499 9.66699 21.499H15.667C18.4954 21.499 19.9096 21.499 20.7883 20.6192C21.667 19.7395 21.667 18.3235 21.667 15.4917V10.9863"
+                    stroke="#FEFEFE" stroke-width="1.5" />
+                <path
+                    d="M15.667 16.9766C14.9829 17.5838 13.8938 17.9766 12.667 17.9766C11.4402 17.9766 10.3511 17.5838 9.66699 16.9766"
+                    stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" />
+                <path
+                    d="M18.4636 2.50269L6.8178 2.53177C5.07963 2.44223 4.63397 3.78234 4.63397 4.43743C4.63397 5.02334 4.55852 5.87749 3.49321 7.48285C2.4279 9.08821 2.50795 9.56511 3.10868 10.6765C3.60725 11.5989 4.87538 11.9592 5.53659 12.0198C7.6368 12.0676 8.65862 10.2515 8.65862 8.97498C9.70048 12.1823 12.6635 12.1823 13.9837 11.8155C15.3065 11.4481 16.4396 10.1329 16.707 8.97498C16.8629 10.414 17.3361 11.2536 18.7342 11.8306C20.1824 12.4282 21.4278 11.5148 22.0527 10.9292C22.6776 10.3437 23.0786 9.04376 21.9647 7.61505C21.1965 6.62976 20.8763 5.70155 20.7712 4.73952C20.7102 4.18209 20.6567 3.58311 20.2651 3.20194C19.6927 2.6449 18.8715 2.47588 18.4636 2.50269Z"
+                    stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </a>
+        <a href="javascript:;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M4.2059 17.0194L3.00234 9.83981C2.82036 8.75428 2.72938 8.21152 3.02074 7.85576C3.31211 7.5 3.84762 7.5 4.91865 7.5H19.7474C20.8184 7.5 21.3539 7.5 21.6453 7.85576C21.9366 8.21152 21.8456 8.75428 21.6637 9.83981L20.4601 17.0194C20.0612 19.3991 19.8617 20.5889 19.0473 21.2945C18.233 22 17.059 22 14.7112 22H9.95483C7.60697 22 6.43304 22 5.61866 21.2945C4.80428 20.5889 4.60482 19.3991 4.2059 17.0194Z"
+                    stroke="#FEFEFE" stroke-width="1.5" />
+                <path d="M17.833 7.5C17.833 4.46243 15.3706 2 12.333 2C9.29544 2 6.83301 4.46243 6.83301 7.5"
+                    stroke="#FEFEFE" stroke-width="1.5" />
+            </svg>
+        </a>
+        <a href="javascript:;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                    stroke="#FEFEFE" stroke-width="1.5" />
+                <path
+                    d="M7.5 17C9.8317 14.5578 14.1432 14.4428 16.5 17M14.4951 9.5C14.4951 10.8807 13.3742 12 11.9915 12C10.6089 12 9.48797 10.8807 9.48797 9.5C9.48797 8.11929 10.6089 7 11.9915 7C13.3742 7 14.4951 8.11929 14.4951 9.5Z"
+                    stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+        </a>
+    </div>
+    <div class="order-history offcanvas offcanvas-end border-0 p-4" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header px-0 pb-3 pb-sm-4">
+            <h5 class="text-slate-900 mb-0 font-hubot font-medium text-2xl text-xl-mob">Order Summary</h5>
+            <button type="button" class="border-0 bg-transparent" data-bs-dismiss="offcanvas" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        @php
+            $cart_products = session()->get('cart', []);
+            $subtotal = 0;
+        @endphp
+        <div class="offcanvas-body p-0 border-top border-gray-300">
+            <ul class="p-0 m-0" id="sz_card_popup_products">
+                @if( !empty( $cart_products ) )
+                    @foreach( $cart_products as $cp_key => $cp_val )
+                        <li class="d-flex border-bottom border-gray-300 py-3" id="sz_product_{{ $cp_key }}">
+                            <div class="bg-white rounded-lg">
+                                <img class="pro-img" src="{{ $cp_val['image'] }}" alt="bike" width="92" height="92">
+                            </div>
+                            <div class="ms-3">
+                                <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">{{ $cp_val['name'] }}</h3>
+                                <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($cp_val['price'], 2) }}</p>
+                            </div>
+                            <div class="count font-inter-regular text-gray-500 text-end text-sm">x <span class="cz_pro_quantity">{{ $cp_val['quantity'] }}</span> Item(s)</div>
+                        </li>
+                        @php
+                            $total = $cp_val['price'] * $cp_val['quantity'];
+                            $subtotal = $subtotal + $total;
+                        @endphp
+                    @endforeach
+                @endif
+            </ul>
+            {{-- <div class="py-4 d-flex flex-column gap-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Subtotal</h4>
+                    <h3 class="text-slate-900 text-2xl text-xl-mob font-inter-medium mb-0">£ 456.00</h3>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Discount</h4>
+                    <h3 class="text-slate-900 text-2xl text-xl-mob font-inter-medium mb-0">0</h3>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Tax</h4>
+                    <h3 class="text-slate-900 text-2xl text-xl-mob font-inter-medium mb-0">£ 100</h3>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Delivery Cost</h4>
+                    <h3 class="text-slate-900 text-2xl text-xl-mob font-inter-medium mb-0">£ 150</h3>
+                </div>
+            </div> --}}
+        </div>
+        <div class="offcanvas-footer pt-2">
+            <div class="d-flex align-items-center justify-content-between">
+                <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular">Total</h4>
+                <h3 class="text-slate-900 text-xl text-lg-mob font-inter-medium" id="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($subtotal, 2) }}</h3>
+            </div>
+            <a href="{{ route('checkout') }}" class="button-dark w-100 mt-2 mt-sm-4 text-center">Checkout</a>
         </div>
     </div>
-	<script class="mobile-navigation-drawer-template" type="text/template">
-		<div class="mobile-navigation-drawer" data-mobile-expand-with-entire-link="true">
-			<div class="navigation navigation--main" role="navigation" aria-label="Primary navigation">
-				<div class="navigation__tier-1-container">
-					<div class="navigation__mobile-header">
-						<a href="#" class="mobile-nav-back ltr-icon" aria-label="Back"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><title>Left</title><polyline points="15 18 9 12 15 6"></polyline></svg></a>
-						<span class="mobile-nav-title"></span>
-						<a href="#" class="mobile-nav-toggle"  aria-label="Close"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></a>
-					</div>
-					<ul class="navigation__tier-1">
-						<li class="navigation__item">
-							<a href="{{ route('home') }}" class="navigation__link" >Home</a>
-						</li>
-                        <li class="navigation__item">
-							<a href="{{ route('about-us') }}" class="navigation__link" >About Us</a>
-						</li>
-                        <li class="navigation__item">
-							<a href="{{ route('testimonial') }}" class="navigation__link" >Testimonial</a>
-						</li>
-                        <li class="navigation__item">
-							<a href="{{ route('contact-us') }}" class="navigation__link" >Contact Us</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</script>
-    
-      <a href="#" class="header-shade mobile-nav-toggle" aria-label="general.navigation_menu.toggle_aria_label"></a>
-    </div><script id="InlineNavigationCheckScript">
-      theme.inlineNavigationCheck = function() {
-        var pageHeader = document.querySelector('.pageheader'),
-            inlineNavContainer = pageHeader.querySelector('.logo-area__left__inner'),
-            inlineNav = inlineNavContainer.querySelector('.navigation--left');
-        if (inlineNav && getComputedStyle(inlineNav).display != 'none') {
-          var inlineMenuCentered = document.querySelector('.pageheader--layout-inline-menu-center'),
-              logoContainer = document.querySelector('.logo-area__middle__inner');
-          if(inlineMenuCentered) {
-            var rightWidth = document.querySelector('.logo-area__right__inner').clientWidth,
-                middleWidth = logoContainer.clientWidth,
-                logoArea = document.querySelector('.logo-area'),
-                computedLogoAreaStyle = getComputedStyle(logoArea),
-                logoAreaInnerWidth = logoArea.clientWidth - Math.ceil(parseFloat(computedLogoAreaStyle.paddingLeft)) - Math.ceil(parseFloat(computedLogoAreaStyle.paddingRight)),
-                availableNavWidth = logoAreaInnerWidth - Math.max(rightWidth, middleWidth) * 2 - 40;
-            inlineNavContainer.style.maxWidth = availableNavWidth + 'px';
-          }
-    
-          var firstInlineNavLink = inlineNav.querySelector('.navigation__item:first-child'),
-              lastInlineNavLink = inlineNav.querySelector('.navigation__item:last-child');
-          if (lastInlineNavLink) {
-            var inlineNavWidth = null;
-            if(document.querySelector('html[dir=rtl]')) {
-              inlineNavWidth = firstInlineNavLink.offsetLeft - lastInlineNavLink.offsetLeft + firstInlineNavLink.offsetWidth;
-            } else {
-              inlineNavWidth = lastInlineNavLink.offsetLeft - firstInlineNavLink.offsetLeft + lastInlineNavLink.offsetWidth;
-            }
-            if (inlineNavContainer.offsetWidth >= inlineNavWidth) {
-              pageHeader.classList.add('pageheader--layout-inline-permitted');
-              var tallLogo = logoContainer.clientHeight > lastInlineNavLink.clientHeight + 20;
-              if (tallLogo) {
-                inlineNav.classList.add('navigation--tight-underline');
-              } else {
-                inlineNav.classList.remove('navigation--tight-underline');
-              }
-            } else {
-              pageHeader.classList.remove('pageheader--layout-inline-permitted');
-            }
-          }
-        }
-      }
-      theme.inlineNavigationCheck();
-    
-      theme.setInitialHeaderHeightProperty = () => {
-        let headerHeight = 0,
-            section = document.querySelector('.section-header');
-        if (section) {
-          headerHeight = Math.ceil(section.clientHeight);
-          document.documentElement.style.setProperty('--theme-header-height', headerHeight + 'px');
-        }
-      };
-      setTimeout(theme.setInitialHeaderHeightProperty, 0);
-    </script>
-</div>
+</header>
