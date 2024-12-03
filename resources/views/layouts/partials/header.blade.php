@@ -41,10 +41,6 @@
                             stroke="#141B34" stroke-width="1.5" />
                     </svg>
                 </button>
-                <a href="javascript:;"
-                    class="login-btn d-lg-block d-none bg-slate-100 text-decoration-none font-medium text-slate-900 py-2 px-4 rounded-pill">
-                    Login
-                </a>
                 <div id="mobile-nav-toggle" class="d-lg-none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                         <path d="M20 12.5H10" stroke="#141B34" stroke-width="1.5" stroke-linecap="round"
