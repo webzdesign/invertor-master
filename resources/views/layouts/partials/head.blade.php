@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{{ asset( 'assets/css/bootstrap.min.css' ) }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/owl.carousel.min.css' ) }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/style.css' ) }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/Utilities.css' ) }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/utilities.css' ) }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/responsive.css' ) }}">
 
 <script src="{{ asset( 'assets/js/jquery.min.js' ) }}"></script>
