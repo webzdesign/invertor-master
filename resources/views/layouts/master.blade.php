@@ -49,6 +49,7 @@
                     e.preventDefault();
                     var pid = $(this).data("pid");
                     var quantity = 1;
+                    var isOrderNowbtn = $(this).hasClass("eb_OrderNowBtn");
                     
                     $.ajax({
                         url: '{{ route("cart.add") }}',
@@ -59,9 +60,13 @@
                         },
                         success: function(response) {
                             if (response.success) {
-                                $('.sz_cart_btn').click();
-                                $('#sz_cart_total').html(response.cart_total);
-                                $('#sz_card_popup_products').html(response.sz_cart_popup_html);
+                                if( isOrderNowbtn == true ){
+                                    window.location.href = "{{ route('checkout') }}";
+                                } else {
+                                    $('.sz_cart_btn').click();
+                                    $('#sz_cart_total').html(response.cart_total);
+                                    $('#sz_card_popup_products').html(response.sz_cart_popup_html);
+                                }
                             }
                         },
                         error: function(xhr) {
