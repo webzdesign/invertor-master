@@ -33,6 +33,7 @@ class HomeController extends Controller
     public function shop(Request $request)
     {
        
+        /* // for shop page paginaion
         $perPage = 8;
         $page = 1;
         if (isset($request->page) && $request->page != '') {
@@ -52,7 +53,11 @@ class HomeController extends Controller
 
         $totalPages = ceil($totalProducts / $perPage);
       
-        return view('shop', compact('products', 'totalProducts', 'totalPages', 'page'));
+        return view('shop', compact('products', 'totalProducts', 'totalPages', 'page')); */
+        $products = Product::with('images')->active();
+        $products = $products->get();
+
+        return view('shop', compact('products'));
         
     }
     public function productDetail($slug)

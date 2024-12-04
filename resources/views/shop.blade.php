@@ -8,7 +8,7 @@
     <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">Our Store</h2>
 </section>
 
-<section class="store-product">
+{{-- <section class="store-product">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center gap-3">
             <div class="position-relative">
@@ -32,9 +32,9 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
-<section class="product mt-0">
+<section class="product">
     <div class="container">
         <div class="row">
             @foreach ($products as $product)
@@ -52,7 +52,7 @@
                 </div>
             @endforeach
         </div>
-        @if ($totalProducts > 0)
+        {{-- @if ($totalProducts > 0)
             <div class="row">
                 <div class="col-lg-12">
                     <div class="product__pagination">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-        @endif
+        @endif --}}
     </div>
 </section>
 
