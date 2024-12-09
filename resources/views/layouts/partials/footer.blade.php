@@ -15,7 +15,7 @@
                     <div class="col-4">
                         <ul class="m-0 p-0 links"> 
                             <li>
-                                <div class="text-decoration-none text-white font-inter-regular text-lg">Shopping</div>
+                                <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">SHOPPING</div>
                             </li>
                             <li class="mt-3">
                                 <a href="{{ route( 'about-us' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">About</a>
@@ -32,7 +32,7 @@
                         </ul>
                     </div>
                     <div class="col-8 links">
-                        <li class="text-decoration-none text-white font-inter-regular text-lg">Visit Us Today!</li>
+                        <li class="text-decoration-none text-white font-inter-regular text-lg fw-bold">VISIT US TODAY!</li>
                         <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">Let’s find your perfect ride! Come and try one of ours out in our stores in Edinburgh or Glasgow and get expert advice. You may also browse our online store for easy shopping from home. Next day delivery is available, so your new scooter could be just a click away!</li>
                     </div>
                 </div>

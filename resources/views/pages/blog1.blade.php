@@ -200,7 +200,7 @@
     </div>
 </section>
 
-<section class="get-in-touch py-5 bg-slate-100">
+{{-- <section class="get-in-touch py-5 bg-slate-100">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
@@ -214,6 +214,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 @endsection

@@ -35,7 +35,7 @@
                         <div class="slider slider-for">
                             @foreach ($product->images as $imageKey => $image)
                                 <div>
-                                    <img class="pro-img" src="{{ asset('storage/product-images/'.$image->name) }}" alt="product">
+                                    <img class="pro-img" src="{{ env('APP_Image_URL') . 'storage/product-images/' . $image->name }}" alt="product">
                                 </div>
                             @endforeach
                         </div>
@@ -57,7 +57,7 @@
                     <div class="slider slider-nav">
                         @foreach ($product->images as $imageKey => $image)
                             <div>
-                                <img class="thumb-img" src="{{ asset('storage/product-images/'.$image->name) }}" alt="product">
+                                <img class="thumb-img" src="{{ env('APP_Image_URL') . 'storage/product-images/' . $image->name }}" alt="product">
                             </div>
                         @endforeach
                     </div>
@@ -134,11 +134,11 @@
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body px-0">
-                                <pre>{{ $product->description }}</pre>
+                                <pre class="text-gray-500 font-inter-regular text-base-mob">{{ $product->description }}</pre>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
+                    {{-- <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 <div class="d-flex align-items-center gap-2">
@@ -208,7 +208,7 @@
                                 What's in the Box?
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -245,7 +245,7 @@
     </div>
 </section>
 
-<section class="customer-review bg-gray-500 py-5">
+{{-- <section class="customer-review bg-gray-500 py-5">
     <div class="container">
         <div class="d-md-flex align-items-center justify-content-between">
             <h2 class="text-slate-50 text-4xl font-bebas mb-md-0 text-center text-md-start mb-3">CUSTOMER REVIEWS</h2>
@@ -255,7 +255,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <section class="product">
     <div class="container">
@@ -281,7 +281,7 @@
     </div>
 </section>
 
-<section class="get-in-touch py-5 bg-slate-100">
+{{-- <section class="get-in-touch py-5 bg-slate-100">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
@@ -295,7 +295,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">

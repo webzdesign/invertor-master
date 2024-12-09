@@ -6,13 +6,13 @@
     $blogs_arr = array(
         array(
             'title' => 'Discover Skootz Electric Scooters: Your Ultimate Destination for E-Scooters',
-            'image' => asset('assets/images/blog/blog-1.jpeg'),
+            'image' => asset('assets/images/blog/blog-1.jpg'),
             'link'  => route('blogDetail', 'Discover-Skootz-Electric-Scooters-Your-Ultimate-Destination-for-E-Scooters'),
             'date'  => '18 November 2024',
         ),
         array(
             'title' => 'Unveiling the Advantages of Electric Scooters: A Comprehensive Guide',
-            'image' => asset('assets/images/blog/blog-2.png'),
+            'image' => asset('assets/images/blog/blog-2.jpg'),
             'link'  => route('blogDetail', 'Unveiling-the-Advantages-of-Electric-Scooters-A-Comprehensive-Guide'),
             'date'  => '18 November 2024',
         ),
@@ -45,7 +45,7 @@
     </div>
 </section>
 
-<section class="get-in-touch py-5 bg-slate-100">
+{{-- <section class="get-in-touch py-5 bg-slate-100">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
@@ -59,6 +59,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 
 @endsection

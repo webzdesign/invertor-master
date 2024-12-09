@@ -184,7 +184,7 @@ class HomeController extends Controller
     {
         DB::beginTransaction();
 
-        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->first_name.' '.$request->last_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0]);
+        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->full_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0]);
         
         $orderItems = [];
         $orderTotal = 0;
