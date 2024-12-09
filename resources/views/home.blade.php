@@ -258,28 +258,7 @@
 @endsection
 @section('script')
 <script>
-    function updateControls(event) {
-        const total = event.item.count;
-        const current = event.item.index;
-
-        $("#current-slide").text((current + 1).toString().padStart(2, "0"));
-        $("#total-slides").text(total.toString().padStart(2, "0"));
-
-        if (current === 0) {
-            $("#prev-slide").addClass("disabled");
-        } else {
-            $("#prev-slide").removeClass("disabled");
-        }
-
-        if (current === total - 1) {
-            $("#next-slide").addClass("disabled");
-        } else {
-            $("#next-slide").removeClass("disabled");
-        }
-    }
     $(document).ready(function(){
-        const owl = $(".owl-carousel");
-
         $(".hero__slider").owlCarousel({
             margin: 20,
             items: 1,
@@ -291,34 +270,6 @@
             smartSpeed: 1200,
             autoHeight: false,
             autoplay: false
-        });
-
-        $(".clientSlider").owlCarousel({
-            margin: 20,
-            items: 1,
-            dots: false,
-            nav: false,
-            touchDrag: false,
-            mouseDrag: false,
-            smartSpeed: 1200,
-            autoHeight: false,
-            autoplay: false,
-            animateOut: 'fadeOut',
-            animateIn: 'fadeIn',
-            onInitialized: updateControls,
-            onChanged: updateControls
-        });
-
-        $("#prev-slide").click(function () {
-            if (!$(this).hasClass("disabled")) {
-                owl.trigger("prev.owl.carousel");
-            }
-        });
-
-        $("#next-slide").click(function () {
-            if (!$(this).hasClass("disabled")) {
-                owl.trigger("next.owl.carousel");
-            }
         });
     });
 </script>

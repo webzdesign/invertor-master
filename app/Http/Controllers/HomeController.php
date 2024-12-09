@@ -66,7 +66,7 @@ class HomeController extends Controller
         if (!$product) {
             abort(404);
         }
-        $othersProducts = Product::with('images')->where('id', '!=', $product->id)->limit(4)->get();
+        $othersProducts = Product::with('images')->where('id', '!=', $product->id)->limit(2)->get();
 
         return view('productDetail', compact('product', 'othersProducts'));
     }

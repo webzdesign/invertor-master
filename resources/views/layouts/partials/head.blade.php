@@ -6,12 +6,10 @@
 <title>Electric Scooters - Buy E-Scooters Online</title>
 
 <link rel="stylesheet" href="{{ asset( 'assets/css/bootstrap.min.css' ) }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/swiper-bundle.min.css' ) }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/owl.carousel.min.css' ) }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/slick-theme.min.css' ) }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/slick.min.css' ) }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/style.css' ) }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/utilities.css' ) }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/responsive.css' ) }}">
-
-<script src="{{ asset( 'assets/js/jquery.min.js' ) }}"></script>
-<script src="{{ asset( 'assets/js/bootstrap.min.js' ) }}"></script>
-<script src="{{ asset( 'assets/js/popper.min.js' ) }}"></script>
-<script src="{{ asset( 'assets/js/owl.carousel.min.js' ) }}"></script>

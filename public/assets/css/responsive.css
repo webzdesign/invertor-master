@@ -125,6 +125,9 @@
   .store-product input{
     width: 100%;
   }
+  .product-detail .slider-nav .slick-list{
+    width: 100%;
+  }
   .strore-banner img{
     height: 270px;
     object-fit: cover;

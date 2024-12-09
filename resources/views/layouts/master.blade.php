@@ -49,6 +49,9 @@
                     e.preventDefault();
                     var pid = $(this).data("pid");
                     var quantity = 1;
+                    if( $('.sz_product_quantity').length > 0 ){
+                        quantity = parseInt($('.sz_product_quantity').text());
+                    }
                     var isOrderNowbtn = $(this).hasClass("eb_OrderNowBtn");
                     
                     $.ajax({
