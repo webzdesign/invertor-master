@@ -184,16 +184,18 @@ class HomeController extends Controller
     {
         DB::beginTransaction();
 
-        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->full_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0]);
+        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->first_name.' '.$request->last_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0]);
         
         $orderItems = [];
         $orderTotal = 0;
-        foreach ($request->productId as $pKey => $productId) {
-            $product = Product::find(decrypt($productId));
-            if ($product) {
-                SalesOrderItem::create(['so_id' => $salesOrder->id, 'category_id' => $product->category_id, 'product_id' => $product->id, 'price' => $product->web_sales_price, 'qty' => $request->quantity[$pKey], 'amount' => ($product->web_sales_price) * $request->quantity[$pKey], 'remarks' => '']);
-                $orderItems[] = $product->name;
-                $orderTotal += ($product->web_sales_price) * $request->quantity[$pKey];
+        if( !empty($request->productId) ){
+            foreach ($request->productId as $pKey => $productId) {
+                $product = Product::find(decrypt($productId));
+                if ($product) {
+                    SalesOrderItem::create(['so_id' => $salesOrder->id, 'category_id' => $product->category_id, 'product_id' => $product->id, 'price' => $product->web_sales_price, 'qty' => $request->quantity[$pKey], 'amount' => ($product->web_sales_price) * $request->quantity[$pKey], 'remarks' => '']);
+                    $orderItems[] = $product->name;
+                    $orderTotal += ($product->web_sales_price) * $request->quantity[$pKey];
+                }
             }
         }
 
@@ -222,7 +224,7 @@ class HomeController extends Controller
              ]
         ]);
 
-        if ($request->range != "") {
+        if ( !empty($request->range) ) {
             $driverrangeData = json_decode($request->range);
             if(!empty($driverrangeData)) {
                 $driverNames = [];

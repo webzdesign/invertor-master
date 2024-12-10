@@ -113,7 +113,7 @@ padding: 8px;
             </div>
         </div>
         <a href="{{ route('shop') }}">
-            <button type="submit" class="site-btn">Shop</button>
+            <button type="submit" class="site-btn button-dark">Shop</button>
         </a>
     </div>
 </div>

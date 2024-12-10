@@ -578,3 +578,9 @@ footer .social-links li a{
 .product-detail .custom-next-arrow{
   text-align: right;
 }
+#addOrder .iti.iti--allow-dropdown{
+  width: 100%;
+}
+#addOrder .error{
+  color: red;
+}

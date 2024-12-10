@@ -33,104 +33,75 @@
                             <a href="javascript:;" class="text-blue-500 font-inter-semibold text-sm">Create an account</a>
                         </div>
                         <div class="border-top border-gray-300 mt-4">
-                            <h4 class="text-2xl text-slate-900 font-inter-regular my-4">Personal Details</h4>
-                            <input type="hidden" id="lat" name="lat">
-                            <input type="hidden" id="long" name="long">
-                            <input type="hidden" id="range" name="range">
-                            <div class="form-check mb-3 p-0">
-                                <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="full_name">Full Name</label>
-                                <input type="text" class="form-control" name="full_name" id="full_name" value="{{ old('full_name') }}">
+                            <h4 class="text-2xl text-slate-900 font-inter-regular my-4">Billing Details</h4>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-check mb-3 p-0">
+                                        <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="first_name">Fist Name</label>
+                                        <input type="text" class="form-control" name="first_name" id="first_name" value="{{ old('first_name') }}">
+                                        @if ( $errors->has( 'first_name' ) )
+                                            <span class="text-danger error">{{ $errors->first('first_name') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-check mb-3 p-0">
+                                        <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="last_name">Last Name</label>
+                                        <input type="text" class="form-control" name="last_name" id="last_name" value="{{ old('last_name') }}">
+                                        @if ( $errors->has( 'last_name' ) )
+                                            <span class="text-danger error">{{ $errors->first('last_name') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-check mb-3 p-0">
-                                <label class="text-slate-900 font-hubot text-sm d-block mb-2">Email</label>
-                                <input type="text" class="form-control" name="email" id="email" value="{{ old('email') }}">
+                                <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="address">Address</label>
+                                <input type="text" class="form-control" name="address" id="address" value="{{ old('address') }}">
+                                @if ( $errors->has('address') )
+                                    <span class="text-danger error">{{ $errors->first('address') }}</span>
+                                @endif
                             </div>
                             <div class="form-check mb-3 p-0">
-                                <label class="text-slate-900 font-hubot text-sm d-block mb-2">Phone Number</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="form-check mb-3 p-0">
-                                <label class="text-slate-900 font-hubot text-sm d-block mb-2">Address</label>
-                                <input type="text" class="form-control">
+                                <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="house_no">House Number</label>
+                                <input type="text" class="form-control" name="house_no" id="house_no" value="{{ old('house_no') }}">
+                                @if ( $errors->has('house_no') )
+                                    <span class="text-danger error">{{ $errors->first('house_no') }}</span>
+                                @endif
                             </div>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-check mb-3 p-0">
-                                        <label class="text-slate-900 font-hubot text-sm d-block mb-2">Postal Code</label>
-                                        <input type="text" class="form-control">
+                                        <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="post_code">Postcode / ZIP</label>
+                                        <input type="hidden" id="lat" name="lat">
+                                        <input type="hidden" id="long" name="long">
+                                        <input type="hidden" id="range" name="range">
+                                        <input type="text" class="form-control" name="post_code" id="post_code" value="{{ old('post_code') }}">
+                                        <span id="post_code_custom_error" class="error" style=""></span>
+                                        @if ( $errors->has('post_code') )
+                                            <span class="text-danger error">{{ $errors->first('post_code') }}</span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-check mb-3 p-0">
-                                        <label class="text-slate-900 font-hubot text-sm d-block mb-2">City</label>
-                                        <input type="text" class="form-control">
+                                        <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="phone">Phone Number</label>
+                                        <input type="hidden" name="country_dial_code" id="country_dial_code">
+                                        <input type="hidden" name="country_iso_code" id="country_iso_code">
+                                        <input type="text" class="form-control" name="phone" id="phone" value="{{ old('phone') }}">
+                                        <label id="phone-error" class="error" for="phone"></label>
+                                        @if ( $errors->has('phone') )
+                                            <span class="text-danger error">{{ $errors->first('phone') }}</span>
+                                        @endif
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-check mb-3 p-0">
-                                <label class="text-slate-900 font-hubot text-sm d-block mb-2">Country</label>
-                                <div class="position-relative">
-                                    <select>
-                                        <option value="">Item 1</option>
-                                        <option value="">Item 1</option>
-                                        <option value="">Item 1</option>
-                                    </select>
-                                    <svg class="position-absolute translate-middle-y top-50 right-0 me-3 pointer-event-none" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input shadow-none border-slate-200" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label mt-6px text-slate-900 font-urbanist-regular text-xs cursor-pointer ms-2" for="flexRadioDefault1">
-                                    Save this address to my profile
-                                </label>
-                            </div>
-                        </div>
-                        <div class="border-top border-gray-300 mt-4">
-                            <div class="d-flex flex-wrap align-items-center justify-content-between my-4">
-                                <h4 class="text-2xl text-slate-900 font-inter-regular mb-0">Shipping Details</h4>
-                                <div class="form-check">
-                                    <input class="form-check-input shadow-none border-slate-200" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                    <label class="form-check-label mt-6px text-slate-900 font-urbanist-regular text-xs cursor-pointer ms-2" for="flexRadioDefault2">
-                                        Same as personal details
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="form-check mb-3 p-0">
-                                <label class="text-slate-900 font-hubot text-sm d-block mb-2">Address</label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-check mb-3 p-0">
-                                        <label class="text-slate-900 font-hubot text-sm d-block mb-2">Postal Code</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-check mb-3 p-0">
-                                        <label class="text-slate-900 font-hubot text-sm d-block mb-2">City</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-check mb-3 p-0">
-                                <label class="text-slate-900 font-hubot text-sm d-block mb-2">Country</label>
-                                <div class="position-relative">
-                                    <select>
-                                        <option value="">Item 1</option>
-                                        <option value="">Item 1</option>
-                                        <option value="">Item 1</option>
-                                    </select>
-                                    <svg class="position-absolute translate-middle-y top-50 right-0 me-3 pointer-event-none" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9" stroke="#141B34" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @php
+                    $cart_products = session()->get('cart', []);
+                    $subtotal = 0;
+                @endphp
                 <div class="col-lg-4">
                     <div class="cardCheckout order-history bg-slate-50 border border-slate-100 p-4 rounded-lg">
                         <div class="px-0 pb-3 pb-sm-4">
@@ -138,45 +109,40 @@
                         </div>
                         <div class="offcanvas-body p-0 border-top border-gray-300">
                             <ul class="p-0 m-0">
-                                <li class="d-flex border-bottom border-gray-300 py-3">
-                                    <div class="bg-white rounded-lg">
-                                        <img class="pro-img" src="./images/pro1.png" alt="bike" width="92" height="92">
-                                    </div>
-                                    <div class="ms-3">
-                                        <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">D8 Pro Mi Pro H7 Ook-tek</h3>
-                                        <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">£ 456.00</p>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-between">
-                                        <button class="bg-transparent border-0 ms-auto">
-                                            <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.5 1L7.5 7M7.5 7L1.5 13M7.5 7L13.5 13M7.5 7L1.5 1" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </button>
-                                        <div class="count font-inter-regular text-gray-500 text-end text-sm">x 1 Items</div>
-                                    </div>
-                                </li>
-                                <li class="d-flex border-bottom border-gray-300 py-3">
-                                    <div class="bg-white rounded-lg">
-                                        <img class="pro-img" src="./images/pro1.png" alt="bike" width="92" height="92">
-                                    </div>
-                                    <div class="ms-3">
-                                        <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">D8 Pro Mi Pro H7 Ook-tek</h3>
-                                        <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">£ 456.00</p>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-between">
-                                        <button class="bg-transparent border-0 ms-auto">
-                                            <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M13.5 1L7.5 7M7.5 7L1.5 13M7.5 7L13.5 13M7.5 7L1.5 1" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </button>
-                                        <div class="count font-inter-regular text-gray-500 text-end text-sm">x 1 Items</div>
-                                    </div>
-                                </li>
+                                @if( !empty( $cart_products ) )
+                                    @foreach( $cart_products as $cp_key => $cp_val )
+                                        <li class="d-flex border-bottom border-gray-300 py-3">
+                                            <div class="bg-white rounded-lg">
+                                                <a href="{{ $cp_val['url'] }}">
+                                                    <img class="pro-img" src="{{ $cp_val['image'] }}" alt="bike" width="92" height="92">
+                                                </a>
+                                            </div>
+                                            <div class="ms-3 w-100">
+                                                <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">{{ $cp_val['name'] }}</h3>
+                                                <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($cp_val['price'], 2) }}</p>
+                                            </div>
+                                            <div class="d-flex flex-column justify-content-between">
+                                                <button type="button" class="bg-transparent border-0 ms-auto sz_remove_cart" data-pid="{{ $cp_key }}">
+                                                    <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M13.5 1L7.5 7M7.5 7L1.5 13M7.5 7L13.5 13M7.5 7L1.5 1" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </button>
+                                                <div class="count font-inter-regular text-gray-500 text-end text-sm">x {{ $cp_val['quantity'] }} Items</div>
+                                            </div>
+                                        </li>
+                                        @php
+                                            $total = $cp_val['price'] * $cp_val['quantity'];
+                                            $subtotal = $subtotal + $total;
+                                        @endphp
+                                        <input type="hidden" name="productId[]" value="{{ $cp_val['productId'] }}" />
+                                        <input type="hidden" name="quantity[]" value="{{ $cp_val['quantity'] }}" />
+                                    @endforeach
+                                @endif
                             </ul>
                             <div class="border-bottom border-gray-300">
                                 <h4 class="text-slate-900 text-lg font-inter-semibold my-4">Price Details</h4>
                             </div>
-                            <div class="py-4 d-flex flex-column gap-3">
+                            {{-- <div class="py-4 d-flex flex-column gap-3">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Subtotal</h4>
                                     <h3 class="text-slate-900 text-2xl text-xl-mob font-inter-medium mb-0">£ 456.00</h3>
@@ -193,7 +159,7 @@
                                     <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Delivery Cost</h4>
                                     <h3 class="text-slate-900 text-2xl text-xl-mob font-inter-medium mb-0">£ 150</h3>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="border-top border-slate-100 d-flex align-items-center justify-content-between pt-4">
                                 <h4 class="text-slate-900 text-lg font-inter-semibold mb-0">Total</h4>
                                 <h4 class="text-slate-900 text-xl font-inter-medium mb-0">
@@ -201,12 +167,12 @@
                                         <path d="M3.41 13.41L10.58 20.58C10.7657 20.766 10.9863 20.9135 11.2291 21.0141C11.4719 21.1148 11.7322 21.1666 11.995 21.1666C12.2578 21.1666 12.5181 21.1148 12.7609 21.0141C13.0037 20.9135 13.2243 20.766 13.41 20.58L22 12V2H12L3.41 10.59C3.0375 10.9647 2.82841 11.4716 2.82841 12C2.82841 12.5284 3.0375 13.0353 3.41 13.41Z" fill="#FFA800" stroke="#FFA800" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M17 7H16.99" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                    £ 706.00
+                                    {{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($subtotal, 2) }}
                                 </h4>
                             </div>
                         </div>
                     </div>
-                    <div class="cardCheckout order-history bg-slate-50 border border-slate-100 p-4 rounded-lg mt-4">
+                    {{-- <div class="cardCheckout order-history bg-slate-50 border border-slate-100 p-4 rounded-lg mt-4">
                         <h5 class="text-slate-900 font-hubot font-semibold text-2xl text-xl-mob mb-3">Payment Method</h5>
                         <div class="row">
                             <div class="col-6 mb-3">
@@ -255,18 +221,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="cardCheckout order-history bg-slate-50 border border-slate-100 p-4 rounded-lg mt-4">
                         <div class="form-check">
-                            <input class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" value="" id="flexCheckDefault">
+                            <input name="terms_and_condtion" class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label font-inter-regular text-sm text-slate-900 cursor-pointer ms-2 mt-1" for="flexCheckDefault">
-                                By clicking this, I agree to Skootz <span class="text-blue-500 font-inter-semibold">Terms & 
-                                Conditions</span> and <span class="text-blue-500 font-inter-semibold">Privacy Policy</span>
+                                By clicking this, I agree to Skootz <a href="{{ route('terms-conditions') }}" target="_blank" class="text-blue-500 font-inter-semibold text-decoration-none">Terms & 
+                                Conditions</a> and <a href="{{ route('privacy-policy') }}" target="_blank" class="text-blue-500 font-inter-semibold text-decoration-none">Privacy Policy</a>
                             </label>
                         </div>
-                        <a href="javascript:;" class="button-dark w-100 mt-3 text-center">
-                            Pay &nbsp;&nbsp;&nbsp; £ 706.00
-                        </a>
+                        <button type="submit" class="button-dark w-100 mt-3 text-center">
+                            Pay &nbsp;&nbsp;&nbsp; {{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($subtotal, 2) }}
+                        </button>
                     </div>
                 </div>
             </div>
@@ -277,6 +243,9 @@
 @endsection
 
 @section('script')
+<link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
+<script src="{{ asset('assets/js/intel.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
 <script>
 $(document).ready(function(){
     
@@ -365,6 +334,9 @@ $(document).ready(function(){
                 required: true,
                 inttel: true,
             },
+            terms_and_condtion: {
+                required: true,
+            },
         },
         messages: {
             first_name: {
@@ -386,6 +358,9 @@ $(document).ready(function(){
             phone: {
                 required: "Phone is required.",
             },
+            terms_and_condtion: {
+                required: "Terms & Conditions is required.",
+            },
         },
         errorPlacement: function(error, element) {
             error.appendTo(element.parent("div"));
@@ -397,6 +372,24 @@ $(document).ready(function(){
                 form.submit();
             }
         }
+    });
+
+    $(document).on('click', '.sz_remove_cart', function(e){
+        var pid = $(this).data("pid");
+       
+        $.ajax({
+            url: '{{ route("cart.remove") }}',
+            type: 'POST',
+            data: {
+                pid: pid,
+            },
+            success: function(response) {
+                location.reload();
+            },
+            error: function(xhr) {
+                console.error(xhr.responseText);
+            }
+        });
     });
 });
 </script>
