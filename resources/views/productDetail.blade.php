@@ -67,7 +67,7 @@
                 <h2 class="text-slate-900 font-bebas text-6xl text-4xl-mob">{{ $product->name }}</h2>
                 <h3 class="text-4xl text-blue-500 font-bebas text-3xl-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h3>
                 <p class="text-gray-500 font-inter-regular text-xl text-base-mob">Be among the first to ride our freshest, high-performance scooters.</p>
-                <div class="d-flex align-items-center gap-2">
+                {{-- <div class="d-flex align-items-center gap-2">
                     <div>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="#FFD53F"/>
@@ -88,7 +88,7 @@
                     <h6 class="mb-0 text-slate-900 font-inter-semibold">8 In review</h6>
                     <span class="text-gray-400">|</span>
                     <h6 class="mb-0 text-slate-900 font-inter-semibold">5 questions</h6>
-                </div>
+                </div> --}}
                 <div>
                     <div class="d-flex align-items-center my-3"> 
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Availability</h6>
@@ -98,7 +98,7 @@
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Condition</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">NEW</h6>
                     </div>
-                    <div class="d-flex align-items-center mb-2"> 
+                    {{-- <div class="d-flex align-items-center mb-2"> 
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Color</h6>
                         <div class="d-flex gap-1">
                             <div class="form-check">
@@ -108,7 +108,7 @@
                                 <input class="form-check-input cursor-pointer shadow-none border-0 w-5" type="radio" name="radio" id="radio2" style="background-color: black;">
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="d-flex gap-4 mt-4">
                     <div class="add-quantity-btn d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none">
