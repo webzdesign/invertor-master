@@ -54,8 +54,8 @@
             </div>
         </div>
     </div>
-    <div class="fixed-menu bg-slate-900 position-fixed bottom-0 left-0 right-0 d-flex d-lg-none align-items-center justify-content-between px-4">
-        <a href="javascript:;">
+    <div class="fixed-menu bg-slate-900 position-fixed bottom-0 left-0 right-0 d-flex d-lg-none align-items-center justify-content-between px-5">
+        <a href="{{ route('home') }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M12 17H12.009" stroke="#FEFEFE" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round" />
@@ -67,7 +67,7 @@
                     stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" />
             </svg>
         </a>
-        <a href="javascript:;">
+        <a href="{{ route('shop') }}">
             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M3.66699 10.9863V15.4917C3.66699 18.3235 3.66699 19.7395 4.54567 20.6192C5.42435 21.499 6.83856 21.499 9.66699 21.499H15.667C18.4954 21.499 19.9096 21.499 20.7883 20.6192C21.667 19.7395 21.667 18.3235 21.667 15.4917V10.9863"
@@ -87,16 +87,6 @@
                     stroke="#FEFEFE" stroke-width="1.5" />
                 <path d="M17.833 7.5C17.833 4.46243 15.3706 2 12.333 2C9.29544 2 6.83301 4.46243 6.83301 7.5"
                     stroke="#FEFEFE" stroke-width="1.5" />
-            </svg>
-        </a>
-        <a href="javascript:;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                    stroke="#FEFEFE" stroke-width="1.5" />
-                <path
-                    d="M7.5 17C9.8317 14.5578 14.1432 14.4428 16.5 17M14.4951 9.5C14.4951 10.8807 13.3742 12 11.9915 12C10.6089 12 9.48797 10.8807 9.48797 9.5C9.48797 8.11929 10.6089 7 11.9915 7C13.3742 7 14.4951 8.11929 14.4951 9.5Z"
-                    stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" />
             </svg>
         </a>
     </div>
