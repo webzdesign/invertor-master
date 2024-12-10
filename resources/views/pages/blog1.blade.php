@@ -148,30 +148,6 @@
                         </li>
                     </ul>
                 </div>
-                <div class="d-lg-none">
-                    <div class="row mt-3">
-                        <div class="col-6">
-                            <h3 class="text-slate-900 font-hubot font-medium text-lg">Categories</h3>
-                            <ul class="m-0 p-0">
-                                <li class="text-gray-500 text-sm font-inter-regular mb-2">All categories (23)</li>
-                                <li class="text-gray-500 text-sm font-inter-regular mb-2">Skootz eScooters (05)</li>
-                                <li class="text-gray-500 text-sm font-inter-regular mb-2">eBike Vs eScooter (01)</li>
-                                <li class="text-gray-500 text-sm font-inter-regular mb-2">D8 Pro Mi Pro H7 (10)</li>
-                                <li class="text-gray-500 text-sm font-inter-regular mb-2">Ride Safe Tips (07)</li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <h3 class="text-slate-900 font-hubot font-medium text-lg">Tags</h3>
-                            <ul class="m-0 p-0">
-                                <li class="text-gray-500 text-sm font-inter-regular mb-2">BeginnerFriendlyScooters</li>
-                                <li class="text-gray-500 text-sm font-inter-regular mb-2">FlexiblePaymentPlans</li>
-                                <li class="text-gray-500 text-sm font-inter-regular mb-2">SmartCommuting</li>
-                                <li class="text-gray-500 text-sm font-inter-regular mb-2">EcoCommutersUnite</li>
-                                <li class="text-gray-500 text-sm font-inter-regular mb-2">GreenCityLiving</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
