@@ -119,13 +119,22 @@
                     @foreach( $cart_products as $cp_key => $cp_val )
                         <li class="d-flex border-bottom border-gray-300 py-3" id="sz_product_{{ $cp_key }}">
                             <div class="bg-white rounded-lg">
-                                <img class="pro-img" src="{{ $cp_val['image'] }}" alt="bike" width="92" height="92">
+                                <a href="{{ $cp_val['url'] }}">
+                                    <img class="pro-img" src="{{ $cp_val['image'] }}" alt="bike" width="92" height="92">
+                                </a>
                             </div>
-                            <div class="ms-3">
+                            <div class="ms-3 w-100">
                                 <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">{{ $cp_val['name'] }}</h3>
                                 <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($cp_val['price'], 2) }}</p>
                             </div>
-                            <div class="count font-inter-regular text-gray-500 text-end text-sm">x <span class="cz_pro_quantity">{{ $cp_val['quantity'] }}</span> Item(s)</div>
+                            <div class="d-flex flex-column justify-content-between me-2">
+                                <button type="button" class="bg-transparent border-0 ms-auto sz_remove_cart" data-pid="{{ $cp_key }}">
+                                    <svg width="13" height="12" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.5 1L7.5 7M7.5 7L1.5 13M7.5 7L13.5 13M7.5 7L1.5 1" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="count font-inter-regular text-gray-500 text-end text-sm">x {{ $cp_val['quantity'] }} Item(s)</div>
+                            </div>
                         </li>
                         @php
                             $total = $cp_val['price'] * $cp_val['quantity'];

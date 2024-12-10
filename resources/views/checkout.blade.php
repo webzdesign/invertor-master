@@ -30,7 +30,7 @@
                     <div class="cardCheckout bg-slate-50 border border-slate-100 p-4 rounded-lg">
                         <div class="d-flex align-items-center justify-content-between">
                             <h3 class="text-3xl text-slate-900 font-hubot font-semibold mb-0">Checkout</h3>
-                            <a href="javascript:;" class="text-blue-500 font-inter-semibold text-sm">Create an account</a>
+                            {{-- <a href="javascript:;" class="text-blue-500 font-inter-semibold text-sm">Create an account</a> --}}
                         </div>
                         <div class="border-top border-gray-300 mt-4">
                             <h4 class="text-2xl text-slate-900 font-inter-regular my-4">Billing Details</h4>
@@ -127,7 +127,7 @@
                                                         <path d="M13.5 1L7.5 7M7.5 7L1.5 13M7.5 7L13.5 13M7.5 7L1.5 1" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
                                                 </button>
-                                                <div class="count font-inter-regular text-gray-500 text-end text-sm">x {{ $cp_val['quantity'] }} Items</div>
+                                                <div class="count font-inter-regular text-gray-500 text-end text-sm">x {{ $cp_val['quantity'] }} Item(s)</div>
                                             </div>
                                         </li>
                                         @php
@@ -316,15 +316,20 @@ $(document).ready(function(){
         rules: {
             first_name: {
                 required: true,
+                minlength: 2,
+                maxlength: 30,
             },
             last_name: {
                 required: true,
+                minlength: 2,
+                maxlength: 30,
             },
             address: {
                 required: true,
             },
             house_no: {
                 required: true,
+                number: true,
             },
             post_code: {
                 required: true,
@@ -349,7 +354,7 @@ $(document).ready(function(){
                 required: "Address is required."
             },
             house_no: {
-                required: "House No is required.",
+                required: "House Number is required.",
             },
             post_code: {
                 required: "Post code is required.",
@@ -372,24 +377,6 @@ $(document).ready(function(){
                 form.submit();
             }
         }
-    });
-
-    $(document).on('click', '.sz_remove_cart', function(e){
-        var pid = $(this).data("pid");
-       
-        $.ajax({
-            url: '{{ route("cart.remove") }}',
-            type: 'POST',
-            data: {
-                pid: pid,
-            },
-            success: function(response) {
-                location.reload();
-            },
-            error: function(xhr) {
-                console.error(xhr.responseText);
-            }
-        });
     });
 });
 </script>

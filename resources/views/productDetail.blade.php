@@ -227,7 +227,7 @@
         <div class="col-12 mb-4">
             <div class="position-relative">
                 <img src="{{ asset('/assets/images/pro9.png') }}" alt="bike" width="100%">
-                <div class="position-absolute top-50 left-50 translate-middle cursor-pointer" data-bs-toggle="modal" data-bs-target="#videoModal">
+                <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="https://www.youtube.com/embed/UPxjonwXHZs?si=AR7IaE6wssaUoDW7">
                     <svg class="icon-play" width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_67_17706)">
                         <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"></rect>
@@ -297,16 +297,6 @@
     </div>
 </section> --}}
 
-<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content border-slate-200">
-            <div class="modal-body">
-                <iframe class="aspect-video" width="100%" height="100%" src="https://www.youtube.com/embed/UPxjonwXHZs?si=AR7IaE6wssaUoDW7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="modal fade" id="imgZoomModal" tabindex="-1" aria-labelledby="imgZoomModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-slate-200">
@@ -373,11 +363,17 @@
                 let quantitySpan = container.find('span').eq(1); // Select the middle span
                 let quantity = parseInt(quantitySpan.text());
                 let minusButton = container.find('.minus-btn');
+                let plusButton = container.find('.plus-btn');
 
                 if (quantity <= 1) {
                     minusButton.addClass('disabled').css('opacity', '0.5'); // Add disabled class
                 } else {
                     minusButton.removeClass('disabled').css('opacity', '1'); // Remove disabled class
+                }
+                if (quantity >= 10) {
+                    plusButton.addClass('disabled').css('opacity', '0.5'); // Add disabled class
+                } else {
+                    plusButton.removeClass('disabled').css('opacity', '1'); // Remove disabled class
                 }
             }
 
@@ -388,8 +384,10 @@
             container.find('.plus-btn').click(function () {
                 let quantitySpan = container.find('span').eq(1); // Select the middle span
                 let quantity = parseInt(quantitySpan.text());
-                quantitySpan.text(quantity + 1); // Increment and update quantity
-                updateDisableClass(); // Update disable class
+                if (quantity < 10) {
+                    quantitySpan.text(quantity + 1); // Increment and update quantity
+                    updateDisableClass(); // Update disable class
+                }
             });
 
             // Handle minus button click

@@ -229,7 +229,7 @@
         <h2 class="font-bebas">Check out the latest electric scooter review. Compare how it delivers the ultimate riding experience tailored just for you!</h2>
         <div class="latest-video position-relative mt-sm-5 mt-4">
             <img class="cover-img" src="{{ asset('assets/images/pro6.png') }}" alt="pro" width="100%">
-            <div class="position-absolute top-50 left-50 translate-middle cursor-pointer" data-bs-toggle="modal" data-bs-target="#videoModal">
+            <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="https://www.youtube.com/embed/UPxjonwXHZs?si=AR7IaE6wssaUoDW7">
                 <svg width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_67_17706)">
                     <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"/>
@@ -245,15 +245,5 @@
         </div>
     </div>
 </section>
-
-<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content border-slate-200">
-            <div class="modal-body">
-                <iframe class="aspect-video" width="100%" height="100%" src="https://www.youtube.com/embed/UPxjonwXHZs?si=AR7IaE6wssaUoDW7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
-</div>
 
 @endsection
