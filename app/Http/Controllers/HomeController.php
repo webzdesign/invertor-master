@@ -81,10 +81,19 @@ class HomeController extends Controller
         }
         
         if (isset($cart[$product->id])) {
-            $cart[$product->id]['quantity'] += $request->quantity;
+            $total_p_quantity = $cart[$product->id]['quantity'] + $request->quantity;
+            if( $total_p_quantity < 10 ){
+                $cart[$product->id]['quantity'] += $request->quantity;
+            } else {
+                $cart[$product->id]['quantity'] = 10;
+            }
         } else {
+            $total_p_quantity = $request->quantity;
+            if( $total_p_quantity > 10 ){
+                $total_p_quantity = 10;
+            }
             $cart[$product->id] = [
-                'quantity' => $request->quantity,
+                'quantity' => $total_p_quantity,
                 'name' => $product->name,
                 'price' => $product->web_sales_price,
                 'image' => isset($product->images[0]) ? env('APP_Image_URL').'storage/product-images/'.$product->images[0]->name : '',
