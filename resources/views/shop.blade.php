@@ -4,7 +4,7 @@
 
 <section class="strore-banner p-2 position-relative">
     <img src="{{ asset( 'assets/images/store-banner.png' ) }}" alt="banner" width="100%" class="rounded-3xl d-none d-sm-block">
-    <img src="{{ asset( 'assets/images/store-banner-mob.png' ) }}" alt="banner" width="100%" class="d-sm-none h-100">
+    <img src="{{ asset( 'assets/images/store-banner-mob.png' ) }}" alt="banner" width="100%" class="d-sm-none">
     <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">Our Store</h2>
 </section>
 

@@ -166,8 +166,8 @@
     width: 100%;
   }
   .strore-banner img{
-    height: 270px;
     object-fit: cover;
+    border-radius: 20px;
   }
   .customer .next-prev-btn {
     height: 100px;

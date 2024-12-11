@@ -26,8 +26,16 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $Products = Product::with('images')->inRandomOrder()->limit(2)->get();
+        $tuya_d8_url = '';
+        if( !empty($Products) ){
+            foreach ($Products as $product) {
+                if( $product['unique_number'] == '012' ){
+                    $tuya_d8_url = route('productDetail', $product->slug);
+                }
+            }
+        }
         $slider_product = Product::with('images')->where('id', 13)->first();
-        return view('home', compact('Products', 'slider_product'));
+        return view('home', compact('Products', 'slider_product', 'tuya_d8_url'));
     }
 
     public function shop(Request $request)

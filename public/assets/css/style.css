@@ -233,9 +233,14 @@ body.mobile-nav-active header #mobile-nav{
   font-size: 64px;
   line-height: 78px;
 }
-.why-choose .left-side label{
+.why-choose .left-side .sz_tuya_d8_btn{
   padding: 16px 34px;
   bottom: 16%;
+  text-decoration: none;
+}
+.why-choose .left-side .sz_tuya_d8_btn:hover{
+  background: var(--slate-950) !important;
+  border-color: var(--slate-950) !important;
 }
 .why-choose .right-side .icon{
   width: 52px;
@@ -247,6 +252,11 @@ body.mobile-nav-active header #mobile-nav{
 }
 .why-choose .right-side .row{
   row-gap: calc(var(--bs-gutter-x) * 1);
+}
+.why-choose .sz_reliable_scooters_sec:hover,
+.sz_about_skootz_sec:hover{
+  border-color: var(--gray-400) !important;
+  background-color: var(--gray-500) !important;
 }
 
 /* product */
@@ -404,7 +414,7 @@ footer .social-links li a{
 }
 
 .sz_product_image{
-  height: 400px;
+  max-height: 400px;
   max-width: 100%;
 }
 .sz_ol_tag li{

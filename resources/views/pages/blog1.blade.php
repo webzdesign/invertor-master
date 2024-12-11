@@ -170,3 +170,14 @@
 </section> --}}
 
 @endsection
+
+@section('script')
+<script>
+$(document).ready(function(){
+    $(document).on('click', '.blog-details .links', function(e){
+        $('.navigation__link').removeClass('active');
+        $(this).find('.navigation__link').addClass('active');
+    });
+});
+</script>
+@endsection

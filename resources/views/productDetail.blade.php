@@ -64,10 +64,10 @@
                 </div>
             </div>
             <div class="col-lg-5 ps-lg-5">
-                <h2 class="text-slate-900 font-bebas text-6xl text-4xl-mob">{{ $product->name }}</h2>
+                <h2 class="text-slate-900 font-bebas text-6xl text-4xl-mob mt-lg-0 mt-3">{{ $product->name }}</h2>
                 <h3 class="text-4xl text-blue-500 font-bebas text-3xl-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h3>
                 <p class="text-gray-500 font-inter-regular text-xl text-base-mob">Be among the first to ride our freshest, high-performance scooters.</p>
-                {{-- <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-2">
                     <div>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="#FFD53F"/>
@@ -85,10 +85,10 @@
                             <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="#FFD53F"/>
                         </svg>
                     </div>
-                    <h6 class="mb-0 text-slate-900 font-inter-semibold">8 In review</h6>
-                    <span class="text-gray-400">|</span>
-                    <h6 class="mb-0 text-slate-900 font-inter-semibold">5 questions</h6>
-                </div> --}}
+                    <h6 class="mb-0 text-slate-900 font-inter-semibold">0 In review</h6>
+                    {{-- <span class="text-gray-400">|</span>
+                    <h6 class="mb-0 text-slate-900 font-inter-semibold">5 questions</h6> --}}
+                </div>
                 <div>
                     <div class="d-flex align-items-center my-3"> 
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Availability</h6>
@@ -159,7 +159,7 @@
                                 Specifications
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -180,11 +180,12 @@
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body px-0">
-                                Shipping & Payment
+                                <p class="font-inter-regular">We aim to deliver your Skootz products within 3-5 working days. For urgent orders or specific delivery requests, please contact our customer service team.</p>
+                                <p class="font-inter-regular">We offer flexible payment plans through Klarna and Laybuy, making it easier than ever to own a high-quality e-scooter or e-bike.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
+                    {{-- <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 <div class="d-flex align-items-center gap-2">
@@ -340,7 +341,8 @@
         $('.slider-nav').slick({
             slidesToShow: 6,
             slidesToScroll: 1,
-            draggable: false,
+            draggable: true,
+            swipeToSlide: true,
             responsive: [
                 {
                     breakpoint: 1266,
