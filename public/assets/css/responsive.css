@@ -192,6 +192,10 @@
   }
 }
 @media (max-width:576px) {
+  .text-32px-mob{
+    font-size: 32px !important;
+    line-height: 42px !important;
+  }
   .text-sm-mob{
     font-size: 14px !important;
     line-height: 20px !important;

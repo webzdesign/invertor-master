@@ -27,3 +27,5 @@ Route::get('terms-conditions', [PageController::class, 'termConditions'])->name(
 Route::get('blog', [PageController::class, 'blog'])->name('blog');
 Route::get('blog/{slug}', [PageController::class, 'blogDetail'])->name('blogDetail');
 Route::get('FAQ', [PageController::class, 'faq'])->name('FAQ');
+Route::get('refund-policy', [PageController::class, 'refundPolicy'])->name('refund-policy');
+Route::get('shipping-policy', [PageController::class, 'shippingPolicy'])->name('shipping-policy');

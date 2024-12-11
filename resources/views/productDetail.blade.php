@@ -118,6 +118,7 @@
                     </div>
                     <button class="button-dark AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">Add to cart</button>
                 </div>
+                <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
                 <div class="accordion mt-4" id="accordionExample">
                     <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingOne">
@@ -133,9 +134,7 @@
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body px-0">
-                                <pre class="text-gray-500 font-inter-regular text-base-mob">{{ $product->description }}</pre>
-                            </div>
+                            <div class="accordion-body px-0">{!! $product->description !!}</div>
                         </div>
                     </div>
                     {{-- <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
@@ -214,20 +213,36 @@
         </div>
     </div>
 </section>
-
+@php
+    $yt_url = 'https://www.youtube.com/embed/T3VUFXetSCk?si=1VVOASVR3t5kgaHm';
+    if( $product->unique_number == '012' ){
+        $first_img = asset('/assets/images/pro7.png');
+        $second_img = asset('/assets/images/pro8.png');
+        $last_img = asset('/assets/images/pro9.png');
+    } else if( $product->unique_number == '013' ){
+        $first_img = asset('/assets/images/pro10.png');
+        $second_img = asset('/assets/images/pro11.png');
+        $last_img = asset('/assets/images/pro12.png');
+        $yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=4j3hgX6dNsNhtjEs';
+    } else {
+        $first_img = !empty($product->images[1]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[1]->name : '';
+        $second_img = !empty($product->images[2]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[2]->name : '';
+        $last_img = !empty($product->images[3]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[3]->name : '';
+    }
+@endphp
 <section class="why-choose-product bg-gray-50">
     <h2 class="text-6xl text-4xl-mob font-bebas text-slate-900 mb-sm-5 mb-3 px-3 px-sm-0">Why Choose the {{ $product->name }}?</h2>
     <div class="row m-0">
         <div class="col-sm-6 mb-4">
-            <img src="{{ asset('/assets/images/pro7.png') }}" alt="bike" width="100%">
+            <img class="sz_banner_img" src="{{ $first_img }}" alt="bike">
         </div>
         <div class="col-sm-6 mb-4">
-            <img src="{{ asset('/assets/images/pro8.png') }}" alt="bike" width="100%">
+            <img class="sz_banner_img" src="{{ $second_img }}" alt="bike">
         </div>
         <div class="col-12 mb-4">
             <div class="position-relative">
-                <img src="{{ asset('/assets/images/pro9.png') }}" alt="bike" width="100%">
-                <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="https://www.youtube.com/embed/UPxjonwXHZs?si=AR7IaE6wssaUoDW7">
+                <img class="sz_banner_img" src="{{ $last_img }}" alt="bike">
+                <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="{{ $yt_url }}">
                     <svg class="icon-play" width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_67_17706)">
                         <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"></rect>
@@ -274,6 +289,7 @@
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4">{{ $o_product->name }}</h2>
                         <h2 class="text-lg text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($o_product->web_sales_price, 2) }}</h2>
                         <a href="javascript:;" class="button-dark mt-3 AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">Add to cart</a>
+                        <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
                     </div>
                 </div>
             @endforeach

@@ -22,7 +22,7 @@
                     </div>
                     <div class="d-sm-flex mb-3 text-center text-sm-start">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Email</div>
-                        <a href="mailto:hello@runmax.com" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">hello@runmax.com</a>
+                        <a href="mailto:hello@runmax.co.uk" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">hello@runmax.co.uk</a>
                     </div>
                     <div class="d-sm-flex text-center text-sm-start">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Address</div>

@@ -18,6 +18,10 @@
                                 if( mb_strlen($p_name) > 20 ){
                                     $p_name = mb_strimwidth($p_name, 0, 20, '...');
                                 }
+                                if( $slider_product->unique_number == '013' ){
+                                    $p_description = 'Your dream of getting an electric scooter is just 1 step away';
+                                }
+                                $slider_yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=y1pFEns95QWdhO-W';
                             @endphp
                         <h1 class="fadeItem text-slate-900 font-bebas d-none d-lg-block"><a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $slider_product->slug) }}">{{ $p_name }}</a></h1>
                         <p class="fadeItem text-gray-500 font-inter-regular text-lg my-4 text-lg-start text-center mx-auto mx-lg-0">{{ $p_description }}</p>
@@ -32,7 +36,7 @@
                     </div>
                     <div class="col-xl-6 col-lg-4 right-slide">
                         <div class="d-lg-flex align-items-start text-center justify-content-between position-relative">
-                            <h1 class="text-slate-900 font-bebas d-lg-none">F1 Scooters</h1>
+                            <h1 class="text-slate-900 font-bebas d-lg-none">{{ $p_name }}</h1>
                             <div class="slider-image">
                                 <a href="{{ route('productDetail', $slider_product->slug) }}">
                                     <img src="{{ env('APP_Image_URL').'storage/product-images/' . $slider_product->images->first()->name }}" alt="{{ $p_name }}">
@@ -43,7 +47,7 @@
                             </div>
                             <div class="img-video overflow-hidden rounded-3xl position-relative cursor-pointer">
                                 <img src="{{ asset( 'assets/images/slider2.png' ) }}" alt="bike">
-                                <div class="left-50 position-absolute top-50 translate-middle sz_youtube_video_btn" data-youtubeUrl="https://www.youtube.com/embed/UPxjonwXHZs?si=AR7IaE6wssaUoDW7">
+                                <div class="left-50 position-absolute top-50 translate-middle sz_youtube_video_btn" data-youtubeUrl="{{ $slider_yt_url }}">
                                     <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect x="2" y="2" width="48" height="48" rx="24" fill="#FEFEFE"/>
                                         <rect x="1" y="1" width="50" height="50" rx="25" stroke="white" stroke-opacity="0.24" stroke-width="2"/>
@@ -175,6 +179,7 @@
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4">{{ $product->name }}</h2>
                         <h2 class="text-lg text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($product->web_sales_price, 2) }}</h2>
                         <a href="javascript:;" class="button-dark mt-3 AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">Add to cart</a>
+                        <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
                     </div>
                 </div>
             @endforeach
@@ -221,27 +226,7 @@
     </div>
 </section>
 
-<section class="latest bg-gray-50">
-    <div class="container">
-        <h2 class="font-bebas">Check out the latest electric scooter review. Compare how it delivers the ultimate riding experience tailored just for you!</h2>
-        <div class="latest-video position-relative mt-sm-5 mt-4">
-            <img class="cover-img" src="{{ asset( 'assets/images/pro6.png' ) }}" alt="pro" width="100%">
-            <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="https://www.youtube.com/embed/UPxjonwXHZs?si=AR7IaE6wssaUoDW7">
-                <svg width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_67_17706)">
-                    <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"/>
-                    <path d="M58.0273 97.668C35.9353 97.668 18.0273 79.76 18.0273 57.668C18.0273 35.576 35.9353 17.668 58.0273 17.668C80.1193 17.668 98.0273 35.576 98.0273 57.668C98.0273 79.76 80.1193 97.668 58.0273 97.668ZM52.5153 43.328C52.2746 43.1674 51.9948 43.075 51.7058 43.0609C51.4167 43.0467 51.1292 43.1111 50.8739 43.2474C50.6186 43.3837 50.4051 43.5867 50.256 43.8347C50.1069 44.0827 50.0279 44.3666 50.0273 44.656V70.68C50.0279 70.9694 50.1069 71.2532 50.256 71.5012C50.4051 71.7493 50.6186 71.9523 50.8739 72.0885C51.1292 72.2248 51.4167 72.2893 51.7058 72.2751C51.9948 72.2609 52.2746 72.1686 52.5153 72.008L72.0313 59C72.2508 58.8539 72.4308 58.6559 72.5553 58.4235C72.6798 58.1911 72.7449 57.9316 72.7449 57.668C72.7449 57.4043 72.6798 57.1448 72.5553 56.9124C72.4308 56.68 72.2508 56.482 72.0313 56.336L52.5113 43.328H52.5153Z" fill="#FEFEFE"/>
-                    </g>
-                    <defs>
-                    <clipPath id="clip0_67_17706">
-                    <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="white"/>
-                    </clipPath>
-                    </defs>
-                </svg>                        
-            </div>
-        </div>
-    </div>
-</section>
+@include('latestScooter')
 
 @include('customerReview')
 

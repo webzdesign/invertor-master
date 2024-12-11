@@ -140,6 +140,9 @@ select{
 .bg-blue-500{
     background-color: var(--blue-500) !important;
 }
+.bg-linear{
+    background: linear-gradient(360deg, #292929 0%, #5D5D5D 100%);
+}
 
 /* font size */
 .text-xs{

@@ -30,6 +30,14 @@ class PageController extends Controller
     {
         return view('pages.termConditions');
     }
+    public function refundPolicy()
+    {
+        return view('pages.refundPolicy');
+    }
+    public function shippingPolicy()
+    {
+        return view('pages.shippingPolicy');
+    }
     public function blog()
     {
         return view('pages.blog');

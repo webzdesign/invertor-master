@@ -407,6 +407,9 @@ footer .social-links li a{
   height: 400px;
   max-width: 100%;
 }
+.sz_ol_tag li{
+  list-style-type: decimal !important;
+}
 #nav-menu-container li{
   display: flex;
 }
@@ -453,6 +456,10 @@ footer .social-links li a{
 
 .why-choose-product{
   padding: 100px 50px 50px;
+}
+.why-choose-product .sz_banner_img {
+  border-radius: 10px;
+  width: 100%;
 }
 
 .get-in-touch h2{
@@ -679,4 +686,7 @@ footer .social-links li a{
 
 #videoModal.modal .btn-close:hover {
   background-color: #f8f9fa;
+}
+.linear-banner{
+  height: 280px;
 }

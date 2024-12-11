@@ -2,89 +2,105 @@
 
 @section('content')
 
-<section class="breadcrumb-option">
+<section class="bg-linear linear-banner rounded-3xl p-2 m-2 position-relative">
+    <div class="w-100 h-100"></div>
+    <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0 text-6xl text-4xl-mob">Privacy Policy</h2>
+</section>
+
+<section class="bg-slate-100 py-2 d-none d-md-block">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb__text">
-                    <h4>Privacy Policy</h4>
-                    <div class="breadcrumb__links">
-                        <a href="{{ route('home') }}">Home</a>
-                        <span>Privacy Policy</span>
-                    </div>
+        <ul class="m-0 p-0 d-flex align-items-center gap-3">
+            <li>
+                <a href="{{ route('home') }}" class="text-decoration-none text-slate-900 text-xl font-inter-medium">Home</a>
+            </li>
+            <li>
+                <svg width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 13.5C1 13.5 6.99999 9.0811 7 7.5C7.00001 5.9188 1 1.5 1 1.5" fill="#292929"/>
+                    <path d="M1 13.5C1 13.5 6.99999 9.0811 7 7.5C7.00001 5.9188 1 1.5 1 1.5" stroke="#F3F3F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </li>
+            <li class="text-slate-900 text-xl font-inter-medium">Privacy policy</li>
+        </ul>
+    </div>
+</section>
+
+<section class="py-md-5 py-3">
+    <div class="container">
+        <p class="text-gray-500 text-lg font-inter-regular mb-0">Effective December 10, 2024</p>
+        <p class="text-gray-500 text-lg font-inter-regular">Our privacy policy has been updated.</p>
+        <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">Privacy Policy</h3>
+        <div>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Privacy protection is our top priority at Skootz. The information contained in this Privacy Policy explains how we collect, use and discloses your information on the website including any other media form or mobile application made available by us.</p>
+        </div>
+        <div>
+            <h4 class="text-slate-900 text-2xl mt-4 font-hubot font-semibold">Information We Collect</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">We may collect personal information from you in various ways, including when you:</p>
+            <ul>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Register on our site</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Place an order</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Subscribe to our newsletter</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Fill out a form</li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">The types of information we may collect include:</h4>
+            <ul>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Name</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Email address</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Phone number</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Shipping and billing address</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Account related details (Name, Email, Phone, PayPal address, Credit Card number, Expiry date, State, Address)</li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">How We Use Your Information</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">We use the information we collect for the following purposes:</p>
+            <ul>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">It is necessary to process transactions and manage orders.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">For improving its customer service to answer inquiries</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">For purposes of sending periodic emails about your order or other products and services;</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">We use it to personalize user experience and improve our site as a whole.</li>
+            </ul>
+        </div>
+        <div class="mb-4">
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Data Protection</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">There are different security steps that we take in order to keep your personal information secure. All your data is stored on secure servers and only accessible through authorized personnel.</p>
+        </div>
+        <div class="mb-4">
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Cookies</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Cookies are used on our website to improve user experience. Through your browser settings, you can have your computer warn you each time a cookie is being sent, or you can turn off all cookies.</p>
+        </div>
+        <div class="mb-4">
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Third-Party Disclosure</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">In addition, we do not sell, trade, or transfer your personal information to outside parties without your consent (unless necessary to provide our services, e.g., payment processors).</p>
+        </div>
+        <div class="mb-4">
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Your Rights</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">You should have the right of access to, correct or delete your personal information. If you wish to exercise these rights, please give notice to us by contacting us at <a href="mailto:hello@runmax.co.uk" class="font-inter-semibold text-decoration-none text-slate-900">hello@runmax.co.uk</a>.</p>
+        </div>
+        <div class="mb-4">
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Changes to This Policy</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">It may be that we update this Privacy Policy from time to time. We will notify you by way of a notice to the email address you have provided to us or a notice on our Site, of any significant changes in the manner in which we will treat your personal information.</p>
+            <p>&nbsp;</p>
+        </div>
+        <h4 class="text-xl text-slate-900 font-inter-regular">Please forward any questions regarding this policy to <a href="mailto:hello@runmax.co.uk" class="font-inter-semibold text-decoration-none text-slate-900">hello@runmax.co.uk</a></h4>
+    </div>
+</section>
+
+{{-- <section class="get-in-touch py-5 bg-slate-100">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="text-slate-900 text-4xl-mob font-bebas mb-lg-0 text-center text-lg-start mb-3">get in touch</h2>
+            </div>
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <input type="text" placeholder="enter your email" class="text-sm-mob font-hubot font-medium text-white text-2xl rounded-pill border-0 w-100">
+                    <a href="javascript:;" class="button-light position-absolute translate-middle-y top-50">Subscribe</a>
                 </div>
             </div>
         </div>
     </div>
-</section>
-<!-- Breadcrumb Section End -->
-
-<!-- About Section Begin -->
-<section class="about spad privacy-section">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-lg-10">
-                <div class="blog__details__content">
-                    <div class="blog__details__text">
-                        <p>Privacy protection is our top priority at Skootz. The information contained in this Privacy Policy explains how we collect, use and discloses your information on the website including any other media form or mobile application made available by us.</p>
-                    </div>
-
-                    <h5 >Information We Collect</h5>
-                    <p >We may collect personal information from you in various ways, including when you:</p>
-                    <ul style="padding:revert;font-size: 15px;font-family: 'Nunito Sans', sans-serif;color: #3d3d3d;font-weight: 400;line-height: 25px; margin: 0 0 15px 0;">
-                        <li>	Register on our site</li>
-                        <li>	Place an order</li>
-                        <li>	Subscribe to our newsletter</li>
-                        <li>	Fill out a form </li>
-                    </ul>
-                    <p></p>
-                    <h5 >The types of information we may collect include:</h5><p></p>
-                    <ul style="padding:revert;font-size: 15px;font-family: 'Nunito Sans', sans-serif;color: #3d3d3d;font-weight: 400;line-height: 25px; margin: 0 0 15px 0;">
-                        <li>	Name</li>
-                       <li> Email address</li>
-                        <li>	Phone number </li>
-                        <li>	Shipping and billing address</li>
-                       <li>	Account related details (Name, Email, Phone, PayPal address, Credit Card number, Expiry date, State, Address)</li>
-                    </ul>
-                   
-
-                    <p></p>
-                    <h5 >How We Use Your Information</h5>
-                    <p >We use the information we collect for the following purposes:</p>
-                 
-                    <ul style="padding:revert;font-size: 15px;font-family: 'Nunito Sans', sans-serif;color: #3d3d3d;font-weight: 400;line-height: 25px; margin: 0 0 15px 0;">
-                        <li>It is necessary to process transactions and manage orders.</li>
-                       <li> For improving its customer service to answer inquiries</li>
-                        <li>For purposes of sending periodic emails about your order or other products and services;</li>
-                        <li>We use it to personalize user experience and improve our site as a whole.</li>
-                      
-                    </ul>
-                   <p> </p>
-                    <h5 >Data Protection</h5>
-                    <p >There are different security steps that we take in order to keep your personal information secure. All your data is stored on secure servers and only accessible through authorized personnel.</p>
-
-                    <h5 >Cookies</h5>
-                    <p >Cookies are used on our website to improve user experience. Through your browser settings, you can have your computer warn you each time a cookie is being sent, or you can turn off all cookies.</h5>
-
-                  
-                    <h5 >Third-Party Disclosure</h5>
-                    <p >In addition, we do not sell, trade, or transfer your personal information to outside parties without your consent (unless necessary to provide our services, e.g., payment processors).</p>
-
-                    <h5 >Your Rights</h5>
-                    <p >You should have the right of access to, correct or delete your personal information. If you wish to exercise these rights, please give notice to us by contacting us at hello@runmax.com.</p>
-
-                    <h5 >Changes to This Policy</h5>
-                    <p >It may be that we update this Privacy Policy from time to time. We will notify you by way of a notice to the email address you have provided to us or a notice on our Site, of any significant changes in the manner in which we will treat your personal information.</p>
-                    <p >&nbsp;</p>
-                    <p >Please forward any questions regarding this policy to hello@runmax.com.</p>
-
-                   
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- About Section End -->
-
+</section> --}}
 
 @endsection
