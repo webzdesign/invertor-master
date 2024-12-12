@@ -25,7 +25,7 @@
                     <path d="M9 18.5C9 18.5 15 14.0811 15 12.5C15 10.9188 9 6.5 9 6.5" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </li>
-            <li class="font-inter-regular text-xl text-decoration-none text-gray-500">{{ $product->name }}</li>
+            <li class="font-inter-regular text-xl text-decoration-none text-slate-900">{{ $product->name }}</li>
         </ul>
     </div>
 </section>
@@ -51,11 +51,11 @@
                                     <path d="M7.5 11H14.5M11 7.5V14.5" stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>                                    
                             </button>
-                            <button class="zoom-btn d-flex align-items-center justify-content-center border-0 bg-slate-100 rounded-pill">
+                            {{-- <button class="zoom-btn d-flex align-items-center justify-content-center border-0 bg-slate-100 rounded-pill">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M3 8.7998C3 6.03838 5.23858 3.7998 8 3.7998C9.40389 3.7998 10.6726 4.74712 11.5808 5.78333C11.8003 6.03375 12.1997 6.03375 12.4192 5.78333C13.3274 4.74712 14.5961 3.7998 16 3.7998C18.7614 3.7998 21 6.03838 21 8.7998C21 12.8817 15.9642 17.5713 13.4264 19.6755C12.5922 20.3672 11.4078 20.3672 10.5736 19.6755C8.03577 17.5713 3 12.8817 3 8.7998Z" stroke="#5D5D5D" stroke-width="1.5"/>
-                                </svg>                                 
-                            </button>
+                                </svg>
+                            </button> --}}
                         </div>
                     </div>
                     <div class="slider slider-nav">

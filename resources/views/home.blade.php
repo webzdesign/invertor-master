@@ -9,63 +9,66 @@
 <section class="hero bg-slate-100">
     <div class="container">
         <div class="owl-carousel hero__slider">
-            <div class="owl-item-hero">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-8 left-slide">
-                            @php
-                                $breaks = array("<br />","<br>","<br/>");
-                                $p_description = str_ireplace($breaks, "", $slider_product->description);
-                                if( mb_strlen($p_description) > 70 ){
-                                    $p_description = mb_strimwidth($p_description, 0, 70, '...');
-                                }
-                                $p_name = str_ireplace($breaks, "", $slider_product->name);
-                                if( mb_strlen($p_name) > 20 ){
-                                    $p_name = mb_strimwidth($p_name, 0, 20, '...');
-                                }
-                                if( $slider_product->unique_number == '013' ){
-                                    $p_description = 'Your dream of getting an electric scooter is just 1 step away';
-                                }
-                                $slider_yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=y1pFEns95QWdhO-W';
-                            @endphp
-                        <h1 class="fadeItem text-slate-900 font-bebas d-none d-lg-block"><a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $slider_product->slug) }}">{{ $p_name }}</a></h1>
-                        <p class="fadeItem text-gray-500 font-inter-regular text-lg my-4 text-lg-start text-center mx-auto mx-lg-0">{{ $p_description }}</p>
-                        <h2 class="fadeItem text-lg-start text-center">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($slider_product->web_sales_price, 2) }}</h2>
-                        <a href="javascript:void(0);" class="fadeItem order-btn mx-auto mx-lg-0 bg-slate-900 d-flex align-items-center justify-content-between rounded-pill ps-3 pe-2 mt-5 text-decoration-none text-white font-semibold text-lg mb-4 AddToCartBtn eb_OrderNowBtn" data-pid="{{encrypt($slider_product->id)}}">
-                            Order Now 
-                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="40" height="40" rx="20" fill="#F3F3F3"/>
-                                <path d="M12 20H28M28 20L22 14M28 20L22 26" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>                                            
-                        </a>
-                    </div>
-                    <div class="col-xl-6 col-lg-4 right-slide">
-                        <div class="d-lg-flex align-items-start text-center justify-content-between position-relative">
-                            <h1 class="text-slate-900 font-bebas d-lg-none">{{ $p_name }}</h1>
-                            <div class="slider-image">
-                                <a href="{{ route('productDetail', $slider_product->slug) }}">
-                                    <img src="{{ env('APP_Image_URL').'storage/product-images/' . $slider_product->images->first()->name }}" alt="{{ $p_name }}">
-                                </a>
-                            </div>
-                            <div class="arrow position-absolute">
-                                <img src="{{ asset( 'assets/images/Arrow.png' ) }}" alt="arrow">
-                            </div>
-                            <div class="img-video overflow-hidden rounded-3xl position-relative cursor-pointer">
-                                <img src="{{ asset( 'assets/images/slider2.png' ) }}" alt="bike">
-                                <div class="left-50 position-absolute top-50 translate-middle sz_youtube_video_btn" data-youtubeUrl="{{ $slider_yt_url }}">
-                                    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="2" y="2" width="48" height="48" rx="24" fill="#FEFEFE"/>
-                                        <rect x="1" y="1" width="50" height="50" rx="25" stroke="white" stroke-opacity="0.24" stroke-width="2"/>
-                                        <path d="M36.5 26C36.5006 26.2546 36.4353 26.5051 36.3105 26.727C36.1856 26.949 36.0055 27.1348 35.7875 27.2665L22.28 35.5297C22.0523 35.6691 21.7914 35.7452 21.5244 35.7502C21.2575 35.7551 20.994 35.6887 20.7613 35.5578C20.5307 35.4289 20.3387 35.2409 20.2049 35.0132C20.0711 34.7855 20.0004 34.5263 20 34.2622V17.7378C20.0004 17.4737 20.0711 17.2144 20.2049 16.9867C20.3387 16.759 20.5307 16.5711 20.7613 16.4422C20.994 16.3112 21.2575 16.2448 21.5244 16.2498C21.7914 16.2547 22.0523 16.3308 22.28 16.4703L35.7875 24.7334C36.0055 24.8651 36.1856 25.051 36.3105 25.2729C36.4353 25.4949 36.5006 25.7453 36.5 26Z" fill="#080707"/>
-                                    </svg>                                                    
+            @foreach ($Products as $slider_product)
+                <div class="owl-item-hero">
+                    <div class="row align-items-center">
+                        <div class="col-xl-6 col-lg-8 left-slide">
+                                @php
+                                    $breaks = array("<br />","<br>","<br/>");
+                                    $p_description = str_ireplace($breaks, "", $slider_product->description);
+                                    if( mb_strlen($p_description) > 70 ){
+                                        $p_description = mb_strimwidth($p_description, 0, 70, '...');
+                                    }
+                                    $p_name = str_ireplace($breaks, "", $slider_product->name);
+                                    if( mb_strlen($p_name) > 20 ){
+                                        $p_name = mb_strimwidth($p_name, 0, 20, '...');
+                                    }
+                                    if( $slider_product->unique_number == '013' ){
+                                        $p_description = 'Your dream of getting an electric scooter is just 1 step away';
+                                    }
+                                    $slider_yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=y1pFEns95QWdhO-W';
+                                @endphp
+                            <h1 class="fadeItem text-slate-900 font-bebas d-none d-lg-block"><a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $slider_product->slug) }}">{{ $p_name }}</a></h1>
+                            <p class="fadeItem text-gray-500 font-inter-regular text-lg my-4 text-lg-start text-center mx-auto mx-lg-0">{{ $p_description }}</p>
+                            <h2 class="fadeItem text-lg-start text-center">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($slider_product->web_sales_price, 2) }}</h2>
+                            <a href="javascript:void(0);" class="fadeItem order-btn mx-auto mx-lg-0 bg-slate-900 d-flex align-items-center justify-content-between rounded-pill ps-3 pe-2 mt-5 text-decoration-none text-white font-semibold text-lg mb-4 AddToCartBtn eb_OrderNowBtn" data-pid="{{encrypt($slider_product->id)}}">
+                                Order Now 
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="20" fill="#F3F3F3"/>
+                                    <path d="M12 20H28M28 20L22 14M28 20L22 26" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                            
+                            </a>
+                        </div>
+                        <div class="col-xl-6 col-lg-4 right-slide">
+                            <div class="d-lg-flex align-items-start text-center justify-content-between position-relative">
+                                <h1 class="text-slate-900 font-bebas d-lg-none">{{ $p_name }}</h1>
+                                <div class="slider-image">
+                                    <a href="{{ route('productDetail', $slider_product->slug) }}">
+                                        <img src="{{ env('APP_Image_URL').'storage/product-images/' . $slider_product->images->first()->name }}" alt="{{ $p_name }}">
+                                    </a>
                                 </div>
-                                <div class="text-white font-inter-regular position-absolute bottom-0 mb-4 w-100 text-center">
-                                    110kg Weight limit
+                                <div class="arrow position-absolute">
+                                    <img src="{{ asset( 'assets/images/Arrow.png' ) }}" alt="arrow">
+                                </div>
+                                <div class="img-video overflow-hidden rounded-3xl position-relative cursor-pointer">
+                                    <img src="{{ asset( 'assets/images/slider2.png' ) }}" alt="bike">
+                                    <div class="left-50 position-absolute top-50 translate-middle sz_youtube_video_btn" data-youtubeUrl="{{ $slider_yt_url }}">
+                                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="2" y="2" width="48" height="48" rx="24" fill="#FEFEFE"/>
+                                            <rect x="1" y="1" width="50" height="50" rx="25" stroke="white" stroke-opacity="0.24" stroke-width="2"/>
+                                            <path d="M36.5 26C36.5006 26.2546 36.4353 26.5051 36.3105 26.727C36.1856 26.949 36.0055 27.1348 35.7875 27.2665L22.28 35.5297C22.0523 35.6691 21.7914 35.7452 21.5244 35.7502C21.2575 35.7551 20.994 35.6887 20.7613 35.5578C20.5307 35.4289 20.3387 35.2409 20.2049 35.0132C20.0711 34.7855 20.0004 34.5263 20 34.2622V17.7378C20.0004 17.4737 20.0711 17.2144 20.2049 16.9867C20.3387 16.759 20.5307 16.5711 20.7613 16.4422C20.994 16.3112 21.2575 16.2448 21.5244 16.2498C21.7914 16.2547 22.0523 16.3308 22.28 16.4703L35.7875 24.7334C36.0055 24.8651 36.1856 25.051 36.3105 25.2729C36.4353 25.4949 36.5006 25.7453 36.5 26Z" fill="#080707"/>
+                                        </svg>                                                    
+                                    </div>
+                                    <div class="text-white font-inter-regular position-absolute bottom-0 mb-4 w-100 text-center">
+                                        110kg Weight limit
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                @break
+            @endforeach
         </div>
         <div class="spec border border-gray-500 rounded-lg py-4 mt-5">
             <ul class="d-flex align-items-center flex-wrap m-0 py-0 px-3">

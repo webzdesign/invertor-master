@@ -18,7 +18,7 @@
                     <path d="M9 18.5C9 18.5 15 14.0811 15 12.5C15 10.9188 9 6.5 9 6.5" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </li>
-            <li class="font-inter-regular text-xl text-decoration-none text-gray-500">Refund policy</li>
+            <li class="font-inter-regular text-xl text-decoration-none text-slate-900">Refund policy</li>
         </ul>
     </div>
 </section>

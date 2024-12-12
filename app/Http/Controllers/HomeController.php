@@ -25,7 +25,7 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $Products = Product::with('images')->inRandomOrder()->limit(2)->get();
+        $Products = Product::with('images')->orderByRaw("FIELD(id, 13) DESC")->limit(2)->get();
         $tuya_d8_url = '';
         if( !empty($Products) ){
             foreach ($Products as $product) {
@@ -34,8 +34,7 @@ class HomeController extends Controller
                 }
             }
         }
-        $slider_product = Product::with('images')->where('id', 13)->first();
-        return view('home', compact('Products', 'slider_product', 'tuya_d8_url'));
+        return view('home', compact('Products', 'tuya_d8_url'));
     }
 
     public function shop(Request $request)

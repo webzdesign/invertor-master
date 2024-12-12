@@ -53,10 +53,10 @@
                     <a href="{{ route( 'privacy-policy' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Privacy</a>
                 </li>
                 <li>
-                    <a href="{{ route('refund-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Refund</a>
+                    <a href="{{ route('shipping-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Shipping</a>
                 </li>
                 <li>
-                    <a href="{{ route('shipping-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Shipping</a>
+                    <a href="{{ route('refund-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Refund</a>
                 </li>
             </ul>
             <div class="text-white font-inter-regular text-center text-lg-start my-4 my-lg-0">© {{ date("Y") }} Copyright By eBike</div>
