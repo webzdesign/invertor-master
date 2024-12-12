@@ -192,6 +192,9 @@ body.mobile-nav-active header #mobile-nav{
   width: 16px;
   height: 10px;
 }
+.customer img.avatar{
+  display: inline-block;
+}
 .hero .left-slide h1{
   font-size: 120px;
   line-height: 110px;
@@ -269,6 +272,15 @@ body.mobile-nav-active header #mobile-nav{
 }
 .product .top-content p{
   max-width: 380px;
+}
+#imgZoomModal .modal-body{
+  height: calc(100vh - 100px);
+  display: flex;
+}
+#imgZoomModal .modal-body img{
+  max-height: 100%;
+  max-width: 100%;
+  margin: auto;
 }
 
 /* premier */
@@ -601,83 +613,6 @@ footer .social-links li a{
 #addOrder .error{
   color: red;
 }
-
-/* popup modal css START */
-.modal#addToCartModal .modal-content, .modal#statusErrorsModal .modal-content {
-	border-radius: 20px;
-}
-.modal#addToCartModal .modal-content svg, .modal#statusErrorsModal .modal-content svg {
-	width: 100px;
-	display: block;
-	margin: 0 auto;
-}
-.modal#addToCartModal .modal-content .path, .modal#statusErrorsModal .modal-content .path {
-	stroke-dasharray: 1000;
-	stroke-dashoffset: 0;
-}
-.modal#addToCartModal .modal-content .path.circle, .modal#statusErrorsModal .modal-content .path.circle {
-	-webkit-animation: dash 0.9s ease-in-out;
-	animation: dash 0.9s ease-in-out;
-}
-.modal#addToCartModal .modal-content .path.line, .modal#statusErrorsModal .modal-content .path.line {
-	stroke-dashoffset: 1000;
-	-webkit-animation: dash 0.95s 0.35s ease-in-out forwards;
-	animation: dash 0.95s 0.35s ease-in-out forwards;
-}
-.modal#addToCartModal .modal-content .path.check, .modal#statusErrorsModal .modal-content .path.check {
-	stroke-dashoffset: -100;
-	-webkit-animation: dash-check 0.95s 0.35s ease-in-out forwards;
-	animation: dash-check 0.95s 0.35s ease-in-out forwards;
-}
-
-@-webkit-keyframes dash {
-	0% {
-		stroke-dashoffset: 1000;
-	}
-	100% {
-		stroke-dashoffset: 0;
-	}
-}
-@keyframes dash { 
-	0% {
-		stroke-dashoffset: 1000;
-	}
-	100%{
-		stroke-dashoffset: 0;
-	}
-}
-@-webkit-keyframes dash { 
-	0% {
-		stroke-dashoffset: 1000;
-	}
-	100% {
-		stroke-dashoffset: 0;
-	}
-}
-@keyframes dash { 
-	0% {
-		stroke-dashoffset: 1000;}
-	100% {
-		stroke-dashoffset: 0;
-	}
-}
-@-webkit-keyframes dash-check { 
-	0% {
-		stroke-dashoffset: -100;
-	}
-	100% {
-		stroke-dashoffset: 900;
-	}
-}
-@keyframes dash-check {
-	0% {
-		stroke-dashoffset: -100;
-	}
-	100% {
-		stroke-dashoffset: 900;
-	}
-}
-/* popup modal css END */
 #videoModal.modal .btn-close {
   position: absolute;
   top: -20px;
@@ -699,4 +634,49 @@ footer .social-links li a{
 }
 .linear-banner{
   height: 280px;
+}
+.sz_youtube_video_btn svg:hover > rect:first-child,
+.sz_youtube_video_btn svg:hover g path {
+  fill: var(--slate-200);
+}
+.sz_alert{
+  position: fixed;
+  top: 90px;
+  right: 0px;
+  background: #ECFFEC;
+  border: 0;
+  box-shadow: 0px 0px 32px 0px #5555553D;
+  text-align: center;
+  width: 350px;
+  z-index: 99;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.fade-in-right {
+  animation-name: fadeInRight;
+}
+.fade-out-left {
+  animation-name: fadeOutLeft;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
 }

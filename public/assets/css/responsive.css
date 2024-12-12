@@ -28,7 +28,7 @@
   .why-choose .right-side {
     padding: 50px;
   }
-  .why-choose .left-side label {
+  .why-choose .left-side .sz_tuya_d8_btn {
     left: 50%;
   }
   .why-choose .right-side .row{
@@ -296,11 +296,8 @@
     font-size: 48px;
     line-height: 56px;
   }
-  .why-choose .left-side label {
+  .why-choose .left-side .sz_tuya_d8_btn {
     padding: 11px 30px;
-  }
-  .product .pro-img{
-    width: 100%;
   }
   .premier {
     padding: 40px 0;
@@ -336,6 +333,16 @@
   }
   .product-detail .slider-nav .thumb-img {
     height: 70px;
+  }
+  #imgZoomModal .modal-body {
+    height: calc(100vh - 50px);
+  }
+  .sz_alert{
+    width: 100%;
+    padding: 6px;
+    border-radius: 0;
+    top: 0;
+    z-index: 99;
   }
 }
 @media (max-width:400px) {

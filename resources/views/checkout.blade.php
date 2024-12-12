@@ -38,7 +38,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-check mb-3 p-0">
                                         <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="first_name">Fist Name</label>
-                                        <input type="text" class="form-control" name="first_name" id="first_name" value="{{ old('first_name') }}">
+                                        <input type="text" class="form-control sz_rmv_special_character" name="first_name" id="first_name" value="{{ old('first_name') }}">
                                         @if ( $errors->has( 'first_name' ) )
                                             <span class="text-danger error">{{ $errors->first('first_name') }}</span>
                                         @endif
@@ -47,7 +47,7 @@
                                 <div class="col-sm-6">
                                     <div class="form-check mb-3 p-0">
                                         <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="last_name">Last Name</label>
-                                        <input type="text" class="form-control" name="last_name" id="last_name" value="{{ old('last_name') }}">
+                                        <input type="text" class="form-control sz_rmv_special_character" name="last_name" id="last_name" value="{{ old('last_name') }}">
                                         @if ( $errors->has( 'last_name' ) )
                                             <span class="text-danger error">{{ $errors->first('last_name') }}</span>
                                         @endif
@@ -56,14 +56,14 @@
                             </div>
                             <div class="form-check mb-3 p-0">
                                 <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="address">Address</label>
-                                <input type="text" class="form-control" name="address" id="address" value="{{ old('address') }}">
+                                <input type="text" class="form-control sz_rmv_special_character" name="address" id="address" value="{{ old('address') }}">
                                 @if ( $errors->has('address') )
                                     <span class="text-danger error">{{ $errors->first('address') }}</span>
                                 @endif
                             </div>
                             <div class="form-check mb-3 p-0">
                                 <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="house_no">House Number</label>
-                                <input type="text" class="form-control" name="house_no" id="house_no" value="{{ old('house_no') }}">
+                                <input type="text" class="form-control sz_rmv_special_character" name="house_no" id="house_no" value="{{ old('house_no') }}">
                                 @if ( $errors->has('house_no') )
                                     <span class="text-danger error">{{ $errors->first('house_no') }}</span>
                                 @endif
@@ -75,7 +75,7 @@
                                         <input type="hidden" id="lat" name="lat">
                                         <input type="hidden" id="long" name="long">
                                         <input type="hidden" id="range" name="range">
-                                        <input type="text" class="form-control" name="post_code" id="post_code" value="{{ old('post_code') }}">
+                                        <input type="text" class="form-control sz_rmv_special_character" name="post_code" id="post_code" value="{{ old('post_code') }}">
                                         <span id="post_code_custom_error" class="error" style=""></span>
                                         @if ( $errors->has('post_code') )
                                             <span class="text-danger error">{{ $errors->first('post_code') }}</span>
@@ -312,6 +312,9 @@ $(document).ready(function(){
             });
         }
     });
+    jQuery.validator.addMethod("alphanumeric", function(value, element) {
+        return this.optional(element) || /^\w+$/i.test(value);
+    }, "Please use only alphanumeric or alphabetic characters");
 
     $("#addOrder").validate({
         rules: {
@@ -319,22 +322,27 @@ $(document).ready(function(){
                 required: true,
                 minlength: 2,
                 maxlength: 30,
+                alphanumeric: true,
             },
             last_name: {
                 required: true,
                 minlength: 2,
                 maxlength: 30,
+                alphanumeric: true,
             },
             address: {
                 required: true,
+                alphanumeric: true,
             },
             house_no: {
                 required: true,
                 number: true,
+                alphanumeric: true,
             },
             post_code: {
                 required: true,
                 maxlength:8,
+                alphanumeric: true,
             },
             phone: {
                 required: true,
@@ -378,6 +386,11 @@ $(document).ready(function(){
                 form.submit();
             }
         }
+    });
+    $(document).on('input', '.sz_rmv_special_character', function() {
+        $(this).val(function(_, value) {
+            return value.replace(/[^a-zA-Z0-9\s]/g, '');
+        });
     });
 });
 </script>

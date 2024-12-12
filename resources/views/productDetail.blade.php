@@ -2,6 +2,10 @@
 
 @section('content')
 
+@php
+    $cart_products = session()->get('cart', []);
+@endphp
+
 <section class="breadcrumb mb-0 bg-slate-100 py-3 d-none d-md-block">
     <div class="container">
         <ul class="p-0 m-0 d-flex align-items-center flex-wrap gap-3">
@@ -116,7 +120,16 @@
                         <span class="sz_product_quantity">1</span>
                         <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
                     </div>
-                    <button class="button-dark AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">Add to cart</button>
+
+                    <button class="button-dark AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">
+                        Add to cart
+                        <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
+                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
+                                <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </button>
                 </div>
                 <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
                 <div class="accordion mt-4" id="accordionExample">
@@ -281,15 +294,24 @@
         <div class="row mt-sm-5 mt-3">
             @foreach ($othersProducts as $o_product)
                 <div class="col-md-6 mb-5">
-                    <div class="product-card border text-center p-4 border-slate-200 rounded-3xl">
-                        <a href="{{ route('productDetail', $o_product->slug) }}">
+                    <a href="{{ route('productDetail', $o_product->slug) }}">
+                        <div class="product-card border text-center p-4 border-slate-200 rounded-3xl">
                             <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product->images->first()->name }}" alt="{{ $o_product->name }}">
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                     <div class="text-md-start text-center">
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4">{{ $o_product->name }}</h2>
                         <h2 class="text-lg text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($o_product->web_sales_price, 2) }}</h2>
-                        <a href="javascript:;" class="button-dark mt-3 AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">Add to cart</a>
+
+                        <button class="button-dark mt-3 AddToCartBtn" data-pid="{{ encrypt( $o_product->id ) }}">
+                            Add to cart
+                            <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$o_product->id]) ? 'd-none' : '' }}">
+                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
+                                    <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
                         <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
                     </div>
                 </div>
@@ -317,8 +339,8 @@
 <div class="modal fade" id="imgZoomModal" tabindex="-1" aria-labelledby="imgZoomModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-slate-200">
-            <div class="modal-body">
-                <img src="{{ asset('/assets/images/pro1.png') }}" alt="bike" width="100%">
+            <div class="modal-body text-center">
+                <img src="{{ asset('/assets/images/pro1.png') }}" alt="bike">
             </div>
         </div>
     </div>

@@ -2,6 +2,10 @@
 
 @section('content')
 
+@php
+    $cart_products = session()->get('cart', []);
+@endphp
+
 <section class="strore-banner p-2 position-relative">
     <img src="{{ asset( 'assets/images/store-banner.png' ) }}" alt="banner" width="100%" class="rounded-3xl d-none d-sm-block">
     <img src="{{ asset( 'assets/images/store-banner-mob.png' ) }}" alt="banner" width="100%" class="d-sm-none">
@@ -39,15 +43,24 @@
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-md-6 mb-4 mb-sm-5">
-                    <div class="product-card border text-center p-4 border-slate-200 rounded-3xl">
-                        <a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $product->slug) }}">
+                    <a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $product->slug) }}">
+                        <div class="product-card border text-center p-4 border-slate-200 rounded-3xl">
                             <img class="pro-img sz_product_image mw-100" src="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name}}" alt="{{ $product->name }}">
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                     <div class="text-md-start text-center">
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4"><a class="text-gray-950 text-decoration-none" href="{{ route('productDetail', $product->slug) }}">{{ $product->name }}</a></h2>
                         <h2 class="text-lg text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h2>
-                        <a href="javascript:void(0);" class="button-dark mt-3 AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">Add to cart</a>
+
+                        <button class="button-dark AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">
+                            Add to cart
+                            <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
+                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
+                                    <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                        </button>
                         <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
                     </div>
                 </div>

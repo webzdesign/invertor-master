@@ -7,19 +7,18 @@
     <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0 text-6xl text-4xl-mob">Privacy Policy</h2>
 </section>
 
-<section class="bg-slate-100 py-2 d-none d-md-block">
+<section class="breadcrumb mb-0 bg-slate-100 py-3 d-none d-md-block">
     <div class="container">
-        <ul class="m-0 p-0 d-flex align-items-center gap-3">
+        <ul class="p-0 m-0 d-flex align-items-center flex-wrap gap-3">
             <li>
-                <a href="{{ route('home') }}" class="text-decoration-none text-slate-900 text-xl font-inter-medium">Home</a>
+                <a href="{{ route('home') }}" class="text-slate-900 font-inter-medium text-xl text-decoration-none">Home</a>
             </li>
             <li>
-                <svg width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 13.5C1 13.5 6.99999 9.0811 7 7.5C7.00001 5.9188 1 1.5 1 1.5" fill="#292929"/>
-                    <path d="M1 13.5C1 13.5 6.99999 9.0811 7 7.5C7.00001 5.9188 1 1.5 1 1.5" stroke="#F3F3F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18.5C9 18.5 15 14.0811 15 12.5C15 10.9188 9 6.5 9 6.5" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </li>
-            <li class="text-slate-900 text-xl font-inter-medium">Privacy policy</li>
+            <li class="font-inter-regular text-xl text-decoration-none text-gray-500">Privacy policy</li>
         </ul>
     </div>
 </section>

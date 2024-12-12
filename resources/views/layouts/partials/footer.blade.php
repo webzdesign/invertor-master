@@ -53,19 +53,22 @@
                     <a href="{{ route( 'privacy-policy' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Privacy</a>
                 </li>
                 <li>
-                    <a href="javascript:;" class="text-decoration-none text-white font-inter-regular text-sm-mob">Cookies</a>
+                    <a href="{{ route('refund-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Refund</a>
                 </li>
                 <li>
-                    <a href="javascript:;" class="text-decoration-none text-white font-inter-regular text-sm-mob">Legal</a>
-                </li>
-                <li>
-                    <a href="javascript:;" class="text-decoration-none text-white font-inter-regular text-sm-mob">Recalls</a>
+                    <a href="{{ route('shipping-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Shipping</a>
                 </li>
             </ul>
             <div class="text-white font-inter-regular text-center text-lg-start my-4 my-lg-0">© {{ date("Y") }} Copyright By eBike</div>
         </div>
     </div>
 </footer>
+<div class="sz_alert alert alert-success alert-dismissible alert-fade pe-0 fade-out-left" role="alert">
+    Add to cart Successfully
+    <svg class="mb-1 ms-2" width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.5 9C1.5 9 3 9 5 12.5C5 12.5 10.5588 3.33333 15.5 1.5" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</div>
 
 <script src="{{ asset( 'assets/js/jquery.min.js' ) }}"></script>
 <script src="{{ asset( 'assets/js/bootstrap.min.js' ) }}"></script>

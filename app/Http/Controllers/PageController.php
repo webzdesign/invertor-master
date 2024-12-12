@@ -52,8 +52,4 @@ class PageController extends Controller
             abort(404);
         }
     }
-    public function faq()
-    {
-        return view('pages.faq');
-    }
 }

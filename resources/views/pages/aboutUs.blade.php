@@ -4,7 +4,7 @@
 
 <section class="strore-banner p-2 position-relative">
     <img src="{{ asset('assets/images/about-banner.png') }}" alt="banner" width="100%" class="rounded-3xl d-none d-sm-block">
-    <img src="{{ asset('assets/images/about-banner-mob.png') }}" alt="banner" width="100%" class="d-sm-none h-100">
+    <img src="{{ asset('assets/images/about-banner-mob.png') }}" alt="banner" width="100%" class="d-sm-none">
     <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">About Skootz</h2>
 </section>
  
@@ -58,161 +58,167 @@
             </div>
             <div class="col-xl-8">
                 <div class="accordion" id="accordionExample">
-                    <div class="accordion-item border-0 rounded-0 pb-sm-4 pb-3 pt-2">
+                    <div class="accordion-item border-0 rounded-0 pb-4 pt-2">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button bg-transparent shadow-none text-slate-900 font-hubot text-2xl font-semibold p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <div class="d-flex align-items-center gap-2">
-                                    What types of products does Skootz offer?
+                                    Electrical Scooters, what do you offer?
                                 </div>
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
-                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">We specialize in premium e-scooters and e-bikes designed for a smooth and eco-friendly ride. Our products are built to last, combining cutting-edge technology with sleek designs.</p>
+                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">
+                                    Electric scooters for teens and adults are usually available with us. They come in a number of different flavors with very lightweight models and innovative designs.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item border-0 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 <div class="d-flex align-items-center gap-2">
-                                    <div class="d-flex align-items-center gap-2">
-                                        Are Skootz e-scooters and e-bikes beginner-friendly?
-                                    </div>
+                                    If you provide repairs on electric scooters?
                                 </div>
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
-                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">Absolutely! Our products are suitable for riders of all experience levels. With features like cruise control, GPS, and easy-to-use mobile app integration, beginners can enjoy a safe and enjoyable experience.</p>
+                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">
+                                    Not only do we service and repair all makes and models of electric scooters, but we also have shops in Edinburgh and Glasgow. Your scooter will always remain as good as new.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item border-0 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 <div class="d-flex align-items-center gap-2">
-                                    <div class="d-flex align-items-center gap-2">
-                                        Do Skootz products come with warranties?
-                                    </div>
+                                    What do I have to do to get the correct electric scooter?
                                 </div>
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
-                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">Yes, all Skootz products come with a standard warranty to ensure peace of mind. For specific warranty details, please refer to the product manual or contact our support team.</p>
+                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">
+                                    When you are thinking of purchasing an electric scooter, we urge you to consider the following factors: battery life, speed, usage, and weight. We’ve also written a blog post containing a more detailed guide on the top five things you need to know before buying an electric scooter.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item border-0 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 <div class="d-flex align-items-center gap-2">
-                                    <div class="d-flex align-items-center gap-2">
-                                        Can I test a Skootz e-scooter or e-bike before buying?
-                                    </div>
+                                    What is a honeycomb tire and why should I give it a try?
                                 </div>
                             </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
-                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">Yes, you can visit our physical stores in Edinburgh or Glasgow to explore our products in person. Our team will assist you in selecting the right model and answering any questions you have.</p>
+                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">
+                                    There's no chance of a flat tire with honeycomb tires because they are puncture proof. They are smooth riding, they require much less maintenance than conventional pneumatic tires.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item border-0 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                                 <div class="d-flex align-items-center gap-2">
-                                    <div class="d-flex align-items-center gap-2">
-                                        What are my payment options with Skootz?
-                                    </div>
+                                    Are your electric scooters sent with a warranty?
                                 </div>
                             </button>
                         </h2>
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
-                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">We offer flexible payment plans through Klarna and Laybuy, making it easier than ever to own a high-quality e-scooter or e-bike.</p>
+                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">
+                                    And yes, we back all of our electric scooters with a manufacturer’s warranty against defects in materials and workmanship. To learn more about the specifics of each model, please visit our website.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item border-0 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingSix">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                                 <div class="d-flex align-items-center gap-2">
-                                    <div class="d-flex align-items-center gap-2">
-                                        Does Skootz offer eco-friendly solutions?
-                                    </div>
+                                    Do you make the (often very expensive) next day delivery available for orders placed online?
                                 </div>
                             </button>
                         </h2>
                         <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
-                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">Yes, we are committed to sustainability! Our e-scooters and e-bikes are designed to reduce emissions and encourage environmentally-friendly travel options.</p>
+                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">
+                                    Yes, we do. We have next day delivery of electric scooters from our site so that you can ride as soon as possible with your new ride.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item border-0 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingSeven">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                                 <div class="d-flex align-items-center gap-2">
                                     <div class="d-flex align-items-center gap-2">
-                                        How can I book maintenance or repair services?
+                                        Can I test a scooter before I buy it?
                                     </div>
                                 </div>
                             </button>
                         </h2>
                         <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
-                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">You can easily schedule maintenance or repairs through our website or by contacting our expert technical support team. We ensure your Skootz products remain in top condition.</p>
+                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">
+                                    Absolutely! Come and test ride our electric scooters in our Edinburgh or Glasgow shops. If we can not find the model right for you, our staff will be more than happy to help you out.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item border-0 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingEight">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
                                 <div class="d-flex align-items-center gap-2">
-                                    <div class="d-flex align-items-center gap-2">
-                                        Are Skootz e-scooters legal to use in the UK?
-                                    </div>
+                                    Which other forms of payment do you take?
                                 </div>
                             </button>
                         </h2>
                         <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
-                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">While privately owned e-scooters are currently permitted on private property, public road use depends on local regulations. Please check the latest UK government guidelines for updates.</p>
+                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">
+                                    We accept payments with credit/debit cards and PayPal. We accept cash both in-store and over the counter for purchases.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item border-0 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingNine">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
                                 <div class="d-flex align-items-center gap-2">
-                                    <div class="d-flex align-items-center gap-2">
-                                        How long does delivery take for online purchases?
-                                    </div>
+                                    Can you use electric scooters when you are not of a certain age?
                                 </div>
                             </button>
                         </h2>
                         <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
-                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">We aim to deliver your Skootz products within 3-5 working days. For urgent orders or specific delivery requests, please contact our customer service team.</p>
+                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">
+                                    Electric scooters can be ridden legally in the UK by those who are at least 14 years of age. However, we would still advise checking local regulations as they are different all over the country.
+                                </p>
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item border-0 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingTen">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-900 text-2xl font-hubot font-semibold p-0 gap-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
                                 <div class="d-flex align-items-center gap-2">
                                     <div class="d-flex align-items-center gap-2">
-                                        What makes Skootz unique in the market?
+                                        But how do I look after my electric scooter?
                                     </div>
                                 </div>
                             </button>
                         </h2>
                         <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
-                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">Skootz stands out by offering high-performance e-scooters and e-bikes with top-notch customer service and convenient payment options. We’re also deeply committed to revolutionizing urban transportation with eco-friendly solutions.</p>
+                                <p class="mb-0 text-gray-500 font-inter-regular text-lg">
+                                    Some tips include looking at tire pressure, maintaining a battery charge, and brake checks. Also, we advise that you bring in your scooter for professional servicing from time to time, so that your scooter is always working in tip top order.
+                                </p>
                             </div>
                         </div>
                     </div>
