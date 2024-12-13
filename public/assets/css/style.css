@@ -613,7 +613,7 @@ footer .social-links li a{
 #addOrder .error{
   color: red;
 }
-#videoModal.modal .btn-close {
+.modal .btn-close {
   position: absolute;
   top: -20px;
   right: -20px;
@@ -629,7 +629,7 @@ footer .social-links li a{
   z-index: 1051;
 }
 
-#videoModal.modal .btn-close:hover {
+.modal .btn-close:hover {
   background-color: #f8f9fa;
 }
 .linear-banner{

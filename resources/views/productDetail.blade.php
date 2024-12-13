@@ -340,6 +340,7 @@
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content border-slate-200">
             <div class="modal-body text-center">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 <img src="{{ asset('/assets/images/pro1.png') }}" alt="bike">
             </div>
         </div>

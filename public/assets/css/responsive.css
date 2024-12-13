@@ -144,7 +144,7 @@
   .store-product {
     padding: 50px 0;
   }
-  #videoModal.modal .btn-close {
+  .modal .btn-close {
     font-size: 10px;
     width: 15px;
     height: 15px;
@@ -334,8 +334,11 @@
   .product-detail .slider-nav .thumb-img {
     height: 70px;
   }
+  #videoModal .modal-body {
+    height: 40vh;
+  }
   #imgZoomModal .modal-body {
-    height: calc(100vh - 50px);
+    height: 70vh;
   }
   .sz_alert{
     width: 100%;
