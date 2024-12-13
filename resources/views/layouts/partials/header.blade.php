@@ -1,6 +1,15 @@
 <div id="preloder">
     <div class="loader"></div>
 </div>
+@php
+    $cart_products = session()->get('cart', []);
+    $subtotal = $total_cart_count = 0;
+    if( !empty($cart_products) ){
+        foreach ($cart_products as $c_product) {
+            $total_cart_count += $c_product['quantity'];
+        }
+    }
+@endphp
 <header class="d-flex align-items-center flex-column justify-content-center position-sticky top-0 bg-white" id="header">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
@@ -40,6 +49,7 @@
                         <path d="M17.5 7.5C17.5 4.46243 15.0376 2 12 2C8.96243 2 6.5 4.46243 6.5 7.5"
                             stroke="#141B34" stroke-width="1.5" />
                     </svg>
+                    <span class="sz_cart-badge">{{ $total_cart_count }}</span>
                 </button>
                 <div id="mobile-nav-toggle" class="d-lg-none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
@@ -80,7 +90,7 @@
                     stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </a>
-        <a href="javascript:;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <a href="javascript:;" class="sz_cart_btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M4.2059 17.0194L3.00234 9.83981C2.82036 8.75428 2.72938 8.21152 3.02074 7.85576C3.31211 7.5 3.84762 7.5 4.91865 7.5H19.7474C20.8184 7.5 21.3539 7.5 21.6453 7.85576C21.9366 8.21152 21.8456 8.75428 21.6637 9.83981L20.4601 17.0194C20.0612 19.3991 19.8617 20.5889 19.0473 21.2945C18.233 22 17.059 22 14.7112 22H9.95483C7.60697 22 6.43304 22 5.61866 21.2945C4.80428 20.5889 4.60482 19.3991 4.2059 17.0194Z"
@@ -88,6 +98,7 @@
                 <path d="M17.833 7.5C17.833 4.46243 15.3706 2 12.333 2C9.29544 2 6.83301 4.46243 6.83301 7.5"
                     stroke="#FEFEFE" stroke-width="1.5" />
             </svg>
+            <span class="sz_cart-badge sz_badge_white">{{ $total_cart_count }}</span>
         </a>
     </div>
     <div class="order-history offcanvas offcanvas-end border-0 p-4" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -99,10 +110,6 @@
                 </svg>
             </button>
         </div>
-        @php
-            $cart_products = session()->get('cart', []);
-            $subtotal = 0;
-        @endphp
         <div class="offcanvas-body p-0 border-top border-gray-300">
             <ul class="p-0 m-0" id="sz_card_popup_products">
                 @if( !empty( $cart_products ) )

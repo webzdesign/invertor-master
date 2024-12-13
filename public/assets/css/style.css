@@ -635,10 +635,6 @@ footer .social-links li a{
 .linear-banner{
   height: 280px;
 }
-.sz_youtube_video_btn svg:hover > rect:first-child,
-.sz_youtube_video_btn svg:hover g path {
-  fill: var(--slate-200);
-}
 .sz_alert{
   position: fixed;
   top: 90px;
@@ -651,6 +647,26 @@ footer .social-links li a{
   z-index: 99;
   animation-duration: 1s;
   animation-fill-mode: forwards;
+}
+.sz_cart_btn{
+  position: relative;
+}
+.sz_cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -7px;
+  font-size: 9px;
+  background-color: #141B34;
+  color: white;
+  border-radius: 50%;
+  font-weight: 700;
+  min-width: 17px;
+  padding: 1px 0;
+  text-align: center;
+}
+.sz_cart-badge.sz_badge_white{
+  background-color: #FFFFFF;
+  color: var(--slate-900);
 }
 .fade-in-right {
   animation-name: fadeInRight;

@@ -112,7 +112,7 @@ class HomeController extends Controller
         session()->put('cart', $cart);
         session()->save();
 
-        $subtotal = 0;
+        $subtotal = $total_cart_count = 0;
         $sz_cart_popup_html = '';
         if( !empty($cart) ){
             foreach ( $cart as $cp_key => $cp_val ) {
@@ -137,11 +137,12 @@ class HomeController extends Controller
                 </li>';
                 $total = $cp_val['price'] * $cp_val['quantity'];
                 $subtotal = $subtotal + $total;
+                $total_cart_count += $cp_val['quantity'];
             }
         }
         $cart_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($subtotal, 2);
 
-        return response()->json([ 'success' => true, 'cart_total' => $cart_total, 'sz_cart_popup_html' => $sz_cart_popup_html ]);
+        return response()->json([ 'success' => true, 'cart_total' => $cart_total, 'total_cart_count' => $total_cart_count, 'sz_cart_popup_html' => $sz_cart_popup_html ]);
     }
 
     public function cartSync(Request $request)
