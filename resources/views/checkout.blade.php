@@ -288,6 +288,7 @@ $(document).ready(function(){
         var post_code = $('#post_code').val();
         var house_no = $('#house_no').val();
         if (post_code != '' && house_no != '' && post_code.length <= 8) {
+            submitStatus = 0;
             $.ajax({
                 url: '{{ route("getAvailableDriver") }}',
                 type: 'POST',
