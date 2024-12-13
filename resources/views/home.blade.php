@@ -72,7 +72,7 @@
         </div>
         <div class="spec border border-gray-500 rounded-lg py-4 mt-5">
             <ul class="d-flex align-items-center flex-wrap m-0 py-0 px-3">
-                <li class="text-center">
+                <li class="text-center d-none d-sm-block">
                     <p class="text-gray-500 m-0">Motor</p>
                     <div class="font-semibold text-lg m-0">350w | 10.4Ah</div>
                 </li>
@@ -107,7 +107,7 @@
             </div>
         </div>
         <div class="col-xxl-8 right-side my-auto">
-            <div class="row">
+            <div class="row mx-4">
                 <div class="col-md-6">
                     <div class="sz_reliable_scooters_sec bg-slate-950 p-4 rounded-3xl h-100 d-flex flex-column justify-content-between">
                         <div class="icon rounded-pill d-flex align-items-center justify-content-center">
