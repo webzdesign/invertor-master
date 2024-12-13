@@ -279,25 +279,25 @@
     margin-top: 10px;
   }
   .hero .left-slide .order-btn {
-    width: 140px;
-    height: 40px;
+    width: 118px;
+    height: 34px;
     margin-top: 20px !important;
-    font-size: 14px !important;
+    font-size: 11px !important;
     padding: 0 5px 0 12px !important;
   }
   .hero .left-slide .order-btn svg{
-    width: 32px;
-    height: 32px;
+    width: 24px;
+    height: 24px;
   }
   .why-choose .right-side {
-    padding: 30px 20px;
+    padding: 40px 20px 80px;
   }
   .why-choose .left-side h2 {
     font-size: 48px;
     line-height: 56px;
   }
   .why-choose .left-side .sz_tuya_d8_btn {
-    padding: 11px 30px;
+    padding: 17px 31px;
   }
   .premier {
     padding: 40px 0;
