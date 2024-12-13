@@ -286,7 +286,7 @@ $(document).ready(function(){
     var submitStatus = 0;
     $('body').on('change', '#post_code', function(e){
         var post_code = $('#post_code').val();
-        var house_no = $('#post_code').val();
+        var house_no = $('#house_no').val();
         if (post_code != '' && house_no != '' && post_code.length <= 8) {
             $.ajax({
                 url: '{{ route("getAvailableDriver") }}',
