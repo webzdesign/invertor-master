@@ -16,7 +16,16 @@
         </main>
 
         @include('layouts.partials.footer')
-
+        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content border-slate-200">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <iframe class="aspect-video sz_youtube_video_iframe" width="100%" height="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script>
             function numberFormat(number, decimals) {
                 number = parseFloat(number);
@@ -45,10 +54,15 @@
                 $(".loader").fadeOut();
                 $("#preloder").delay(200).fadeOut("slow");
 
-                $('body').on('click', '.AddToCartBtn', function(e){       
+                $('body').on('click', '.AddToCartBtn', function(e){
                     e.preventDefault();
                     var pid = $(this).data("pid");
                     var quantity = 1;
+                    if( $('.sz_product_quantity').length > 0 ){
+                        quantity = parseInt($('.sz_product_quantity').text());
+                    }
+                    var isOrderNowbtn = $(this).hasClass("eb_OrderNowBtn");
+                    var $this = $(this);
                     
                     $.ajax({
                         url: '{{ route("cart.add") }}',
@@ -59,17 +73,42 @@
                         },
                         success: function(response) {
                             if (response.success) {
-                                $('.sz_cart_btn').click();
-                                $('#sz_cart_total').html(response.cart_total);
-                                $('#sz_card_popup_products').html(response.sz_cart_popup_html);
+                                if( isOrderNowbtn == true ){
+                                    window.location.href = "{{ route('checkout') }}";
+                                } else {
+                                    $this.find('.sz_add_to_cart_circle').removeClass('d-none');
+                                    $('.sz_alert').removeClass('fade-out-left').addClass('fade-in-right')
+                                    setTimeout(function(){
+                                        $('.sz_alert').removeClass('fade-in-right').addClass('fade-out-left');
+                                    }, 5000);
+                                    $('#sz_cart_total').html(response.cart_total);
+                                    $('#sz_card_popup_products').html(response.sz_cart_popup_html);
+                                    $('.sz_cart-badge').html(response.total_cart_count);
+                                }
                             }
                         },
                         error: function(xhr) {
                             console.error(xhr.responseText);
-                            
                         }
                     });
                     
+                });
+                $(document).on('click', '.sz_remove_cart', function(e){
+                    var pid = $(this).data("pid");
+                
+                    $.ajax({
+                        url: '{{ route("cart.remove") }}',
+                        type: 'POST',
+                        data: {
+                            pid: pid,
+                        },
+                        success: function(response) {
+                            location.reload();
+                        },
+                        error: function(xhr) {
+                            console.error(xhr.responseText);
+                        }
+                    });
                 });
 
                 toggleHeaderClass();
@@ -113,6 +152,16 @@
                 } else if ($("#mobile-nav, #mobile-nav-toggle").length) {
                     $("#mobile-nav, #mobile-nav-toggle").hide();
                 }
+                $(document).on('click', '.sz_add_to_cart_ok_btn', function(e){
+                    $('.sz_cart_btn').click();
+                });
+                $(document).on('click', '.sz_youtube_video_btn', function(e){
+                    $('.sz_youtube_video_iframe').attr( 'src', $(this).attr('data-youtubeUrl') );
+                    $('#videoModal').modal( 'show' );
+                });
+                $(document).on('hide.bs.modal', '#videoModal', function(e){
+                    $('.sz_youtube_video_iframe').attr( 'src', '' );
+                });
             });
         </script>
         @yield('script')

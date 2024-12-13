@@ -28,22 +28,43 @@
   .why-choose .right-side {
     padding: 50px;
   }
-  .why-choose .left-side label {
+  .why-choose .left-side .sz_tuya_d8_btn {
     left: 50%;
   }
   .why-choose .right-side .row{
     max-width: 700px;
     margin: auto;
   }
+  .product-detail .slider-nav .thumb-img{
+    height: 80px;
+  }
 }
 @media (max-width:991px) {
   body{
     padding-bottom: 51px;
   }
+  .why-choose-product{
+    padding: 50px;
+  }
+  .product-detail .slider-nav .thumb-img{
+    height: 100px;
+  }
+  .product-detail .slider-for .pro-img {
+    height: 400px;
+  }
+  .faq {
+    padding: 50px 0;
+  }
+  .checkout .hrLine.min-w-100 {
+    min-width: 20px;
+  } 
+  .map{
+    height: 300px;
+  }
   header #mobile-body-overly {
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 99999;
     top: 0;
     left: 0;
     position: fixed;
@@ -86,6 +107,9 @@
   .hero .spec ul {
     row-gap: 20px;
   }
+  .hero .right-slide .slider-image{
+    margin-left: 0px;
+  }
   .product {
     margin-top: 40px;
   }
@@ -120,14 +144,30 @@
   .store-product {
     padding: 50px 0;
   }
+  #videoModal.modal .btn-close {
+    font-size: 10px;
+    width: 15px;
+    height: 15px;
+    top: -10px;
+    right: -10px;
+  }
 }
 @media (max-width:768px) {
+  .product-detail .slider-nav .thumb-img{
+    height: 80px;
+  }
   .store-product input{
     width: 100%;
   }
+  .why-choose-product {
+      padding: 30px 40px;
+  }
+  .product-detail .slider-nav .slick-list{
+    width: 100%;
+  }
   .strore-banner img{
-    height: 270px;
     object-fit: cover;
+    border-radius: 20px;
   }
   .customer .next-prev-btn {
     height: 100px;
@@ -152,6 +192,10 @@
   }
 }
 @media (max-width:576px) {
+  .text-32px-mob{
+    font-size: 32px !important;
+    line-height: 42px !important;
+  }
   .text-sm-mob{
     font-size: 14px !important;
     line-height: 20px !important;
@@ -159,6 +203,14 @@
   .text-base-mob{
     font-size: 16px !important;
     line-height: 24px !important;
+  }
+  .text-4xl-mob{
+    font-size: 40px !important;
+    line-height: 48px !important;
+  }
+  .text-3xl-mob{
+    font-size: 30px;
+    line-height: 36px;
   }
   .text-lg-mob{
     font-size: 18px !important;
@@ -168,8 +220,42 @@
     font-size: 20px !important;
     line-height: 28px !important;
   }
+  .map {
+    margin: 0 16px 30px;
+  }
+  .blog-details-banner label{
+    background-color: var(--slate-100) !important;
+    color: var(--slate-900) !important;
+  }
+  .blog-details-banner h2 {
+    font-size: 32px;
+    line-height: 42px;
+  }
+  .contactUs .addressTitle{
+    max-width: 300px;
+    margin: auto;
+  }
+  .faq {
+    padding: 50px 0 0;
+  }
+  .why-choose-product .icon-play{
+    width: 72px;
+  }
+  .why-choose-product{
+    padding: 30px 0;
+  }
   .store-product {
     padding: 30px 0;
+  }
+  .get-in-touch input {
+    padding: 0 170px 0 24px;
+    height: 56px;
+  }
+  .get-in-touch .button-light {
+    right: 10px;
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 16px;
   }
   .order-history .offcanvas-body ul li .pro-img {
     width: 80px;
@@ -210,11 +296,8 @@
     font-size: 48px;
     line-height: 56px;
   }
-  .why-choose .left-side label {
+  .why-choose .left-side .sz_tuya_d8_btn {
     padding: 11px 30px;
-  }
-  .product .pro-img{
-    width: 100%;
   }
   .premier {
     padding: 40px 0;
@@ -247,5 +330,24 @@
   }
   footer {
     padding: 30px 0;
+  }
+  .product-detail .slider-nav .thumb-img {
+    height: 70px;
+  }
+  #imgZoomModal .modal-body {
+    height: calc(100vh - 50px);
+  }
+  .sz_alert{
+    width: 100%;
+    padding: 6px;
+    border-radius: 0;
+    top: 0;
+    z-index: 99;
+  }
+}
+@media (max-width:400px) {
+  .button-dark, .button-light {
+    font-size: 16px;
+    padding: 14px 18px;
   }
 }

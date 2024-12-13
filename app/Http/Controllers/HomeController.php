@@ -25,14 +25,22 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $Products = Product::with('images')->inRandomOrder()->limit(2)->get();
-        $slider_product = Product::with('images')->where('id', 13)->first();
-        return view('home', compact('Products', 'slider_product'));
+        $Products = Product::with('images')->orderByRaw("FIELD(id, 13) DESC")->limit(2)->get();
+        $tuya_d8_url = '';
+        if( !empty($Products) ){
+            foreach ($Products as $product) {
+                if( $product['unique_number'] == '012' ){
+                    $tuya_d8_url = route('productDetail', $product->slug);
+                }
+            }
+        }
+        return view('home', compact('Products', 'tuya_d8_url'));
     }
 
     public function shop(Request $request)
     {
        
+        /* // for shop page paginaion
         $perPage = 8;
         $page = 1;
         if (isset($request->page) && $request->page != '') {
@@ -52,7 +60,11 @@ class HomeController extends Controller
 
         $totalPages = ceil($totalProducts / $perPage);
       
-        return view('shop', compact('products', 'totalProducts', 'totalPages', 'page'));
+        return view('shop', compact('products', 'totalProducts', 'totalPages', 'page')); */
+        $products = Product::with('images')->active();
+        $products = $products->get();
+
+        return view('shop', compact('products'));
         
     }
     public function productDetail($slug)
@@ -61,7 +73,7 @@ class HomeController extends Controller
         if (!$product) {
             abort(404);
         }
-        $othersProducts = Product::with('images')->where('id', '!=', $product->id)->limit(4)->get();
+        $othersProducts = Product::with('images')->where('id', '!=', $product->id)->limit(2)->get();
 
         return view('productDetail', compact('product', 'othersProducts'));
     }
@@ -76,10 +88,19 @@ class HomeController extends Controller
         }
         
         if (isset($cart[$product->id])) {
-            $cart[$product->id]['quantity'] += $request->quantity;
+            $total_p_quantity = $cart[$product->id]['quantity'] + $request->quantity;
+            if( $total_p_quantity < 10 ){
+                $cart[$product->id]['quantity'] += $request->quantity;
+            } else {
+                $cart[$product->id]['quantity'] = 10;
+            }
         } else {
+            $total_p_quantity = $request->quantity;
+            if( $total_p_quantity > 10 ){
+                $total_p_quantity = 10;
+            }
             $cart[$product->id] = [
-                'quantity' => $request->quantity,
+                'quantity' => $total_p_quantity,
                 'name' => $product->name,
                 'price' => $product->web_sales_price,
                 'image' => isset($product->images[0]) ? env('APP_Image_URL').'storage/product-images/'.$product->images[0]->name : '',
@@ -91,27 +112,37 @@ class HomeController extends Controller
         session()->put('cart', $cart);
         session()->save();
 
-        $subtotal = 0;
+        $subtotal = $total_cart_count = 0;
         $sz_cart_popup_html = '';
         if( !empty($cart) ){
             foreach ( $cart as $cp_key => $cp_val ) {
                 $sz_cart_popup_html .= '<li class="d-flex border-bottom border-gray-300 py-3" id="sz_product_' . $cp_key . '">
                     <div class="bg-white rounded-lg">
-                        <img class="pro-img" src="' . $cp_val['image'] . '" alt="bike" width="92" height="92">
+                        <a href="' . $cp_val['url'] . '">
+                            <img class="pro-img" src="' . $cp_val['image'] . '" alt="bike" width="92" height="92">
+                        </a>
                     </div>
-                    <div class="ms-3">
+                    <div class="ms-3 w-100">
                         <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">' . $cp_val['name'] . '</h3>
                         <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">' . env( 'SZ_CURRENCY_SYMBOL' ) .' ' . number_format($cp_val['price'], 2) .'</p>
                     </div>
-                    <div class="count font-inter-regular text-gray-500 text-end text-sm">x <span class="cz_pro_quantity">' . $cp_val['quantity'] . '</span> Item(s)</div>
+                    <div class="d-flex flex-column justify-content-between me-2">
+                        <button type="button" class="bg-transparent border-0 ms-auto sz_remove_cart" data-pid="' . $cp_key . '">
+                            <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.5 1L7.5 7M7.5 7L1.5 13M7.5 7L13.5 13M7.5 7L1.5 1" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="count font-inter-regular text-gray-500 text-end text-sm">x ' . $cp_val['quantity'] . ' Item(s)</div>
+                    </div>
                 </li>';
                 $total = $cp_val['price'] * $cp_val['quantity'];
                 $subtotal = $subtotal + $total;
+                $total_cart_count += $cp_val['quantity'];
             }
         }
         $cart_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($subtotal, 2);
 
-        return response()->json([ 'success' => true, 'cart_total' => $cart_total, 'sz_cart_popup_html' => $sz_cart_popup_html ]);
+        return response()->json([ 'success' => true, 'cart_total' => $cart_total, 'total_cart_count' => $total_cart_count, 'sz_cart_popup_html' => $sz_cart_popup_html ]);
     }
 
     public function cartSync(Request $request)
@@ -183,12 +214,14 @@ class HomeController extends Controller
         
         $orderItems = [];
         $orderTotal = 0;
-        foreach ($request->productId as $pKey => $productId) {
-            $product = Product::find(decrypt($productId));
-            if ($product) {
-                SalesOrderItem::create(['so_id' => $salesOrder->id, 'category_id' => $product->category_id, 'product_id' => $product->id, 'price' => $product->web_sales_price, 'qty' => $request->quantity[$pKey], 'amount' => ($product->web_sales_price) * $request->quantity[$pKey], 'remarks' => '']);
-                $orderItems[] = $product->name;
-                $orderTotal += ($product->web_sales_price) * $request->quantity[$pKey];
+        if( !empty($request->productId) ){
+            foreach ($request->productId as $pKey => $productId) {
+                $product = Product::find(decrypt($productId));
+                if ($product) {
+                    SalesOrderItem::create(['so_id' => $salesOrder->id, 'category_id' => $product->category_id, 'product_id' => $product->id, 'price' => $product->web_sales_price, 'qty' => $request->quantity[$pKey], 'amount' => ($product->web_sales_price) * $request->quantity[$pKey], 'remarks' => '']);
+                    $orderItems[] = $product->name;
+                    $orderTotal += ($product->web_sales_price) * $request->quantity[$pKey];
+                }
             }
         }
 
@@ -217,7 +250,7 @@ class HomeController extends Controller
              ]
         ]);
 
-        if ($request->range != "") {
+        if ( !empty($request->range) ) {
             $driverrangeData = json_decode($request->range);
             if(!empty($driverrangeData)) {
                 $driverNames = [];
@@ -450,7 +483,7 @@ class HomeController extends Controller
 
     protected function sendContactEmailToAdmin($contact)
     {
-        $adminEmail = 'hello@runmax.com';
+        $adminEmail = 'hello@runmax.co.uk';
 
         Mail::send('emails.contact', ['contact' => $contact], function ($message) use ($adminEmail) {
             $message->to($adminEmail)->subject('New Contact Us Message');

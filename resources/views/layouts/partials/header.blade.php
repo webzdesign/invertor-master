@@ -1,6 +1,15 @@
 <div id="preloder">
     <div class="loader"></div>
 </div>
+@php
+    $cart_products = session()->get('cart', []);
+    $subtotal = $total_cart_count = 0;
+    if( !empty($cart_products) ){
+        foreach ($cart_products as $c_product) {
+            $total_cart_count += $c_product['quantity'];
+        }
+    }
+@endphp
 <header class="d-flex align-items-center flex-column justify-content-center position-sticky top-0 bg-white" id="header">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
@@ -40,11 +49,8 @@
                         <path d="M17.5 7.5C17.5 4.46243 15.0376 2 12 2C8.96243 2 6.5 4.46243 6.5 7.5"
                             stroke="#141B34" stroke-width="1.5" />
                     </svg>
+                    <span class="sz_cart-badge">{{ $total_cart_count }}</span>
                 </button>
-                <a href="javascript:;"
-                    class="login-btn d-lg-block d-none bg-slate-100 text-decoration-none font-medium text-slate-900 py-2 px-4 rounded-pill">
-                    Login
-                </a>
                 <div id="mobile-nav-toggle" class="d-lg-none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                         <path d="M20 12.5H10" stroke="#141B34" stroke-width="1.5" stroke-linecap="round"
@@ -58,8 +64,8 @@
             </div>
         </div>
     </div>
-    <div class="fixed-menu bg-slate-900 position-fixed bottom-0 left-0 right-0 d-flex d-lg-none align-items-center justify-content-between px-4">
-        <a href="javascript:;">
+    <div class="fixed-menu bg-slate-900 position-fixed bottom-0 left-0 right-0 d-flex d-lg-none align-items-center justify-content-between px-5">
+        <a href="{{ route('home') }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M12 17H12.009" stroke="#FEFEFE" stroke-width="2" stroke-linecap="round"
                     stroke-linejoin="round" />
@@ -71,7 +77,7 @@
                     stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" />
             </svg>
         </a>
-        <a href="javascript:;">
+        <a href="{{ route('shop') }}">
             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M3.66699 10.9863V15.4917C3.66699 18.3235 3.66699 19.7395 4.54567 20.6192C5.42435 21.499 6.83856 21.499 9.66699 21.499H15.667C18.4954 21.499 19.9096 21.499 20.7883 20.6192C21.667 19.7395 21.667 18.3235 21.667 15.4917V10.9863"
@@ -84,7 +90,7 @@
                     stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
         </a>
-        <a href="javascript:;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+        <a href="javascript:;" class="sz_cart_btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M4.2059 17.0194L3.00234 9.83981C2.82036 8.75428 2.72938 8.21152 3.02074 7.85576C3.31211 7.5 3.84762 7.5 4.91865 7.5H19.7474C20.8184 7.5 21.3539 7.5 21.6453 7.85576C21.9366 8.21152 21.8456 8.75428 21.6637 9.83981L20.4601 17.0194C20.0612 19.3991 19.8617 20.5889 19.0473 21.2945C18.233 22 17.059 22 14.7112 22H9.95483C7.60697 22 6.43304 22 5.61866 21.2945C4.80428 20.5889 4.60482 19.3991 4.2059 17.0194Z"
@@ -92,16 +98,7 @@
                 <path d="M17.833 7.5C17.833 4.46243 15.3706 2 12.333 2C9.29544 2 6.83301 4.46243 6.83301 7.5"
                     stroke="#FEFEFE" stroke-width="1.5" />
             </svg>
-        </a>
-        <a href="javascript:;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                    stroke="#FEFEFE" stroke-width="1.5" />
-                <path
-                    d="M7.5 17C9.8317 14.5578 14.1432 14.4428 16.5 17M14.4951 9.5C14.4951 10.8807 13.3742 12 11.9915 12C10.6089 12 9.48797 10.8807 9.48797 9.5C9.48797 8.11929 10.6089 7 11.9915 7C13.3742 7 14.4951 8.11929 14.4951 9.5Z"
-                    stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" />
-            </svg>
+            <span class="sz_cart-badge sz_badge_white">{{ $total_cart_count }}</span>
         </a>
     </div>
     <div class="order-history offcanvas offcanvas-end border-0 p-4" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -113,23 +110,28 @@
                 </svg>
             </button>
         </div>
-        @php
-            $cart_products = session()->get('cart', []);
-            $subtotal = 0;
-        @endphp
         <div class="offcanvas-body p-0 border-top border-gray-300">
             <ul class="p-0 m-0" id="sz_card_popup_products">
                 @if( !empty( $cart_products ) )
                     @foreach( $cart_products as $cp_key => $cp_val )
                         <li class="d-flex border-bottom border-gray-300 py-3" id="sz_product_{{ $cp_key }}">
                             <div class="bg-white rounded-lg">
-                                <img class="pro-img" src="{{ $cp_val['image'] }}" alt="bike" width="92" height="92">
+                                <a href="{{ $cp_val['url'] }}">
+                                    <img class="pro-img" src="{{ $cp_val['image'] }}" alt="bike" width="92" height="92">
+                                </a>
                             </div>
-                            <div class="ms-3">
+                            <div class="ms-3 w-100">
                                 <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">{{ $cp_val['name'] }}</h3>
                                 <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($cp_val['price'], 2) }}</p>
                             </div>
-                            <div class="count font-inter-regular text-gray-500 text-end text-sm">x <span class="cz_pro_quantity">{{ $cp_val['quantity'] }}</span> Item(s)</div>
+                            <div class="d-flex flex-column justify-content-between me-2">
+                                <button type="button" class="bg-transparent border-0 ms-auto sz_remove_cart" data-pid="{{ $cp_key }}">
+                                    <svg width="13" height="12" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.5 1L7.5 7M7.5 7L1.5 13M7.5 7L13.5 13M7.5 7L1.5 1" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                                <div class="count font-inter-regular text-gray-500 text-end text-sm">x {{ $cp_val['quantity'] }} Item(s)</div>
+                            </div>
                         </li>
                         @php
                             $total = $cp_val['price'] * $cp_val['quantity'];
@@ -162,7 +164,8 @@
                 <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular">Total</h4>
                 <h3 class="text-slate-900 text-xl text-lg-mob font-inter-medium" id="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($subtotal, 2) }}</h3>
             </div>
-            <a href="{{ route('checkout') }}" class="button-dark w-100 mt-2 mt-sm-4 text-center">Checkout</a>
+            <a href="{{ route('checkout') }}" class="button-dark w-100 mt-2 mt-sm-4 text-center">Order Now</a>
+            <div class="font-semibold text-lg m-0 text-center mt-3">Cash on delivery</div>
         </div>
     </div>
 </header>
