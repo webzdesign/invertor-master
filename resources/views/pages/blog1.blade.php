@@ -3,39 +3,38 @@
 @section('content')
 
 <section class="strore-banner blog-details-banner p-2">
-    <div class="position-relative">
-        <img src="{{ asset('assets/theme/img/blog/details/blog-details-1.jpg') }}" alt="banner" width="100%" class="rounded-3xl d-none d-sm-block">
+    <div class="position-relative rounded-3xl overflow-hidden">
+        <img src="{{ asset('assets/theme/img/blog/details/blog-details-1.jpg') }}" alt="banner" width="100%" class="d-none d-sm-block">
         <img src="{{ asset('assets/theme/img/blog/details/blog-details-1.jpg') }}" alt="banner" width="100%" class="d-sm-none h-100">
-        <div class="position-absolute top-0 w-100 h-100 px-3 d-flex align-items-center flex-column justify-content-center">
+        <div class="position-absolute top-0 w-100 h-100 px-3 d-flex align-items-center flex-column justify-content-center z-1">
             <label class="text-xs font-inter-regular text-slate-100 bg-slate-900 px-2 py-1 rounded-pill mb-3">EcoFriendlyTravel</label>
             <h2 class="text-slate-50 font-bebas text-center mb-0">Discover Skootz Electric Scooters: Your Ultimate Destination for E-Scooters</h2>
             <span class="text-slate-50 text-xl mt-2 text-sm-mob">18 November 2024 | 5 min read</span>
         </div>
+        <div class="banner-overlay"></div>
     </div>
 </section>
 
-<section class="breadcrumb mb-0 bg-gray-500 py-3 d-none d-lg-block">
+<section class="breadcrumb mb-0 bg-slate-100 py-3 d-none d-md-block">
     <div class="container">
         <ul class="p-0 m-0 d-flex align-items-center flex-wrap gap-3">
             <li>
-                <a href="{{ route('home') }}" class="text-slate-100 font-inter-medium text-xl text-decoration-none">Home</a>
+                <a href="{{ route('home') }}" class="text-slate-900 font-inter-medium text-xl text-decoration-none">Home</a>
             </li>
             <li>
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18.5C9 18.5 15 14.0811 15 12.5C15 10.9188 9 6.5 9 6.5" stroke="#F3F3F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 18.5C9 18.5 15 14.0811 15 12.5C15 10.9188 9 6.5 9 6.5" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </li>
             <li>
-                <a href="{{ route('blog') }}" class="text-slate-100 font-inter-medium text-xl text-decoration-none">News</a>
+                <a href="{{ route('blog') }}" class="text-slate-900 font-inter-medium text-xl text-decoration-none">News</a>
             </li>
             <li>
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 18.5C9 18.5 15 14.0811 15 12.5C15 10.9188 9 6.5 9 6.5" stroke="#F3F3F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 18.5C9 18.5 15 14.0811 15 12.5C15 10.9188 9 6.5 9 6.5" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </li>
-            <li class="font-inter-regular text-xl text-decoration-none text-slate-100">
-                Discover Skootz Electric Scooters: Your Ultimate Destination for E-Scooters
-            </li>
+            <li class="font-inter-regular text-xl text-decoration-none text-slate-900">Discover Skootz Electric Scooters: Your Ultimate Destination for E-Scooters</li>
         </ul>
     </div>
 </section>

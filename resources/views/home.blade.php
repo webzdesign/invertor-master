@@ -54,13 +54,15 @@
                                 <div class="img-video overflow-hidden rounded-3xl position-relative cursor-pointer">
                                     <img src="{{ asset( 'assets/images/slider2.png' ) }}" alt="bike">
                                     <div class="left-50 position-absolute top-50 translate-middle sz_youtube_video_btn" data-youtubeUrl="{{ $slider_yt_url }}">
-                                        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect x="2" y="2" width="48" height="48" rx="24" fill="#FEFEFE"/>
-                                            <rect x="1" y="1" width="50" height="50" rx="25" stroke="white" stroke-opacity="0.24" stroke-width="2"/>
-                                            <path d="M36.5 26C36.5006 26.2546 36.4353 26.5051 36.3105 26.727C36.1856 26.949 36.0055 27.1348 35.7875 27.2665L22.28 35.5297C22.0523 35.6691 21.7914 35.7452 21.5244 35.7502C21.2575 35.7551 20.994 35.6887 20.7613 35.5578C20.5307 35.4289 20.3387 35.2409 20.2049 35.0132C20.0711 34.7855 20.0004 34.5263 20 34.2622V17.7378C20.0004 17.4737 20.0711 17.2144 20.2049 16.9867C20.3387 16.759 20.5307 16.5711 20.7613 16.4422C20.994 16.3112 21.2575 16.2448 21.5244 16.2498C21.7914 16.2547 22.0523 16.3308 22.28 16.4703L35.7875 24.7334C36.0055 24.8651 36.1856 25.051 36.3105 25.2729C36.4353 25.4949 36.5006 25.7453 36.5 26Z" fill="#080707"/>
-                                        </svg>                                                    
+                                        <div class="position-relative">
+                                            <div class="bg-scale"></div>
+                                            <svg class="hero-icon-play position-absolute translate-middle left-50 top-50" width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="2" y="2" width="48" height="48" rx="24" fill="#FEFEFE"/>
+                                                <path d="M36.5 26.0005C36.5006 26.2551 36.4353 26.5056 36.3105 26.7275C36.1856 26.9495 36.0055 27.1353 35.7875 27.267L22.28 35.5302C22.0523 35.6696 21.7914 35.7457 21.5244 35.7507C21.2575 35.7556 20.994 35.6892 20.7613 35.5583C20.5307 35.4294 20.3387 35.2414 20.2049 35.0137C20.0711 34.786 20.0004 34.5268 20 34.2627V17.7383C20.0004 17.4742 20.0711 17.2149 20.2049 16.9872C20.3387 16.7595 20.5307 16.5715 20.7613 16.4427C20.994 16.3117 21.2575 16.2453 21.5244 16.2503C21.7914 16.2552 22.0523 16.3313 22.28 16.4708L35.7875 24.7339C36.0055 24.8656 36.1856 25.0515 36.3105 25.2734C36.4353 25.4953 36.5006 25.7458 36.5 26.0005Z" fill="#080707"/>
+                                            </svg>
+                                        </div>
                                     </div>
-                                    <div class="text-white font-inter-regular position-absolute bottom-0 mb-4 w-100 text-center">
+                                    <div class="hero-slide-title opacity-0 transition-all text-white font-inter-regular position-absolute bottom-0 mb-4 w-100 text-center">
                                         110kg Weight limit
                                     </div>
                                 </div>
