@@ -216,7 +216,7 @@
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6 mb-4">
-                <div class="premier-card bg-slate-950 rounded-lg p-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
+                <div class="premier-card bg-slate-950 rounded-3xl p-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
                     <div class="card-content pb-0">
                         <h3 class="text-slate-50 font-bebas">Experience the Thrill of Sustainable Ridings</h3>
                         <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">Skootz Electric Scooters are the first choice</p>
@@ -226,7 +226,7 @@
             </div>
         </div>
         <div>
-            <div class="premier-card bg-slate-950 rounded-lg p-0 overflow-hidden d-flex flex-column justify-content-between">
+            <div class="premier-card bg-slate-950 rounded-3xl p-0 overflow-hidden d-flex flex-column justify-content-between">
                 <div class="row align-items-center">
                     <div class="col-xl-5 col-lg-6">
                         <div class="card-content pb-0">

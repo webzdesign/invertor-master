@@ -30,7 +30,7 @@
         <h2 class="text-slate-900 text-6xl text-4xl-mob mb-5 font-bebas">Stay Ahead with Skootz: Tips, News, and Stories</h2>
         <div class="row">
             @foreach( $blogs_arr as $blog )
-                <div class="col-lg-4 mb-4">
+                <div class="col-lg-4 mb-lg-4 mb-5">
                     <a href="{{ $blog['link'] }}"><img src="{{ $blog['image'] }}" alt="blog" class="rounded-2xl w-100"></a>
                     <div class="mt-3 d-flex align-items-center flex-wrap gap-2">
                         <label class="text-slate-800 font-inter-medium bg-slate-100 px-2 py-1 rounded-pill text-xs">EcoFriendlyTravel</label>

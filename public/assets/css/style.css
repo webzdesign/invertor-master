@@ -23,6 +23,8 @@
   --gray-900: #0D163A;
   --gray-950: #080707;
   --blue-500: #460BF4;
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 1rem;
 }
 
 @font-face {
@@ -655,7 +657,7 @@ footer .social-links li a{
   position: absolute;
   top: -2px;
   right: -7px;
-  font-size: 9px;
+  font-size: 10px;
   background-color: #141B34;
   color: white;
   border-radius: 50%;

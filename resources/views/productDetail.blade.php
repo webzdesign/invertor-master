@@ -30,7 +30,7 @@
     </div>
 </section>
 
-<section class="product-detail py-md-5 py-2">
+<section class="product-detail py-md-5 py-4">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 pe-lg-5">

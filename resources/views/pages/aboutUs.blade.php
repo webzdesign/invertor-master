@@ -54,7 +54,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xl-4">
-                <h2 class="text-slate-900 text-6xl text-4xl-mob mb-sm-0 mb-3 font-bebas">FAQ</h2>
+                <h2 class="text-slate-900 text-6xl text-4xl-mob mb-sm-0 mb-4 font-bebas">FAQ</h2>
             </div>
             <div class="col-xl-8">
                 <div class="accordion" id="accordionExample">

@@ -75,15 +75,11 @@
                     <p class="text-gray-500 font-inter-regular text-sm">
                         Skootz Electric Scooters boasts an impressive inventory that caters to various needs and preferences. Whether you’re a teenager looking for your first scooter or an adult seeking a reliable commuting option, Skootz has something for everyone. Their collection includes:
                     </p>
-                    <p class="text-gray-500 font-inter-regular text-sm" style="padding-left:40px;">
-                        ●	The Lightweight Electric Scooters: It would best suit the needs of people looking for portability without sacrificing performance.
-                    </p>
-                    <p class="text-gray-500 font-inter-regular text-sm" style="padding-left:40px;">
-                        ●	High-performance Models: For ride-and-reckon riders who want their ride to be faster and nimbler.
-                    </p>
-                    <p class="text-gray-500 font-inter-regular text-sm" style="padding-left:40px;">
-                        ●	Family-friendly Options: Scooters for kids and teens made with an emphasis on safety and fun.
-                    </p>
+                    <ul>
+                        <li class="text-gray-500 text-sm font-inter-regular mb-0 list-disc">The Lightweight Electric Scooters: It would best suit the needs of people looking for portability without sacrificing performance.</li>
+                        <li class="text-gray-500 text-sm font-inter-regular mb-0 list-disc">High-performance Models: For ride-and-reckon riders who want their ride to be faster and nimbler.</li>
+                        <li class="text-gray-500 text-sm font-inter-regular mb-0 list-disc">Family-friendly Options: Scooters for kids and teens made with an emphasis on safety and fun.</li>
+                    </ul>
                     <p class="text-gray-500 font-inter-regular text-sm">
                         Moreover, Skootz cautions people to research before buying an electric scooter. An insight into their blog will show you articles like “Top 5 Things You Should Know Before You Buy an Electric Scooter” which helps you decide whether to buy something based on the electric scooter from the factors of battery life, weight capacity and a lot more.
                     </p>

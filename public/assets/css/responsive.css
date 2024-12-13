@@ -165,6 +165,9 @@
   .product-detail .slider-nav .slick-list{
     width: 100%;
   }
+  .strore-banner h2{
+    font-size: 40px;
+  }
   .strore-banner img{
     object-fit: cover;
     border-radius: 20px;
@@ -307,7 +310,7 @@
     line-height: 48px;
   }
   .premier .premier-card, .premier .premier-card .card-content  {
-    padding: 20px 16px;
+    padding: 30px 16px;
   }
   .latest {
     padding: 30px 0 0;
@@ -329,7 +332,7 @@
     margin: 0 -12px;
   }
   footer {
-    padding: 30px 0;
+    padding: 50px 0 10px;
   }
   .product-detail .slider-nav .thumb-img {
     height: 70px;
@@ -346,6 +349,9 @@
     border-radius: 0;
     top: 0;
     z-index: 99;
+  }
+  .sz_review_content{
+    font-size: 20px;
   }
 }
 @media (max-width:400px) {

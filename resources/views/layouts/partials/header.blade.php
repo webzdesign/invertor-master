@@ -102,7 +102,7 @@
         </a>
     </div>
     <div class="order-history offcanvas offcanvas-end border-0 p-4" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header px-0 pb-3 pb-sm-4">
+        <div class="offcanvas-header px-0 pb-4 pb-sm-4">
             <h5 class="text-slate-900 mb-0 font-hubot font-medium text-2xl text-xl-mob">Order Summary</h5>
             <button type="button" class="border-0 bg-transparent" data-bs-dismiss="offcanvas" aria-label="Close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

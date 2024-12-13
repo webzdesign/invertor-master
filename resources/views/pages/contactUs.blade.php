@@ -31,8 +31,8 @@
                 </div>
                 <div class="col-xxl-3 col-lg-4 col-sm-6 ps-sm-5 mt-sm-0 mt-4">
                     <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3 text-center text-sm-start">Customer Support Hours</h3>
-                    <div class="text-gray-500 text-sm font-inter-regular mb-3 text-center text-sm-start">Monday – Friday: 9:00 AM – 6:00 PM</div>
-                    <div class="text-gray-500 text-sm font-inter-regular mb-3 text-center text-sm-start">Saturday: 10:00 AM – 4:00 PM</div>
+                    <div class="text-slate-900 text-sm font-inter-regular mb-3 text-center text-sm-start">Monday – Friday: 9:00 AM – 6:00 PM</div>
+                    <div class="text-slate-900 text-sm font-inter-regular mb-3 text-center text-sm-start">Saturday: 10:00 AM – 4:00 PM</div>
                 </div>
             </div>
         </div>
