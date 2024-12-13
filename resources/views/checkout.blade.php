@@ -313,7 +313,7 @@ $(document).ready(function(){
         }
     });
     jQuery.validator.addMethod("alphanumeric", function(value, element) {
-        return this.optional(element) || /^\w+$/i.test(value);
+        return this.optional(element) || /^[\w\s]+$/i.test(value);
     }, "Please use only alphanumeric or alphabetic characters");
 
     $("#addOrder").validate({
