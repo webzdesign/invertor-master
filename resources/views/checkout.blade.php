@@ -233,7 +233,7 @@
                         <button type="submit" class="button-dark w-100 mt-3 text-center">
                             Order &nbsp;&nbsp;&nbsp; {{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($subtotal, 2) }}
                         </button>
-                        <div class="font-semibold text-lg m-0 mt-2 text-center">Pay to Order</div>
+                        <div class="font-semibold text-lg m-0 mt-2 text-center">Cash on delivery</div>
                     </div>
                 </div>
             </div>
