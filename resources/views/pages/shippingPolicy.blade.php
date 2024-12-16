@@ -48,6 +48,6 @@
     </div>
 </section>
 
-@include('newsLetter')
+{{-- @include('newsLetter') --}}
 
 @endsection
