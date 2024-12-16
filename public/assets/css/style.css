@@ -290,6 +290,21 @@ body.mobile-nav-active header #mobile-nav {
   font-size: 56px;
 }
 
+.hero .spin-svg {
+  margin-top: 100px;
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* why-choose */
 .why-choose .left-side h2 {
   font-size: 64px;
@@ -784,13 +799,17 @@ footer .social-links li a {
   animation-duration: 1s;
   animation-fill-mode: forwards;
 }
+
 .sz_alert.alert-success {
   background: #ECFFEC;
 }
+
 .sz_alert.alert-danger {
   background: #f8d7da;
 }
-.sz_alert_success, .sz_alert_danger{
+
+.sz_alert_success,
+.sz_alert_danger {
   display: none;
 }
 
@@ -856,4 +875,32 @@ footer .social-links li a {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.fixed-add-to-cart {
+  padding: 10px 50px;
+  box-shadow: 0 0 20px 0px #ccc;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: white;
+  visibility: hidden;
+  transition: all .3s ease;
+  transform: translateY(100%);
+}
+
+.fixed-add-to-cart.active {
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fixed-add-to-cart .img-pro {
+  width: 70px;
+  overflow: hidden;
+}
+
+.fixed-add-to-cart .add-quantity-btn {
+  width: 135px;
 }

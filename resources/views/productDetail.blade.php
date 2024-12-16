@@ -320,6 +320,54 @@
     </div>
 </section>
 
+<div class="fixed-add-to-cart">
+    <div class="row w-100 align-items-center">
+        <div class="col-lg-6">
+            <div class="d-flex align-items-start gap-3">
+                <div class="img-pro bg-white rounded-lg border border-slate-100">
+                    <img src="{{ env('APP_Image_URL') . 'storage/product-images/' . $image->name }}" alt="product" width="70" height="70" class="object-fit-contain">
+                </div>
+                <div>
+                    <h3 class="text-slate-900 text-3xl text-2xl-mob font-bebas mb-0">D8 Pro Mi Pro H7 Ook-tek</h3>
+                    <h4 class="text-blue-500 font-bebas text-2xl text-lg-mob">£456.00</h4>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-xl-3">
+            <div class="d-flex align-items-center justify-content-center gap-5">
+                <h4 class="mb-0 text-gray-500 font-inter-semibold text-lg">Select Color</h4>
+                <div class="d-flex gap-1">
+                    <div class="form-check">
+                        <input class="form-check-input cursor-pointer shadow-none border-0 w-5" type="radio" name="radio" id="radio1" style="background-color: red;" checked="">
+                        </div>
+                    <div class="form-check">
+                        <input class="form-check-input cursor-pointer shadow-none border-0 w-5" type="radio" name="radio" id="radio2" style="background-color: black;">
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="col-lg-6">
+            <div class="d-flex gap-4 justify-content-start justify-content-lg-end sz_add_to_cart-sec">
+                <div class="add-quantity-btn d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none">
+                    <span class="minus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-start text-2xl">-</span>
+                    <span class="sz_product_quantity">1</span>
+                    <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
+                </div>
+        
+                <button class="button-dark AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">
+                    Add to cart
+                    <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
+                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
+                            <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 {{-- @include('newsLetter') --}}
 
 <div class="modal fade" id="imgZoomModal" tabindex="-1" aria-labelledby="imgZoomModal" aria-hidden="true">
@@ -427,6 +475,25 @@
                 }
             });
         });
+
+        // function toggleHeaderClass() {
+        //     if ($(window).scrollTop() >= 200) {
+        //         $(".fixed-add-to-cart").addClass("active");
+        //     } else {
+        //         $(".fixed-add-to-cart").removeClass("active");
+        //     }
+        // }
+        // toggleHeaderClass();
+        // $(window).on("scroll", function () {
+        //     toggleHeaderClass();
+        // });
+
+        // $(window).on('scroll', function () {
+        //     if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+        //         alert('You have reached the bottom of the page!');
+        //     }
+        // });
+
     });
 </script>
 @endsection

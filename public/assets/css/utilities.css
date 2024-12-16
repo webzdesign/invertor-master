@@ -17,6 +17,14 @@
     background-color: var(--slate-50) !important;
 }
 
+.button-dark:disabled {
+    background-color: var(--slate-200) !important;
+}
+
+.object-fit-contain {
+    object-fit: contain !important;
+}
+
 .form-control,
 select {
     border: 1px solid #C2C2C2 !important;
