@@ -3,9 +3,9 @@
 @section('content')
 
 <section class="checkout pb-5">
-    <div class="paginationSec px-4 py-3 border-bottom border-top border-slate-100">
+    <div class="paginationSec px-4 border-bottom border-top border-slate-100">
         <div class="container">
-            <div class="d-flex overflow-auto gap-3 align-items-center justify-content-start justify-content-md-center">
+            <div class="d-flex overflow-auto gap-3 align-items-center justify-content-start justify-content-md-center py-3">
                 <div class="pageTab active d-flex align-items-center gap-3">
                     <div class="count bg-slate-100 text-slate-900 d-flex align-items-center justify-content-center rounded-pill font-inter-semibold text-sm">1</div>
                     <h6 class="whitespace-nowrap text-gray-500 font-hubot mb-0">Personal Details</h6>
@@ -13,7 +13,7 @@
                 <hr class="hrLine min-w-100 bg-slate-100">
                 <div class="pageTab active d-flex align-items-center gap-3">
                     <div class="count bg-slate-100 text-slate-900 d-flex align-items-center justify-content-center rounded-pill font-inter-semibold text-sm">2</div>
-                    <h6 class="whitespace-nowrap text-gray-500 font-hubot mb-0">Payment</h6>
+                    <h6 class="whitespace-nowrap text-gray-500 font-hubot mb-0">Place Order</h6>
                 </div>
                 <hr class="hrLine min-w-100 bg-slate-100">
                 <div class="pageTab d-flex align-items-center gap-3">

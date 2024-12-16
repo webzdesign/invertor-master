@@ -56,13 +56,15 @@
 
                 $('body').on('click', '.AddToCartBtn', function(e){
                     e.preventDefault();
-                    var pid = $(this).data("pid");
-                    var quantity = 1;
-                    if( $('.sz_product_quantity').length > 0 ){
-                        quantity = parseInt($('.sz_product_quantity').text());
-                    }
-                    var isOrderNowbtn = $(this).hasClass("eb_OrderNowBtn");
                     var $this = $(this);
+                    var pid = $this.data("pid");
+                    var quantity = 1;
+                    var $parent = $this.parent('.sz_add_to_cart-sec');
+                    if( $parent.find('.sz_product_quantity').length > 0 ){
+                        quantity = parseInt($parent.find('.sz_product_quantity').text());
+                    }
+                    var isOrderNowbtn = $this.hasClass("eb_OrderNowBtn");
+                    $this.prop('disabled', 'disabled');
                     
                     $.ajax({
                         url: '{{ route("cart.add") }}',
@@ -77,9 +79,19 @@
                                     window.location.href = "{{ route('checkout') }}";
                                 } else {
                                     $this.find('.sz_add_to_cart_circle').removeClass('d-none');
-                                    $('.sz_alert').removeClass('fade-out-left').addClass('fade-in-right')
+                                    $('.sz_alert .sz_alert_msg').text(response.message);
+                                    $('.sz_alert_success, .sz_alert_danger').hide();
+                                    if( response.cart_reached_status == 1 ){
+                                        $('.sz_alert').removeClass('alert-success').addClass('alert-danger');
+                                        $('.sz_alert_danger').show();
+                                    } else {
+                                        $('.sz_alert').removeClass('alert-danger').addClass('alert-success');
+                                        $('.sz_alert_success').show();
+                                    }
+                                    $('.sz_alert').removeClass('fade-out-left').addClass('fade-in-right');
                                     setTimeout(function(){
                                         $('.sz_alert').removeClass('fade-in-right').addClass('fade-out-left');
+                                        $this.prop('disabled', '');
                                     }, 5000);
                                     $('#sz_cart_total').html(response.cart_total);
                                     $('#sz_card_popup_products').html(response.sz_cart_popup_html);

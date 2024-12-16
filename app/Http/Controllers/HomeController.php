@@ -81,7 +81,7 @@ class HomeController extends Controller
     public function addToCart(Request $request)
     {
         $cart = session()->get('cart', []);
-
+        $sz_cart_reached_status = 0;
         $product = Product::with('images')->find(decrypt($request->productId));
         if (!$product) {
             return response()->json(['success' => false]);
@@ -89,15 +89,17 @@ class HomeController extends Controller
         
         if (isset($cart[$product->id])) {
             $total_p_quantity = $cart[$product->id]['quantity'] + $request->quantity;
-            if( $total_p_quantity < 10 ){
+            if( $total_p_quantity <= 10 ){
                 $cart[$product->id]['quantity'] += $request->quantity;
             } else {
                 $cart[$product->id]['quantity'] = 10;
+                $sz_cart_reached_status = 1;
             }
         } else {
             $total_p_quantity = $request->quantity;
             if( $total_p_quantity > 10 ){
                 $total_p_quantity = 10;
+                $sz_cart_reached_status = 1;
             }
             $cart[$product->id] = [
                 'quantity' => $total_p_quantity,
@@ -140,9 +142,13 @@ class HomeController extends Controller
                 $total_cart_count += $cp_val['quantity'];
             }
         }
+        $msg = 'Added to cart Successfully';
+        if( $sz_cart_reached_status == 1 ){
+            $msg = 'Sorry, you can’t add more of this product.';
+        }
         $cart_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($subtotal, 2);
 
-        return response()->json([ 'success' => true, 'cart_total' => $cart_total, 'total_cart_count' => $total_cart_count, 'sz_cart_popup_html' => $sz_cart_popup_html ]);
+        return response()->json([ 'success' => true, 'message' => $msg, 'cart_reached_status' => $sz_cart_reached_status, 'cart_total' => $cart_total, 'total_cart_count' => $total_cart_count, 'sz_cart_popup_html' => $sz_cart_popup_html ]);
     }
 
     public function cartSync(Request $request)
