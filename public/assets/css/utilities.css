@@ -85,6 +85,10 @@ select {
 }
 
 /* width */
+.w-fit {
+    width: fit-content !important;
+}
+
 .min-w-80 {
     min-width: 80px;
 }

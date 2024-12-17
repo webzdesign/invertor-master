@@ -904,3 +904,16 @@ footer .social-links li a {
 .fixed-add-to-cart .add-quantity-btn {
   width: 135px;
 }
+
+.warrantyLabel {
+  right: 10px;
+  top: 10px;
+  background-color: var(--slate-900);
+  padding: 0 12px;
+}
+
+.cardCheckout .likeProuct .button-dark {
+  font-size: 16px;
+  padding: 12px 16px;
+  white-space: nowrap;
+}

@@ -26,7 +26,7 @@
     <form action="{{ route('orderPlace') }}" method="POST" id="addOrder" enctype="multipart/form-data"> @csrf
         <div class="container">
             <div class="row mt-sm-5 mt-4">
-                <div class="col-xl-8 mb-4">
+                <div class="col-xxl-8 col-xl-7 mb-4">
                     <div class="cardCheckout bg-slate-50 border border-slate-100 p-4 rounded-lg">
                         <div class="d-flex align-items-center justify-content-between">
                             <h3 class="text-3xl text-slate-900 font-hubot font-semibold mb-0">Checkout</h3>
@@ -102,7 +102,7 @@
                     $cart_products = session()->get('cart', []);
                     $subtotal = 0;
                 @endphp
-                <div class="col-xl-4">
+                <div class="col-xxl-4 col-xl-5">
                     <div class="cardCheckout order-history bg-slate-50 border border-slate-100 p-4 rounded-lg">
                         <div class="px-0 pb-3 pb-sm-4">
                             <h5 class="text-slate-900 mb-0 font-hubot font-semibold text-2xl text-xl-mob">Order Summary</h5>
@@ -111,17 +111,37 @@
                             <ul class="p-0 m-0 sz_card_popup_products">
                                 @if( !empty( $cart_products ) )
                                     @foreach( $cart_products as $cp_key => $cp_val )
-                                        <li class="d-flex border-bottom border-gray-300 py-3">
-                                            <div class="bg-white rounded-lg border border-slate-100">
+                                        <li class="d-flex border-bottom border-gray-300 py-3 position-relative">
+                                            <div class="bg-white rounded-lg border border-slate-100 align-self-start">
                                                 <a href="{{ $cp_val['url'] }}">
                                                     <img class="pro-img" src="{{ $cp_val['image'] }}" alt="bike" width="92" height="92">
                                                 </a>
                                             </div>
-                                            <div class="ms-3 w-100">
-                                                <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">{{ $cp_val['name'] }}</h3>
-                                                <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($cp_val['price'], 2) }}</p>
+                                            <div class="ms-3 w-100 d-flex flex-column justify-content-between">
+                                                <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob pe-5">{{ $cp_val['name'] }}</h3>
+                                                <div class="d-flex nowrap align-items-center justify-content-between">
+                                                    <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($cp_val['price'], 2) }}</p>
+                                                    <div class="quantityWrapper d-flex align-items-center gap-3">
+                                                        <div>
+                                                            @php
+                                                                $sz_quantity = $cp_val['quantity'];
+                                                                if( $sz_quantity > 1 ){
+                                                                    $sz_quantity .= ' Items';
+                                                                } else {
+                                                                    $sz_quantity .= ' Item';
+                                                                }
+                                                            @endphp
+                                                            <div class="count font-inter-regular text-gray-500 text-end text-sm">x {{ $sz_quantity }}</div>
+                                                        </div>
+                                                        <div class="add-quantity-btn d-flex align-items-center justify-content-between py-1 px-2 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none">
+                                                            <span class="minus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-start text-base disabled">-</span>
+                                                            <span class="sz_product_quantity text-xs px-2">1</span>
+                                                            <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-base">+</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="d-flex flex-column justify-content-between me-2">
+                                            <div class="me-2 position-absolute right-0">
                                                 <button type="button" class="bg-transparent border-0 ms-auto sz_remove_cart" data-pid="{{ $cp_key }}">
                                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M14.625 4.125L14.1602 11.6438C14.0414 13.5648 13.9821 14.5253 13.5006 15.2159C13.2625 15.5573 12.956 15.8455 12.6005 16.062C11.8816 16.5 10.9192 16.5 8.99452 16.5C7.06734 16.5 6.10372 16.5 5.38429 16.0612C5.0286 15.8443 4.722 15.5556 4.48401 15.2136C4.00266 14.5219 3.94459 13.5601 3.82846 11.6364L3.375 4.125" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round"/>
@@ -130,15 +150,6 @@
                                                         <path d="M10.875 12.375V7.875" stroke="#FF0000" stroke-width="1.5" stroke-linecap="round"/>
                                                     </svg>
                                                 </button>
-                                                @php
-                                                    $sz_quantity = $cp_val['quantity'];
-                                                    if( $sz_quantity > 1 ){
-                                                        $sz_quantity .= ' Items';
-                                                    } else {
-                                                        $sz_quantity .= ' Item';
-                                                    }
-                                                @endphp
-                                                <div class="count font-inter-regular text-gray-500 text-end text-sm">x {{ $sz_quantity }}</div>
                                             </div>
                                         </li>
                                         @php
@@ -177,6 +188,49 @@
                             Order &nbsp;&nbsp;&nbsp; <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($subtotal, 2) }}</span>
                         </button>
                         <div class="font-semibold text-lg m-0 mt-2 text-center">Cash on delivery</div>
+                    </div>
+                    <div class="cardCheckout likeProuctCard order-history bg-slate-50 border border-slate-100 p-4 rounded-lg mt-4">
+                        <div class="px-0 pb-3 pb-sm-4">
+                            <h5 class="text-slate-900 mb-0 font-hubot font-semibold text-2xl text-xl-mob">You may also like</h5>
+                        </div>
+                        <div class="offcanvas-body overflow-hidden p-0">
+                            <ul class="p-0 m-0 sz_card_popup_products">
+                                @if( !empty( $cart_products ) )
+                                    @foreach( $cart_products as $cp_key => $cp_val )
+                                        <li class="d-xl-flex justify-content-between align-items-start border-top border-gray-300 py-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="bg-white rounded-lg border border-slate-100 w-fit">
+                                                    <a href="{{ $cp_val['url'] }}">
+                                                        <img class="pro-img" src="{{ $cp_val['image'] }}" alt="bike" width="92" height="92">
+                                                    </a>
+                                                </div>
+                                                <div class="ms-3 w-100">
+                                                    <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">{{ $cp_val['name'] }}</h3>
+                                                    <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($cp_val['price'], 2) }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="ps-2 likeProuct mt-xl-0 mt-3">
+                                                <button class="button-dark text-base AddToCartBtn d-flex align-items-center gap-2">
+                                                    Add to cart
+                                                    <span class="sz_add_to_cart_circle">
+                                                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
+                                                            <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </li>
+                                        @php
+                                            $total = $cp_val['price'] * $cp_val['quantity'];
+                                            $subtotal = $subtotal + $total;
+                                        @endphp
+                                        <input type="hidden" name="productId[]" value="{{ $cp_val['productId'] }}" />
+                                        <input type="hidden" name="quantity[]" value="{{ $cp_val['quantity'] }}" />
+                                    @endforeach
+                                @endif
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
