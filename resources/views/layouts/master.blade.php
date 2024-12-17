@@ -64,7 +64,7 @@
                         quantity = parseInt($parent.find('.sz_product_quantity').text());
                     }
                     var isOrderNowbtn = $this.hasClass("eb_OrderNowBtn");
-                    $this.prop('disabled', 'disabled');
+                    $this.prop('disabled', true);
                     
                     $.ajax({
                         url: '{{ route("cart.add") }}',
@@ -79,6 +79,7 @@
                                     window.location.href = "{{ route('checkout') }}";
                                 } else {
                                     $this.find('.sz_add_to_cart_circle').removeClass('d-none');
+                                    $this.prop('disabled', false);
                                     $('.sz_alert .sz_alert_msg').text(response.message);
                                     $('.sz_alert_success, .sz_alert_danger').hide();
                                     if( response.cart_reached_status == 1 ){
@@ -91,10 +92,9 @@
                                     $('.sz_alert').removeClass('fade-out-left').addClass('fade-in-right');
                                     setTimeout(function(){
                                         $('.sz_alert').removeClass('fade-in-right').addClass('fade-out-left');
-                                        $this.prop('disabled', '');
                                     }, 5000);
-                                    $('#sz_cart_total').html(response.cart_total);
-                                    $('#sz_card_popup_products').html(response.sz_cart_popup_html);
+                                    $('.sz_cart_total').html(response.cart_total);
+                                    $('.sz_card_popup_products').html(response.sz_cart_popup_html);
                                     $('.sz_cart-badge').html(response.total_cart_count);
                                 }
                             }
