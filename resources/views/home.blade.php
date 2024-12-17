@@ -220,8 +220,9 @@
             @foreach ($Products as $p_key => $product)
                 <div class="col-md-6 mb-5">
                     <a href="{{ route('productDetail', $product->slug) }}">
-                        <div class="product-card border text-center p-4 border-slate-200 rounded-3xl">
+                        <div class="product-card border text-center p-4 border-slate-200 rounded-3xl overflow-hidden position-relative">
                             <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $product->images->first()->name }}" alt="{{ $product->name }}">
+                            <label class="warrantyLabel mb-0 position-absolute text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
                         </div>
                     </a>
                     <div class="text-md-start text-center">

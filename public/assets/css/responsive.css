@@ -58,6 +58,16 @@
   .checkout .order-history {
     max-width: 100%;
   }
+
+  .likeProuctCard .offcanvas-body ul li {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center !important;
+  }
+
+  .likeProuctCard .likeProuct {
+    margin-top: 0 !important;
+  }
 }
 
 @media (max-width:991px) {
@@ -484,11 +494,25 @@
   }
 }
 
+@media (max-width:420px) {
+  .quantityWrapper {
+    display: block !important;
+  }
+}
+
 @media (max-width:400px) {
 
   .button-dark,
   .button-light {
     font-size: 16px;
     padding: 14px 18px;
+  }
+
+  .likeProuctCard .offcanvas-body ul li {
+    display: block !important;
+  }
+
+  .likeProuctCard .likeProuct {
+    margin-top: 10px !important;
   }
 }
