@@ -352,6 +352,7 @@
   .order-history .offcanvas-body ul li .pro-img {
     width: 80px;
     height: 80px;
+    border-radius: 8px;
   }
 
   .hero .right-slide .img-video,
@@ -472,8 +473,14 @@
     padding: 10px 16px;
   }
 
-  .fixed-add-to-cart .add-quantity-btn {
-    width: 100px;
+  .fixed-add-to-cart .button-dark {
+    font-size: 14px;
+    padding: 14px 16px;
+  }
+
+  .fixed-add-to-cart .button-dark .sz_add_to_cart_circle svg {
+    width: 20px;
+    height: 20px;
   }
 }
 

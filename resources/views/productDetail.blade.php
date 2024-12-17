@@ -6,6 +6,18 @@
     $cart_products = session()->get('cart', []);
 @endphp
 
+
+<style>
+    footer{
+        padding-bottom: 130px;
+    }
+    @media (max-width:991px) {
+        footer{
+            padding-bottom: 160px;
+        }
+    }
+</style>
+
 <section class="breadcrumb mb-0 bg-slate-100 py-3 d-none d-md-block">
     <div class="container">
         <ul class="p-0 m-0 d-flex align-items-center flex-wrap gap-3">
@@ -121,9 +133,9 @@
                         <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
                     </div>
 
-                    <button class="button-dark AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">
+                    <button class="button-dark AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ encrypt( $product->id ) }}">
                         Add to cart
-                        <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
+                        <span class="sz_add_to_cart_circle {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
                                 <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -303,9 +315,9 @@
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4">{{ $o_product->name }}</h2>
                         <h2 class="text-lg text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($o_product->web_sales_price, 2) }}</h2>
 
-                        <button class="button-dark mt-3 AddToCartBtn" data-pid="{{ encrypt( $o_product->id ) }}">
+                        <button class="button-dark mt-3 AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ encrypt( $o_product->id ) }}">
                             Add to cart
-                            <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$o_product->id]) ? 'd-none' : '' }}">
+                            <span class="sz_add_to_cart_circle {{ empty($cart_products[$o_product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
                                     <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -329,7 +341,7 @@
                 </div>
                 <div>
                     <h3 class="text-slate-900 text-3xl text-2xl-mob font-bebas mb-0">D8 Pro Mi Pro H7 Ook-tek</h3>
-                    <h4 class="text-blue-500 font-bebas text-2xl text-lg-mob">£456.00</h4>
+                    <h4 class="text-blue-500 font-bebas text-2xl text-lg-mob mb-0">£456.00</h4>
                 </div>
             </div>
         </div>
@@ -346,17 +358,17 @@
                 </div>
             </div>
         </div> -->
-        <div class="col-lg-6">
-            <div class="d-flex gap-4 justify-content-start justify-content-lg-end sz_add_to_cart-sec">
+        <div class="col-lg-6 mt-lg-0 mt-2">
+            <div class="d-flex gap-md-4 gap-3 justify-content-start justify-content-lg-end sz_add_to_cart-sec">
                 <div class="add-quantity-btn d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none">
                     <span class="minus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-start text-2xl">-</span>
                     <span class="sz_product_quantity">1</span>
                     <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
                 </div>
         
-                <button class="button-dark AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">
+                <button class="button-dark AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ encrypt( $product->id ) }}">
                     Add to cart
-                    <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
+                    <span class="sz_add_to_cart_circle {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
                             <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -476,23 +488,17 @@
             });
         });
 
-        // function toggleHeaderClass() {
-        //     if ($(window).scrollTop() >= 200) {
-        //         $(".fixed-add-to-cart").addClass("active");
-        //     } else {
-        //         $(".fixed-add-to-cart").removeClass("active");
-        //     }
-        // }
-        // toggleHeaderClass();
-        // $(window).on("scroll", function () {
-        //     toggleHeaderClass();
-        // });
-
-        // $(window).on('scroll', function () {
-        //     if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
-        //         alert('You have reached the bottom of the page!');
-        //     }
-        // });
+        function toggleHeaderClass() {
+            if ($(window).scrollTop() >= 500) {
+                $(".fixed-add-to-cart").addClass("active");
+            } else {
+                $(".fixed-add-to-cart").removeClass("active");
+            }
+        }
+        toggleHeaderClass();
+        $(window).on("scroll", function () {
+            toggleHeaderClass();
+        });
 
     });
 </script>
