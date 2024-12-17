@@ -796,7 +796,7 @@ footer .social-links li a {
   text-align: center;
   z-index: 99;
   padding: 1rem 4rem;
-  animation-duration: 1s;
+  animation-duration: 0.3s;
   animation-fill-mode: forwards;
 }
 

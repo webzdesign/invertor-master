@@ -4,6 +4,7 @@
 
 @php
     $cart_products = session()->get('cart', []);
+    $sz_p_encrypt_id = encrypt( $product->id );
 @endphp
 
 
@@ -85,20 +86,23 @@
                 <p class="text-gray-500 font-inter-regular text-xl text-base-mob">Be among the first to ride our freshest, high-performance scooters.</p>
                 <div class="d-flex align-items-center gap-2">
                     <div>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {{-- <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="#FFD53F"/>
+                        </svg> --}}
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="white" stroke="#ffd53f" stroke-width="2" />
                         </svg>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="#FFD53F"/>
+                            <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="white" stroke="#ffd53f" stroke-width="2" />
                         </svg>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="#FFD53F"/>
+                            <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="white" stroke="#ffd53f" stroke-width="2" />
                         </svg>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="#FFD53F"/>
+                            <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="white" stroke="#ffd53f" stroke-width="2" />
                         </svg>
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="#FFD53F"/>
+                            <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="white" stroke="#ffd53f" stroke-width="2" />
                         </svg>
                     </div>
                     <h6 class="mb-0 text-slate-900 font-inter-semibold">0 In review</h6>
@@ -127,13 +131,13 @@
                     </div> --}}
                 </div>
                 <div class="d-flex gap-4 mt-4 sz_add_to_cart-sec">
-                    <div class="add-quantity-btn d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none">
+                    <div class="add-quantity-btn d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none" data-shared-id="sz_qty_btn">
                         <span class="minus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-start text-2xl">-</span>
                         <span class="sz_product_quantity">1</span>
                         <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
                     </div>
 
-                    <button class="button-dark AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ encrypt( $product->id ) }}">
+                    <button class="button-dark AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ $sz_p_encrypt_id }}">
                         Add to cart
                         <span class="sz_add_to_cart_circle {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -337,15 +341,15 @@
         <div class="col-lg-6">
             <div class="d-flex align-items-start gap-3">
                 <div class="img-pro bg-white rounded-lg border border-slate-100">
-                    <img src="{{ env('APP_Image_URL') . 'storage/product-images/' . $image->name }}" alt="product" width="70" height="70" class="object-fit-contain">
+                    <img src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $product->images->first()->name }}" alt="product" width="70" height="70" class="object-fit-contain">
                 </div>
                 <div>
-                    <h3 class="text-slate-900 text-3xl text-2xl-mob font-bebas mb-0">D8 Pro Mi Pro H7 Ook-tek</h3>
-                    <h4 class="text-blue-500 font-bebas text-2xl text-lg-mob mb-0">£456.00</h4>
+                    <h3 class="text-slate-900 text-3xl text-2xl-mob font-bebas mb-0">{{ $product->name }}</h3>
+                    <h4 class="text-blue-500 font-bebas text-2xl text-lg-mob mb-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h4>
                 </div>
             </div>
         </div>
-        <!-- <div class="col-xl-3">
+        {{-- <div class="col-xl-3">
             <div class="d-flex align-items-center justify-content-center gap-5">
                 <h4 class="mb-0 text-gray-500 font-inter-semibold text-lg">Select Color</h4>
                 <div class="d-flex gap-1">
@@ -357,16 +361,16 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div> --}}
         <div class="col-lg-6 mt-lg-0 mt-2">
             <div class="d-flex gap-md-4 gap-3 justify-content-start justify-content-lg-end sz_add_to_cart-sec">
-                <div class="add-quantity-btn d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none">
+                <div class="add-quantity-btn d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none sz_add_quantity_floating" data-shared-id="sz_qty_btn">
                     <span class="minus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-start text-2xl">-</span>
                     <span class="sz_product_quantity">1</span>
                     <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
                 </div>
         
-                <button class="button-dark AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ encrypt( $product->id ) }}">
+                <button class="button-dark AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ $sz_p_encrypt_id }}">
                     Add to cart
                     <span class="sz_add_to_cart_circle {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -441,50 +445,61 @@
             $('#imgZoomModal img').attr('src', imgSrc);
         });
     
-        // Select the container
         $('.add-quantity-btn').each(function () {
             let container = $(this);
 
-            // Function to update the disable class
-            function updateDisableClass() {
-                let quantitySpan = container.find('span').eq(1); // Select the middle span
-                let quantity = parseInt(quantitySpan.text());
-                let minusButton = container.find('.minus-btn');
-                let plusButton = container.find('.plus-btn');
+            // Function to update the disable class for both buttons
+            function updateDisableClass(sharedId) {
+                $('.add-quantity-btn[data-shared-id="' + sharedId + '"]').each(function () {
+                    let currentContainer = $(this);
+                    let quantitySpan = currentContainer.find('span').eq(1); // Select the middle span
+                    let quantity = parseInt(quantitySpan.text());
+                    let minusButton = currentContainer.find('.minus-btn');
+                    let plusButton = currentContainer.find('.plus-btn');
 
-                if (quantity <= 1) {
-                    minusButton.addClass('disabled').css('opacity', '0.5'); // Add disabled class
-                } else {
-                    minusButton.removeClass('disabled').css('opacity', '1'); // Remove disabled class
-                }
-                if (quantity >= 10) {
-                    plusButton.addClass('disabled').css('opacity', '0.5'); // Add disabled class
-                } else {
-                    plusButton.removeClass('disabled').css('opacity', '1'); // Remove disabled class
-                }
+                    if (quantity <= 1) {
+                        minusButton.addClass('disabled').css('opacity', '0.5');
+                    } else {
+                        minusButton.removeClass('disabled').css('opacity', '1');
+                    }
+                    if (quantity >= 10) {
+                        plusButton.addClass('disabled').css('opacity', '0.5');
+                    } else {
+                        plusButton.removeClass('disabled').css('opacity', '1');
+                    }
+                });
             }
 
+            // Shared identifier to link two buttons
+            let sharedId = container.data('shared-id');
+
             // Initial update of the disable class
-            updateDisableClass();
+            updateDisableClass(sharedId);
 
             // Handle plus button click
             container.find('.plus-btn').click(function () {
-                let quantitySpan = container.find('span').eq(1); // Select the middle span
-                let quantity = parseInt(quantitySpan.text());
-                if (quantity < 10) {
-                    quantitySpan.text(quantity + 1); // Increment and update quantity
-                    updateDisableClass(); // Update disable class
-                }
+                $('.add-quantity-btn[data-shared-id="' + sharedId + '"]').each(function () {
+                    let relatedContainer = $(this);
+                    let quantitySpan = relatedContainer.find('span').eq(1); // Select the middle span
+                    let quantity = parseInt(quantitySpan.text());
+                    if (quantity < 10) {
+                        quantitySpan.text(quantity + 1); // Increment and update quantity
+                        updateDisableClass(sharedId); // Update disable class
+                    }
+                });
             });
 
             // Handle minus button click
             container.find('.minus-btn').click(function () {
-                let quantitySpan = container.find('span').eq(1); // Select the middle span
-                let quantity = parseInt(quantitySpan.text());
-                if (quantity > 1) {
-                    quantitySpan.text(quantity - 1); // Decrement and update quantity
-                    updateDisableClass(); // Update disable class
-                }
+                $('.add-quantity-btn[data-shared-id="' + sharedId + '"]').each(function () {
+                    let relatedContainer = $(this);
+                    let quantitySpan = relatedContainer.find('span').eq(1); // Select the middle span
+                    let quantity = parseInt(quantitySpan.text());
+                    if (quantity > 1) {
+                        quantitySpan.text(quantity - 1); // Decrement and update quantity
+                        updateDisableClass(sharedId); // Update disable class
+                    }
+                });
             });
         });
 
