@@ -124,7 +124,7 @@ class HomeController extends Controller
                 } else {
                     $sz_quantity .= ' Item';
                 }
-                $sz_cart_popup_html .= '<li class="d-flex border-bottom border-gray-300 py-3 position-relative" id="sz_product_' . $cp_key . '">
+                $sz_cart_popup_html .= '<li class="d-flex border-bottom border-gray-300 py-3 position-relative">
                     <div class="bg-white rounded-lg border border-slate-100 align-self-start">
                         <a href="' . $cp_val['url'] . '">
                             <img class="pro-img" src="' . $cp_val['image'] . '" alt="bike" width="92" height="92">

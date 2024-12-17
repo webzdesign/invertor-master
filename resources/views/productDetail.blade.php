@@ -118,6 +118,10 @@
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Condition</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">NEW</h6>
                     </div>
+                    <div class="d-flex align-items-center mb-4"> 
+                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Warranty</h6>
+                        <h6 class="mb-0 text-slate-900 font-inter-semibold">1 Year</h6>
+                    </div>
                     {{-- <div class="d-flex align-items-center mb-2"> 
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Color</h6>
                         <div class="d-flex gap-1">
