@@ -292,7 +292,7 @@ body.mobile-nav-active header #mobile-nav {
 
 .hero .spin-svg {
   margin-top: 100px;
-  animation: spin 5s linear infinite;
+  animation: spin 15s linear infinite;
 }
 
 @keyframes spin {

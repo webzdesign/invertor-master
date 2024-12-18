@@ -37,7 +37,6 @@
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Register on our site</li>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Place an order</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Subscribe to our newsletter</li>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Fill out a form</li>
             </ul>
         </div>
