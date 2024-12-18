@@ -579,7 +579,7 @@ footer .social-links li a {
   height: 48px;
 }
 
-.product-detail .add-quantity-btn {
+.add-quantity-btn-product {
   width: 135px;
   height: 55px;
 }
@@ -899,10 +899,6 @@ footer .social-links li a {
 .fixed-add-to-cart .img-pro {
   width: 70px;
   overflow: hidden;
-}
-
-.fixed-add-to-cart .add-quantity-btn {
-  width: 135px;
 }
 
 .warrantyLabel {

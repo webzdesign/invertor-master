@@ -133,7 +133,7 @@
                                                             @endphp
                                                             <div class="count font-inter-regular text-gray-500 text-end text-sm">x {{ $sz_quantity }}</div>
                                                         </div>
-                                                        <div class="add-quantity-btn d-flex align-items-center justify-content-between py-1 px-2 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none" data-shared-id="{{ $cp_key }}">
+                                                        <div class="add-quantity-btn d-flex align-items-center justify-content-between py-1 px-2 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none" data-shared-id="{{ encrypt($cp_key) }}">
                                                             <span class="minus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-start text-base disabled">-</span>
                                                             <span class="sz_product_quantity text-xs px-2">{{ $cp_val['quantity'] }}</span>
                                                             <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-base">+</span>
@@ -390,63 +390,6 @@ $(document).ready(function(){
         } else {
             $('#sz_submit_btn').prop('disabled', true);
         }
-    });
-    $('.add-quantity-btn').each(function () {
-        let container = $(this);
-
-        // Function to update the disable class for both buttons
-        function updateDisableClass(sharedId) {
-            $('.add-quantity-btn[data-shared-id="' + sharedId + '"]').each(function () {
-                let currentContainer = $(this);
-                let quantitySpan = currentContainer.find('span').eq(1); // Select the middle span
-                let quantity = parseInt(quantitySpan.text());
-                let minusButton = currentContainer.find('.minus-btn');
-                let plusButton = currentContainer.find('.plus-btn');
-
-                if (quantity <= 1) {
-                    minusButton.addClass('disabled').css('opacity', '0.5');
-                } else {
-                    minusButton.removeClass('disabled').css('opacity', '1');
-                }
-                if (quantity >= 10) {
-                    plusButton.addClass('disabled').css('opacity', '0.5');
-                } else {
-                    plusButton.removeClass('disabled').css('opacity', '1');
-                }
-            });
-        }
-
-        // Shared identifier to link two buttons
-        let sharedId = container.data('shared-id');
-
-        // Initial update of the disable class
-        updateDisableClass(sharedId);
-
-        // Handle plus button click
-        container.find('.plus-btn').click(function () {
-            $('.add-quantity-btn[data-shared-id="' + sharedId + '"]').each(function () {
-                let relatedContainer = $(this);
-                let quantitySpan = relatedContainer.find('span').eq(1); // Select the middle span
-                let quantity = parseInt(quantitySpan.text());
-                if (quantity < 10) {
-                    quantitySpan.text(quantity + 1); // Increment and update quantity
-                    updateDisableClass(sharedId); // Update disable class
-                }
-            });
-        });
-
-        // Handle minus button click
-        container.find('.minus-btn').click(function () {
-            $('.add-quantity-btn[data-shared-id="' + sharedId + '"]').each(function () {
-                let relatedContainer = $(this);
-                let quantitySpan = relatedContainer.find('span').eq(1); // Select the middle span
-                let quantity = parseInt(quantitySpan.text());
-                if (quantity > 1) {
-                    quantitySpan.text(quantity - 1); // Decrement and update quantity
-                    updateDisableClass(sharedId); // Update disable class
-                }
-            });
-        });
     });
 });
 </script>

@@ -44,6 +44,75 @@
                     $("header").removeClass("border-bottom");
                 }
             }
+            function initQuantityButton(){
+                $('.add-quantity-btn').each(function () {
+                    let container = $(this);
+
+                    // Function to update the disable class
+                    function updateDisableClass(status) {
+                        let quantitySpan = container.find('span').eq(1); // Select the middle span
+                        let quantity = parseInt(quantitySpan.text());
+                        let minusButton = container.find('.minus-btn');
+                        let plusButton = container.find('.plus-btn');
+                        let sharedId = container.attr('data-shared-id');
+
+                        if (quantity <= 1) {
+                            minusButton.addClass('disabled').css('opacity', '0.5'); // Add disabled class
+                        } else {
+                            minusButton.removeClass('disabled').css('opacity', '1'); // Remove disabled class
+                        }
+                        if (quantity >= 10) {
+                            plusButton.addClass('disabled').css('opacity', '0.5'); // Add disabled class
+                        } else {
+                            plusButton.removeClass('disabled').css('opacity', '1'); // Remove disabled class
+                        }
+                        if( status != 'initialize' ){
+                            $.ajax({
+                                url: '{{ route("cart.add") }}',
+                                type: 'POST',
+                                data: {
+                                    productId: sharedId,
+                                    total_quantity: quantity,
+                                },
+                                success: function(response) {
+                                    if (response.success) {
+                                        $('.sz_cart_total').html(response.cart_total);
+                                        $('.sz_card_popup_products').html(response.sz_cart_popup_html);
+                                        $('.sz_cart-badge').html(response.total_cart_count);
+                                        initQuantityButton('initialize');
+                                    }
+                                },
+                                error: function(xhr) {
+                                    console.error(xhr.responseText);
+                                }
+                            });
+                        }
+                    }
+
+                    // Initial update of the disable class
+                    updateDisableClass('initialize');
+
+                    // Handle plus button click
+                    container.find('.plus-btn').click(function () {
+                        let quantitySpan = container.find('span').eq(1); // Select the middle span
+                        let quantity = parseInt(quantitySpan.text());
+                        if (quantity < 10) {
+                            quantitySpan.text(quantity + 1); // Increment and update quantity
+                            updateDisableClass(); // Update disable class
+                        }
+                    });
+
+                    // Handle minus button click
+                    container.find('.minus-btn').click(function () {
+                        let quantitySpan = container.find('span').eq(1); // Select the middle span
+                        let quantity = parseInt(quantitySpan.text());
+                        if (quantity > 1) {
+                            quantitySpan.text(quantity - 1); // Decrement and update quantity
+                            updateDisableClass(); // Update disable class
+                        }
+                    });
+                });
+            }
             $(document).ready(function(){
                 $.ajaxSetup({
                     headers: {
@@ -96,6 +165,7 @@
                                     $('.sz_cart_total').html(response.cart_total);
                                     $('.sz_card_popup_products').html(response.sz_cart_popup_html);
                                     $('.sz_cart-badge').html(response.total_cart_count);
+                                    initQuantityButton();
                                 }
                             }
                         },
@@ -174,6 +244,7 @@
                 $(document).on('hide.bs.modal', '#videoModal', function(e){
                     $('.sz_youtube_video_iframe').attr( 'src', '' );
                 });
+                initQuantityButton();
             });
         </script>
         @yield('script')

@@ -135,7 +135,7 @@
                     </div> --}}
                 </div>
                 <div class="d-flex gap-4 mt-4 sz_add_to_cart-sec">
-                    <div class="add-quantity-btn d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none" data-shared-id="sz_qty_btn">
+                    <div class="add-quantity-btn-product d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none" data-shared-id="sz_qty_btn">
                         <span class="minus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-start text-2xl">-</span>
                         <span class="sz_product_quantity">1</span>
                         <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
@@ -369,7 +369,7 @@
         </div> --}}
         <div class="col-lg-6 mt-lg-0 mt-2">
             <div class="d-flex gap-md-4 gap-3 justify-content-start justify-content-lg-end sz_add_to_cart-sec">
-                <div class="add-quantity-btn d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none sz_add_quantity_floating" data-shared-id="sz_qty_btn">
+                <div class="add-quantity-btn-product d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none sz_add_quantity_floating" data-shared-id="sz_qty_btn">
                     <span class="minus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-start text-2xl">-</span>
                     <span class="sz_product_quantity">1</span>
                     <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
@@ -450,12 +450,12 @@
             $('#imgZoomModal img').attr('src', imgSrc);
         });
     
-        $('.add-quantity-btn').each(function () {
+        $('.add-quantity-btn-product').each(function () {
             let container = $(this);
 
             // Function to update the disable class for both buttons
             function updateDisableClass(sharedId) {
-                $('.add-quantity-btn[data-shared-id="' + sharedId + '"]').each(function () {
+                $('.add-quantity-btn-product[data-shared-id="' + sharedId + '"]').each(function () {
                     let currentContainer = $(this);
                     let quantitySpan = currentContainer.find('span').eq(1); // Select the middle span
                     let quantity = parseInt(quantitySpan.text());
@@ -483,7 +483,7 @@
 
             // Handle plus button click
             container.find('.plus-btn').click(function () {
-                $('.add-quantity-btn[data-shared-id="' + sharedId + '"]').each(function () {
+                $('.add-quantity-btn-product[data-shared-id="' + sharedId + '"]').each(function () {
                     let relatedContainer = $(this);
                     let quantitySpan = relatedContainer.find('span').eq(1); // Select the middle span
                     let quantity = parseInt(quantitySpan.text());
@@ -496,7 +496,7 @@
 
             // Handle minus button click
             container.find('.minus-btn').click(function () {
-                $('.add-quantity-btn[data-shared-id="' + sharedId + '"]').each(function () {
+                $('.add-quantity-btn-product[data-shared-id="' + sharedId + '"]').each(function () {
                     let relatedContainer = $(this);
                     let quantitySpan = relatedContainer.find('span').eq(1); // Select the middle span
                     let quantity = parseInt(quantitySpan.text());
