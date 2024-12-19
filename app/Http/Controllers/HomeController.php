@@ -265,7 +265,7 @@ class HomeController extends Controller
                 $product = Product::find(decrypt($productId));
                 if ($product) {
                     SalesOrderItem::create(['so_id' => $salesOrder->id, 'category_id' => $product->category_id, 'product_id' => $product->id, 'price' => $product->web_sales_price, 'qty' => $request->quantity[$pKey], 'amount' => ($product->web_sales_price) * $request->quantity[$pKey], 'remarks' => '']);
-                    $orderItems[] = $product->name;
+                    $orderItems[] = $product->name . ' - ' . $request->quantity[$pKey];
                     $orderTotal += ($product->web_sales_price) * $request->quantity[$pKey];
                 }
             }
