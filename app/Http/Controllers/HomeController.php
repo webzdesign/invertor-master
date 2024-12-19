@@ -248,7 +248,15 @@ class HomeController extends Controller
     {
         DB::beginTransaction();
 
-        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->first_name.' '.$request->last_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0]);
+        $sz_utm_source = '';
+        if( $request->hasCookie('sz_utm_source') != false ){
+            $sz_utm_source = $request->cookie('sz_utm_source');
+            if( strlen($sz_utm_source) > 255 ){
+                $sz_utm_source = substr($sz_utm_source, 0, 255);
+            }
+        }
+
+        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->first_name.' '.$request->last_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0, 'purchase_source' => $sz_utm_source]);
         
         $orderItems = [];
         $orderTotal = 0;
