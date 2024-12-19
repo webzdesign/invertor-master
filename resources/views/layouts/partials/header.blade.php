@@ -10,20 +10,25 @@
         }
     }
 @endphp
-<header class="d-flex align-items-center flex-column justify-content-center position-sticky top-0 bg-white" id="header">
+
+<section class="top-navigation bg-slate-900 py-2 px-4 text-center position-sticky top-0">
+    <div class="owl-carousel fade-owl-slider">
+        <div class="text-slate-50 font-inter-regular text-sm">🚚 Same-Day Delivery</div>
+        <div class="text-slate-50 font-inter-regular text-sm">💰 Payment After Delivery</div>
+        <div class="text-slate-50 font-inter-regular text-sm">⚡ Fast & Reliable Service</div>
+        <div class="text-slate-50 font-inter-regular text-sm">🚛 Order Today, Delivered Today</div>
+        <div class="text-slate-50 font-inter-regular text-sm">💶 Pay Only After Receiving</div>
+        <div class="text-slate-50 font-inter-regular text-sm">⚡ Quick Delivery, Zero Risk</div>
+        <div class="text-slate-50 font-inter-regular text-sm">🚛 Convenient & Trustworthy Delivery</div>
+    </div>
+</section>
+<header class="d-flex align-items-center flex-column justify-content-center position-sticky bg-white" id="header">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route( 'home' ) }}">
                 <img src="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}">
             </a>
             <ul class="menu align-items-center d-lg-flex gap-5 m-0 p-0 d-none" id="nav-menu-container">
-                <li class="d-lg-none close-menu position-absolute">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="Menu / Close_MD">
-                        <path id="Vector" d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </g>
-                    </svg>
-                </li>
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is( '/' ) ? 'active' : '' }}" href="{{ route( 'home' ) }}">Home</a>
                 </li>
@@ -51,7 +56,7 @@
                     </svg>
                     <span class="sz_cart-badge">{{ $total_cart_count }}</span>
                 </button>
-                <div id="mobile-nav-toggle" class="d-lg-none">
+                <div id="mobile-nav-toggle" class="d-lg-none d-flex align-items-center justify-content-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                         <path d="M20 12.5H10" stroke="#141B34" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />

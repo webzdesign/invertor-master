@@ -27,6 +27,21 @@
             </div>
         </div>
         <script>
+            $(document).ready(function(){
+                $(".fade-owl-slider").owlCarousel({
+                    items: 1,
+                    autoplay: true,
+                    autoplayTimeout: 3000, // Time between slides (in milliseconds)
+                    loop: true,
+                    animateOut: 'fadeOut',
+                    animateIn: 'fadeIn',
+                    smartSpeed: 200,
+                    dots: false,
+                    nav: false,
+                    touchDrag: false,
+                    mouseDrag: false
+                });
+            });
             function numberFormat(number, decimals) {
                 number = parseFloat(number);
 
@@ -39,9 +54,9 @@
             }
             function toggleHeaderClass() {
                 if ($(window).scrollTop() >= 10) {
-                    $("header").addClass("border-bottom");
+                    $("header").addClass("header-fixed");
                 } else {
-                    $("header").removeClass("border-bottom");
+                    $("header").removeClass("header-fixed");
                 }
             }
             function initQuantityButton(){
@@ -213,11 +228,6 @@
                     });
 
                     $(document).on('click', '#mobile-nav-toggle', function (e) {
-                        $('body').toggleClass('mobile-nav-active');
-                        $('#mobile-body-overly').toggle();
-                    });
-
-                    $(document).on('click', '.close-menu', function (e) {
                         $('body').toggleClass('mobile-nav-active');
                         $('#mobile-body-overly').toggle();
                     });
