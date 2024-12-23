@@ -17,8 +17,12 @@ class PreventBackButtonMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // track facebook purchase set cookies
-        if ($request->has('utm_source')) {
-            $utmSource = $request->get('utm_source');
+        if ( $request->has('utm_source') || $request->has('gad_source') ) {
+            if( $request->has('gad_source') ){
+                $utmSource = 'google';
+            } else {
+                $utmSource = $request->get('utm_source');
+            }
             Cookie::queue(Cookie::make('sz_utm_source', $utmSource, 1440)); // 1 day
         }
 
