@@ -23,6 +23,7 @@
   --gray-900: #0D163A;
   --gray-950: #080707;
   --blue-500: #460BF4;
+  --rose-500:#FF0000;
   --bs-gutter-x: 1rem;
   --bs-gutter-y: 1rem;
 }
@@ -932,4 +933,27 @@ footer .social-links li a {
 
 .top-navigation .owl-carousel .animated {
   animation-duration: .3s;
+}
+
+.contact-card{
+  background-color: #FBFBFB;
+  padding: 40px;
+  border-radius: 30px;
+}
+.contact-card .iti{
+  width: 100%;
+}
+.contact-card .iti--separate-dial-code .iti__selected-flag {
+  background-color: transparent !important;
+}
+.contact-card .iti--separate-dial-code.iti--show-flags .iti__selected-dial-code {
+  order: 1;
+}
+.contact-card .iti__arrow{
+  border: 0 !important;
+  background-image: url('../images/chevron-down.svg');
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
