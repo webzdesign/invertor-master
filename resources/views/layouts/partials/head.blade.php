@@ -6,11 +6,19 @@
 
 <title>Electric Scooters - Buy E-Scooters Online</title>
 
-<link rel="stylesheet" href="{{ asset( 'assets/css/bootstrap.min.css' ) }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/swiper-bundle.min.css' ) }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/owl.carousel.min.css' ) }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/slick-theme.min.css' ) }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/slick.min.css' ) }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/style.css' ) }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/utilities.css' ) }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/responsive.css' ) }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/bootstrap.min.css' ) . '?' . time() }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/swiper-bundle.min.css' ) . '?' . time() }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/owl.carousel.min.css' ) . '?' . time() }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/slick-theme.min.css' ) . '?' . time() }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/slick.min.css' ) . '?' . time() }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/style.css' ) . '?' . time() }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/utilities.css' ) . '?' . time() }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/responsive.css' ) . '?' . time() }}">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KVZL6F4V');</script>
+<!-- End Google Tag Manager -->    

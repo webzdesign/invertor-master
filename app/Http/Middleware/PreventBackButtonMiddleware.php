@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Cookie;
 
 class PreventBackButtonMiddleware
 {
@@ -15,6 +16,16 @@ class PreventBackButtonMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // track facebook purchase set cookies
+        if ( $request->has('utm_source') || $request->has('gad_source') ) {
+            if( $request->has('gad_source') ){
+                $utmSource = 'google';
+            } else {
+                $utmSource = $request->get('utm_source');
+            }
+            Cookie::queue(Cookie::make('sz_utm_source', $utmSource, 1440)); // 1 day
+        }
+
         $response = $next($request);
         $response->headers->set('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
         $response->headers->set('Pragma', 'no-cache');
