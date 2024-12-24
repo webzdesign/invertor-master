@@ -772,8 +772,10 @@ footer .social-links li a {
   width: 100%;
 }
 
-#addOrder .error {
+#addOrder .error,
+#contactUs .error {
   color: red;
+  font-size: 14px;
 }
 
 .modal .btn-close {

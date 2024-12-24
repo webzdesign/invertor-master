@@ -520,7 +520,12 @@ class HomeController extends Controller
 
     public function contactUsStore(ContactUsRequest $request)
     {
-        $contact = ContactUs::create(['name' => $request->name, 'email' => $request->email, 'message' => strip_tags($request->message)]);
+        $name = $request->sz_firstname;
+        if( !empty($request->sz_lastname) ){
+            $name .= ' ' . $request->sz_lastname;
+        }
+        $sz_message = !empty($request->sz_message) ? strip_tags($request->sz_message) : '';
+        $contact = ContactUs::create([ 'name' => $name, 'email' => $request->sz_email, 'phone' => $request->sz_phone, 'message' => $sz_message ]);
 
         $this->sendContactEmailToAdmin($contact);
 

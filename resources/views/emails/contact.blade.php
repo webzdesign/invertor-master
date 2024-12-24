@@ -22,6 +22,10 @@
                     <td>{{ $contact->email }}</td>
                 </tr>
                 <tr>
+                    <td><strong>Phone:</strong></td>
+                    <td>{{ $contact->phone }}</td>
+                </tr>
+                <tr>
                     <td><strong>Message:</strong></td>
                     <td>{{ $contact->message }}</td>
                 </tr>
