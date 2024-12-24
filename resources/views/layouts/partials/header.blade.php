@@ -191,7 +191,7 @@
                 <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular">Total</h4>
                 <h3 class="text-slate-900 text-xl text-lg-mob font-inter-medium sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($subtotal, 2) }}</h3>
             </div>
-            <a href="{{ route('checkout') }}" class="button-dark w-100 mt-2 mt-sm-4 text-center">Order Now</a>
+            <a href="{{ route('checkout') }}"><button class="sz_order_now-btn button-dark w-100 mt-2 mt-sm-4 text-center" {{ empty($cart_products) ? 'disabled' : '' }}>Order Now</button></a>
             <div class="font-semibold text-lg m-0 text-center mt-3">Cash on delivery</div>
         </div>
     </div>
