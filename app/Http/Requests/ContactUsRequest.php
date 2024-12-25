@@ -22,9 +22,19 @@ class ContactUsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'message' => 'required|string|min:10'
+            'sz_firstname' => 'required|string|max:255',
+            'sz_lastname' => 'required|string|max:255',
+            'sz_email' => 'required|email|max:255',
+            "sz_phone" => "required",
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'sz_firstname.max' => 'The First name field must not be greater than 255 characters.',
+            'sz_lastname.max' => 'The Last name field must not be greater than 255 characters.',
+            'sz_email.max' => 'The Email field must not be greater than 255 characters.',
         ];
     }
 }

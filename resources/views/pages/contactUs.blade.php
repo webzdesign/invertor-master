@@ -12,66 +12,57 @@
     <div class="container">
         <h2 class="text-6xl text-4xl-mob text-slate-900 font-bebas text-center">Contact Us</h2>
         <p class="text-gray-500 mt-3 text-xl text-base-mob font-inter-regular text-center">At Skootz Electric Scooters, we're here to help you find the perfect scooter for your lifestyle and answer any questions you may have. Whether you're curious about our products, need assistance with your order, or want advice on choosing the best scooter for your needs, our team is ready to assist!</p>
-        <!-- <div class="mt-4">
-            <div class="row justify-content-center">
-                <div class="col-xxl-3 col-lg-4 col-sm-6">
-                    <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3 text-center text-sm-start">Get in Touch</h3>
-                    <div class="d-sm-flex mb-3 text-center text-sm-start">
-                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Phone</div>
-                        <a href="tel:+44 7418356616" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">+44 7418356616</a>
-                    </div>
-                    <div class="d-sm-flex mb-3 text-center text-sm-start">
-                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Email</div>
-                        <a href="mailto:hello@runmax.co.uk" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">hello@runmax.co.uk</a>
-                    </div>
-                    <div class="d-sm-flex text-center text-sm-start">
-                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Address</div>
-                        <div class="addressTitle text-decoration-none text-slate-900 font-inter-regular text-sm">Visit our showroom at Edinburgh and Glasgow for a firsthand look at our range of scooters.</div>
-                    </div>
-                </div>
-                <div class="col-xxl-3 col-lg-4 col-sm-6 ps-sm-5 mt-sm-0 mt-4">
-                    <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3 text-center text-sm-start">Customer Support Hours</h3>
-                    <div class="text-slate-900 text-sm font-inter-regular mb-3 text-center text-sm-start">Monday – Friday: 9:00 AM – 6:00 PM</div>
-                    <div class="text-slate-900 text-sm font-inter-regular mb-3 text-center text-sm-start">Saturday: 10:00 AM – 4:00 PM</div>
-                </div>
-            </div>
-        </div> -->
         <p class="text-gray-500 mt-4 mb-0 text-xl text-lg-mob font-inter-regular text-center">Feel free to contact us anytime—we look forward to hearing from you!</p>
         <div class="row mt-4">
             <div class="col-lg-7 col-xl-8">
                 <div class="contact-card leftCard border border-slate-100">
-                    <h4 class="text-slate-900 text-lg font-medium font-hubot text-center text-lg-start">You can reach us anytime</h4>
-                    <div class="row mt-3">
-                        <div class="col-6 pe-xl-4 mb-4">
-                            <label class="font-inter-regular text-sm d-block mb-1">First name<span class="text-rose-500">*</span></label>
-                            <input class="input-control w-100" type="text" placeholder="First name">
+                    @if (session()->has('success'))
+                        <div class="text-center mb-3 fs-4" style="color: green;">{{ session('success') }}</div>
+                    @endif
+                    <form action="{{ route('contactUs.store') }}" id="contactUs" method="post">
+                        @csrf
+                        <h4 class="text-slate-900 text-lg font-medium font-hubot text-center text-lg-start">You can reach us anytime</h4>
+                        <div class="row mt-3">
+                            <div class="col-6 pe-xl-4 mb-4">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_firstname">First name<span class="text-rose-500">*</span></label>
+                                <input name="sz_firstname" id="sz_firstname" class="input-control w-100" type="text" placeholder="First name" value="{{ old('sz_firstname') }}">
+                                @if ( $errors->has('sz_firstname') )
+                                    <span class="text-danger d-block">{{ $errors->first('sz_firstname') }}</span>
+                                @endif
+                            </div>
+                            <div class="col-6 ps-xl-4 mb-4">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_lastname">Last name<span class="text-rose-500">*</span></label>
+                                <input name="sz_lastname" id="sz_lastname" class="input-control w-100" type="text" placeholder="Last name" value="{{ old('sz_lastname') }}">
+                                @if ( $errors->has('sz_lastname') )
+                                    <span class="text-danger d-block">{{ $errors->first('sz_lastname') }}</span>
+                                @endif
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_email">Email<span class="text-rose-500">*</span></label>
+                                <input name="sz_email" id="sz_email" class="input-control w-100" type="text" placeholder="you@company.com" value="{{ old('sz_email') }}">
+                                @if ( $errors->has('sz_email') )
+                                    <span class="text-danger d-block">{{ $errors->first('sz_email') }}</span>
+                                @endif
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="phone">Phone number<span class="text-rose-500">*</span></label>
+                                <input type="hidden" name="country_dial_code" id="country_dial_code">
+                                <input type="hidden" name="country_iso_code" id="country_iso_code">
+                                <input type="text" class="input-control w-100" name="sz_phone" id="phone" value="{{ old('sz_phone') }}">
+                                <label id="phone-error" class="error" for="phone"></label>
+                                @if ( $errors->has('sz_phone') )
+                                    <span class="text-danger error">{{ $errors->first('sz_phone') }}</span>
+                                @endif
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_message">Message</label>
+                                <textarea name="sz_message" id="sz_message" class="input-control w-100 py-3 h-100" rows="3" cols="40">{{ old('sz_message') }}</textarea>
+                            </div>
+                            <div class="col-12 mt-4 mt-md-5">
+                                <button type="submit" class="button-dark w-100">Submit</button>
+                            </div>
                         </div>
-                        <div class="col-6 ps-xl-4 mb-4">
-                            <label class="font-inter-regular text-sm d-block mb-1">Last name<span class="text-rose-500">*</span></label>
-                            <input class="input-control w-100" type="text" placeholder="Last name">
-                        </div>
-                        <div class="col-12 mb-4">
-                            <label class="font-inter-regular text-sm d-block mb-1">Email<span class="text-rose-500">*</span></label>
-                            <input class="input-control w-100" type="text" placeholder="you@company.com">
-                        </div>
-                        <div class="col-12 mb-4">
-                            <label class="font-inter-regular text-sm d-block mb-1">Phone number<span class="text-rose-500">*</span></label>
-                            <input type="hidden" name="country_dial_code" id="country_dial_code">
-                            <input type="hidden" name="country_iso_code" id="country_iso_code">
-                            <input type="text" class="input-control w-100" name="phone" id="phone" value="{{ old('phone') }}">
-                            <label id="phone-error" class="error" for="phone"></label>
-                            @if ( $errors->has('phone') )
-                                <span class="text-danger error">{{ $errors->first('phone') }}</span>
-                            @endif
-                        </div>
-                        <div class="col-12 mb-4">
-                            <label class="font-inter-regular text-sm d-block mb-1">Message<span class="text-rose-500">*</span></label>
-                            <textarea class="input-control w-100 py-3 h-100" rows="3" cols="40"></textarea>
-                        </div>
-                        <div class="col-12 mt-4 mt-md-5">
-                            <button class="button-dark w-100">Submit</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="col-lg-5 col-xl-4">
@@ -113,6 +104,7 @@
 @section('script')
 <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
 <script src="{{ asset('assets/js/intel.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
 
 <script>
     const input = document.querySelector('#phone');
@@ -146,6 +138,50 @@
             $('#country_dial_code').val(iti.s.dialCode);
             $('#country_iso_code').val(iti.j);
         }
+    });
+    $(document).ready(function(){
+        $("#contactUs").validate({
+            rules: {
+                sz_firstname: {
+                    required: true,
+                },
+                sz_lastname: {
+                    required: true,
+                },
+                sz_email: {
+                    email: true,
+                    required: true,
+                },
+                sz_phone: {
+                    required: true,
+                    inttel: true,
+                },
+            },
+            messages: {
+                sz_firstname: {
+                    required: "First name is required."
+                },
+                sz_lastname: {
+                    required: "Last name is required."
+                },
+                sz_email: {
+                    required: "Email is required."
+                },
+                sz_phone: {
+                    required: "Phone is required.",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.appendTo(element.parent("div"));
+            },
+            submitHandler:function(form) {
+                if(!this.beenSubmitted) {
+                    this.beenSubmitted = true;
+                    $('button[type="submit"]').attr('disabled', true);
+                    form.submit();
+                }
+            }
+        });
     });
 </script>
 @endsection
