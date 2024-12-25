@@ -33,11 +33,11 @@ class ProductXMLCron extends Command
         $products = Product::where('status', '1')->orderBy('id', 'desc')->get();
         $xml = new \SimpleXMLElement('<products/>');
 
-        foreach ($products as $product) {
+        foreach ($products as $key => $product) {
             $category_name = Category::find($product->category_id)->value('name');
             $description = html_entity_decode(strip_tags($product->description));
             $product_details = $xml->addChild('product');
-            $product_details->addChild('id', time());
+            $product_details->addChild('id', time() . $key);
             $product_details->addChild('title', htmlspecialchars($product->name));
             $product_details->addChild('description', htmlspecialchars($description));
             $product_details->addChild('brand', '');
