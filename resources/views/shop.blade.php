@@ -44,16 +44,24 @@
             @foreach ($products as $product)
                 <div class="col-md-6 mb-4 mb-sm-5">
                     <a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $product->slug) }}">
-                        <div class="product-card border text-center p-4 border-slate-200 rounded-3xl overflow-hidden position-relative">
+                        <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
                             <img class="pro-img sz_product_image mw-100" src="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name}}" alt="{{ $product->name }}">
-                            <label class="warrantyLabel mb-0 position-absolute text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
+                            <div class="ws_sec position-absolute">
+                                <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
+                                <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
+                            </div>
                         </div>
                     </a>
                     <div class="text-md-start text-center">
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4"><a class="text-gray-950 text-decoration-none" href="{{ route('productDetail', $product->slug) }}">{{ $product->name }}</a></h2>
-                        <h2 class="text-lg text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h2>
-
-                        <button class="button-dark AddToCartBtn" data-pid="{{ encrypt( $product->id ) }}">
+                        <div class="d-md-flex align-items-center gap-3 justify-content-md-start justify-content-center">
+                            <div class="d-flex align-items-center gap-3 justify-content-md-start justify-content-center">
+                                <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h2>
+                                <h6 class="text-base text-gray-500 mb-0 font-inter-regular text-decoration-line-through">£456.00</h6>  
+                            </div>
+                            <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2">You save 12% (UK £56)</label>     
+                        </div>
+                        <button class="button-dark AddToCartBtn mt-3 d-flex align-items-center gap-2 mx-auto mx-md-0" data-pid="{{ encrypt( $product->id ) }}">
                             Add to cart
                             <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -81,8 +81,13 @@
                 </div>
             </div>
             <div class="col-lg-5 ps-lg-5">
+                <label class="saleLbl bg-violet-500 w-fit px-2 mt-2 d-block mb-2 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
                 <h2 class="text-slate-900 font-bebas text-6xl text-4xl-mob mt-lg-0 mt-3">{{ $product->name }}</h2>
-                <h3 class="text-4xl text-blue-500 font-bebas text-3xl-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h3>
+                <div class="d-flex align-items-center gap-3 mb-2">
+                    <h3 class="text-4xl mb-0 text-blue-500 font-bebas text-3xl-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h3>
+                    <h4 class="text-2xl mx-0 mb-0 text-gray-500 font-bebas text-gray-600 text-decoration-line-through">£456.00</h4>
+                    <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2">You save 12% (UK £56)</label>   
+                </div>
                 <p class="text-gray-500 font-inter-regular text-xl text-base-mob">Be among the first to ride our freshest, high-performance scooters.</p>
                 <div class="d-flex align-items-center gap-2">
                     {{-- <div>
@@ -314,16 +319,26 @@
             @foreach ($othersProducts as $o_product)
                 <div class="col-md-6 mb-5">
                     <a href="{{ route('productDetail', $o_product->slug) }}">
-                        <div class="product-card border text-center p-4 border-slate-200 rounded-3xl overflow-hidden position-relative">
+                        <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
                             <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product->images->first()->name }}" alt="{{ $o_product->name }}">
-                            <label class="warrantyLabel mb-0 position-absolute text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
+                            <div class="ws_sec position-absolute">
+                                <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
+                                <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
+                            </div>
                         </div>
                     </a>
                     <div class="text-md-start text-center">
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4">{{ $o_product->name }}</h2>
-                        <h2 class="text-lg text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($o_product->web_sales_price, 2) }}</h2>
 
-                        <button class="button-dark mt-3 AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ encrypt( $o_product->id ) }}">
+                        <div class="d-md-flex align-items-center gap-3 justify-content-md-start justify-content-center">
+                            <div class="d-flex align-items-center gap-3 justify-content-md-start justify-content-center">
+                                <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($o_product->web_sales_price, 2) }}</h2>
+                                <h6 class="text-base text-gray-500 mb-0 font-inter-regular text-decoration-line-through">£456.00</h6>  
+                            </div>
+                            <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2">You save 12% (UK £56)</label>     
+                        </div>
+
+                        <button class="button-dark mt-3 AddToCartBtn d-flex align-items-center gap-2 mx-auto mx-md-0" data-pid="{{ encrypt( $o_product->id ) }}">
                             Add to cart
                             <span class="sz_add_to_cart_circle {{ empty($cart_products[$o_product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -349,7 +364,12 @@
                 </div>
                 <div>
                     <h3 class="text-slate-900 text-3xl text-2xl-mob font-bebas mb-0">{{ $product->name }}</h3>
-                    <h4 class="text-blue-500 font-bebas text-2xl text-lg-mob mb-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h4>
+                    <div class="d-flex align-items-center gap-sm-3 gap-2 mb-2">
+                        <h4 class="text-blue-500 mb-0 font-bebas text-2xl mb-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h4>
+                        <h4 class="text-2xl mx-0 mb-0 text-gray-500 font-bebas text-gray-600 text-decoration-line-through">£456.00</h4>
+                        <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 d-sm-block d-none">You save 12% (UK £56)</label>   
+                        <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 d-sm-none whitespace-nowrap">SAVE 12.28%</label>   
+                    </div>
                 </div>
             </div>
         </div>

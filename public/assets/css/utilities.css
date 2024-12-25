@@ -37,7 +37,8 @@ select {
     width: 100%;
     box-shadow: none !important;
 }
-.input-control{
+
+.input-control {
     border: 1px solid var(--slate-100);
     border-radius: 8px;
     padding: 4px 16px;
@@ -47,12 +48,15 @@ select {
     box-shadow: 0px 1px 2px 0px rgba(40, 41, 48, 0.02);
     resize: none;
 }
+
 .input-control::placeholder {
     color: #CDCDCD;
-    opacity: 1; /* Firefox */
+    opacity: 1;
+    /* Firefox */
 }
 
-.input-control::-ms-input-placeholder { /* Edge 12 -18 */
+.input-control::-ms-input-placeholder {
+    /* Edge 12 -18 */
     color: #CDCDCD;
 }
 
@@ -171,6 +175,10 @@ select {
     color: var(--gray-500) !important;
 }
 
+.text-gray-600 {
+    color: var(--gray-600) !important;
+}
+
 .text-gray-950 {
     color: var(--gray-950) !important;
 }
@@ -218,6 +226,10 @@ select {
 
 .bg-blue-500 {
     background-color: var(--blue-500) !important;
+}
+
+.bg-violet-500 {
+    background-color: var(--violet-500) !important;
 }
 
 .bg-linear {
