@@ -39,7 +39,7 @@ class ProductXMLCron extends Command
             $product_details = $xml->addChild('product');
             $product_details->addChild('id', time());
             $product_details->addChild('title', htmlspecialchars($product->name));
-            $product_details->addChild('description', $description);
+            $product_details->addChild('description', htmlspecialchars($description));
             $product_details->addChild('brand', '');
             $product_details->addChild('category', $category_name);
             $product_details->addChild('sku', '');
