@@ -35,10 +35,12 @@ class ProductXMLCron extends Command
 
         foreach ($products as $product) {
             $category_name = Category::find($product->category_id)->value('name');
+            $description = htmlspecialchars(strip_tags($product->description));
+            $description = str_replace('&nbsp;', ' ', $description);
             $product_details = $xml->addChild('product');
             $product_details->addChild('id', time());
             $product_details->addChild('title', htmlspecialchars($product->name));
-            $product_details->addChild('description', htmlspecialchars(strip_tags($product->description)));
+            $product_details->addChild('description', $description);
             $product_details->addChild('brand', '');
             $product_details->addChild('category', $category_name);
             $product_details->addChild('sku', '');
