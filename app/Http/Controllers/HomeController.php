@@ -109,10 +109,15 @@ class HomeController extends Controller
                 $total_p_quantity = 10;
                 $sz_cart_reached_status = 1;
             }
+            $original_price = $product->web_sales_price;
+            if( !empty($product->web_sales_old_price) ){
+                $original_price = $product->web_sales_old_price;
+            }
             $cart[$product->id] = [
                 'quantity' => $total_p_quantity,
                 'name' => $product->name,
                 'price' => $product->web_sales_price,
+                'original_price' => $original_price,
                 'image' => isset($product->images[0]) ? env('APP_Image_URL').'storage/product-images/'.$product->images[0]->name : '',
                 'url' => route('productDetail', $product->slug),
                 'productId' => encrypt($product->id)
@@ -122,7 +127,7 @@ class HomeController extends Controller
         session()->put('cart', $cart);
         session()->save();
 
-        $subtotal = $total_cart_count = 0;
+        $grand_total = $total_cart_count = $sub_total = $total_discount = 0;
         $sz_cart_popup_html = '';
         if( !empty($cart) ){
             foreach ( $cart as $cp_key => $cp_val ) {
@@ -167,18 +172,44 @@ class HomeController extends Controller
                 </li>
                 <input type="hidden" name="productId[]" value="'. $cp_val['productId'] .'" />
                 <input type="hidden" name="quantity[]" value="'. $cp_val['quantity'] .'" />';
-                $total = $cp_val['price'] * $cp_val['quantity'];
-                $subtotal = $subtotal + $total;
+                $product_price = $cp_val['price'] * $cp_val['quantity'];
+                $grand_total += $product_price;
+                if( !empty($cp_val['original_price']) ){
+                    $original_price = $cp_val['original_price'] * $cp_val['quantity'];
+                }
+                $sub_total += $original_price;
+                $total_discount += $original_price - $product_price;
                 $total_cart_count += $cp_val['quantity'];
             }
         }
+        $sub_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($sub_total, 2);
+        $total_discount = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($total_discount, 2);
+        $total_tax = $delivery_cost = env( 'SZ_CURRENCY_SYMBOL' ) . ' 0.00';
+        $sz_cart_price_html = '<div class="py-4 d-flex flex-column gap-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Subtotal</h4>
+                    <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">' . $sub_total . '</h3>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Discount</h4>
+                    <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">' . $total_discount . '</h3>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Tax</h4>
+                    <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">' . $total_tax . '</h3>
+                </div>
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Delivery Cost</h4>
+                    <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">' . $delivery_cost . '</h3>
+                </div>
+            </div>';
         $msg = 'Added to cart Successfully';
         if( $sz_cart_reached_status == 1 ){
             $msg = 'Sorry, you can’t add more of this product.';
         }
-        $cart_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($subtotal, 2);
+        $cart_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($grand_total, 2);
 
-        return response()->json([ 'success' => true, 'message' => $msg, 'cart_reached_status' => $sz_cart_reached_status, 'cart_total' => $cart_total, 'total_cart_count' => $total_cart_count, 'sz_cart_popup_html' => $sz_cart_popup_html ]);
+        return response()->json([ 'success' => true, 'message' => $msg, 'cart_reached_status' => $sz_cart_reached_status, 'cart_total' => $cart_total, 'total_cart_count' => $total_cart_count, 'sz_cart_popup_html' => $sz_cart_popup_html, 'sz_cart_price_html' => $sz_cart_price_html ]);
     }
 
     public function cartSync(Request $request)

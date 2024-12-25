@@ -42,13 +42,24 @@
     <div class="container">
         <div class="row">
             @foreach ($products as $product)
+                @php
+                    $sz_discount_flag = 0;
+                    if( !empty($product->web_sales_old_price) && $product->web_sales_old_price > $product->web_sales_price ){
+                        $sz_discount_flag = 1;
+                        $sz_discount_pr = ( $product->web_sales_old_price - $product->web_sales_price ) / $product->web_sales_old_price * 100;
+                        $sz_discount_pr = number_format($sz_discount_pr, 2);
+                        $sz_save_price = $product->web_sales_old_price - $product->web_sales_price;
+                    }
+                @endphp
                 <div class="col-md-6 mb-4 mb-sm-5">
                     <a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
                             <img class="pro-img sz_product_image mw-100" src="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name}}" alt="{{ $product->name }}">
                             <div class="ws_sec position-absolute">
                                 <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
-                                <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
+                                @if( $sz_discount_flag == '1' )
+                                    <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
+                                @endif
                             </div>
                         </div>
                     </a>
@@ -57,9 +68,13 @@
                         <div class="d-md-flex align-items-center gap-3 justify-content-md-start justify-content-center">
                             <div class="d-flex align-items-center gap-3 justify-content-md-start justify-content-center">
                                 <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h2>
-                                <h6 class="text-base text-gray-500 mb-0 font-inter-regular text-decoration-line-through">£456.00</h6>  
+                                @if( $sz_discount_flag == '1' )
+                                    <h6 class="text-base text-gray-400 mb-0 font-inter-regular text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($product->web_sales_old_price, 2) }}</h6>
+                                @endif
                             </div>
-                            <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2">You save 12% (UK £56)</label>     
+                            @if( $sz_discount_flag == '1' )
+                                <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% (UK {{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
+                            @endif
                         </div>
                         <button class="button-dark AddToCartBtn mt-3 d-flex align-items-center gap-2 mx-auto mx-md-0" data-pid="{{ encrypt( $product->id ) }}">
                             Add to cart

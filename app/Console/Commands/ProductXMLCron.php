@@ -30,29 +30,27 @@ class ProductXMLCron extends Command
         if ( !file_exists(storage_path('xml')) ) {
             mkdir(storage_path('xml'), 0755, true);
         }
-        $products = Product::with('images')->where('status', '1')->orderBy('id', 'desc')->get();
+        $products = Product::where('status', '1')->orderBy('id', 'desc')->get();
         $xml = new \SimpleXMLElement('<products/>');
 
         foreach ($products as $product) {
             $category_name = Category::find($product->category_id)->value('name');
             $product_details = $xml->addChild('product');
-            $product_details->addChild('id', $product->id);
-            $product_details->addChild('unique_number', $product->unique_number);
-            $product_details->addChild('name', htmlspecialchars($product->name));
-            $product_details->addChild('slug', htmlspecialchars($product->slug));
-            $product_details->addChild('category', $category_name);
-            $product_details->addChild('new_price', $product->web_sales_price);
-            $product_details->addChild('old_price', $product->web_sales_old_price);
-            $product_images = $product_details->addChild('images');
-            if( !empty($product->images) ){
-                foreach ($product->images as $image) {
-                    $img_url = env('APP_Image_URL') . 'storage/product-images/' . $image->name;
-                    $product_images->addChild('image', htmlspecialchars($img_url));
-                }
-            }
+            $product_details->addChild('id', $product->unique_number);
+            $product_details->addChild('title', htmlspecialchars($product->name));
             $product_details->addChild('description', htmlspecialchars($product->description));
-            $product_details->addChild('created_at', $product->created_at);
-            $product_details->addChild('updated_at', $product->updated_at);
+            $product_details->addChild('brand', '');
+            $product_details->addChild('category', $category_name);
+            $product_details->addChild('sku', '');
+            $price = !empty($product->web_sales_old_price) ? $product->web_sales_old_price : $product->web_sales_price;
+            $product_details->addChild('price', $price);
+            $product_details->addChild('sale_price', $product->web_sales_price);
+            $product_details->addChild('currency', 'POUND');
+            $product_details->addChild('availability', 'In Stock');
+            $product_details->addChild('condition', 'New');
+            $product_details->addChild('shipping_cost', '0');
+            $product_details->addChild('shipping_weight', '');
+            $product_details->addChild('tax_rate', '0');
         }
 
         $xmlContent = $xml->asXML();

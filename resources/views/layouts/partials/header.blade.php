@@ -3,7 +3,7 @@
 </div>
 @php
     $cart_products = session()->get('cart', []);
-    $subtotal = $total_cart_count = 0;
+    $grand_total = $total_cart_count = $sub_total = $total_discount = 0;
     if( !empty($cart_products) ){
         foreach ($cart_products as $c_product) {
             $total_cart_count += $c_product['quantity'];
@@ -161,35 +161,48 @@
                             </div>
                         </li>
                         @php
-                            $total = $cp_val['price'] * $cp_val['quantity'];
-                            $subtotal = $subtotal + $total;
+                            $product_price = $cp_val['price'] * $cp_val['quantity'];
+                            $grand_total += $product_price;
+                            if( !empty($cp_val['original_price']) ){
+                                $original_price = $cp_val['original_price'] * $cp_val['quantity'];
+                            }
+                            $sub_total += $original_price;
+                            $total_discount += $original_price - $product_price;
+                            $total_cart_count += $cp_val['quantity'];
                         @endphp
                     @endforeach
                 @endif
             </ul>
-            {{-- <div class="py-4 d-flex flex-column gap-3">
-                <div class="d-flex align-items-center justify-content-between">
-                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Subtotal</h4>
-                    <h3 class="text-slate-900 text-2xl text-xl-mob font-inter-medium mb-0">£ 456.00</h3>
+            @php
+                $sub_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($sub_total, 2);
+                $total_discount = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($total_discount, 2);
+                $total_tax = $delivery_cost = env( 'SZ_CURRENCY_SYMBOL' ) . ' 0.00';
+            @endphp
+            <div class="sz_cart_price_details">
+                <div class="py-4 d-flex flex-column gap-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Subtotal</h4>
+                        <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">{{ $sub_total }}</h3>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Discount</h4>
+                        <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">{{ $total_discount }}</h3>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Tax</h4>
+                        <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">{{ $total_tax }}</h3>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Delivery Cost</h4>
+                        <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">{{ $delivery_cost }}</h3>
+                    </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-between">
-                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Discount</h4>
-                    <h3 class="text-slate-900 text-2xl text-xl-mob font-inter-medium mb-0">0</h3>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Tax</h4>
-                    <h3 class="text-slate-900 text-2xl text-xl-mob font-inter-medium mb-0">£ 100</h3>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                    <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Delivery Cost</h4>
-                    <h3 class="text-slate-900 text-2xl text-xl-mob font-inter-medium mb-0">£ 150</h3>
-                </div>
-            </div> --}}
+            </div>
         </div>
         <div class="offcanvas-footer pt-2">
             <div class="d-flex align-items-center justify-content-between">
                 <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular">Total</h4>
-                <h3 class="text-slate-900 text-xl text-lg-mob font-inter-medium sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($subtotal, 2) }}</h3>
+                <h3 class="text-slate-900 text-xl text-lg-mob font-inter-medium sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</h3>
             </div>
             <a href="{{ route('checkout') }}"><button class="sz_order_now-btn button-dark w-100 mt-2 mt-sm-4 text-center" {{ empty($cart_products) ? 'disabled' : '' }}>Order Now</button></a>
             <div class="font-semibold text-lg m-0 text-center mt-3">Cash on delivery</div>

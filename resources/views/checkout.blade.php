@@ -100,7 +100,7 @@
                 </div>
                 @php
                     $cart_products = session()->get('cart', []);
-                    $subtotal = 0;
+                    $grand_total = $sub_total = $total_discount = 0;
                 @endphp
                 <div class="col-xl-5">
                     <div class="cardCheckout order-history bg-slate-50 border border-slate-100 p-4 rounded-lg">
@@ -153,16 +153,46 @@
                                             </div>
                                         </li>
                                         @php
-                                            $total = $cp_val['price'] * $cp_val['quantity'];
-                                            $subtotal = $subtotal + $total;
+                                            $product_price = $cp_val['price'] * $cp_val['quantity'];
+                                            $grand_total += $product_price;
+                                            if( !empty($cp_val['original_price']) ){
+                                                $original_price = $cp_val['original_price'] * $cp_val['quantity'];
+                                            }
+                                            $sub_total += $original_price;
+                                            $total_discount += $original_price - $product_price;
                                         @endphp
                                         <input type="hidden" name="productId[]" value="{{ $cp_val['productId'] }}" />
                                         <input type="hidden" name="quantity[]" value="{{ $cp_val['quantity'] }}" />
                                     @endforeach
                                 @endif
                             </ul>
+                            @php
+                                $sub_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($sub_total, 2);
+                                $total_discount = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($total_discount, 2);
+                                $total_tax = $delivery_cost = env( 'SZ_CURRENCY_SYMBOL' ) . ' 0.00';
+                            @endphp
                             <div class="border-bottom border-gray-300">
                                 <h4 class="text-slate-900 text-lg font-inter-semibold my-4">Price Details</h4>
+                            </div>
+                            <div class="sz_cart_price_details">
+                                <div class="py-4 d-flex flex-column gap-3">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Subtotal</h4>
+                                        <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">{{ $sub_total }}</h3>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Discount</h4>
+                                        <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">{{ $total_discount }}</h3>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Tax</h4>
+                                        <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">{{ $total_tax }}</h3>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Delivery Cost</h4>
+                                        <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">{{ $delivery_cost }}</h3>
+                                    </div>
+                                </div>
                             </div>
                             <div class="border-top border-slate-100 d-flex align-items-center justify-content-between pt-4">
                                 <h4 class="text-slate-900 text-lg font-inter-semibold mb-0">Total</h4>
@@ -171,7 +201,7 @@
                                         <path d="M3.41 13.41L10.58 20.58C10.7657 20.766 10.9863 20.9135 11.2291 21.0141C11.4719 21.1148 11.7322 21.1666 11.995 21.1666C12.2578 21.1666 12.5181 21.1148 12.7609 21.0141C13.0037 20.9135 13.2243 20.766 13.41 20.58L22 12V2H12L3.41 10.59C3.0375 10.9647 2.82841 11.4716 2.82841 12C2.82841 12.5284 3.0375 13.0353 3.41 13.41Z" fill="#FFA800" stroke="#FFA800" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M17 7H16.99" stroke="#F3F3F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
-                                    <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($subtotal, 2) }}</span>
+                                    <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</span>
                                 </h4>
                             </div>
                         </div>
@@ -185,7 +215,7 @@
                             </label>
                         </div>
                         <button type="submit" class="button-dark w-100 mt-3 text-center" id="sz_submit_btn" disabled>
-                            Order &nbsp;&nbsp;&nbsp; <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($subtotal, 2) }}</span>
+                            Order &nbsp;&nbsp;&nbsp; <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</span>
                         </button>
                         <div class="font-semibold text-lg m-0 mt-2 text-center">Cash on delivery</div>
                     </div>

@@ -96,6 +96,7 @@
                                     if (response.success) {
                                         $('.sz_cart_total').html(response.cart_total);
                                         $('.sz_card_popup_products').html(response.sz_cart_popup_html);
+                                        $('.sz_cart_price_details').html(response.sz_cart_price_html);
                                         $('.sz_cart-badge').html(response.total_cart_count);
                                         initQuantityButton('initialize');
                                     }
