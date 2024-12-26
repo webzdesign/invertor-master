@@ -36,14 +36,16 @@ class ProductXMLCron extends Command
         foreach ($products as $key => $product) {
             $category_name = Category::find($product->category_id)->value('name');
             $description = html_entity_decode(strip_tags($product->description));
+            $price = !empty($product->web_sales_old_price) ? $product->web_sales_old_price : $product->web_sales_price;
             $product_details = $xml->addChild('product');
             $product_details->addChild('id', time() . $key);
             $product_details->addChild('title', htmlspecialchars($product->name));
             $product_details->addChild('description', htmlspecialchars($description));
             $product_details->addChild('brand', '');
             $product_details->addChild('category', $category_name);
-            $product_details->addChild('sku', '');
-            $price = !empty($product->web_sales_old_price) ? $product->web_sales_old_price : $product->web_sales_price;
+            $product_details->addChild('sku', $product->sku);
+            $product_details->addChild('gtin', $product->gtin);
+            $product_details->addChild('mpn', $product->mpn);
             $product_details->addChild('price', $price);
             $product_details->addChild('sale_price', $product->web_sales_price);
             $product_details->addChild('currency', 'POUND');

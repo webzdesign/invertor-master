@@ -227,11 +227,14 @@
                             <div class="offcanvas-body overflow-hidden p-0">
                                 <ul class="p-0 m-0">
                                     @foreach( $othersProducts as $o_product )
+                                        @php
+                                            $first_img = !empty($o_product->images->first()->name) ? $o_product->images->first()->name : '';
+                                        @endphp
                                         <li class="d-xl-flex justify-content-between align-items-start border-top border-gray-300 py-3">
                                             <div class="d-flex align-items-start">
                                                 <div class="bg-white rounded-lg border border-slate-100 w-fit">
                                                     <a href="{{ route('productDetail', $o_product->slug) }}">
-                                                        <img class="pro-img" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product->images->first()->name }}" alt="{{ $o_product->name }}" alt="bike" width="92" height="92">
+                                                        <img class="pro-img" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_img }}" alt="{{ $o_product->name }}" alt="bike" width="92" height="92">
                                                     </a>
                                                 </div>
                                                 <div class="ms-3 w-100">

@@ -50,15 +50,16 @@
                         $sz_discount_pr = number_format($sz_discount_pr, 2);
                         $sz_save_price = $product->web_sales_old_price - $product->web_sales_price;
                     }
+                    $first_img = !empty($product->images->first()->name) ? $product->images->first()->name : '';
                 @endphp
                 <div class="col-md-6 mb-4 mb-sm-5">
                     <a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                            <img class="pro-img sz_product_image mw-100" src="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name}}" alt="{{ $product->name }}">
+                            <img class="pro-img sz_product_image mw-100" src="{{ env('APP_Image_URL').'storage/product-images/'. $first_img }}" alt="{{ $product->name }}">
                             <div class="ws_sec position-absolute">
                                 <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
                                 @if( $sz_discount_flag == '1' )
-                                    <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
+                                    <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale {{ $sale_season_icon }}</label>
                                 @endif
                             </div>
                         </div>
@@ -73,7 +74,7 @@
                                 @endif
                             </div>
                             @if( $sz_discount_flag == '1' )
-                                <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% (UK {{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
+                                <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
                             @endif
                         </div>
                         <button class="button-dark AddToCartBtn mt-3 d-flex align-items-center gap-2 mx-auto mx-md-0" data-pid="{{ encrypt( $product->id ) }}">

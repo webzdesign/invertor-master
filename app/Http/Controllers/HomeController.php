@@ -34,7 +34,8 @@ class HomeController extends Controller
                 }
             }
         }
-        return view('home', compact('Products', 'tuya_d8_url'));
+        $sale_season_icon = $this->getSeasonSellIcon();
+        return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon'));
     }
 
     public function shop(Request $request)
@@ -64,7 +65,8 @@ class HomeController extends Controller
         $products = Product::with('images')->active();
         $products = $products->get();
 
-        return view('shop', compact('products'));
+        $sale_season_icon = $this->getSeasonSellIcon();
+        return view('shop', compact( 'products', 'sale_season_icon' ));
         
     }
     public function productDetail($slug)
@@ -74,8 +76,8 @@ class HomeController extends Controller
             abort(404);
         }
         $othersProducts = Product::with('images')->where('id', '!=', $product->id)->limit(2)->get();
-
-        return view('productDetail', compact('product', 'othersProducts'));
+        $sale_season_icon = $this->getSeasonSellIcon();
+        return view('productDetail', compact('product', 'othersProducts', 'sale_season_icon'));
     }
 
     public function addToCart(Request $request)
@@ -570,5 +572,20 @@ class HomeController extends Controller
         Mail::send('emails.contact', ['contact' => $contact], function ($message) use ($adminEmail) {
             $message->to($adminEmail)->subject('New Contact Us Message');
         });
+    }
+    public static function getSeasonSellIcon()
+    {
+        $date = now();
+        $month = $date->month;
+
+        if ( $month == 3 || $month == 4 || $month == 5) {
+            return '🔥'; // spring
+        } elseif ( $month == 6 || $month == 7 || $month == 8) {
+            return '🔥'; // summer
+        } elseif ( $month == 9 || $month == 10 || $month == 11) {
+            return '🔥'; // autumn
+        } else {
+            return '🔥'; // winter
+        }
     }
 }

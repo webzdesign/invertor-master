@@ -5,6 +5,7 @@
 @php
     $cart_products = session()->get('cart', []);
     $sz_p_encrypt_id = encrypt( $product->id );
+    $first_image = !empty($product->images->first()->name) ? $product->images->first()->name : '';
 @endphp
 
 
@@ -91,14 +92,14 @@
                     }
                 @endphp
                 @if( $sz_discount_flag == '1' )
-                    <label class="saleLbl bg-violet-500 w-fit px-2 d-block mb-2 text-white text-sm py-1 pointer-event-none rounded-pill mt-lg-0 mt-4">Sale 🔥</label>
+                    <label class="saleLbl bg-violet-500 w-fit px-2 d-block mb-2 text-white text-sm py-1 pointer-event-none rounded-pill mt-lg-0 mt-4">Sale {{ $sale_season_icon }}</label>
                 @endif
                 <h2 class="text-slate-900 font-bebas text-6xl text-4xl-mob {{ $sz_discount_flag != '1' ? 'mt-lg-0 mt-3' : '' }}">{{ $product->name }}</h2>
                 <div class="d-flex align-items-center gap-3 mb-2">
                     <h3 class="text-4xl mb-0 text-blue-500 font-bebas text-3xl-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h3>
                     @if( $sz_discount_flag == '1' )
                         <h4 class="text-2xl mx-0 mb-0 text-gray-500 font-bebas text-gray-600 text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($product->web_sales_old_price, 2) }}</h4>
-                        <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% (UK {{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>   
+                        <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>   
                     @endif
                 </div>
                 <p class="text-gray-500 font-inter-regular text-xl text-base-mob">Be among the first to ride our freshest, high-performance scooters.</p>
@@ -338,15 +339,16 @@
                         $sz_o_discount_pr = number_format($sz_o_discount_pr, 2);
                         $sz_o_save_price = $o_product->web_sales_old_price - $o_product->web_sales_price;
                     }
+                    $o_product_img = !empty($o_product->images->first()->name) ? $o_product->images->first()->name : '';
                 @endphp
                 <div class="col-md-6 mb-5">
                     <a href="{{ route('productDetail', $o_product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                            <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product->images->first()->name }}" alt="{{ $o_product->name }}">
+                            <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product_img }}" alt="{{ $o_product->name }}">
                             <div class="ws_sec position-absolute">
                                 <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
                                 @if( $sz_o_discount_flag == '1' )
-                                    <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
+                                    <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale {{ $sale_season_icon }}</label>
                                 @endif
                             </div>
                         </div>
@@ -362,7 +364,7 @@
                                 @endif
                             </div>
                             @if( $sz_o_discount_flag == '1' )
-                                <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_o_discount_pr }}% (UK {{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_o_save_price }})</label>
+                                <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_o_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_o_save_price }})</label>
                             @endif
                         </div>
 
@@ -388,7 +390,7 @@
         <div class="col-lg-6">
             <div class="d-flex align-items-start gap-3">
                 <div class="img-pro bg-white rounded-lg border border-slate-100">
-                    <img src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $product->images->first()->name }}" alt="product" width="70" height="70" class="object-fit-contain">
+                    <img src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_image }}" alt="product" width="70" height="70" class="object-fit-contain">
                 </div>
                 <div>
                     <h3 class="text-slate-900 text-3xl text-2xl-mob font-bebas mb-0">{{ $product->name }}</h3>
@@ -396,7 +398,7 @@
                         <h4 class="text-blue-500 mb-0 font-bebas text-2xl mb-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h4>
                         @if( $sz_discount_flag == '1' )
                             <h4 class="text-2xl mx-0 mb-0 text-gray-500 font-bebas text-gray-600 text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($product->web_sales_old_price, 2) }}</h4>
-                            <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-block d-none">You save {{ $sz_discount_pr }}% (UK {{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
+                            <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-block d-none">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
                             <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-none whitespace-nowrap">SAVE {{ $sz_discount_pr }}%</label>
                         @endif
                     </div>
