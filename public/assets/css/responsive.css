@@ -497,7 +497,11 @@
 
   .fixed-add-to-cart .button-dark {
     font-size: 14px;
-    padding: 14px 16px;
+    padding: 14px 20px;
+  }
+
+  .fixed-add-to-cart .add-quantity-btn-product {
+    height: 55px;
   }
 
   .fixed-add-to-cart .button-dark .sz_add_to_cart_circle svg {

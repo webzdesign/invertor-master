@@ -52,7 +52,7 @@
                     }
                     $first_img = !empty($product->images->first()->name) ? $product->images->first()->name : '';
                 @endphp
-                <div class="col-md-6 mb-4 mb-sm-5">
+                <div class="col-lg-6 mb-4 mb-sm-5">
                     <a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
                             <img class="pro-img sz_product_image mw-100" src="{{ env('APP_Image_URL').'storage/product-images/'. $first_img }}" alt="{{ $product->name }}">
@@ -64,13 +64,13 @@
                             </div>
                         </div>
                     </a>
-                    <div class="text-md-start text-center">
+                    <div class="text-lg-start text-center">
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4"><a class="text-gray-950 text-decoration-none" href="{{ route('productDetail', $product->slug) }}">{{ $product->name }}</a></h2>
-                        <div class="d-md-flex align-items-center gap-3 justify-content-md-start justify-content-center">
-                            <div class="d-flex align-items-center gap-3 justify-content-md-start justify-content-center">
+                        <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
+                            <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                                 <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h2>
                                 @if( $sz_discount_flag == '1' )
-                                    <h6 class="text-base text-gray-400 mb-0 font-inter-regular text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($product->web_sales_old_price, 2) }}</h6>
+                                    <h6 class="text-base text-gray-400 mb-0 font-inter-regular text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_old_price, 2) }}</h6>
                                 @endif
                                 <div>
                                     @if( $sz_discount_flag == '1' )
@@ -79,10 +79,10 @@
                                 </div>
                             </div>
                             @if( $sz_discount_flag == '1' )
-                                <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
+                                <label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
                             @endif
                         </div>
-                        <button class="button-dark AddToCartBtn mt-3 d-flex align-items-center gap-2 mx-auto mx-md-0" data-pid="{{ encrypt( $product->id ) }}">
+                        <button class="button-dark AddToCartBtn mt-3 d-flex align-items-center gap-2 mx-auto mx-lg-0" data-pid="{{ encrypt( $product->id ) }}">
                             Add to cart
                             <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
