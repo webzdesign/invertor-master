@@ -605,6 +605,7 @@ class HomeController extends Controller
             $product_details->addChild('price', $price);
             $product_details->addChild('sales_price', $sales_price);
             $product_details->addChild('brand', '');
+            $product_details->addChild('sku', $product->sku);
             $product_details->addChild('gtin', $product->gtin);
             $product_details->addChild('mpn', $product->mpn);
             $product_details->addChild('condition', 'New');
