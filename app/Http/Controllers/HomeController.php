@@ -573,6 +573,50 @@ class HomeController extends Controller
             $message->to($adminEmail)->subject('New Contact Us Message');
         });
     }
+
+    public static function generateProductXML()
+    {
+        if ( !file_exists(storage_path('xml')) ) {
+            mkdir(storage_path('xml'), 0755, true);
+        }
+        $products = Product::with('images')->where('status', '1')->orderBy('id', 'desc')->get();
+        $xml = new \SimpleXMLElement('<products/>');
+
+        foreach ($products as $key => $product) {
+            $product_name =  htmlspecialchars($product->name);
+            $product_name = strlen($product_name) > 150 ? substr($product_name, 0, 150) : $product_name;
+            $description = htmlspecialchars(html_entity_decode(strip_tags($product->description)));
+            $description = strlen($description) > 5000 ? substr($description, 0, 5000) : $description;
+            $product_link = route('productDetail', $product->slug);
+            $product_main_img = !empty($product->images->first()->name) ? env( 'APP_Image_URL' ) . 'storage/product-images/' . $product->images->first()->name : '';
+            $additional_image_link = !empty($product->images->get(1)->name) ? env( 'APP_Image_URL' ) . 'storage/product-images/' . $product->images->get(1)->name : '';
+            $price = !empty($product->web_sales_old_price) ? $product->web_sales_old_price : $product->web_sales_price;
+            $price .= ' POUND';
+            $sales_price = $product->web_sales_price . ' POUND';
+
+            $product_details = $xml->addChild('product');
+            $product_details->addChild('id', time() . $key);
+            $product_details->addChild('title', $product_name);
+            $product_details->addChild('description', $description);
+            $product_details->addChild('link', $product_link);
+            $product_details->addChild('image_link', $product_main_img);
+            $product_details->addChild('additional_image_link', $additional_image_link);
+            $product_details->addChild('availability', 'In Stock');
+            $product_details->addChild('price', $price);
+            $product_details->addChild('sales_price', $sales_price);
+            $product_details->addChild('brand', '');
+            $product_details->addChild('gtin', $product->gtin);
+            $product_details->addChild('mpn', $product->mpn);
+            $product_details->addChild('condition', 'New');
+            $product_details->addChild('shipping', '0 POUND');
+            $product_details->addChild('tax', 'no');
+        }
+
+        $xmlContent = $xml->asXML();
+
+        file_put_contents(storage_path('xml/products.xml'), $xmlContent);
+    }
+
     public static function getSeasonSellIcon()
     {
         $date = now();
