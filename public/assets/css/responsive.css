@@ -281,6 +281,9 @@
 }
 
 @media (max-width:576px) {
+  .text-xs-mob{
+    font-size: 12px !important;
+  }
   .text-32px-mob {
     font-size: 32px !important;
     line-height: 42px !important;
@@ -508,6 +511,9 @@
 
   .contact-card {
     padding: 30px;
+  }
+  .product .AddToCartBtn {
+    padding: 14px 30px;
   }
 }
 
