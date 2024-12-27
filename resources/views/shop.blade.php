@@ -59,7 +59,7 @@
                             <div class="ws_sec position-absolute">
                                 <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
                                 @if( $sz_discount_flag == '1' )
-                                    <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale {{ $sale_season_icon }}</label>
+                                    <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
                                 @endif
                             </div>
                         </div>
@@ -72,6 +72,11 @@
                                 @if( $sz_discount_flag == '1' )
                                     <h6 class="text-base text-gray-400 mb-0 font-inter-regular text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($product->web_sales_old_price, 2) }}</h6>
                                 @endif
+                                <div>
+                                    @if( $sz_discount_flag == '1' )
+                                        {!! $sale_season_icon !!}
+                                    @endif
+                                </div>
                             </div>
                             @if( $sz_discount_flag == '1' )
                                 <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
