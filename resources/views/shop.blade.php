@@ -220,7 +220,7 @@
                                            
                                                 {{-- <div class="product__item__pic set-bg" data-setbg="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name}}"> --}}
                                                 <div>
-                                                    <img src="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name}}" />
+                                                    <img src="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name}}" alt="" />
                                                     <!--<ul class="product__hover">
                                                         <li><a href="#"><img src="{{ asset('assets/theme/img/icon/heart.png') }}" alt=""></a></li>
                                                         <li><a href="#"><img src="{{ asset('assets/theme/img/icon/compare.png') }}" alt=""> <span>Compare</span></a>

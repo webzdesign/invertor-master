@@ -136,7 +136,7 @@
                         <a  href="{{ route('productDetail', $product->slug) }}">
                             <!-- <div class="product__item__pic set-bg" data-setbg="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}"></div> -->
                              <div>
-                                <img src="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}" />
+                                <img src="{{ env('APP_Image_URL').'storage/product-images/'.$product->images->first()->name }}"  alt=""/>
                              </div>
                         </a>
                        

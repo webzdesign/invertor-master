@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="" />
+    <meta name="description" content="Skootz is unique combination of high quality products and excellent customer service.">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Electric Scooters - Buy E-Scooters Online</title>
 
@@ -103,7 +104,7 @@
             <div class="row">
                 <div class="col-md-2">
                     <div class="header__logo position-relative h-100">
-                        <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/logo.png?t='.time()) }}" alt="logo" width="75"></a>
+                        <a href="{{ route('home') }}" aria-label="Skootz"><img src="{{ asset('assets/theme/img/logo.png?t='.time()) }}" alt="logo" width="75"></a>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -151,7 +152,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__logo">
-                            <a href="{{ route('home') }}"><img src="{{ asset('assets/theme/img/logo.png?t='.time()) }}" height="60" alt=""></a>
+                            <a href="{{ route('home') }}" aria-label="Skootz"><img src="{{ asset('assets/theme/img/logo.png?t='.time()) }}" height="60" alt=""></a>
                         </div>
                         <p>Skootz is unique combination of high quality products and excellent customer service.</p>
                         <!--<a href="#"><img src="{{ asset('assets/theme/img/payment.png') }}" alt=""></a>-->

@@ -1,10 +1,13 @@
+<!DOCTYPE html>
 <html lang="en-GB" dir="ltr" style="background-color: rgb(55, 58, 61);">
     <head>
         <title>Checkout - Electric Scooters</title>
         <meta charset="UTF-8">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height">
         <meta name="referrer" content="origin">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="description" content="Skootz is unique combination of high quality products and excellent customer service.">
         <link rel="stylesheet" crossorigin="" href="{{ asset('assets/checkoutCss/StackedMerchandisePreview._xnAOXmq.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
         <link rel="icon" href="{{ env('APP_Image_URL').'assets/images/favicon.ico' }}" type="image/png">
