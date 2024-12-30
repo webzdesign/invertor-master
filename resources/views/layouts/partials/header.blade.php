@@ -26,7 +26,7 @@
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route( 'home' ) }}" aria-label="Skootz">
-                <img src="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}" alt="">
+                <img src="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}" alt="" width="100%" height="100%">
             </a>
             <ul class="menu align-items-center d-lg-flex gap-5 m-0 p-0 d-none" id="nav-menu-container">
                 <li>

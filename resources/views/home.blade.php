@@ -144,7 +144,7 @@
     <div class="row m-0">
         <div class="col-xxl-4 left-side p-0">
             <div class="position-relative">
-                <img src="{{ asset( 'assets/images/why.png' ) }}" alt="bike" width="100%">
+                <img src="{{ asset( 'assets/images/why.png' ) }}" alt="bike" width="100%" height="100%">
                 <h2 class="text-white font-bebas position-absolute top-0 text-center mt-5 w-100 text-center">Reliable Scooters, Affordable Prices</h2>
                 <a href="{{ $tuya_d8_url }}" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-gray-500 sz_tuya_d8_btn">Tuya D8</a>
             </div>
@@ -232,7 +232,7 @@
                 <div class="col-lg-6 mb-5">
                     <a href="{{ route('productDetail', $product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                            <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_img }}" alt="{{ $product->name }}">
+                            <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_img }}" alt="{{ $product->name }}" height="100%" width="100%">
                             <div class="ws_sec position-absolute">
                                 <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
                                 @if( $sz_discount_flag == '1' )
@@ -285,7 +285,7 @@
                 <div class="premier-card bg-gray-500 rounded-lg pb-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
                     <h3 class="text-slate-50 font-bebas">Your Journey, Reimagined</h3>
                     <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">Check Out Our Line of Cutting Edge E-Scooters</p>
-                    <img src="{{ asset( 'assets/images/pro3.png' ) }}" alt="bike" >
+                    <img src="{{ asset( 'assets/images/pro3.png' ) }}" alt="bike"  width="100%" height="100%">
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6 mb-4">
@@ -294,7 +294,7 @@
                         <h3 class="text-slate-50 font-bebas">Experience the Thrill of Sustainable Ridings</h3>
                         <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">Skootz Electric Scooters are the first choice</p>
                     </div>
-                    <img src="{{ asset( 'assets/images/pro4.png' ) }}" alt="bike" width="100%">
+                    <img src="{{ asset( 'assets/images/pro4.png' ) }}" alt="bike" width="100%" height="100%">
                 </div>
             </div>
         </div>
@@ -308,7 +308,7 @@
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-6">
-                        <img src="{{ asset( 'assets/images/pro5.png' ) }}" alt="bike" width="100%">
+                        <img src="{{ asset( 'assets/images/pro5.png' ) }}" alt="bike" width="100%" height="100%">
                     </div>
                 </div>
             </div>
