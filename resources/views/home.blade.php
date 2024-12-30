@@ -144,7 +144,7 @@
     <div class="row m-0">
         <div class="col-xxl-4 left-side p-0">
             <div class="position-relative">
-                <img src="{{ asset( 'assets/images/why.png' ) }}" alt="bike" width="100%" height="100%">
+                <img src="{{ asset( 'assets/images/why.webp' ) }}" alt="bike" width="100%" height="100%">
                 <h2 class="text-white font-bebas position-absolute top-0 text-center mt-5 w-100 text-center">Reliable Scooters, Affordable Prices</h2>
                 <a href="{{ $tuya_d8_url }}" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-gray-500 sz_tuya_d8_btn">Tuya D8</a>
             </div>
