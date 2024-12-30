@@ -32,8 +32,11 @@
                         </ul>
                     </div>
                     <div class="col-8 links">
+
+                        <ul>
                         <li class="text-decoration-none text-white font-inter-regular text-lg fw-bold">VISIT US TODAY!</li>
                         <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">Let’s find your perfect ride! Come and try one of ours out in our stores in Edinburgh or Glasgow and get expert advice. You may also browse our online store for easy shopping from home. Next day delivery is available, so your new scooter could be just a click away!</li>
+                        </ul>
                     </div>
                 </div>
             </div>
