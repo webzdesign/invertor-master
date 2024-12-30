@@ -232,7 +232,7 @@
                 <div class="col-lg-6 mb-5">
                     <a href="{{ route('productDetail', $product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                            <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_img }}" alt="{{ $product->name }}" height="100%" width="100%">
+                            <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_img }}" alt="{{ $product->name }}" >
                             <div class="ws_sec position-absolute">
                                 <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
                                 @if( $sz_discount_flag == '1' )
