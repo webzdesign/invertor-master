@@ -25,8 +25,8 @@
 <header class="d-flex align-items-center flex-column justify-content-center position-sticky bg-white" id="header">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
-            <a href="{{ route( 'home' ) }}">
-                <img src="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}">
+            <a href="{{ route( 'home' ) }}" aria-label="Skootz">
+                <img src="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}" alt="">
             </a>
             <ul class="menu align-items-center d-lg-flex gap-5 m-0 p-0 d-none" id="nav-menu-container">
                 <li>
