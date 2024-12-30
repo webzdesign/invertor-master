@@ -285,7 +285,7 @@
                 <div class="premier-card bg-gray-500 rounded-lg pb-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
                     <h3 class="text-slate-50 font-bebas">Your Journey, Reimagined</h3>
                     <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">Check Out Our Line of Cutting Edge E-Scooters</p>
-                    <img src="{{ asset( 'assets/images/pro3.png' ) }}" alt="bike" width="100%" height="100%">
+                    <img src="{{ asset( 'assets/images/pro3.png' ) }}" alt="bike" >
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6 mb-4">
