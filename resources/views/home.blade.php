@@ -46,7 +46,7 @@
                                 <h1 class="text-slate-900 font-bebas d-lg-none">{{ $p_name }}</h1>
                                 <div class="slider-image">
                                     <a href="{{ route('productDetail', $slider_product->slug) }}">
-                                        <img src="{{ env('APP_Image_URL').'storage/product-images/' . $slider_img }}" alt="{{ $p_name }}">
+                                        <img src="{{ env('APP_Image_URL').'storage/product-images/' . $slider_img }}" alt="{{ $p_name }}" height="100%" width="100%">
                                     </a>
                                 </div>
                                 <div class="arrow position-absolute">
