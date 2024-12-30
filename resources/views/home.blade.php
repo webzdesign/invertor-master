@@ -32,7 +32,7 @@
                             <h1 class="fadeItem text-slate-900 font-bebas d-none d-lg-block"><a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $slider_product->slug) }}">{{ $p_name }}</a></h1>
                             <p class="fadeItem text-gray-500 font-inter-regular text-lg my-4 text-lg-start text-center mx-auto mx-lg-0">{{ $p_description }}</p>
                             <h2 class="fadeItem text-lg-start text-center">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($slider_product->web_sales_price, 2) }}</h2>
-                            <a href="javascript:void(0);" class="fadeItem order-btn mx-auto mx-lg-0 bg-slate-900 d-flex align-items-center justify-content-between rounded-pill ps-3 pe-2 mt-5 text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn eb_OrderNowBtn" data-pid="{{encrypt($slider_product->id)}}">
+                            <a  class="fadeItem order-btn mx-auto mx-lg-0 bg-slate-900 d-flex align-items-center justify-content-between rounded-pill ps-3 pe-2 mt-5 text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn eb_OrderNowBtn" data-pid="{{encrypt($slider_product->id)}}">
                                 Order Now 
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="40" height="40" rx="20" fill="#F3F3F3"/>
