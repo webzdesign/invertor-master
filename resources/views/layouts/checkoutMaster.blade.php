@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en-GB" dir="ltr" style="background-color: rgb(55, 58, 61);">
     <head>
         <title>Checkout - Electric Scooters</title>
