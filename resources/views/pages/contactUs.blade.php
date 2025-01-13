@@ -79,7 +79,7 @@
                     <div class="d-flex">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Address</div>
                         <div class="text-decoration-none text-slate-900 font-inter-regular text-sm">
-                            <b>RUNMAX LIMITED</b>
+                            <b>RUNMAX LIMITED</b></br>
                             129 Toronto Road</br>
                             Portsmouth, England</br>
                             PO2 7QD
