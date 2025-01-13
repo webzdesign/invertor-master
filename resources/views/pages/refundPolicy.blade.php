@@ -40,7 +40,7 @@
         <div class="mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Refund Process</h4>
             <ul>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Contact us at <a href="mailto:hello@runmax.co.uk" class="font-inter-semibold text-decoration-none text-slate-900">hello@runmax.co.uk</a> to initiate the return.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Contact us at <a href="mailto:runmaxlimited@gmail.com" class="font-inter-semibold text-decoration-none text-slate-900">runmaxlimited@gmail.com</a> to initiate the return.</li>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Once we receive and inspect the item, a refund will be processed within 7 business days.</li>
             </ul>
         </div>

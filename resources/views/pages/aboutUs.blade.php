@@ -167,7 +167,7 @@
                         <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
                                 <p class="mb-0 text-gray-500 font-inter-regular text-lg">
-                                    Absolutely! Come and test ride our electric scooters in our Edinburgh or Glasgow shops. If we can not find the model right for you, our staff will be more than happy to help you out.
+                                    Absolutely! Come and test ride our electric scooters in our Portsmouth shops. If we can not find the model right for you, our staff will be more than happy to help you out.
                                 </p>
                             </div>
                         </div>

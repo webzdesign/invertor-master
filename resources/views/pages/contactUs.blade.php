@@ -74,13 +74,15 @@
                     </div>
                     <div class="d-flex mb-3">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Email</div>
-                        <a href="mailto:hello@runmax.co.uk" class="text-slate-900 font-inter-semibold text-sm">hello@runmax.co.uk</a>
+                        <a href="mailto:runmaxlimited@gmail.com" class="text-slate-900 font-inter-semibold text-sm">runmaxlimited@gmail.com</a>
                     </div>
                     <div class="d-flex">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Address</div>
                         <div class="text-decoration-none text-slate-900 font-inter-regular text-sm">
-                            129 Toronto Rd</br>
-                            Portsmouth PO2 7QD, UK
+                            <b>RUNMAX LIMITED</b>
+                            129 Toronto Road</br>
+                            Portsmouth, England</br>
+                            PO2 7QD
                         </div>
                     </div>
                 </div>
@@ -96,7 +98,7 @@
 </section>
 
 <section class="map rounded-lg overflow-hidden mt-4">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.579562164561!2d-1.8864894877387377!3d52.522947471945436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4870a31269ba69b1%3A0x24dd7c798f3d76b2!2sTop%20Cloud%20Logistics%20Limited!5e0!3m2!1sen!2sin!4v1730976289471!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1244.506621191682!2d-1.073473880294042!3d50.80952089028293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sRUNMAX%20LIMITED%20129%20Toronto%20Road!5e0!3m2!1sen!2sin!4v1736745812749!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 
 @endsection

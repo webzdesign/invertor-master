@@ -35,7 +35,7 @@
 
                         <ul>
                         <li class="text-decoration-none text-white font-inter-regular text-lg fw-bold">VISIT US TODAY!</li>
-                        <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">Let’s find your perfect ride! Come and try one of ours out in our stores in Edinburgh or Glasgow and get expert advice. You may also browse our online store for easy shopping from home. Next day delivery is available, so your new scooter could be just a click away!</li>
+                        <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">Let’s find your perfect ride! Come and try one of ours out in our stores in Portsmouth and get expert advice. You may also browse our online store for easy shopping from home. Next day delivery is available, so your new scooter could be just a click away!</li>
                         </ul>
                     </div>
                 </div>
@@ -50,16 +50,16 @@
         <div class="copy-right pt-4 mt-5 d-lg-flex align-items-center justify-content-between">
             <ul class="m-0 p-0 d-flex align-items-center gap-4 justify-content-center">
                 <li>
-                    <a href="{{ route( 'terms-conditions' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Terms</a>
+                    <a href="{{ route( 'terms-conditions' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Terms and Conditions</a>
                 </li>
                 <li>
-                    <a href="{{ route( 'privacy-policy' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Privacy</a>
+                    <a href="{{ route( 'privacy-policy' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Privacy Policy</a>
                 </li>
                 <li>
-                    <a href="{{ route('shipping-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Shipping</a>
+                    <a href="{{ route('shipping-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Shipping Policy</a>
                 </li>
                 <li>
-                    <a href="{{ route('refund-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Refund</a>
+                    <a href="{{ route('refund-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Returns and Refunds Policy</a>
                 </li>
             </ul>
             <div class="text-white font-inter-regular text-center text-lg-start my-4 my-lg-0">© {{ date("Y") }} Copyright By eBike</div>

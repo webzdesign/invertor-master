@@ -567,7 +567,7 @@ class HomeController extends Controller
 
     protected function sendContactEmailToAdmin($contact)
     {
-        $adminEmail = 'hello@runmax.co.uk';
+        $adminEmail = 'runmaxlimited@gmail.com';
 
         Mail::send('emails.contact', ['contact' => $contact], function ($message) use ($adminEmail) {
             $message->to($adminEmail)->subject('New Contact Us Message');
