@@ -457,6 +457,7 @@ $(document).ready(function(){
     });
     const sum = quantity.map(Number).reduce((acc, num) => acc + num, 0);
     const paidAmount = grandTotal - (sum * 35);
+
     $("#online_paid_amount").html(paidAmount);
 
     $("body").on('click', '#online_payment', function(e){

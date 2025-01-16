@@ -7,14 +7,14 @@
     <body>
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVZL6F4V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->    
+        <!-- End Google Tag Manager (noscript) -->
         @php
             $cart = session()->get('cart', []);
             $cartCount = count($cart);
         @endphp
 
         @include('layouts.partials.header')
-    
+
         <main>
             @yield('content')
         </main>
@@ -31,6 +31,7 @@
             </div>
         </div>
         <script>
+
             $(document).ready(function(){
                 $(".fade-owl-slider").owlCarousel({
                     items: 1,
@@ -63,6 +64,7 @@
                     $("header").removeClass("header-fixed");
                 }
             }
+
             function initQuantityButton(){
                 $('.add-quantity-btn').each(function () {
                     let container = $(this);
@@ -99,6 +101,9 @@
                                         $('.sz_card_popup_products').html(response.sz_cart_popup_html);
                                         $('.sz_cart_price_details').html(response.sz_cart_price_html);
                                         $('.sz_cart-badge').html(response.total_cart_count);
+
+                                        let paidAmount = response.grand_total - (response.total_cart_count * 35);
+                                        $("#online_paid_amount").html(paidAmount);
                                         initQuantityButton('initialize');
                                     }
                                 },
@@ -154,7 +159,7 @@
                     }
                     var isOrderNowbtn = $this.hasClass("eb_OrderNowBtn");
                     $('.AddToCartBtn[data-pid="' + pid + '"]').prop('disabled', true);
-                    
+
                     $.ajax({
                         url: '{{ route("cart.add") }}',
                         type: 'POST',
@@ -195,11 +200,11 @@
                             console.error(xhr.responseText);
                         }
                     });
-                    
+
                 });
                 $(document).on('click', '.sz_remove_cart', function(e){
                     var pid = $(this).data("pid");
-                
+
                     $.ajax({
                         url: '{{ route("cart.remove") }}',
                         type: 'POST',

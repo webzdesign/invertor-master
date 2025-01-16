@@ -215,7 +215,7 @@ class HomeController extends Controller
         }
         $cart_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($grand_total, 2);
 
-        return response()->json([ 'success' => true, 'message' => $msg, 'cart_reached_status' => $sz_cart_reached_status, 'cart_total' => $cart_total, 'total_cart_count' => $total_cart_count, 'sz_cart_popup_html' => $sz_cart_popup_html, 'sz_cart_price_html' => $sz_cart_price_html ]);
+        return response()->json([ 'success' => true, 'message' => $msg, 'cart_reached_status' => $sz_cart_reached_status, 'cart_total' => $cart_total, 'total_cart_count' => $total_cart_count, 'sz_cart_popup_html' => $sz_cart_popup_html, 'sz_cart_price_html' => $sz_cart_price_html, 'grand_total' => $grand_total ]);
     }
 
     public function cartSync(Request $request)
