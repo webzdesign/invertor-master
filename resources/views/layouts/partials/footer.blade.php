@@ -12,8 +12,8 @@
             </div>
             <div class="col-lg-2 ">
                 <ul class="m-0 p-0 links"> 
-                    <li>
-                        <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Quick Links</div>
+                    <li class="text-decoration-none text-white font-inter-regular text-lg fw-bold">
+                        Quick Links
                     </li>
                     <li class="mt-3">
                         <a href="{{ route( 'about-us' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">About</a>
@@ -34,14 +34,14 @@
             <div class="col-lg-3 ">
                 <ul class="m-0 p-0 links"> 
                    
-                    <li>
-                        <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Contact Details </div>
+                    <li class="text-decoration-none text-white font-inter-regular text-lg fw-bold">
+                        Contact Details 
                     </li>
-                    <li class="mt-3">
+                    <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">
                         Email :
-                        <a href="mailto:runmaxlimited@gmail.com" >runmaxlimited@gmail.com</a>
+                        <a href="mailto:runmaxlimited@gmail.com" >runmaxlimited@gmail.com</a></li>
                     </li>
-                    <li class="mt-3">
+                    <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">
                         Phone
                         <a href="tel:+44 7418356616" >+44 7418356616</a>
                     </li>
