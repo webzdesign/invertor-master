@@ -2,24 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\SalesOrder;
-use App\Models\SalesOrderItem;
-use App\Models\TriggerLog;
-use Illuminate\Support\Facades\DB;
+use Stripe\Charge;
+use Stripe\Stripe;
 use App\Models\User;
-use App\Models\DeliverTemp;
-use App\Models\UserRole;
-use App\Models\Notification;
-use App\Models\PaymentForDelivery;
+use App\Models\Product;
 use App\Models\Setting;
-use App\Models\AddressLog;
+use App\Models\UserRole;
 use App\Models\ContactUs;
+use Stripe\PaymentIntent;
+use App\Models\AddressLog;
+use App\Models\SalesOrder;
+use App\Models\TriggerLog;
+use App\Models\DeliverTemp;
+use App\Models\Notification;
+use Illuminate\Http\Request;
+use App\Models\SalesOrderItem;
+use App\Models\PaymentForDelivery;
+use Illuminate\Support\Facades\DB;
 use App\Helpers\{Helper, Distance};
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\CheckoutRequest;
 use App\Http\Requests\ContactUsRequest;
-use Illuminate\Support\Facades\Mail;
+
 
 class HomeController extends Controller
 {
@@ -40,7 +44,7 @@ class HomeController extends Controller
 
     public function shop(Request $request)
     {
-       
+
         /* // for shop page paginaion
         $perPage = 8;
         $page = 1;
@@ -56,18 +60,18 @@ class HomeController extends Controller
         $products = Product::with('images')->active();
         $totalProducts = $products->count();
         $products = $products->skip($skip)->take($perPage);
-        
+
         $products = $products->get();
 
         $totalPages = ceil($totalProducts / $perPage);
-      
+
         return view('shop', compact('products', 'totalProducts', 'totalPages', 'page')); */
         $products = Product::with('images')->active();
         $products = $products->get();
 
         $sale_season_icon = $this->getSeasonSellIcon();
         return view('shop', compact( 'products', 'sale_season_icon' ));
-        
+
     }
     public function productDetail($slug)
     {
@@ -88,7 +92,7 @@ class HomeController extends Controller
         if (!$product) {
             return response()->json(['success' => false]);
         }
-        
+
         if (isset($cart[$product->id])) {
             if( !empty($request->total_quantity) ){
                 if( $request->total_quantity <= 10 ){
@@ -211,7 +215,7 @@ class HomeController extends Controller
         }
         $cart_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($grand_total, 2);
 
-        return response()->json([ 'success' => true, 'message' => $msg, 'cart_reached_status' => $sz_cart_reached_status, 'cart_total' => $cart_total, 'total_cart_count' => $total_cart_count, 'sz_cart_popup_html' => $sz_cart_popup_html, 'sz_cart_price_html' => $sz_cart_price_html ]);
+        return response()->json([ 'success' => true, 'message' => $msg, 'cart_reached_status' => $sz_cart_reached_status, 'cart_total' => $cart_total, 'total_cart_count' => $total_cart_count, 'sz_cart_popup_html' => $sz_cart_popup_html, 'sz_cart_price_html' => $sz_cart_price_html, 'grand_total' => $grand_total ]);
     }
 
     public function cartSync(Request $request)
@@ -231,7 +235,7 @@ class HomeController extends Controller
             if ($qty == 0) {
                 unset($cart[$id]);
             }
-            
+
             if (isset($cart[$id])) {
                 $cart[$id]['quantity'] = $qty;
             }
@@ -262,7 +266,7 @@ class HomeController extends Controller
     public function cart(Request $request)
     {
         $cart = session()->get('cart', []);
-       
+
         return view('cart', compact('cart'));
     }
     public function checkout(Request $request)
@@ -290,7 +294,7 @@ class HomeController extends Controller
         }
 
         $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->first_name.' '.$request->last_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0, 'purchase_source' => $sz_utm_source]);
-        
+
         $orderItems = [];
         $orderTotal = 0;
         if( !empty($request->productId) ){
@@ -632,5 +636,143 @@ class HomeController extends Controller
         } else {
             return '<svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg"><rect y="0.5" width="25" height="25" rx="12.5" fill="#1EADE9"/><path d="M17.75 14.3125L17.2652 13.9281C16.7134 13.4906 16.4375 13.2718 16.4375 13C16.4375 12.7282 16.7134 12.5094 17.2652 12.0719L17.75 11.6875M7.25 11.6875L7.73484 12.0719C8.28661 12.5094 8.5625 12.7282 8.5625 13C8.5625 13.2718 8.28661 13.4906 7.73484 13.9281L7.25 14.3125" stroke="white" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.9999 18.25L14.0911 17.6324C14.195 16.9294 14.2468 16.578 14.4841 16.4408C14.7214 16.3037 15.0514 16.4344 15.7114 16.6959L16.2913 16.9256M10.9995 7.75L10.9082 8.36763C10.8044 9.07054 10.7525 9.422 10.5152 9.55914C10.2779 9.69629 9.94793 9.56557 9.28793 9.30412L8.70801 9.07439" stroke="white" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.41699 16.9268L9.04135 16.6969C9.75189 16.4352 10.1072 16.3043 10.3625 16.4413C10.6179 16.5783 10.6736 16.9297 10.785 17.6325L10.8829 18.25M16.5837 9.07315L15.9593 9.30312C15.2488 9.56484 14.8935 9.6957 14.6381 9.55868C14.3828 9.42166 14.3271 9.07028 14.2157 8.36751L14.1178 7.75" stroke="white" stroke-linecap="round" stroke-linejoin="round"/><path d="M16.5837 13.0002H8.41699M14.542 16.4999L10.4587 9.5M14.542 9.50015L10.4587 16.5" stroke="white" stroke-linejoin="round"/></svg>'; // winter
         }
+    }
+
+    public function stripePayment(CheckoutRequest $request)
+    {
+
+        DB::beginTransaction();
+
+        $sz_utm_source = '';
+        if( $request->hasCookie('sz_utm_source') != false ){
+            $sz_utm_source = $request->cookie('sz_utm_source');
+            if( strlen($sz_utm_source) > 255 ){
+                $sz_utm_source = substr($sz_utm_source, 0, 255);
+            }
+        }
+
+        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->first_name.' '.$request->last_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0, 'purchase_source' => $sz_utm_source, 'payment_type' => 'STRIPE']);
+
+        $orderItems = [];
+        $orderTotal = 0;
+        $onlineDiscount = 0;
+        if( !empty($request->productId) ){
+            foreach ($request->productId as $pKey => $productId) {
+                $product = Product::find(decrypt($productId));
+                if ($product) {
+                    $discount = $request->quantity[$pKey] * 35;
+                    $onlineDiscount += $discount;
+                    $amount = ($product->web_sales_price) * $request->quantity[$pKey] - $discount;
+                    SalesOrderItem::create(['so_id' => $salesOrder->id, 'category_id' => $product->category_id, 'product_id' => $product->id, 'price' => $product->web_sales_price, 'qty' => $request->quantity[$pKey], 'online_discount' => $discount, 'amount' => $amount, 'remarks' => '']);
+                    $orderItems[] = $product->name . ' - ' . $request->quantity[$pKey];
+                    $quantities[] = $request->quantity[$pKey];
+                    $orderTotal += ($product->web_sales_price) * $request->quantity[$pKey];
+                }
+            }
+        }
+
+        $finalPaidAmount = $orderTotal - $onlineDiscount;
+
+        Stripe::setApiKey(env('STRIPE_SECRET'));
+
+        $chargeResponse = Charge::create ([
+                "amount" => $finalPaidAmount * 100,
+                "currency" => "gbp",
+                "source" => $request->stripeToken,
+        ]);
+
+        if($chargeResponse) {
+            /* update Order No */
+            $orderNo = 'SO-'.date('Y').'-'.sprintf('%05d', $salesOrder->id);
+            SalesOrder::find($salesOrder->id)->update(['order_no' => $orderNo, 'payment_id' => $chargeResponse->id]);
+
+            TriggerLog::create([
+                'trigger_id' => 0,
+                'order_id' => $salesOrder->id,
+                'watcher_id' => NULL,
+                'next_status_id' => 1,
+                'current_status_id' => 1,
+                'type' => 2,
+                'time_type' => 1,
+                'main_type' => 2,
+                'hour' => 0,
+                'minute' => 0,
+                'time' => '+0 seconds',
+                'executed_at' => date('Y-m-d H:i:s'),
+                'executed' => 1,
+                'from_status' => null,
+                'to_status' => [
+                    'name' => 'NEW',
+                    'color' => '#a9ebfc'
+                 ]
+            ]);
+
+            if ( !empty($request->range) ) {
+                $driverrangeData = json_decode($request->range);
+                if(!empty($driverrangeData)) {
+                    $driverNames = [];
+                    foreach($driverrangeData as $driverid => $range) {
+                        $driverDetail = User::active()->find($driverid);
+                        if(!empty($driverDetail)) {
+                            DeliverTemp::create([
+                                'user_id' => $driverid,
+                                'so_id' => $salesOrder->id,
+                                'added_by' => NULL,
+                                'driver_lat' => $driverDetail->lat,
+                                'driver_long' => $driverDetail->long,
+                                'delivery_location_lat' => $request->lat,
+                                'delivery_location_long' => $request->long,
+                                'range' => $range
+                            ]);
+                            $driverNames[] = $driverDetail->name;
+                        }
+                    }
+
+                    $operativeManagerIds = UserRole::where('role_id', 5)->pluck('user_id')->toArray();
+                    foreach ($operativeManagerIds as $operativeManagerId) {
+                        Notification::create([
+                            'user_id' => $operativeManagerId,
+                            'so_id' => $salesOrder->id,
+                            'title' => 'New Order',
+                            'description' => 'New order received ('.$request->post_code.').',
+                            'link' => 'sales-orders'
+                        ]);
+
+                        event(new \App\Events\OrderStatusEvent('order-allocation-info', ['users' => $operativeManagerId, 'user' => $operativeManagerId, 'content' => "New order received ('.$request->post_code.').", 'link' => url('sales-orders')]));
+                    }
+
+                    /* send msg operative director */
+                    $operativeManagers = UserRole::where('role_id', 5)->get();
+                    $operativeManagerPhoneNumber = [];
+                    foreach ($operativeManagers as $operativeManager) {
+                        $operativeManagerPhoneNumber[$operativeManager->user_id] = $operativeManager->user->country_dial_code.$operativeManager->user->phone;
+                    }
+
+                    $newOrderReceivedSID = 'HX80aeaef361411b2f442b543b57187317';
+                    $contentVariables = json_encode([
+                        "1" => $request->post_code,
+                    ]);
+                    Helper::sendTwilioMessage($operativeManagerPhoneNumber, $contentVariables, $newOrderReceivedSID, 3, 0, $salesOrder->id);
+
+                    $websiteNewOrderSID = 'HX7bffa98d373f81acb9dcd5718e105fe2';
+                    $contentVariables = json_encode([
+                        "1" => $salesOrder->customer_name,
+                        "2" => '+'.$salesOrder->country_dial_code.$salesOrder->customer_phone,
+                        "3" => $salesOrder->customer_address_line_1.' '.$salesOrder->customer_address_line_2,
+                        "4" => $salesOrder->customer_postal_code,
+                        "5" => implode(', ', $orderItems),
+                        "6" => '£'.number_format($orderTotal, 2).' with to home delivery'
+                    ]);
+                    Helper::sendTwilioMessage($operativeManagerPhoneNumber, $contentVariables, $websiteNewOrderSID, 3, 0, $salesOrder->id);
+                }
+            }
+
+            DB::commit();
+            session()->forget('cart');
+
+            return redirect()->route('orderSuccess', encrypt($salesOrder->id));
+        }
+
+        return back();
     }
 }

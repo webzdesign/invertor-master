@@ -18,6 +18,9 @@ Route::middleware([PreventBackButtonMiddleware::class])->group(function () {
     Route::get('order-success/{id}', [HomeController::class, 'orderSuccess'])->name('orderSuccess');
     Route::post('getAvailableDriver', [HomeController::class, 'getAvailableDriver'])->name('getAvailableDriver');
 
+    /* Stripe Payment */
+    Route::post('stripe/payment', [HomeController::class, 'stripePayment'])->name('stripePayment');
+
 
     /* cms pages */
     Route::get('about-us', [PageController::class, 'aboutUs'])->name('about-us');

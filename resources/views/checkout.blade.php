@@ -210,7 +210,7 @@
                         <div class="form-check">
                             <input name="terms_and_condtion" class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" value="" id="terms_and_condtion">
                             <label class="form-check-label font-inter-regular text-sm text-slate-900 cursor-pointer ms-2 mt-1" for="terms_and_condtion">
-                                By clicking this, I agree to Skootz <a href="{{ route('terms-conditions') }}" target="_blank" class="text-blue-500 font-inter-semibold text-decoration-none">Terms & 
+                                By clicking this, I agree to Skootz <a href="{{ route('terms-conditions') }}" target="_blank" class="text-blue-500 font-inter-semibold text-decoration-none">Terms &
                                 Conditions</a> and <a href="{{ route('privacy-policy') }}" target="_blank" class="text-blue-500 font-inter-semibold text-decoration-none">Privacy Policy</a>
                             </label>
                         </div>
@@ -218,6 +218,15 @@
                             Order &nbsp;&nbsp;&nbsp; <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</span>
                         </button>
                         <div class="font-semibold text-lg m-0 mt-2 text-center">Cash on delivery</div>
+                        <hr>
+                        <div class="form-check">
+                            <input name="online_payment" class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" value="" id="online_payment">
+                            <label class="form-check-label font-inter-regular text-sm text-slate-900 cursor-pointer ms-2 mt-1" for="online_payment">Online Pay</label>
+                        </div>
+                        <input type='hidden' name='stripeToken' id='stripe-token-id'>
+                        <div id="card-element" class="form-control p-3"></div>
+                        <span class="text-danger card-msg-error"></span>
+                        <button id='checkout-button' class="button-dark w-100 mt-3 text-center" style="background-color: #675dff;" type="button" onclick="createToken()" disabled>Pay {{ env( 'SZ_CURRENCY_SYMBOL' ) }} <span id="online_paid_amount">{{ number_format($grand_total, 2) }}</span> </button>
                     </div>
                     @if( $othersProducts->isNotEmpty() )
                         <div class="cardCheckout likeProuctCard order-history bg-slate-50 border border-slate-100 p-4 rounded-lg mt-4">
@@ -271,11 +280,22 @@
 <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
 <script src="{{ asset('assets/js/intel.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
 <script>
+//stripe card genrate
+var stripe = Stripe('{{ env('STRIPE_KEY') }}')
+var elements = stripe.elements();
+var cardElement = elements.create('card', {
+    disabled: true, // Disables the Card Element by default
+});
+cardElement.mount('#card-element');
+
 $(document).ready(function(){
-    
+
     const input = document.querySelector('#phone');
     const errorMap = ["Phone number is invalid.", "Invalid country code", "Too short", "Too long"];
+    const grandTotal = '{{$grand_total}}';
 
     const iti = window.intlTelInput(input, {
         initialCountry: "gb",
@@ -423,7 +443,65 @@ $(document).ready(function(){
         } else {
             $('#sz_submit_btn').prop('disabled', true);
         }
+
+        if($('#online_payment').prop('checked')) {
+            $('#sz_submit_btn').prop('disabled', true);
+        } else {
+            $('#sz_submit_btn').prop('disabled', false);
+        }
+    });
+
+    var quantity = [];
+    $('input[name="quantity[]"]').each(function(){
+        quantity.push($(this).val());
+    });
+    const sum = quantity.map(Number).reduce((acc, num) => acc + num, 0);
+    const paidAmount = grandTotal - (sum * 35);
+
+    $("#online_paid_amount").html(paidAmount);
+
+    $("body").on('click', '#online_payment', function(e){
+        if($(this).prop('checked')) {
+            $("#sz_submit_btn").attr('disabled', 'disabled');
+            $("#checkout-button").removeAttr('disabled');
+
+            cardElement.update({ disabled: false });
+        } else {
+            $("#sz_submit_btn").removeAttr('disabled');
+            $("#checkout-button").attr('disabled', 'disabled');
+            $(".card-msg-error").text('');
+            cardElement.update({ disabled: true });
+        }
     });
 });
+
+//Create Token Code
+function createToken() {
+    document.getElementById("checkout-button").disabled = true;
+    stripe.createToken(cardElement).then(function(result) {
+        var form = $('#addOrder');
+        $(".card-msg-error").text('');
+        if(typeof result.error != 'undefined') {
+            document.getElementById("checkout-button").disabled = false;
+            // alert(result.error.message);
+            $(".card-msg-error").text(result.error.message);
+        }
+
+        if(form.valid()) {
+            /* creating token success */
+            if(typeof result.token != 'undefined') {
+                document.getElementById("stripe-token-id").value = result.token.id;
+                // var form = document.getElementById('addOrder');
+
+                form.attr('action', "{{route('stripePayment')}}");
+                form.submit();
+            }
+        } else {
+            document.getElementById("checkout-button").disabled = false;
+        }
+    });
+}
+</script>
+
 </script>
 @endsection
