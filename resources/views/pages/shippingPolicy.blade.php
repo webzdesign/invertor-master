@@ -55,17 +55,17 @@
             </ul>
         </div>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Delivery Areas</h4>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Delivery Areas</h4>
             <ul><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">We currently deliver across the UK.</li><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"> For COD availability in your region, check during checkout or contact us.</li>  </ul>
         </div>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Tracking Information</h4>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Tracking Information</h4>
            <ul> <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Once your order is shipped, you will receive a tracking number via email to monitor your delivery status.
         </li></ul>
         </div>
 
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Potential Delays
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Potential Delays
             </h4>
            <ul> <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Please note that delivery timelines may be extended during public holidays or periods of high demand.
             </li><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">In the event of delays, our team will inform you via email or phone.</li></ul>
