@@ -10,7 +10,7 @@
                 </a>
                 <p class="text-slate-300 font-inter-regular mt-4 mx-auto mx-lg-0">Skootz is unique combination of high quality products and excellent customer service.</p>
             </div>
-            <div class="col-lg-4 ">
+            <div class="col-lg-3 ">
                 <ul class="m-0 p-0 links"> 
                     <li>
                         <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Quick Links</div>
@@ -33,20 +33,17 @@
             </div>
             <div class="col-lg-4 ">
                 <ul class="m-0 p-0 links"> 
-                    <li class="mt-3">
-                        <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Address</div>
-                        
-                    </li>
+                   
                     <li>
                         <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Contact Details </div>
                     </li>
                     <li class="mt-3">
                         <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Email :
-                        <a href="mailto:runmaxlimited@gmail.com" class="text-slate-900 font-inter-semibold text-sm">runmaxlimited@gmail.com</a></div>
+                        <a href="mailto:runmaxlimited@gmail.com" >runmaxlimited@gmail.com</a></div>
                     </li>
                     <li class="mt-3">
                         <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Phone
-                        <a href="tel:+44 7418356616" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">+44 7418356616</a></div>
+                        <a href="tel:+44 7418356616" >+44 7418356616</a></div>
                     </li>
                    
                    
