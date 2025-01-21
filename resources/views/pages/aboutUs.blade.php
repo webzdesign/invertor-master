@@ -133,8 +133,8 @@
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                             <div class="accordion-body pb-0 px-0">
                                 <p class="mb-0 text-gray-500 font-inter-regular text-lg">
-                                    And yes, we back all of our electric scooters with a manufacturer’s warranty against defects in materials and workmanship. To learn more about the specifics of each model, please visit our <a here="{{ route('shop') }}">shop page</a>.
-                                </p>
+                                    And yes, we back all of our electric scooters with a manufacturer’s warranty against defects in materials and workmanship. To learn more about the specifics of each model, please visit our </p><a here="{{ route('shop') }}">shop page</a>.
+                                
                             </div>
                         </div>
                     </div>
