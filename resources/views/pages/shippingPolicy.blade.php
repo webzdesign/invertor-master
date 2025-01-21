@@ -26,7 +26,7 @@
 <section class="py-md-5 py-3">
     <div class="container">
         <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">Shipping Policy</h3>
-        <div>
+        <div class="mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Delivery Options</h4>
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Standard Delivery:</span>  Delivered within 3–5 business days</li>
@@ -35,7 +35,7 @@
                 </li>
             </ul>
         </div>
-        <div>
+        <div class="mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Processing Time
             </h4>
             <ul>
@@ -43,7 +43,7 @@
                 
             </ul>
         </div>
-        <div>
+        <div class="mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Shipping Charges</h4>
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Free Delivery:</b> Available for orders over £100.
