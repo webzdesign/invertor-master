@@ -15,19 +15,20 @@
                     <div class="col-4">
                         <ul class="m-0 p-0 links"> 
                             <li>
-                                <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">SHOPPING</div>
+                                <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Quick Links</div>
                             </li>
                             <li class="mt-3">
                                 <a href="{{ route( 'about-us' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">About</a>
                             </li>
                             <li class="mt-3">
-                                <a href="javascript:;" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Pricing</a>
+                                <a href="{{ route('shop') }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Shop</a>
                             </li>
-                            <li class="mt-3">
-                                <a href="javascript:;" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Our Mision</a>
-                            </li>
+                           
                             <li class="mt-3">
                                 <a href="{{ route( 'blog' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Blog</a>
+                            </li>
+                            <li class="mt-3">
+                                <a href="{{ route( 'contact-us' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -62,7 +63,7 @@
                     <a href="{{ route('refund-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Returns and Refunds Policy</a>
                 </li>
             </ul>
-            <div class="text-white font-inter-regular text-center text-lg-start my-4 my-lg-0">© {{ date("Y") }} Copyright By sKootz</div>
+            <div class="text-white font-inter-regular text-center text-lg-start my-4 my-lg-0">© {{ date("Y") }} Copyright By SKootz</div>
         </div>
     </div>
 </footer>

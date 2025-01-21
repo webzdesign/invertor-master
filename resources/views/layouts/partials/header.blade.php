@@ -33,14 +33,15 @@
                     <a class="text-decoration-none text-slate-900 {{ request()->is( '/' ) ? 'active' : '' }}" href="{{ route( 'home' ) }}">Home</a>
                 </li>
                 <li>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is( 'about-us' ) ? 'active' : '' }}" href="{{ route( 'about-us' ) }}">About Us</a>
+                </li>
+                <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is('shop') ? 'active' : '' }}" href="{{ route('shop') }}">Shop</a>
                 </li>
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is('blog*') ? 'active' : '' }}" href="{{ route('blog') }}">Blog</a>
                 </li>
-                <li>
-                    <a class="text-decoration-none text-slate-900 {{ request()->is( 'about-us' ) ? 'active' : '' }}" href="{{ route( 'about-us' ) }}">About Us</a>
-                </li>
+               
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is( 'contact-us' ) ? 'active' : '' }}" href="{{ route( 'contact-us' ) }}">Contact Us</a>
                 </li>
