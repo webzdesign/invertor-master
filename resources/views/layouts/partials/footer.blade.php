@@ -1,7 +1,7 @@
 <footer class="bg-slate-900">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 left-side mb-4 mb-lg-0 text-center text-lg-start">
+            <div class="col-lg-4  mb-4 mb-lg-0 text-center text-lg-start">
                 <a href="{{ route('home') }}" aria-label="Skootz">
                     <svg xmlns="http://www.w3.org/2000/svg" width="134" height="35" viewBox="0 0 134 35" fill="none">
                         <path d="M6.98367 26.4738C7.17827 25.9549 7.308 25.3927 7.58908 24.917C8.4107 23.5549 9.64313 22.863 11.2215 22.9278C12.908 22.9927 14.1621 23.8143 14.8756 25.3711C14.9621 25.5657 15.0485 25.6305 15.2648 25.6305C15.6539 25.6089 16.0431 25.6305 16.4539 25.6305C16.281 24.463 15.7837 23.5332 14.9188 22.8197C14.0756 22.0846 13.0593 21.717 11.935 21.6954C11.2864 21.6738 10.7675 21.1981 10.8107 20.6143C10.8323 20.0522 11.3296 19.5765 11.9999 19.5981C14.8323 19.6414 17.3837 21.4792 18.2702 24.2251C18.3783 24.5927 18.4648 24.9603 18.508 25.3278C18.5296 25.5441 18.6161 25.5873 18.8107 25.5873C21.3188 25.5873 23.8269 25.5873 26.335 25.5873C26.508 25.5873 26.5945 25.5441 26.6593 25.3711C27.9566 22.5819 29.2756 19.8143 30.5945 17.0251C30.6377 16.917 30.6377 16.7441 30.6161 16.6143C30.0972 14.3008 29.5783 11.9657 29.0593 9.65217C28.8648 8.74406 28.6485 7.83595 28.4323 6.90622C28.2377 6.90622 28.0215 6.90622 27.8269 6.90622C27.0702 6.90622 26.335 6.90622 25.5783 6.8846C24.9296 6.86298 24.3891 6.3873 24.281 5.7819C24.1512 5.13325 24.4539 4.50622 25.0593 4.24676C25.2756 4.16027 25.535 4.11703 25.7729 4.11703C26.9837 4.09541 28.2161 4.11703 29.4269 4.11703C30.2702 4.11703 30.7242 4.50622 30.8972 5.32784C32.1729 11.0792 33.4269 16.8522 34.7026 22.6035C34.7458 22.8197 34.8756 22.863 35.0485 22.9062C36.908 23.2522 38.2269 24.7008 38.3783 26.5387C38.5296 28.5711 37.4918 30.2792 35.6539 30.9278C33.7296 31.6197 31.5891 30.7765 30.6377 28.9819C29.6864 27.1873 30.1837 24.917 31.8053 23.7062C31.8918 23.6414 31.9999 23.4684 31.9783 23.3603C31.8485 22.69 31.6972 22.0197 31.5458 21.2846C31.481 21.436 31.4161 21.5224 31.3729 21.6089C30.4648 23.5116 29.5566 25.436 28.6702 27.3387C28.3458 28.0305 27.8269 28.3549 27.0485 28.3549C23.1134 28.3549 19.1783 28.3981 15.2215 28.3981C15.0269 28.3981 14.9188 28.4414 14.8323 28.636C14.0756 30.3441 12.4107 31.2954 10.5512 31.0792C8.82151 30.8846 7.41611 29.6305 7.02692 27.8792C7.00529 27.7711 6.96205 27.6414 6.94043 27.5332C6.98367 27.2089 6.98367 26.8414 6.98367 26.4738ZM32.6918 25.9116C32.2161 26.5819 32.2593 27.5116 32.7566 28.1603C33.2972 28.8954 34.1837 29.1549 35.0485 28.8738C35.8269 28.6143 36.4756 27.7711 36.4539 26.9711C36.4539 26.3008 35.9134 25.5008 35.3729 25.3278C35.4161 25.5657 35.4377 25.8035 35.481 26.0197C35.6107 26.7332 35.1783 27.4251 34.5296 27.5765C33.7729 27.7495 33.0377 27.317 32.8431 26.5819C32.7783 26.3657 32.7566 26.1495 32.6918 25.9116ZM12.5837 25.6089C11.8918 24.7873 10.5729 24.7441 9.75124 25.5224C8.92962 26.3008 8.95124 27.663 9.77286 28.4414C10.6377 29.263 11.9999 29.0468 12.5837 28.4414C12.3242 28.4414 12.0864 28.4414 11.8269 28.4414C11.0918 28.4197 10.508 27.8576 10.4648 27.1657C10.4215 26.3873 10.8972 25.7819 11.6539 25.6738C11.9783 25.6305 12.281 25.6305 12.5837 25.6089Z" fill="#FEFEFE"/>
@@ -10,36 +10,59 @@
                 </a>
                 <p class="text-slate-300 font-inter-regular mt-4 mx-auto mx-lg-0">Skootz is unique combination of high quality products and excellent customer service.</p>
             </div>
-            <div class="col-lg-6 right-side">
-                <div class="row">
-                    <div class="col-4">
-                        <ul class="m-0 p-0 links"> 
-                            <li>
-                                <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Quick Links</div>
-                            </li>
-                            <li class="mt-3">
-                                <a href="{{ route( 'about-us' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">About</a>
-                            </li>
-                            <li class="mt-3">
-                                <a href="{{ route('shop') }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Shop</a>
-                            </li>
-                           
-                            <li class="mt-3">
-                                <a href="{{ route( 'blog' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Blog</a>
-                            </li>
-                            <li class="mt-3">
-                                <a href="{{ route( 'contact-us' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Contact Us</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-8 links">
-
-                        <ul>
-                        <li class="text-decoration-none text-white font-inter-regular text-lg fw-bold">VISIT US TODAY!</li>
-                        <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">Let’s find your perfect ride! Come and try one of ours out in our stores in Portsmouth and get expert advice. You may also browse our online store for easy shopping from home. Next day delivery is available, so your new scooter could be just a click away!</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="col-lg-4 ">
+                <ul class="m-0 p-0 links"> 
+                    <li>
+                        <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Quick Links</div>
+                    </li>
+                    <li class="mt-3">
+                        <a href="{{ route( 'about-us' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">About</a>
+                    </li>
+                    <li class="mt-3">
+                        <a href="{{ route('shop') }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Shop</a>
+                    </li>
+                   
+                    <li class="mt-3">
+                        <a href="{{ route( 'blog' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Blog</a>
+                    </li>
+                    <li class="mt-3">
+                        <a href="{{ route( 'contact-us' ) }}" class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob">Contact Us</a>
+                    </li>
+                </ul>
+               
+            </div>
+            <div class="col-lg-4 ">
+                <ul class="m-0 p-0 links"> 
+                    <li class="mt-3">
+                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Address</div>
+                        <div class="text-decoration-none text-slate-900 font-inter-regular text-sm">
+                            <b>RUNMAX LIMITED</b></br>
+                            129 Toronto Road</br>
+                            Portsmouth, England</br>
+                            PO2 7QD
+                        </div>
+                    </li>
+                    <li>
+                        <div class="text-decoration-none text-white font-inter-regular text-lg fw-bold">Contact Details</div>
+                    </li>
+                    <li class="mt-3">
+                        <b>Email</b>
+                        <a href="mailto:runmaxlimited@gmail.com" class="text-slate-900 font-inter-semibold text-sm">runmaxlimited@gmail.com</a>
+                    </li>
+                    <li class="mt-3">
+                        <b>Phone</b>
+                        <a href="tel:+44 7418356616" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">+44 7418356616</a>
+                    </li>
+                   
+                   
+                   
+                </ul>
+            </div>
+            <div class="col-lg-4 ">
+                <ul>
+                    <li class="text-decoration-none text-white font-inter-regular text-lg fw-bold">VISIT US TODAY!</li>
+                    <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">Let’s find your perfect ride! Come and try one of ours out in our stores in Portsmouth and get expert advice. You may also browse our online store for easy shopping from home. Next day delivery is available, so your new scooter could be just a click away!</li>
+                    </ul>
             </div>
         </div>
         <div class="text-center my-5">
