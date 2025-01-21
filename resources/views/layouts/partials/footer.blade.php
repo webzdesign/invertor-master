@@ -35,14 +35,24 @@
                 <ul class="m-0 p-0 links"> 
                    
                     <li class="text-decoration-none text-white font-inter-regular text-lg fw-bold">
-                        Contact Details 
+                        Address
+                    </li>
+                    <li class="text-decoration-none text-white font-inter-regular text-lg fw-bold">
+                        <b>RUNMAX LIMITED</b></br>
+                        129 Toronto Road</br>
+                        Portsmouth, England</br>
+                        PO2 7QD
                     </li>
                     <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">
                         Email :
                         <a href="mailto:runmaxlimited@gmail.com" >runmaxlimited@gmail.com</a></li>
                     </li>
                     <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">
-                        Phone
+                        Email :
+                        <a href="mailto:runmaxlimited@gmail.com" >runmaxlimited@gmail.com</a></li>
+                    </li>
+                    <li class="text-decoration-none text-slate-300 font-inter-regular text-lg text-sm-mob mt-3">
+                        Phone :
                         <a href="tel:+44 7418356616" >+44 7418356616</a>
                     </li>
                    
