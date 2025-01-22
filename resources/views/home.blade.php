@@ -125,7 +125,7 @@
                 </li>
                 <li class="text-center">
                     <p class="text-gray-500 m-0">Speed</p>
-                    <div class="font-semibold text-lg m-0">25-30 Km</div>
+                    <div class="font-semibold text-lg m-0">15.5 Mph</div>
                 </li>
                 <li class="text-center">
                     <p class="text-gray-500 m-0">Range</p>
