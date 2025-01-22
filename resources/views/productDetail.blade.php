@@ -133,19 +133,23 @@
                     <h6 class="mb-0 text-slate-900 font-inter-semibold">5 questions</h6> --}}
                 </div>
                 <div>
-                    <div class="d-flex align-items-center my-3"> 
+                    <div class="d-flex align-items-center my-3">
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Availability</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">In Stock</h6>
                     </div>
-                    <div class="d-flex align-items-center my-3"> 
+                    <div class="d-flex align-items-center my-3">
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">SKU</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">{{ $product->sku }}</h6>
                     </div>
-                    <div class="d-flex align-items-center mb-3"> 
+                    <div class="d-flex align-items-center my-3">
+                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Brand</h6>
+                        <h6 class="mb-0 text-slate-900 font-inter-semibold">{{ $product->brand }}</h6>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Condition</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">NEW</h6>
                     </div>
-                    <div class="d-flex align-items-center mb-4"> 
+                    <div class="d-flex align-items-center mb-4">
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Warranty</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">1 Year</h6>
                     </div>
