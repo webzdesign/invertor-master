@@ -30,7 +30,7 @@
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Delivery Options</h4>
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Standard Delivery:</span>  Delivered within 3–5 business days</li>
-                <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Cash on Delivery (COD):</span> Available across most countries. 
+                <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Cash on Delivery (COD):</span> Available across most countries. Check during checkout for eligibility.
                 </li>
             </ul>
         </div>
