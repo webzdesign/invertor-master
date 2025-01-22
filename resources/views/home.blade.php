@@ -15,16 +15,13 @@
                         <div class="col-xl-6 col-lg-8 left-slide">
                                 @php
                                     $breaks = array("<br />","<br>","<br/>");
-                                    $p_description = str_ireplace($breaks, "", $slider_product->description);
+                                    $p_description = str_ireplace($breaks, "", $slider_product->slider_content);
                                     if( mb_strlen($p_description) > 70 ){
                                         $p_description = mb_strimwidth($p_description, 0, 70, '...');
                                     }
-                                    $p_name = str_ireplace($breaks, "", $slider_product->name);
+                                    $p_name = str_ireplace($breaks, "", $slider_product->slider_title);
                                     if( mb_strlen($p_name) > 20 ){
                                         $p_name = mb_strimwidth($p_name, 0, 20, '...');
-                                    }
-                                    if( $slider_product->unique_number == '013' ){
-                                        $p_description = 'Your dream of getting an electric scooter is just 1 step away';
                                     }
                                     $slider_yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=y1pFEns95QWdhO-W';
                                     $slider_img = !empty($slider_product->images->first()->name) ? $slider_product->images->first()->name : '';

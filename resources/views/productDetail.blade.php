@@ -108,7 +108,7 @@
                         <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-none whitespace-nowrap">SAVE {{ $sz_discount_pr }}%</label>
                     @endif
                 </div>
-                <p class="text-gray-500 font-inter-regular text-xl text-base-mob">Be among the first to ride our freshest, high-performance scooters.</p>
+                <p class="text-gray-500 font-inter-regular text-xl text-base-mob">{{ $product->slider_content }}</p>
                 <div class="d-flex align-items-center gap-2">
                     <div>
                         
@@ -224,30 +224,32 @@
                             </div>
                         </div>
                     </div> --}}
-                    <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M17 20C18.1046 20 19 19.1046 19 18C19 16.8954 18.1046 16 17 16C15.8954 16 15 16.8954 15 18C15 19.1046 15.8954 20 17 20Z" stroke="#282930" stroke-width="1.5"/>
-                                            <path d="M7 20C8.10457 20 9 19.1046 9 18C9 16.8954 8.10457 16 7 16C5.89543 16 5 16.8954 5 18C5 19.1046 5.89543 20 7 20Z" stroke="#282930" stroke-width="1.5"/>
-                                            <path d="M5 17.9724C3.90328 17.9178 3.2191 17.7546 2.73223 17.2678C2.24536 16.7809 2.08222 16.0967 2.02755 15M9 18H15M19 17.9724C20.0967 17.9178 20.7809 17.7546 21.2678 17.2678C22 16.5355 22 15.357 22 13V11H17.3C16.5555 11 16.1832 11 15.882 10.9021C15.2731 10.7043 14.7957 10.2269 14.5979 9.61803C14.5 9.31677 14.5 8.94451 14.5 8.2C14.5 7.08323 14.5 6.52485 14.3532 6.07295C14.0564 5.15964 13.3404 4.44358 12.4271 4.14683C11.9752 4 11.4168 4 10.3 4H2" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M2 8H8" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M2 11H6" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M14.5 6H16.3212C17.7766 6 18.5042 6 19.0964 6.35371C19.6886 6.70742 20.0336 7.34811 20.7236 8.6295L22 11" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
+                    @if( !empty($product->shipping_and_payment) )
+                        <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17 20C18.1046 20 19 19.1046 19 18C19 16.8954 18.1046 16 17 16C15.8954 16 15 16.8954 15 18C15 19.1046 15.8954 20 17 20Z" stroke="#282930" stroke-width="1.5"/>
+                                                <path d="M7 20C8.10457 20 9 19.1046 9 18C9 16.8954 8.10457 16 7 16C5.89543 16 5 16.8954 5 18C5 19.1046 5.89543 20 7 20Z" stroke="#282930" stroke-width="1.5"/>
+                                                <path d="M5 17.9724C3.90328 17.9178 3.2191 17.7546 2.73223 17.2678C2.24536 16.7809 2.08222 16.0967 2.02755 15M9 18H15M19 17.9724C20.0967 17.9178 20.7809 17.7546 21.2678 17.2678C22 16.5355 22 15.357 22 13V11H17.3C16.5555 11 16.1832 11 15.882 10.9021C15.2731 10.7043 14.7957 10.2269 14.5979 9.61803C14.5 9.31677 14.5 8.94451 14.5 8.2C14.5 7.08323 14.5 6.52485 14.3532 6.07295C14.0564 5.15964 13.3404 4.44358 12.4271 4.14683C11.9752 4 11.4168 4 10.3 4H2" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M2 8H8" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M2 11H6" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M14.5 6H16.3212C17.7766 6 18.5042 6 19.0964 6.35371C19.6886 6.70742 20.0336 7.34811 20.7236 8.6295L22 11" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        Shipping & Payment
                                     </div>
-                                    Shipping & Payment
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body px-0">
+                                    <p class="font-inter-regular">{!! $product->shipping_and_payment !!}</p>
                                 </div>
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body px-0">
-                                <p class="font-inter-regular">We aim to deliver your Skootz products same days. For urgent orders or specific delivery requests, please contact our customer service team.</p>
                             </div>
                         </div>
-                    </div>
+                    @endif
                     {{-- <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -356,7 +358,7 @@
                 <div class="col-lg-6 mb-5">
                     <a href="{{ route('productDetail', $o_product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                            <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product_img }}" alt="{{ $o_product->name }}" height="100%" width="100%">
+                            <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product_img }}" alt="{{ $o_product->name }}">
                             <div class="ws_sec position-absolute">
                                 <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
                                 @if( $sz_o_discount_flag == '1' )
