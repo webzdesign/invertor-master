@@ -80,7 +80,7 @@
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Email: </b> <a href="mailto:runmaxlimited@gmail.com" class="font-inter-semibold text-decoration-none text-slate-900">runmaxlimited@gmail.com</a>
                 </li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Phone:</b> +44 7418356616
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Phone:</b> +44 7918816728
 
                 </li>
               
