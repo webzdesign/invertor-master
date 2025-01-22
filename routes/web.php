@@ -5,6 +5,12 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Middleware\PreventBackButtonMiddleware;
 
+// Define your 404 route
+Route::get('/404', function () {
+    abort(404);
+})->name('404');
+
+
 Route::middleware([PreventBackButtonMiddleware::class])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('collections/all', [HomeController::class, 'shop'])->name('shop');
@@ -35,6 +41,7 @@ Route::middleware([PreventBackButtonMiddleware::class])->group(function () {
     Route::get('pages/shipping-policy', [PageController::class, 'shippingPolicy'])->name('shipping-policy');
 });
 
+
 Route::fallback(function () {
-    abort(404);
+    return redirect()->route('404');
 });
