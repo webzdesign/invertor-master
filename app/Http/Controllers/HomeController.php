@@ -619,7 +619,7 @@ class HomeController extends Controller
 
         $xmlContent = $xml->asXML();
 
-        file_put_contents(public_path('sitemap.xml'), $xmlContent);
+        file_put_contents(base_path('sitemap.xml'), $xmlContent);
     }
 
     public static function getSeasonSellIcon()
