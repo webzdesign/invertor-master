@@ -131,10 +131,7 @@
                     <p class="text-gray-500 m-0">Range</p>
                     <div class="font-semibold text-lg m-0">25km to 30km</div>
                 </li>
-                <li class="text-center">
-                    <p class="text-gray-500 m-0">Delivery</p>
-                  
-                </li>
+                
             </ul>
         </div>
     </div>
