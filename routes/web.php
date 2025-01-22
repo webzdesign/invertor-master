@@ -34,3 +34,7 @@ Route::middleware([PreventBackButtonMiddleware::class])->group(function () {
     Route::get('pages/refund-and-return-policy', [PageController::class, 'refundPolicy'])->name('refund-policy');
     Route::get('pages/shipping-policy', [PageController::class, 'shippingPolicy'])->name('shipping-policy');
 });
+
+Route::fallback(function () {
+    abort(404);
+});
