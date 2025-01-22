@@ -26,7 +26,7 @@ Route::middleware([PreventBackButtonMiddleware::class])->group(function () {
     Route::get('pages/about-skootz', [PageController::class, 'aboutUs'])->name('about-us');
     Route::get('pages/testimonial', [PageController::class, 'testimonial'])->name('testimonial');
     Route::get('pages/contact-us', [PageController::class, 'contactUs'])->name('contact-us');
-    Route::post('pages/contact-us/store', [HomeController::class, 'contactUsStore'])->middleware('throttle:5,1')->name('contactUs.store');
+    Route::post('contact-us/store', [HomeController::class, 'contactUsStore'])->middleware('throttle:5,1')->name('contactUs.store');
     Route::get('pages/privacy-policy', [PageController::class, 'privacyPolicy'])->name('privacy-policy');
     Route::get('pages/terms-conditions', [PageController::class, 'termConditions'])->name('terms-conditions');
     Route::get('pages/blog', [PageController::class, 'blog'])->name('blog');
