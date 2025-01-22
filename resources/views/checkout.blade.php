@@ -217,7 +217,7 @@
                         <button type="submit" class="button-dark w-100 mt-3 text-center" id="sz_submit_btn" disabled>
                             Order &nbsp;&nbsp;&nbsp; <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</span>
                         </button>
-                        <div class="font-semibold text-lg m-0 mt-2 text-center">Cash on delivery</div>
+                       
                         <hr>
                         <div class="form-check">
                             <input name="online_payment" class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" value="" id="online_payment">

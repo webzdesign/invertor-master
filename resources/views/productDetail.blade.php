@@ -182,7 +182,7 @@
                         </span>
                     </button>
                 </div>
-                <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
+              
                 <div class="accordion mt-4" id="accordionExample">
                     <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingOne">
@@ -393,7 +393,7 @@
                                 </svg>
                             </span>
                         </button>
-                        <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
+                    
                     </div>
                 </div>
             @endforeach

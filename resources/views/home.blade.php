@@ -39,7 +39,7 @@
                                     <path d="M12 20H28M28 20L22 14M28 20L22 26" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </a>
-                            <div class="font-semibold text-lg text-center text-lg-start">Cash on delivery</div>
+                          
                         </div>
                         <div class="col-xl-6 col-lg-4 right-slide">
                             <div class="d-lg-flex align-items-start text-center justify-content-between position-relative">
@@ -133,7 +133,7 @@
                 </li>
                 <li class="text-center">
                     <p class="text-gray-500 m-0">Delivery</p>
-                    <div class="font-semibold text-lg m-0">Cash on delivery</div>
+                  
                 </li>
             </ul>
         </div>
@@ -269,7 +269,7 @@
                                 </svg>
                             </span>
                         </button>
-                        <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
+                      
                     </div>
                 </div>
             @endforeach
