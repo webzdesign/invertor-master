@@ -78,7 +78,7 @@
                     <a href="{{ route('refund-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Refund and Return Policy</a>
                 </li>
             </ul>
-            <div class="text-white font-inter-regular text-center text-lg-start my-4 my-lg-0">© {{ date("Y") }} Copyright By SKootz</div>
+            <div class="text-white font-inter-regular text-center text-lg-start my-4 my-lg-0">© {{ date("Y") }} Copyright By Skootz</div>
         </div>
     </div>
 </footer>
