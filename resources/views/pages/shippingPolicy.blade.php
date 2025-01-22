@@ -30,8 +30,7 @@
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Delivery Options</h4>
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Standard Delivery:</span>  Delivered within 3–5 business days</li>
-                <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Express Delivery:</span> Delivered within 1–2 business days (additional fees apply)</li>
-                <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Cash on Delivery (COD):</span> Available across most UK regions. Check during checkout for eligibility.
+                <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Cash on Delivery (COD):</span> Available across most countries. 
                 </li>
             </ul>
         </div>
@@ -48,10 +47,7 @@
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Free Delivery:</b> Available for orders over £100.
                 </li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Standard Delivery Fee:</b> A small fee applies for orders below £100 or when using COD services.
-                </li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Additional fees for Express Delivery will be displayed at checkout.
-                </li>
+               
             </ul>
         </div>
         <div class="mb-4">
