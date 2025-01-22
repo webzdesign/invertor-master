@@ -7,7 +7,7 @@ use App\Http\Middleware\PreventBackButtonMiddleware;
 
 Route::middleware([PreventBackButtonMiddleware::class])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('shop', [HomeController::class, 'shop'])->name('shop');
+    Route::get('collections/all', [HomeController::class, 'shop'])->name('shop');
     Route::get('shop-product/{slug}', [HomeController::class, 'productDetail'])->name('productDetail');
     Route::get('cart', [HomeController::class, 'cart'])->name('cart');
     Route::post('cart/add', [HomeController::class, 'addToCart'])->name('cart.add');
