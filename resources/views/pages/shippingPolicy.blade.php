@@ -52,7 +52,7 @@
         </div>
         <div class="mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Delivery Areas</h4>
-            <ul><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">We currently deliver across the UK.</li><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"> For COD availability in your region, check during checkout or contact us.</li>  </ul>
+            <ul><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">We currently deliver across all over world.</li><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"> For COD availability in your region, check during checkout or contact us.</li>  </ul>
         </div>
         <div class="mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Tracking Information</h4>
