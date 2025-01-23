@@ -350,7 +350,7 @@
                     </div>
                     <div>
                         <button id="sz_submit_btn" type="submit" class="button-dark font-inter-semibold w-100 mt-md-3 text-center rounded-lg">
-                            Pay <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</span>
+                            Order Now <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</span>
                         </button>
 
                         <button id='checkout-button' class="button-dark font-inter-semibold w-100 mt-md-3 text-center rounded-lg" type="button" onclick="createToken()" style="display: none;">Pay {{ env('SZ_CURRENCY_SYMBOL') }} <span id="online_paid_amount">{{ number_format($grand_total, 2) }}</span></button>
