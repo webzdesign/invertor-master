@@ -18,6 +18,7 @@ use App\Models\Notification;
 use Illuminate\Http\Request;
 use App\Models\SalesOrderItem;
 use App\Models\PaymentForDelivery;
+use App\Models\Country;
 use Illuminate\Support\Facades\DB;
 use App\Helpers\{Helper, Distance};
 use Illuminate\Support\Facades\Mail;
@@ -278,7 +279,9 @@ class HomeController extends Controller
         $product_ids = array_keys($cartItems);
         $othersProducts = Product::with('images')->whereNotIn('id', $product_ids)->limit(2)->get();
 
-        return view('checkout', compact('cartItems', 'othersProducts'));
+        $countries = Country::whereIn('id', [251, 252])->get();
+
+        return view('checkout', compact('cartItems', 'othersProducts', 'countries'));
     }
 
     public function orderPlace(CheckoutRequest $request)
@@ -293,7 +296,7 @@ class HomeController extends Controller
             }
         }
 
-        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->first_name.' '.$request->last_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0, 'purchase_source' => $sz_utm_source]);
+        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->customer_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0, 'purchase_source' => $sz_utm_source, 'first_name' => $request->first_name, 'last_name' => $request->last_name, 'billing_email' => $request->billing_email, 'billing_address' => $request->billing_address, 'billing_postal_code' => $request->billing_postal_code, 'billing_city' => $request->billing_city, 'city' => $request->city, 'customer_country' => $request->country]);
 
         $orderItems = [];
         $orderTotal = 0;
@@ -651,7 +654,7 @@ class HomeController extends Controller
             }
         }
 
-        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->first_name.' '.$request->last_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0, 'purchase_source' => $sz_utm_source, 'payment_type' => 'STRIPE']);
+        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->customer_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0, 'purchase_source' => $sz_utm_source, 'payment_type' => 'STRIPE', 'first_name' => $request->first_name, 'last_name' => $request->last_name, 'billing_email' => $request->billing_email, 'billing_address' => $request->billing_address, 'billing_postal_code' => $request->billing_postal_code, 'billing_city' => $request->billing_city, 'city' => $request->city, 'customer_country' => $request->country]);
 
         $orderItems = [];
         $orderTotal = 0;

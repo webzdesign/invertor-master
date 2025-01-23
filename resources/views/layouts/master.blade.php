@@ -103,7 +103,7 @@
                                         $('.sz_cart-badge').html(response.total_cart_count);
 
                                         let paidAmount = response.grand_total - (response.total_cart_count * 35);
-                                        $("#online_paid_amount").html(paidAmount);
+                                        $("#online_paid_amount").html(paidAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
                                         initQuantityButton('initialize');
                                     }
                                 },
@@ -192,6 +192,8 @@
                                     $('.sz_cart_price_details').html(response.sz_cart_price_html);
                                     $('.sz_cart-badge').html(response.total_cart_count);
                                     $('.sz_order_now-btn').prop('disabled', false);
+                                    let paidAmount = response.grand_total - (response.total_cart_count * 35);
+                                    $("#online_paid_amount").html(paidAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
                                     initQuantityButton();
                                 }
                             }
