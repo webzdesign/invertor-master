@@ -91,7 +91,7 @@
                                 </svg>
                             </span>
                         </button>
-                        <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
+                       
                     </div>
                 </div>
             @endforeach

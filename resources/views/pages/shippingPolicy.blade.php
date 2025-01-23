@@ -30,8 +30,7 @@
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Delivery Options</h4>
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Standard Delivery:</span>  Delivered within 3–5 business days</li>
-                <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Express Delivery:</span> Delivered within 1–2 business days (additional fees apply)</li>
-                <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Cash on Delivery (COD):</span> Available across most UK regions. Check during checkout for eligibility.
+                <li class="text-gray-500 text-lg font-inter-regular list-disc"><span class="text-slate-500 font-inter-semibold">Cash on Delivery (COD):</span> Available for England and North Ireland. Check during checkout for eligibility.
                 </li>
             </ul>
         </div>
@@ -48,15 +47,12 @@
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Free Delivery:</b> Available for orders over £100.
                 </li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Standard Delivery Fee:</b> A small fee applies for orders below £100 or when using COD services.
-                </li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Additional fees for Express Delivery will be displayed at checkout.
-                </li>
+               
             </ul>
         </div>
         <div class="mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Delivery Areas</h4>
-            <ul><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">We currently deliver across the UK.</li><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"> For COD availability in your region, check during checkout or contact us.</li>  </ul>
+            <ul><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">We currently deliver in England and North Ireland.</li><li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"> For COD availability in your region, check during checkout or contact us.</li>  </ul>
         </div>
         <div class="mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Tracking Information</h4>
@@ -80,7 +76,7 @@
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Email: </b> <a href="mailto:runmaxlimited@gmail.com" class="font-inter-semibold text-decoration-none text-slate-900">runmaxlimited@gmail.com</a>
                 </li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Phone:</b> +44 7418356616
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Phone:</b> +44 7918816728
 
                 </li>
               

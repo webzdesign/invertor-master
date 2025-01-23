@@ -15,16 +15,13 @@
                         <div class="col-xl-6 col-lg-8 left-slide">
                                 @php
                                     $breaks = array("<br />","<br>","<br/>");
-                                    $p_description = str_ireplace($breaks, "", $slider_product->description);
+                                    $p_description = str_ireplace($breaks, "", $slider_product->slider_content);
                                     if( mb_strlen($p_description) > 70 ){
                                         $p_description = mb_strimwidth($p_description, 0, 70, '...');
                                     }
-                                    $p_name = str_ireplace($breaks, "", $slider_product->name);
+                                    $p_name = str_ireplace($breaks, "", $slider_product->slider_title);
                                     if( mb_strlen($p_name) > 20 ){
                                         $p_name = mb_strimwidth($p_name, 0, 20, '...');
-                                    }
-                                    if( $slider_product->unique_number == '013' ){
-                                        $p_description = 'Your dream of getting an electric scooter is just 1 step away';
                                     }
                                     $slider_yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=y1pFEns95QWdhO-W';
                                     $slider_img = !empty($slider_product->images->first()->name) ? $slider_product->images->first()->name : '';
@@ -39,7 +36,7 @@
                                     <path d="M12 20H28M28 20L22 14M28 20L22 26" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </a>
-                            <div class="font-semibold text-lg text-center text-lg-start">Cash on delivery</div>
+                          
                         </div>
                         <div class="col-xl-6 col-lg-4 right-slide">
                             <div class="d-lg-flex align-items-start text-center justify-content-between position-relative">
@@ -125,16 +122,13 @@
                 </li>
                 <li class="text-center">
                     <p class="text-gray-500 m-0">Speed</p>
-                    <div class="font-semibold text-lg m-0">25-30 Km</div>
+                    <div class="font-semibold text-lg m-0">15.5 Mph</div>
                 </li>
                 <li class="text-center">
                     <p class="text-gray-500 m-0">Range</p>
                     <div class="font-semibold text-lg m-0">25km to 30km</div>
                 </li>
-                <li class="text-center">
-                    <p class="text-gray-500 m-0">Delivery</p>
-                    <div class="font-semibold text-lg m-0">Cash on delivery</div>
-                </li>
+                
             </ul>
         </div>
     </div>
@@ -269,7 +263,7 @@
                                 </svg>
                             </span>
                         </button>
-                        <div class="font-semibold text-lg m-0 mt-2">Cash on delivery</div>
+                      
                     </div>
                 </div>
             @endforeach

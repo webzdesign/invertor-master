@@ -70,7 +70,7 @@
                     <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3">Get in Touch</h3>
                     <div class="d-flex mb-3">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Phone</div>
-                        <a href="tel:+44 7418356616" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">+44 7418356616</a>
+                        <a href="tel:+44 7918816728" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">+44 7918816728</a>
                     </div>
                     <div class="d-flex mb-3">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Email</div>
