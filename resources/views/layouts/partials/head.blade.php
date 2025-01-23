@@ -6,7 +6,7 @@
 <meta name="google-site-verification" content="LR_u2j_o9y2rXRCnck9iFjnXitl2flRbIRofPsd8-Q0" />
 <link rel="shortcut icon" href="{{ asset( 'assets/images/favicon.ico' ) }}" type="image/x-icon">
 
-<title>Electric Scooters - Buy E-Scooters Online</title>
+<title>SKOOTZ | Buy E-Scooters Online</title>
 
 <link rel="stylesheet" href="{{ asset( 'assets/css/bootstrap.min.css' ) . '?' . time() }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/swiper-bundle.min.css' ) . '?' . time() }}">

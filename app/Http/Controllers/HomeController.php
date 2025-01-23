@@ -622,7 +622,7 @@ class HomeController extends Controller
 
         $xmlContent = $xml->asXML();
 
-        file_put_contents(base_path('sitemap.xml'), $xmlContent);
+        file_put_contents(base_path('products.xml'), $xmlContent);
     }
 
     public static function getSeasonSellIcon()
@@ -777,5 +777,93 @@ class HomeController extends Controller
         }
 
         return back();
+    }
+
+    public static function generateSitemap()
+    {
+        $sitemap = new \SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        </urlset>');
+
+        /* home page */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(url('/')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '1.00');
+
+        /* about-us */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(route('about-us')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '0.80');
+
+        /* shop */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(route('shop')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '0.80');
+
+        /* blog */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(route('blog')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '0.80');
+
+        /* contact-us */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(route('contact-us')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '0.80');
+
+        /* products */
+        $products = Product::with('images')->where('status', '1')->orderBy('id', 'desc')->get();
+        foreach ($products as $product) {
+            $url = $sitemap->addChild('url');
+            $url->addChild('loc', htmlspecialchars(route('productDetail', $product->slug)));
+            $url->addChild('lastmod', now()->toAtomString());
+            $url->addChild('priority', '0.80');
+        }
+
+        /* terms-conditions */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(route('terms-conditions')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '0.80');
+
+        /* privacy-policy */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(route('privacy-policy')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '0.80');
+
+        /* shipping-policy */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(route('shipping-policy')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '0.80');
+
+        /* refund-policy */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(route('refund-policy')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '0.80');
+
+        /* blogs - 'Discover-Skootz-Electric-Scooters-Your-Ultimate-Destination-for-E-Scooters' */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(route('blogDetail', 'Discover-Skootz-Electric-Scooters-Your-Ultimate-Destination-for-E-Scooters')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '0.80');
+
+        /* blogs - 'Unveiling-the-Advantages-of-Electric-Scooters-A-Comprehensive-Guide' */
+        $url = $sitemap->addChild('url');
+        $url->addChild('loc', htmlspecialchars(route('blogDetail', 'Unveiling-the-Advantages-of-Electric-Scooters-A-Comprehensive-Guide')));
+        $url->addChild('lastmod', now()->toAtomString());
+        $url->addChild('priority', '0.80');
+
+        $xmlContent = $sitemap->asXML();
+
+        file_put_contents(base_path('sitemap.xml'), $xmlContent);
     }
 }

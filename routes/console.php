@@ -9,3 +9,4 @@ Artisan::command('inspire', function () {
 })->purpose('Display an inspiring quote')->hourly();
 
 Schedule::command('product_xml:cron')->daily();
+Schedule::command('ebike:generate-sitemap')->daily();
