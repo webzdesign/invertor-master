@@ -12,6 +12,7 @@
   --slate-100: #F3F3F3;
   --slate-200: #CDCDCD;
   --slate-300: #D1D5DB;
+  --slate-700: #E7EAEB;
   --slate-800: #23262F;
   --slate-900: #292929;
   --slate-950: #212121;
@@ -20,6 +21,7 @@
   --gray-400: #676767;
   --gray-500: #5D5D5D;
   --gray-600: #B6B6B6;
+  --gray-700: #EFEFEF;
   --gray-800: #1F2937;
   --gray-900: #0D163A;
   --gray-950: #080707;
@@ -722,26 +724,38 @@ footer .social-links li a {
 }
 
 .checkout .paymentSelect .form-check-label {
-  border: 1px solid #C2C2C2;
   border-radius: 6px;
   padding: 15px 12px;
   cursor: pointer;
 }
 
-.checkout .paymentSelect .form-check-input:checked {
-  background-color: var(--slate-900) !important;
-}
+/* .checkout .paymentSelect .form-check-input:checked {
+  background-color: white !important;
+} */
 
 .checkout .paymentSelect .form-check-input:checked~.form-check-label {
-  border-color: #0F0D23;
+  background-color: var(--gray-500);
+  border-color: transparent !important;
 }
-
+.checkout .paymentSelect .form-check-input:checked~.form-check-label span{
+  color: var(--slate-50);
+}
+.checkout .paymentSelect .form-check-input:checked~.form-check-label svg path{
+  stroke: white;
+}
+.checkout .form-check-input{
+  border-color: var(--slate-900);
+}
+.paymentMethod .form-check-input:checked[type=radio] {
+  background-image: url("../images/radio-bg.svg");
+}
 .checkout .form-check-input[type="checkbox"]:checked {
   background-color: var(--blue-500) !important;
 }
 
 .checkout .paymentSelect .form-check-input {
   margin-right: 12px;
+  top: 14px;
 }
 
 .page-section {
@@ -972,4 +986,10 @@ footer .social-links li a {
 
 .product-card {
   padding: 50px;
+}
+
+
+.card-information .textInput{
+  padding: 10px 16px;
+  font-size: 14px;
 }

@@ -106,6 +106,12 @@ select {
     margin-top: 6px !important;
 }
 
+/* height */
+.h-40{
+    height: 40px !important;
+}
+/* height */
+
 /* width */
 .w-fit {
     width: fit-content !important;
@@ -224,6 +230,10 @@ select {
     background-color: var(--gray-50) !important;
 }
 
+.bg-gray-700 {
+    background-color: var(--gray-700) !important;
+}
+
 .bg-blue-500 {
     background-color: var(--blue-500) !important;
 }
@@ -338,6 +348,10 @@ select {
 
 .border-gray-500 {
     border-color: var(--gray-500) !important;
+}
+
+.border-slate-700 {
+    border-color: var(--slate-700) !important;
 }
 
 .border-gray-400 {
