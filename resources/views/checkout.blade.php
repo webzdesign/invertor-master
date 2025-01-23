@@ -307,7 +307,7 @@
                                             <path d="M2.5 12C2.5 7.77027 2.5 5.6554 3.69797 4.25276C3.86808 4.05358 4.05358 3.86808 4.25276 3.69797C5.6554 2.5 7.77027 2.5 12 2.5C16.2297 2.5 18.3446 2.5 19.7472 3.69797C19.9464 3.86808 20.1319 4.05358 20.302 4.25276C21.5 5.6554 21.5 7.77027 21.5 12C21.5 16.2297 21.5 18.3446 20.302 19.7472C20.1319 19.9464 19.9464 20.1319 19.7472 20.302C18.3446 21.5 16.2297 21.5 12 21.5C7.77027 21.5 5.6554 21.5 4.25276 20.302C4.05358 20.1319 3.86808 19.9464 3.69797 19.7472C2.5 18.3446 2.5 16.2297 2.5 12Z" stroke="#141B34" stroke-width="1.5"/>
                                             <path d="M14.7102 10.063C14.6111 9.30039 13.7354 8.06817 12.1608 8.06814C10.3312 8.06811 9.56136 9.08141 9.40515 9.58806C9.16145 10.2657 9.21019 11.659 11.3547 11.8109C14.0354 12.0009 15.1093 12.3174 14.9727 13.958C14.836 15.5985 13.3417 15.953 12.1608 15.9149C10.9798 15.877 9.04764 15.3344 8.97266 13.8752M11.9734 7V8.07177M11.9734 15.9051V16.9999" stroke="#141B34" stroke-width="1.5" stroke-linecap="round"/>
                                         </svg>
-                                        <span class="d-block mt-2">Same-day delivery (Cash On Delivery)</span>
+                                        <span class="d-block mt-2">Cash On Delivery (Same-day delivery)</span>
                                     </label>
                                 </div>
                             </div>
@@ -321,7 +321,7 @@
                                             <path d="M15 16H18.5" stroke="#141B34" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
                                             <path d="M2.5 9H22.5" stroke="#141B34" stroke-width="1.5" stroke-linejoin="round"/>
                                         </svg>
-                                        <span class="d-block mt-2">Standard delivery (Credit / Debit Card)</span>
+                                        <span class="d-block mt-2">Credit / Debit Card (Standard delivery)</span>
                                     </label>
                                 </div>
                             </div>
