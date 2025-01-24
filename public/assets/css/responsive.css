@@ -15,11 +15,11 @@
   }
 }
 
-@media (max-width:1500px) {
+/* @media (max-width:1500px) {
   .why-choose .right-side {
     padding: 10px 120px;
   }
-}
+} */
 
 @media (max-width:1400px) {
 
@@ -35,7 +35,7 @@
   }
 
   .why-choose .right-side {
-    padding: 50px;
+    padding: 50px 0;
   }
 
   .why-choose .left-side .sz_tuya_d8_btn {
@@ -138,6 +138,7 @@
     margin-bottom: 10px;
     text-align: center;
   }
+  
 
   .fixed-menu {
     height: 52px;
@@ -192,6 +193,10 @@
    
   .logo-placeholder{
     margin-top: -80px;
+  }
+
+  .why-choose .whyRight {
+    padding: 0 20px;
   }
 
   .order-history.offcanvas-end {
@@ -412,8 +417,9 @@
   }
 
   .why-choose .right-side {
-    padding: 40px 0 80px;
+    padding: 40px 0;
   }
+  
 
   .why-choose .left-side h2 {
     font-size: 48px;

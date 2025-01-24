@@ -345,9 +345,13 @@ body.mobile-nav-active header #mobile-nav {
   background-color: #FFFFFF29;
 }
 
-.why-choose .right-side {
-  padding: 0 200px;
+.why-choose .whyRight{
+  max-width: 800px;
 }
+
+/* .why-choose .right-side {
+  padding: 0 200px;
+} */
 
 .why-choose .right-side .row {
   row-gap: calc(var(--bs-gutter-x) * 1);

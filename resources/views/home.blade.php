@@ -144,7 +144,7 @@
             </div>
         </div>
         <div class="col-xxl-8 right-side my-auto">
-            <div class="row mx-4">
+            <div class="row whyRight w-100 mx-auto">
                 <div class="col-md-6">
                     <div class="sz_reliable_scooters_sec bg-slate-950 p-4 rounded-3xl h-100 d-flex flex-column justify-content-between">
                         <div class="icon rounded-pill d-flex align-items-center justify-content-center">
