@@ -189,10 +189,9 @@
   .latest {
     padding: 40px 0;
   }
-
-  footer .logo-placeholder {
-    width: 50%;
-    margin: auto;
+   
+  .logo-placeholder{
+    margin-top: -80px;
   }
 
   .order-history.offcanvas-end {
