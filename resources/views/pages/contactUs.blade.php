@@ -77,7 +77,7 @@
                         <a href="mailto:runmaxlimited@gmail.com" class="text-slate-900 font-inter-semibold text-sm">runmaxlimited@gmail.com</a>
                     </div>
                     <div class="d-flex mb-3">
-                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Support Email</div>
+                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Support</div>
                         <a href="mailto:support@domain.com" class="text-slate-900 font-inter-semibold text-sm">support@domain.com</a>
                     </div>
                     <div class="d-flex">
