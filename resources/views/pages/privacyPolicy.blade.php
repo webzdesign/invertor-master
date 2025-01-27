@@ -74,14 +74,14 @@
         </div>
         <div class="mb-4">
             <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Your Rights</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">You should have the right of access to, correct or delete your personal information. If you wish to exercise these rights, please give notice to us by contacting us at <a href="mailto:runmaxlimited@gmail.com" class="font-inter-semibold text-decoration-none text-slate-900">runmaxlimited@gmail.com</a>.</p>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">You should have the right of access to, correct or delete your personal information. If you wish to exercise these rights, please give notice to us by contacting us at <a href="mailto:runmaxlimited@gmail.com" class="font-inter-semibold text-decoration-none text-slate-900">runmaxlimited@gmail.com</a> or <a href="mailto:support@skotz.co.uk" class="font-inter-semibold text-decoration-none text-slate-900">support@skotz.co.uk</a>.</p>
         </div>
         <div class="mb-4">
             <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Changes to This Policy</h4>
             <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">It may be that we update this Privacy Policy from time to time. We will notify you by way of a notice to the email address you have provided to us or a notice on our Site, of any significant changes in the manner in which we will treat your personal information.</p>
             <p>&nbsp;</p>
         </div>
-        <h4 class="text-xl text-slate-900 font-inter-regular">Please forward any questions regarding this policy to <a href="mailto:runmaxlimited@gmail.com" class="font-inter-semibold text-decoration-none text-slate-900">runmaxlimited@gmail.com</a></h4>
+        <h4 class="text-xl text-slate-900 font-inter-regular">Please forward any questions regarding this policy to <a href="mailto:runmaxlimited@gmail.com" class="font-inter-semibold text-decoration-none text-slate-900">runmaxlimited@gmail.com</a> or  <a href="mailto:support@skotz.co.uk" class="font-inter-semibold text-decoration-none text-slate-900">support@skotz.co.uk</a></h4>
     </div>
 </section>
 
