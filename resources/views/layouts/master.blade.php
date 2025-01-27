@@ -5,9 +5,7 @@
         @include('layouts.partials.head')
     </head>
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KVZL6F4V" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
+       
         @php
             $cart = session()->get('cart', []);
             $cartCount = count($cart);
