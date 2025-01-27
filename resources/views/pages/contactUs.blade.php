@@ -78,7 +78,7 @@
                     </div>
                     <div class="d-flex mb-3">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Support</div>
-                        <a href="mailto:support@domain.com" class="text-slate-900 font-inter-semibold text-sm">support@domain.com</a>
+                        <a href="mailto:support@skotz.co.uk" class="text-slate-900 font-inter-semibold text-sm">support@skotz.co.uk</a>
                     </div>
                     <div class="d-flex">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Address</div>

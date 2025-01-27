@@ -43,7 +43,7 @@
                         Portsmouth, England</br>
                         PO2 7QD</br>
                         Email : <a class="text-white" href="mailto:runmaxlimited@gmail.com" >runmaxlimited@gmail.com</a></br>
-                        Support : <a class="text-white" href="mailto:support@domain.com" >support@domain.com</a></br>
+                        Support : <a class="text-white" href="mailto:support@skotz.co.uk" >support@skotz.co.uk</a></br>
                         Phone : <a class="text-white" href="tel:+44 7918816728" >+44 7918816728</a>
                     </li>
                 </ul>
