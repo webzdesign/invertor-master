@@ -6,6 +6,22 @@
 
   gtag('config', 'G-ZFLENS9J52');
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16832855332"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-16832855332');
+</script>
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-16832855332/uIKuCJjUp5UaEKT6w9o-',
+      'value': 1.0,
+      'currency': 'GBP',
+      'transaction_id': ''
+  });
+</script>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
