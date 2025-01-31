@@ -79,7 +79,7 @@
                                 </svg>
                                 <p class="sz_review_content text-gray-500 text-2xl font-inter-medium mt-lg-5 mt-4">{{ $customer_review['review_content'] }}</p>
                                 <div class="d-md-flex gap-4 mt-lg-5 mt-4">
-                                    <img class="avatar mb-3 mb-md-0" src="{{ asset( 'assets/theme/img/' . $customer_review['img'] ) }}" alt="Avatar">
+                                  
                                     <div class="my-auto">
                                         <h3 class="text-gray-800 font-hubot font-medium mb-1">{{ $customer_review['name'] }}</h3>
                                         <p class="text-gray-800 font-inter-regular mb-0">{{ $customer_review['type'] }}</p>
