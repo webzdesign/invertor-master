@@ -725,7 +725,7 @@ function createToken() {
           'transaction_id': '',
           'event_callback': callback
       });
-      return false;
+      
     }
 </script>
 @endsection
