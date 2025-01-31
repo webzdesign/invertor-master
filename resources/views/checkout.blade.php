@@ -508,17 +508,15 @@ $(document).ready(function(){
             },
             address: {
                 required: true,
-                alphanumeric: true,
+                
             },
             house_no: {
                 required: true,
                 number: true,
-                alphanumeric: true,
+                
             },
             post_code: {
                 required: true,
-                maxlength:8,
-                alphanumeric: true,
             },
             phone: {
                 required: true,
@@ -545,12 +543,11 @@ $(document).ready(function(){
             },
             billing_address: {
                 required: true,
-                alphanumeric: true,
+               
             },
             billing_postal_code: {
                 required: true,
-                maxlength:8,
-                alphanumeric: true,
+               
             },
             billing_city: {
                 required: true,
