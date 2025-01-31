@@ -67,6 +67,19 @@ class Helper {
         return self::$appLogo;
     }
 
+    // get social links
+    public static function getsocialLink()
+    {
+        $setting = Setting::select('facebookUrl','linkdinUrl','instgramUrl','tiktokUrl','youtubeUrl')->first();
+        if ($setting) {
+            return $setting;
+        } else {
+            return [];
+        }
+
+        
+    }
+
     public function getStates(Request $request) {
         $states = State::where('country_id', $request->id)->active()->select('id', 'name as text')->pluck('text', 'id')->toArray();
         $html = '<option value="" selected> --- Select a State --- </option>';
