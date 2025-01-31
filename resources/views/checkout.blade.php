@@ -349,7 +349,7 @@
                         </div>
                     </div>
                     <div>
-                        <button id="sz_submit_btn" type="submit" class="button-dark font-inter-semibold w-100 mt-md-3 text-center rounded-lg">
+                        <button id="sz_submit_btn" type="submit" class="button-dark font-inter-semibold w-100 mt-md-3 text-center rounded-lg" onclick="gtag_report_conversion()">
                             Order Now <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</span>
                         </button>
 
@@ -715,5 +715,20 @@ function createToken() {
 }
 </script>
 
+<script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      console.log('hhhh');
+      gtag('event', 'conversion', {
+          'send_to': 'AW-16832855332/L2CyCN-BtZcaEKT6w9o-',
+          'transaction_id': '',
+          'event_callback': callback
+      });
+      return false;
+    }
 </script>
 @endsection
