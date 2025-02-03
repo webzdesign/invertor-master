@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('title') {{$slider_product->slider_title}} | Skootz  @endsection
-@section('description') {{$slider_product->slider_content}} @endsection
+@section('title') {{$product->slider_title}} | Skootz  @endsection
+@section('description') {{$product->slider_content}} @endsection
 @section('content')
 
 @php
