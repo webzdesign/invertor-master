@@ -1,5 +1,6 @@
 @extends('layouts.master')
-
+@section('title') Unveiling the Advantages of Electric Scooters: A Comprehensive Guide | Skootz @endsection
+@section('description') Electric scooters are a comfortable, environmentally friendly, and economical means of getting around your city. EV charging allows you to travel to work, ride around your locality or visit new places in a fun and exciting way as electric scooters facilitate. @endsection
 @section('content')
 
 <section class="strore-banner blog-details-banner p-2">

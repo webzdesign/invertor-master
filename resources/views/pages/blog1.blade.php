@@ -1,5 +1,6 @@
 @extends('layouts.master')
-
+@section('title') Your Ultimate Destination for E-Scooters  | Skootz @endsection
+@section('description') Skootz Electric Scooters boasts an impressive inventory that caters to various needs and preferences. Whether you’re a teenager looking for your first scooter or an adult seeking a reliable commuting option, Skootz has something for everyone. @endsection
 @section('content')
 
 <section class="strore-banner blog-details-banner p-2">
