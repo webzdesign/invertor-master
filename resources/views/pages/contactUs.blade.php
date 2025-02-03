@@ -1,4 +1,7 @@
 @extends('layouts.master')
+@section('title')Contact Skotz | Get Support for Electric Scooters & E-Bikes @endsection
+@section('description')Need help? Contact Skootz for product inquiries, order support, or technical assistance with your electric scooter or e-bike.@endsection
+
 
 @section('content')
 

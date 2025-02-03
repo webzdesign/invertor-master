@@ -1,5 +1,6 @@
 @extends('layouts.master')
-
+@section('title') Privacy Policy | Skootz  @endsection
+@section('description') Learn how Skootz safeguards your personal data, ensures secure transactions, and complies with GDPR and privacy regulations. @endsection
 @section('content')
 
 <section class="bg-linear linear-banner rounded-3xl p-2 m-2 position-relative">

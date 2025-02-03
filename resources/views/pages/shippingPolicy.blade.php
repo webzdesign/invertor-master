@@ -1,5 +1,6 @@
 @extends('layouts.master')
-
+@section('title') Shipping Policy | Skootz  @endsection
+@section('description') Read our shipping policy for delivery details, costs, and estimated arrival times for electric scooters and e-bikes. Enjoy quick and reliable service! @endsection
 @section('content')
 
 <section class="bg-linear linear-banner rounded-3xl p-2 m-2 position-relative">
