@@ -49,7 +49,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-7 pe-lg-4 pe-xl-5">
-                <div>
+                <div class="stickyProductImage d-flex flex-column">
                     <div class="position-relative">
                         <div class="slider slider-for">
                             @foreach ($product->images as $imageKey => $image)

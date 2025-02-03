@@ -58,7 +58,9 @@
                                 </div>
                                 <div>
                                     <div class="img-video overflow-hidden rounded-3xl position-relative cursor-pointer">
-                                        <img src="{{ asset( 'assets/images/slider2.png' ) }}" alt="bike">
+                                        <div class="sliderRightBx">
+                                            <img src="{{ asset( 'assets/images/slider2.png' ) }}" alt="bike">
+                                        </div>
                                         <div class="left-50 position-absolute top-50 translate-middle sz_youtube_video_btn" data-youtubeUrl="{{ $slider_yt_url }}">
                                             <div class="position-relative">
                                                 <div class="bg-scale"></div>
