@@ -2,8 +2,13 @@
 
 @section('title')SKOOTZ | Buy E-Scooters Online @endsection
 @section('description')Explore high-performance electric scooters and e-bikes at Skootz. Enjoy fast free UK shipping, powerful motors, and eco-friendly commuting solutions. Ride smarter today!@endsection
-@section('content')
 
+@section('conversion')  
+<script>
+    gtag('event', 'conversion', {'send_to': 'AW-16832855332/SSujCJHi45caEKT6w9o-'});
+  </script>
+@endsection
+@section('content')
 @php
     $cart_products = session()->get('cart', []);
 @endphp

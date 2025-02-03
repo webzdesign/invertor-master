@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('title')Blog | Latest Electric Scooter & E-Bike Insights @endsection
 @section('description')Stay updated with the latest electric scooter and e-bike trends, expert buying guides, and riding tips. Read Skootz’s blog for valuable insights.@endsection
-
+@section('conversion')  
+<script>
+    gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
+  </script>
+@endsection
 
 @section('content')
 

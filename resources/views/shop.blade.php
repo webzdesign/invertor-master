@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('title')Shop Electric Scooters & E-Bikes | Skotz UK @endsection
 @section('description')Browse our full collection of electric scooters and e-bikes. Whether for commuting or adventure, find the perfect ride with advanced features and long-range batteries.@endsection
-
+@section('conversion')  
+<script>
+    gtag('event', 'conversion', {'send_to': 'AW-16832855332/pxScCIyt4ZcaEKT6w9o-'});
+  </script>
+@endsection
 
 @section('content')
 

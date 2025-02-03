@@ -1,7 +1,11 @@
 @extends('layouts.master')
 @section('title')About Skootz | Your Trusted Electric Scooter & E-Bike Store @endsection
 @section('description')Learn about Skootz, your go-to destination for premium electric scooters and e-bikes. Discover our mission, commitment to quality, and passion for sustainable urban mobility.@endsection
-
+@section('conversion')  
+<script>
+    gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
+  </script>
+@endsection
 
 @section('content')
 

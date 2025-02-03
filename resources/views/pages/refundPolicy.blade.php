@@ -1,6 +1,11 @@
 @extends('layouts.master')
 @section('title') Refund & Return Policy | Skootz @endsection
 @section('description') Need to return a product? Check Skootz’s refund and return policy for simple, stress-free returns on electric scooters and e-bikes. @endsection
+@section('conversion')  
+<script>
+    gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
+  </script>
+@endsection
 @section('content')
 
 <section class="bg-linear linear-banner rounded-3xl p-2 m-2 position-relative">

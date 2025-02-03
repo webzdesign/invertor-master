@@ -14,14 +14,12 @@
 
   gtag('config', 'AW-16832855332');
 </script>
-<script>
-  gtag('event', 'conversion', {
-      'send_to': 'AW-16832855332/uIKuCJjUp5UaEKT6w9o-',
-      'value': 1.0,
-      'currency': 'GBP',
-      'transaction_id': ''
-  });
-</script>
+
+
+
+<!-- conversion tag -->
+@yield('conversion')
+<!-- end conversion tag -->
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,7 +57,9 @@
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=926797672983731&ev=PageView&noscript=1"
   /></noscript>
+</script>
   <!-- End Meta Pixel Code -->
+
 
 
 
