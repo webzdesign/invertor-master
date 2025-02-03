@@ -54,7 +54,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-7 pe-lg-4 pe-xl-5">
-                <div>
+                <div class="stickyProductImage d-flex flex-column">
                     <div class="position-relative">
                         <div class="slider slider-for">
                             @foreach ($product->images as $imageKey => $image)
@@ -102,7 +102,7 @@
                 @endif
                 <h2 class="text-slate-900 font-bebas text-6xl text-4xl-mob {{ $sz_discount_flag != '1' ? 'mt-lg-0 mt-3' : '' }}">{{ $product->name }}</h2>
                 <div class="d-flex align-items-center gap-3 mb-2">
-                    <h3 class="text-4xl mb-0 text-blue-500 font-bebas text-3xl-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h3>
+                    <h3 class="text-4xl text-3xl-laptop mb-0 text-blue-500 font-bebas">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h3>
                     @if( $sz_discount_flag == '1' )
                         <h4 class="text-2xl mx-0 mb-0 text-gray-500 font-bebas text-gray-600 text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_old_price, 2) }}</h4>
                         <div>

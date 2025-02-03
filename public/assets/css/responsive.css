@@ -55,6 +55,10 @@
 }
 
 @media (max-width:1199px) {
+  .text-3xl-laptop{
+    font-size: 30px;
+    line-height: 36px;
+  }
   .checkout .order-history {
     max-width: 100%;
   }
