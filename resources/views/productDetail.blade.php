@@ -1,6 +1,11 @@
 @extends('layouts.master')
 @section('title') {{$product->slider_title}} | Skootz  @endsection
 @section('description') {{$product->slider_content}} @endsection
+@section('conversion')  
+<script>
+    gtag('event', 'conversion', {'send_to': 'AW-16832855332/BGUeCOmh4ZcaEKT6w9o-'});
+  </script>
+@endsection
 @section('content')
 
 @php
