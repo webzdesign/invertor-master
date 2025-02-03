@@ -194,11 +194,7 @@
                                     let paidAmount = response.grand_total - (response.total_cart_count * 35);
                                     $("#online_paid_amount").html(paidAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
                                     initQuantityButton();
-                                    gtag('event', 'conversion', {
-                                        'send_to': 'AW-16832855332/h41sCNTt1JcaEKT6w9o-',
-                                        'value': 1.0,
-                                        'event_callback': callback
-                                    });
+                                   
                                 }
                             }
                         },
