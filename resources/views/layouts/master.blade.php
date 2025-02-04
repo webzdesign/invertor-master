@@ -204,6 +204,9 @@
                     });
 
                 });
+                $('body').on('click', '.AddToCartBtn', function(e){
+                    gtag_report_conversion();
+                });
                 $(document).on('click', '.sz_remove_cart', function(e){
                     var pid = $(this).data("pid");
 
@@ -271,6 +274,23 @@
                 initQuantityButton();
             });
         </script>
+
+        <script>
+            function gtag_report_conversion(url) {
+                var callback = function () {
+                    if (typeof(url) != 'undefined') {
+                        window.location = url;
+                    }
+                };
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-16832855332/h41sCNTt1JcaEKT6w9o-',
+                    'value': 1.0,
+                    'event_callback': callback
+                });
+                console.log('f');
+            }
+            </script>
+
         @yield('script')
     </body>
 </html>
