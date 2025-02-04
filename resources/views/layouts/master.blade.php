@@ -287,7 +287,7 @@
                     'value': 1.0,
                     'event_callback': callback
                 });
-                console.log('f');
+               
             }
             </script>
 
