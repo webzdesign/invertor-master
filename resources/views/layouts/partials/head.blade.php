@@ -28,6 +28,13 @@
 <meta name="description" content="@yield('description')">
 <meta name="facebook-domain-verification" content="9wtd1mndzstptvdq44oem96afptaij" />
 <meta name="google-site-verification" content="LR_u2j_o9y2rXRCnck9iFjnXitl2flRbIRofPsd8-Q0" />
+
+<meta property="og:title" content="@yield('title')">
+<meta property="og:description" content="@yield('description')">
+<meta property="og:image" content="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}">
+<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:type" content="website">
+
 <link rel="shortcut icon" href="{{ asset( 'assets/images/favicon.ico' ) }}" type="image/x-icon">
 
 <title> @yield('title')</title>
