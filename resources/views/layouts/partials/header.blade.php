@@ -13,8 +13,10 @@
 
 <style>
    
-   
-    .nav li ul li {
+   header .dropdown-toggle:after{
+    display: none;
+   }
+    /* .nav li ul li {
         list-style: none;
         display: flex;
     }
@@ -36,7 +38,7 @@
     .submenu  li:hover {
         background-color: #666;
     }
-  
+   */
 </style>
 <section class="top-navigation bg-slate-900 py-2 px-4 text-center position-sticky top-0">
     <div class="owl-carousel fade-owl-slider">
@@ -62,19 +64,28 @@
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is( 'about-us' ) ? 'active' : '' }}" href="{{ route( 'about-us' ) }}">About Us</a>
                 </li>
-                <!--<li>SHOP
-                    <ul class="submenu">
-                       @php
+                <li class="position-relative">
+                    <div class="dropdown">
+                        <button data-mdb-button-init
+                          data-mdb-ripple-init data-mdb-dropdown-init class="bg-transparent border-0 dropdown-toggle"
+                          type="button"
+                          id="dropdownMenuButton"
+                          data-mdb-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                        Shop
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          @php
                             $categories = App\Helpers\Helper::getCategories();
-                        @endphp
-                        @foreach($categories as $category)
-                        <li><a href="{{ route('shopCategory',$category->slug) }}">{{$category->name}}</a></li>
-                        @endforeach
-                    </ul>
-                </li>-->
-                <li>
-                    <a class="text-decoration-none text-slate-900 {{ request()->is('shop') ? 'active' : '' }}" href="{{ route('shop') }}">Shop</a>
+                            @endphp
+                            @foreach($categories as $category)
+                            <li><a class="dropdown-item p-2" href="{{ route('shopCategory',$category->slug) }}">{{$category->name}}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </li>
+                
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is('blog*') ? 'active' : '' }}" href="{{ route('blog') }}">Blog</a>
                 </li>
