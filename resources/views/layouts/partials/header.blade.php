@@ -11,6 +11,33 @@
     }
 @endphp
 
+<style>
+   
+   
+    .nav li ul li {
+        list-style: none;
+        display: flex;
+    }
+    .nav  li:hover .submenu {
+        display: block;
+    }
+    
+    .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        min-width: 150px;
+    }
+    .submenu  li {
+        padding: 10px;
+    }
+    .submenu  li:hover {
+        background-color: #666;
+    }
+  
+</style>
 <section class="top-navigation bg-slate-900 py-2 px-4 text-center position-sticky top-0">
     <div class="owl-carousel fade-owl-slider">
         <div class="text-slate-50 font-inter-regular text-sm">🚚 Same-Day Delivery</div>
@@ -28,12 +55,22 @@
             <a href="{{ route( 'home' ) }}" aria-label="Skootz">
                 <img src="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}" alt="" width="100%" height="100%">
             </a>
-            <ul class="menu align-items-center d-lg-flex gap-5 m-0 p-0 d-none" id="nav-menu-container">
+            <ul class="menu align-items-center d-lg-flex gap-5 m-0 p-0 d-none nav" id="nav-menu-container">
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is( '/' ) ? 'active' : '' }}" href="{{ route( 'home' ) }}">Home</a>
                 </li>
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is( 'about-us' ) ? 'active' : '' }}" href="{{ route( 'about-us' ) }}">About Us</a>
+                </li>
+                <li>Services
+                    <ul class="submenu">
+                        @php
+                            $categories = App\Helpers\Helper::getCategories();
+                        @endphp
+                        @foreach($categories as $category)
+                        <li><a href="{{ route('shopCategory',$category->slug) }}">{{$category->name}}</a></li>
+                        @endforeach
+                    </ul>
                 </li>
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is('shop') ? 'active' : '' }}" href="{{ route('shop') }}">Shop</a>

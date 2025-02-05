@@ -14,6 +14,7 @@ Route::get('/404', function () {
 Route::middleware([PreventBackButtonMiddleware::class])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('collections/all', [HomeController::class, 'shop'])->name('shop');
+    Route::get('collections/{slug?}', [HomeController::class, 'categoryshop'])->name('shopCategory');
     Route::get('products/{slug?}', [HomeController::class, 'productDetail'])->name('productDetail');
     Route::get('cart', [HomeController::class, 'cart'])->name('cart');
     Route::post('cart/add', [HomeController::class, 'addToCart'])->name('cart.add');

@@ -6,6 +6,7 @@ use Stripe\Charge;
 use Stripe\Stripe;
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Category;
 use App\Models\Setting;
 use App\Models\UserRole;
 use App\Models\ContactUs;
@@ -69,9 +70,19 @@ class HomeController extends Controller
         return view('shop', compact('products', 'totalProducts', 'totalPages', 'page')); */
         $products = Product::with('images')->active();
         $products = $products->get();
-
+       
         $sale_season_icon = $this->getSeasonSellIcon();
         return view('shop', compact( 'products', 'sale_season_icon' ));
+
+    }
+    public function categoryshop(Request $request){
+        $getCategory =  Category::where('slug',$request->slug)->first();
+     
+        $products = Product::with('images')->where('category_id',$getCategory->id)->active();
+        $products = $products->get();
+
+        $sale_season_icon = $this->getSeasonSellIcon();
+        return view('shop', compact( 'products', 'sale_season_icon'));
 
     }
     public function productDetail($slug)
@@ -82,7 +93,8 @@ class HomeController extends Controller
         }
         $othersProducts = Product::with('images')->where('id', '!=', $product->id)->limit(2)->get();
         $sale_season_icon = $this->getSeasonSellIcon();
-        return view('productDetail', compact('product', 'othersProducts', 'sale_season_icon'));
+        $getCategory =  Category::where('id',$product->category_id)->first();
+        return view('productDetail', compact('product', 'othersProducts', 'sale_season_icon','getCategory'));
     }
 
     public function addToCart(Request $request)

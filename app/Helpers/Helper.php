@@ -3,7 +3,7 @@
 namespace App\Helpers;
 
 use App\Models\{PurchaseOrder, Transaction, Distribution};
-use App\Models\{SalesOrder, Setting, Product, Country,TwilloMessageNotification,TwilloNotificationHistory};
+use App\Models\{SalesOrder, Setting, Category, Product, Country,TwilloMessageNotification,TwilloNotificationHistory};
 use App\Models\{State, Stock, City, User};
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Number;
@@ -80,6 +80,10 @@ class Helper {
         
     }
 
+    // get categories
+    public static function getCategories(){
+        return Category::has('product')->where('status',1)->get();
+    }
     public function getStates(Request $request) {
         $states = State::where('country_id', $request->id)->active()->select('id', 'name as text')->pluck('text', 'id')->toArray();
         $html = '<option value="" selected> --- Select a State --- </option>';

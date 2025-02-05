@@ -38,7 +38,7 @@
                 </svg>
             </li>
             <li>
-                <a href="{{ route('shop') }}" class="text-slate-900 font-inter-medium text-xl text-decoration-none">Products</a>
+                <a href="{{ route('shopCategory',$getCategory->slug) }}" class="text-slate-900 font-inter-medium text-xl text-decoration-none">{{$getCategory->name}}</a>
             </li>
             <li>
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
