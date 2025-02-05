@@ -62,16 +62,16 @@
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is( 'about-us' ) ? 'active' : '' }}" href="{{ route( 'about-us' ) }}">About Us</a>
                 </li>
-                <li>Services
+                <!--<li>Services
                     <ul class="submenu">
-                        @php
+                       @php
                             $categories = App\Helpers\Helper::getCategories();
                         @endphp
                         @foreach($categories as $category)
                         <li><a href="{{ route('shopCategory',$category->slug) }}">{{$category->name}}</a></li>
                         @endforeach
                     </ul>
-                </li>
+                </li>-->
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is('shop') ? 'active' : '' }}" href="{{ route('shop') }}">Shop</a>
                 </li>
