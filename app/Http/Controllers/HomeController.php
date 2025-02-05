@@ -70,9 +70,9 @@ class HomeController extends Controller
         return view('shop', compact('products', 'totalProducts', 'totalPages', 'page')); */
         $products = Product::with('images')->active();
         $products = $products->get();
-       
+        $categoryName = '';
         $sale_season_icon = $this->getSeasonSellIcon();
-        return view('shop', compact( 'products', 'sale_season_icon' ));
+        return view('shop', compact( 'products', 'sale_season_icon','categoryName' ));
 
     }
     public function categoryshop(Request $request){
@@ -80,9 +80,9 @@ class HomeController extends Controller
      
         $products = Product::with('images')->where('category_id',$getCategory->id)->active();
         $products = $products->get();
-
+        $categoryName = $getCategory->name;
         $sale_season_icon = $this->getSeasonSellIcon();
-        return view('shop', compact( 'products', 'sale_season_icon'));
+        return view('shop', compact( 'products', 'sale_season_icon','categoryName'));
 
     }
     public function productDetail($slug)
