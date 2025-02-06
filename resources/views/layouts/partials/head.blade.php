@@ -31,7 +31,11 @@
 
 <meta property="og:title" content="@yield('title')">
 <meta property="og:description" content="@yield('description')">
-<meta property="og:image" content="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}">
+@if (request()->is('products*'))
+  @yield('ogimage')
+@else
+  <meta property="og:image" content="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}">
+@endif
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:type" content="website">
 

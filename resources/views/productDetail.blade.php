@@ -1,20 +1,25 @@
 @extends('layouts.master')
 @section('title') {{$product->slider_title}} | Skootz  @endsection
 @section('description') {{$product->slider_content}} @endsection
-@section('conversion')  
+
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/BGUeCOmh4ZcaEKT6w9o-'});
   </script>
 @endsection
-@section('content')
 
 @php
     $cart_products = session()->get('cart', []);
     $sz_p_encrypt_id = encrypt( $product->id );
     $first_image = !empty($product->images->first()->name) ? $product->images->first()->name : '';
 @endphp
-
-
+@section('ogimage') 
+@if($first_image != '')
+ <meta property="og:image" content="{{ env('APP_Image_URL') . 'storage/product-images/' . $product->images->first()->name }}">
+@else
+    <meta property="og:image" content="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}">
+@endif
+ @endsection
+@section('content')
 <style>
     footer{
         padding-bottom: 130px;
