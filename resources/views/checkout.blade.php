@@ -2,7 +2,7 @@
 @section('title')SKOOTZ | Buy E-Scooters Online @endsection
 @section('description')Explore high-performance electric scooters and e-bikes at Skootz. Enjoy fast free UK shipping, powerful motors, and eco-friendly commuting solutions. Ride smarter today!@endsection
 
-@section('conversion')  
+@section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/VYWPCIro1JcaEKT6w9o-'});
   </script>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="border-top border-gray-300 mt-4">
                             <h4 class="text-2xl text-slate-900 font-inter-regular my-4">Billing Details</h4>
-                            
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-check mb-3 p-0">
@@ -96,7 +96,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="border-top border-gray-300 mt-4">
                             <div class="d-flex flex-wrap align-items-center justify-content-between my-4">
                                 <h4 class="text-2xl text-slate-900 font-inter-regular mb-0">Shipping Details</h4>
@@ -107,20 +107,20 @@
                                     </label>
                                 </div>
                             </div>
-                            
+
                             <div class="form-check mb-3 p-0">
                                 <label class="text-slate-900 font-hubot text-sm d-block mb-2">Full Name</label>
                                 <input type="text" class="form-control" name="customer_name" id="customer_name" value="{{ old('customer_name') }}">
                             </div>
-                            
-                            <div class="form-check mb-3 p-0">
+
+                            <div class="form-check mb-3 p-0 d-none cod-data">
                                 <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="address">Address</label>
                                 <input type="text" class="form-control sz_rmv_special_character" name="address" id="address" value="{{ old('address') }}">
                                 @if ( $errors->has('address') )
                                     <span class="text-danger error">{{ $errors->first('address') }}</span>
                                 @endif
                             </div>
-                            <div class="row">
+                            <div class="row d-none cod-data">
                                 <div class="col-sm-6">
                                     <div class="form-check mb-3 p-0">
                                         <label class="text-slate-900 font-hubot text-sm d-block mb-2" for="house_no">House Number</label>
@@ -168,7 +168,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-check mb-3 p-0">
+                            <div class="form-check mb-3 p-0  d-none cod-data">
                                 <label class="text-slate-900 font-hubot text-sm d-block mb-2">Country</label>
                                 <div class="position-relative">
                                     <select name="country" id="country">
@@ -467,9 +467,10 @@ $(document).ready(function(){
 
     var submitStatus = 0;
     $('body').on('change', '#post_code, #house_no', function(e){
+
         var post_code = $('#post_code').val();
         var house_no = $('#house_no').val();
-        if (post_code != '' && house_no != '' && post_code.length <= 8) {
+        if (post_code != '' && post_code.length <= 8) { //&& house_no != ''
             submitStatus = 0;
             $.ajax({
                 url: '{{ route("getAvailableDriver") }}',
@@ -479,6 +480,7 @@ $(document).ready(function(){
                     house_no: house_no,
                 },
                 success: function(response) {
+
                     if (response.status) {
                         $('body').find('#lat').val(response.lat);
                         $('body').find('#long').val(response.long);
@@ -514,13 +516,33 @@ $(document).ready(function(){
                 alphanumeric: true,
             },
             address: {
-                required: true,
-                
+                required: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
             },
             house_no: {
-                required: true,
-                number: true,
-                
+                required: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
+                number: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
+
             },
             post_code: {
                 required: true,
@@ -539,10 +561,24 @@ $(document).ready(function(){
                 alphanumeric: true,
             },
             city: {
-                required: true,
+                required: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
             },
             country: {
-                required: true,
+                required: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
             },
             billing_email: {
                 required: true,
@@ -550,11 +586,11 @@ $(document).ready(function(){
             },
             billing_address: {
                 required: true,
-               
+
             },
             billing_postal_code: {
                 required: true,
-               
+
             },
             billing_city: {
                 required: true,
@@ -610,6 +646,7 @@ $(document).ready(function(){
             error.appendTo(element.parent("div"));
         },
         submitHandler:function(form) {
+
             if(!this.beenSubmitted && submitStatus == 1) {
                 this.beenSubmitted = true;
                 $('button[type="submit"]').attr('disabled', true);
@@ -660,18 +697,27 @@ $(document).ready(function(){
     });
 
     $('body').on('click', '.payment_type', function(e){
+
         if ($(this).val() == 'COD') {
             $('body').find('#sz_submit_btn').show();
             $('body').find('#checkout-button').hide();
 
             $('body').find('.cardInfoDiv').hide();
             cardElement.update({ disabled: true });
+            if (!$('.cod-data').hasClass("d-none")) {
+                $(".cod-data").addClass("d-none");
+            }
         } else {
+
             $('body').find('#checkout-button').show();
             $('body').find('#sz_submit_btn').hide();
 
             $('body').find('.cardInfoDiv').show();
             cardElement.update({ disabled: false });
+
+            if ($('.cod-data').hasClass("d-none")) {
+                $(".cod-data").removeClass("d-none");
+            }
         }
     });
 

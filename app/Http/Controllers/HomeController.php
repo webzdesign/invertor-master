@@ -77,7 +77,7 @@ class HomeController extends Controller
     }
     public function categoryshop(Request $request){
         $getCategory =  Category::where('slug',$request->slug)->first();
-     
+
         $products = Product::with('images')->where('category_id',$getCategory->id)->active();
         $products = $products->get();
         $categoryName = $getCategory->name;
@@ -308,7 +308,7 @@ class HomeController extends Controller
             }
         }
 
-        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->customer_name, 'customer_address_line_1' => $request->house_no, 'customer_address_line_2' => $request->address,  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0, 'purchase_source' => $sz_utm_source, 'first_name' => $request->first_name, 'last_name' => $request->last_name, 'billing_email' => $request->billing_email, 'billing_address' => $request->billing_address, 'billing_postal_code' => $request->billing_postal_code, 'billing_city' => $request->billing_city, 'city' => $request->city, 'customer_country' => $request->country]);
+        $salesOrder = SalesOrder::create(['date' => now(), 'delivery_date' => now(), 'customer_name' => $request->customer_name, 'customer_address_line_1' => ($request->house_no ?? ''), 'customer_address_line_2' => ($request->address ?? ''),  'customer_phone' => $request->phone, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code, 'customer_postal_code' => $request->post_code, 'status' => 1, 'confirm_status' => 0, 'purchase_source' => $sz_utm_source, 'first_name' => $request->first_name, 'last_name' => $request->last_name, 'billing_email' => $request->billing_email, 'billing_address' => $request->billing_address, 'billing_postal_code' => $request->billing_postal_code, 'billing_city' => $request->billing_city, 'city' => ($request->city ?? 0), 'customer_country' => ($request->country ?? 0)]);
 
         $orderItems = [];
         $orderTotal = 0;
@@ -428,11 +428,11 @@ class HomeController extends Controller
 
         $validated = \Illuminate\Support\Facades\Validator::make($request->all(), [
             'postal_code' => 'required|max:8',
-            'house_no' => 'required'
+            // 'house_no' => 'required'
         ], [
             'postal_code.required' => 'Postal code is required.',
             'postal_code.max' => 'Maximum 8 characters allowed for postal code.',
-            'house_no' => 'House No is required.'
+            // 'house_no' => 'House No is required.'
         ]);
 
         if ($validated->fails()) {
@@ -454,12 +454,13 @@ class HomeController extends Controller
         try {
             if (env('GEOLOCATION_API') == 'true') {
                 $key = trim(Setting::first()?->geocode_key);
-
-                $address = trim("{$request->house_no} {$request->postal_code}");
+                $housenumber = ($request->house_no ?? '');
+                $address = trim("{$housenumber} {$request->postal_code}");
                 $address = str_replace(' ', '+', $address);
                 $url = "https://maps.googleapis.com/maps/api/geocode/json?address={$address}&key={$key}";
 
                 $data = json_decode(file_get_contents($url), true);
+
                 if ($data['status'] == "OK") {
                     $lat = $data['results'][0]['geometry']['location']['lat'];
                     $long = $data['results'][0]['geometry']['location']['lng'];
@@ -473,7 +474,7 @@ class HomeController extends Controller
 
                     AddressLog::create([
                         'postal_code' => $request->postal_code,
-                        'address' => $request->house_no,
+                        'address' => $housenumber,
                         'lat' => $lat,
                         'long' => $long,
                         'added_by' => NULL,

@@ -24,8 +24,8 @@ class CheckoutRequest extends FormRequest
         return [
             "first_name" => "required",
             "last_name" => "required",
-            "address" => "required",
-            "house_no" => "required",
+            // "address" => "required",
+            // "house_no" => "required",
             "post_code" => "required",
             "phone" => "required",
         ];
@@ -34,7 +34,7 @@ class CheckoutRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'first_name.required' => 'First name is required.', 
+            'first_name.required' => 'First name is required.',
             'last_name.required' => 'Last name is required.',
             "address.required" => "Address is required.",
             "house_no.required" => "House No is required.",
