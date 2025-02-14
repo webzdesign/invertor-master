@@ -39,7 +39,7 @@
                             <h3 class="text-3xl text-slate-900 font-hubot font-semibold mb-0">Checkout</h3>
                             {{-- <a href="javascript:;" class="text-blue-500 font-inter-semibold text-sm">Create an account</a> --}}
                         </div>
-                        <div class="border-top border-gray-300 mt-4">
+                        <div class="border-top border-gray-300 mt-4 d-none cod-data">
                             <h4 class="text-2xl text-slate-900 font-inter-regular my-4">Billing Details</h4>
 
                             <div class="row">
@@ -100,7 +100,7 @@
                         <div class="border-top border-gray-300 mt-4">
                             <div class="d-flex flex-wrap align-items-center justify-content-between my-4">
                                 <h4 class="text-2xl text-slate-900 font-inter-regular mb-0">Shipping Details</h4>
-                                <div class="form-check">
+                                <div class="form-check d-none cod-data">
                                     <input class="form-check-input shadow-none border-slate-200" type="radio" name="shippingSameAsBilling" id="shippingSameAsBilling">
                                     <label class="form-check-label mt-6px text-slate-900 font-urbanist-regular text-xs cursor-pointer ms-2" for="shippingSameAsBilling">
                                         Same as personal details
@@ -504,16 +504,72 @@ $(document).ready(function(){
     $("#addOrder").validate({
         rules: {
             first_name: {
-                required: true,
-                minlength: 2,
-                maxlength: 30,
-                alphanumeric: true,
+                required: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
+                minlength: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return 0;
+                   } else {
+                        return 2;
+                   }
+                },
+                maxlength: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return 0;
+                   } else {
+                        return 30;
+                   }
+                },
+                alphanumeric: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
             },
             last_name: {
-                required: true,
-                minlength: 2,
-                maxlength: 30,
-                alphanumeric: true,
+                required: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
+                minlength: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return 0;
+                   } else {
+                        return 2;
+                   }
+                },
+                maxlength:function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return 0;
+                   } else {
+                        return 30;
+                   }
+                },
+                alphanumeric: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
             },
             address: {
                 required: function(){
@@ -542,7 +598,6 @@ $(document).ready(function(){
                         return true;
                    }
                 },
-
             },
             post_code: {
                 required: true,
@@ -581,19 +636,52 @@ $(document).ready(function(){
                 },
             },
             billing_email: {
-                required: true,
-                email: true,
+                required: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
+                email: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
             },
             billing_address: {
-                required: true,
-
+                required: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
             },
             billing_postal_code: {
-                required: true,
-
+                required: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
             },
             billing_city: {
-                required: true,
+                required: function(){
+                   let paymentType = $('input[name="payment_type"]:checked').val();
+                   if(paymentType == 'COD'){
+                        return false;
+                   } else {
+                        return true;
+                   }
+                },
             },
         },
         messages: {

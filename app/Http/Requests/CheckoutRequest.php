@@ -22,8 +22,8 @@ class CheckoutRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "first_name" => "required",
-            "last_name" => "required",
+            // "first_name" => "required",
+            // "last_name" => "required",
             // "address" => "required",
             // "house_no" => "required",
             "post_code" => "required",
