@@ -51,6 +51,9 @@
 <link rel="stylesheet" href="{{ asset( 'assets/css/style.css' ) . '?' . time() }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/utilities.css' ) . '?' . time() }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/responsive.css' ) . '?' . time() }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hubot+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
 <!-- Meta Pixel Code -->
 <script>

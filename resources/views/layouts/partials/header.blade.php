@@ -10,7 +10,6 @@
         }
     }
 @endphp
-
 <style>
    
    header .dropdown-toggle:after{
@@ -40,7 +39,7 @@
     }
    */
 </style>
-<section class="top-navigation bg-slate-900 py-2 px-4 text-center position-sticky top-0">
+<section class="top-navigation bg-neutrino-blue-500 py-2 px-4 text-center position-sticky top-0">
     <div class="owl-carousel fade-owl-slider">
         <div class="text-slate-50 font-inter-regular text-sm">🚚 Same-Day Delivery</div>
         <div class="text-slate-50 font-inter-regular text-sm">💰 Payment After Delivery</div>
@@ -54,10 +53,10 @@
 <header class="d-flex align-items-center flex-column justify-content-center position-sticky bg-white" id="header">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
-            <a href="{{ route( 'home' ) }}" aria-label="Skootz">
-                <img src="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}" alt="" width="100%" height="100%">
+            <a href="{{ route( 'home' ) }}" aria-label="Skootz" class="logo">
+                <img src="{{ asset( 'assets/images/Invertor-logo.svg' ) }}" alt="" width="100%" height="100%">
             </a>
-            <ul class="menu align-items-center d-lg-flex gap-5 m-0 p-0 d-none nav" id="nav-menu-container">
+            <ul class="menu align-items-center d-lg-flex gap-xl-5 gap-4 m-0 p-0 d-none nav" id="nav-menu-container">
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is( '/' ) ? 'active' : '' }}" href="{{ route( 'home' ) }}">Home</a>
                 </li>
@@ -73,7 +72,11 @@
                           data-mdb-toggle="dropdown"
                           aria-expanded="false"
                         >
-                        Shop
+                        Products
+                        <svg class="ms-1" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.354 6.35403L8.35403 11.354C8.30759 11.4005 8.25245 11.4374 8.19175 11.4626C8.13105 11.4877 8.06599 11.5007 8.00028 11.5007C7.93457 11.5007 7.86951 11.4877 7.80881 11.4626C7.74811 11.4374 7.69296 11.4005 7.64653 11.354L2.64653 6.35403C2.55271 6.26021 2.5 6.13296 2.5 6.00028C2.5 5.8676 2.55271 5.74035 2.64653 5.64653C2.74035 5.55271 2.8676 5.5 3.00028 5.5C3.13296 5.5 3.26021 5.55271 3.35403 5.64653L8.00028 10.2934L12.6465 5.64653C12.693 5.60007 12.7481 5.56322 12.8088 5.53808C12.8695 5.51294 12.9346 5.5 13.0003 5.5C13.066 5.5 13.131 5.51294 13.1917 5.53808C13.2524 5.56322 13.3076 5.60007 13.354 5.64653C13.4005 5.69298 13.4373 5.74813 13.4625 5.80883C13.4876 5.86953 13.5006 5.93458 13.5006 6.00028C13.5006 6.06598 13.4876 6.13103 13.4625 6.19173C13.4373 6.25242 13.4005 6.30757 13.354 6.35403Z" fill="#292929"/>
+                        </svg>
+
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                           @php
@@ -87,24 +90,27 @@
                 </li>
                 
                 <li>
-                    <a class="text-decoration-none text-slate-900 {{ request()->is('blog*') ? 'active' : '' }}" href="{{ route('blog') }}">Blog</a>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is('blog*') ? 'active' : '' }}" href="{{ route('blog') }}">News</a>
                 </li>
                
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is( 'contact-us' ) ? 'active' : '' }}" href="{{ route( 'contact-us' ) }}">Contact Us</a>
                 </li>
             </ul>
-            <div class="d-flex align-items-center gap-4" id="right-nav">
+            <div class="d-flex align-items-center gap-md-4 gap-2" id="right-nav">
                 <button type="button" class="bg-transparent border-0 d-lg-block d-none sz_cart_btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path
                             d="M3.87289 17.0194L2.66933 9.83981C2.48735 8.75428 2.39637 8.21152 2.68773 7.85576C2.9791 7.5 3.51461 7.5 4.58564 7.5H19.4144C20.4854 7.5 21.0209 7.5 21.3123 7.85576C21.6036 8.21152 21.5126 8.75428 21.3307 9.83981L20.1271 17.0194C19.7282 19.3991 19.5287 20.5889 18.7143 21.2945C17.9 22 16.726 22 14.3782 22H9.62182C7.27396 22 6.10003 22 5.28565 21.2945C4.47127 20.5889 4.27181 19.3991 3.87289 17.0194Z"
-                            stroke="#141B34" stroke-width="1.5" />
+                            stroke="#FB7E06" stroke-width="1.5" />
                         <path d="M17.5 7.5C17.5 4.46243 15.0376 2 12 2C8.96243 2 6.5 4.46243 6.5 7.5"
-                            stroke="#141B34" stroke-width="1.5" />
+                            stroke="#FB7E06" stroke-width="1.5" />
                     </svg>
                     <span class="sz_cart-badge">{{ $total_cart_count }}</span>
                 </button>
+                <a href="javascript:;" class="ms-2 bg-neutrino-blue-400 text-decoration-none font-hubot text-slate-100 text-base font-medium rounded-pill px-md-4 py-md-2 px-2 py-1 text-sm-mob">
+                    Log In
+                </a>
                 <div id="mobile-nav-toggle" class="d-lg-none d-flex align-items-center justify-content-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
                         <path d="M20 12.5H10" stroke="#141B34" stroke-width="1.5" stroke-linecap="round"

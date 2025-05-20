@@ -4,61 +4,61 @@
             'name' => 'Oliver Wilson',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'Skootz is an incredible team! Turning to a professional helped my puncture repair run quickly and professionally.',
+            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
         ),
         array(
             'name' => 'Emily Johnson',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'I had an amazing time at Skootz! They took the time to assist me select the ideal scooter for my everyday journey, and the staff was really helpful. Their familiarity with the various models and features amazed me. I felt secure with my purchase as I walked out!',
+            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
         ),
         array(
             'name' => 'James Smith',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'Amazing service! I dropped my daughter’s scooter off at a repair shop and they fixed it in five minutes. Finally, the technician explained what had gone wrong and what to do if it happened to you again. I would like to commend their honesty and turnaround time.',
+            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
         ),
         array(
             'name' => 'Sophie Brown',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'The collection of electric scooters at Skootz is really cool. The staff were very knowledgeable, I found exactly what I was looking for.',
+            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
         ),
         array(
             'name' => 'Chloe Davis',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'I picked an electric scooter from Skootz and it\'s become awesome for my daily commute. Staff has helped me find a model which suits me perfectly and I love how easy to use it is. I couldn\'t go back to public transport now!',
+            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
         ),
         array(
             'name' => 'Liam Taylor',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'I love my new scooter! They guided me through the options and I found the right one; the staff at Skootz.',
+            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
         ),
         array(
             'name' => 'Mia Thompson',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'I couldn\'t thank Mike and his team enough for their quick service when my son\'s scooter had a flat tire!" They were so nice and told me everything and my son in turn felt confident about it again',
+            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
         ),
         array(
             'name' => 'Noah Anderson',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'Skootz has Top-notch customer service! "They do care about their customers and they do go above and beyond.',
+            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
         ),
         array(
             'name' => 'Olivia Martin',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'We highly recommend anyone wanting to buy or repair an electric scooter to go to Skootz. Their expertise is unmatched! Plenty of people give you a pat on the back, everything they did was just to give me support through the whole process: choosing to and then aftercare, it made all the difference.',
+            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
         ),
         array(
             'name' => 'Jack White',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'Buying my first electric scooter with Skootz was so easy! I left the store, answered all my questions patiently and even showed me how to use it. This commitment to the satisfaction of customers is taken on us.',
+            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
         ),
     );
 @endphp
@@ -75,11 +75,11 @@
                         <div>
                             <div class="text-center text-md-start">
                                 <svg class="quote" width="113" height="94" viewBox="0 0 113 94" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M113 15.389C96.0751 23.4111 87.6128 32.837 87.6128 43.6668C94.8267 44.469 100.792 47.3102 105.509 52.1903C110.225 57.0704 112.584 62.7192 112.584 69.1369C112.584 75.9557 110.295 81.7049 105.717 86.3844C101.139 91.064 95.3816 93.4038 88.4452 93.4038C80.6764 93.4038 73.9482 90.3621 68.2603 84.2786C62.5725 78.1952 59.7286 70.8083 59.7286 62.1176C59.7286 36.0457 74.8497 15.6564 105.093 0.949219L113 15.389ZM53.2714 15.389C36.2078 23.4111 27.6762 32.837 27.6762 43.6668C35.0288 44.469 41.0634 47.3102 45.7801 52.1903C50.4969 57.0704 52.8552 62.7192 52.8552 69.1369C52.8552 75.9557 50.5316 81.7049 45.8842 86.3844C41.2368 91.064 35.445 93.4038 28.5085 93.4038C20.7397 93.4038 14.0462 90.3621 8.42771 84.2786C2.80921 78.1952 0 70.8083 0 62.1176C0 36.0457 15.0518 15.6564 45.1559 0.949219L53.2714 15.389Z" fill="#1F2937"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M113 15.389C96.0751 23.4111 87.6128 32.837 87.6128 43.6668C94.8267 44.469 100.792 47.3102 105.509 52.1903C110.225 57.0704 112.584 62.7192 112.584 69.1369C112.584 75.9557 110.295 81.7049 105.717 86.3844C101.139 91.064 95.3816 93.4038 88.4452 93.4038C80.6764 93.4038 73.9482 90.3621 68.2603 84.2786C62.5725 78.1952 59.7286 70.8083 59.7286 62.1176C59.7286 36.0457 74.8497 15.6564 105.093 0.949219L113 15.389ZM53.2714 15.389C36.2078 23.4111 27.6762 32.837 27.6762 43.6668C35.0288 44.469 41.0634 47.3102 45.7801 52.1903C50.4969 57.0704 52.8552 62.7192 52.8552 69.1369C52.8552 75.9557 50.5316 81.7049 45.8842 86.3844C41.2368 91.064 35.445 93.4038 28.5085 93.4038C20.7397 93.4038 14.0462 90.3621 8.42771 84.2786C2.80921 78.1952 0 70.8083 0 62.1176C0 36.0457 15.0518 15.6564 45.1559 0.949219L53.2714 15.389Z" fill="#FB7E06"/>
                                 </svg>
                                 <p class="sz_review_content text-gray-500 text-2xl font-inter-medium mt-lg-5 mt-4">{{ $customer_review['review_content'] }}</p>
                                 <div class="d-md-flex gap-4 mt-lg-5 mt-4">
-                                  
+                                    <img class="avatar" src="{{ asset( 'assets/images/Avater.png' ) }}" alt="Avatar">
                                     <div class="my-auto">
                                         <h3 class="text-gray-800 font-hubot font-medium mb-1">{{ $customer_review['name'] }}</h3>
                                         <p class="text-gray-800 font-inter-regular mb-0">{{ $customer_review['type'] }}</p>

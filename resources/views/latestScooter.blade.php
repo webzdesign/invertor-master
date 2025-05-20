@@ -1,8 +1,9 @@
-<section class="latest bg-gray-50">
+<section class="latest bg-neutrino-blue-500">
     <div class="container">
-        <h2 class="font-bebas">Check out the latest electric scooter review. Compare how it delivers the ultimate riding experience tailored just for you!</h2>
-        <div class="latest-video position-relative mt-sm-5 mt-4">
-            <img class="cover-img" src="{{ asset( 'assets/images/pro6.webp' ) }}" alt="pro" width="100%" height="100%">
+        <h2 class="font-bebas text-slate-100">Intelligent up-down flow direction control</h2>
+        <p class="text-slate-100 text-xl text-base-mob mb-0">There are 8 up-down flow direction modes to choose from: 5 fixed position modes and 3 swing modes.</p>
+        <div class="latest-video position-relative mt-sm-4 mt-3">
+            <img class="cover-img" src="{{ asset( 'assets/images/inv-video-img.png' ) }}" alt="video-img" width="100%" height="100%">
             <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="https://www.youtube.com/embed/T3VUFXetSCk?si=1VVOASVR3t5kgaHm">
                 <svg width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_67_17706)">
