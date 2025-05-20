@@ -173,7 +173,17 @@
         </div>
     </section>
 </footer>
-
+<div class="sz_alert alert alert-dismissible alert-fade fade-out-left" role="alert">
+    <span class="sz_alert_msg"></span>
+    <span class="sz_alert_success">
+        <svg class="mb-1 ms-2" width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.5 9C1.5 9 3 9 5 12.5C5 12.5 10.5588 3.33333 15.5 1.5" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </span>
+    <span class="sz_alert_danger">
+        <svg class="mb-1 ms-2" width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 1L7.5 7M7.5 7L1.5 13M7.5 7L13.5 13M7.5 7L1.5 1" stroke="#842029" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </span>
+</div>
 
 <script src="{{ asset( 'assets/js/jquery.min.js' ) . '?' . time() }}"></script>
 <script src="{{ asset( 'assets/js/bootstrap.min.js' ) . '?' . time() }}"></script>
