@@ -169,7 +169,7 @@
                     </svg>
                 </div>
             </div>
-            <div class="text-white font-inter-regular text-center mt-4">©2025 Copyright By INVERTOR LUX</div>
+            <div class="text-white font-inter-regular text-center mt-4">©{{ date("Y") }} Copyright By INVERTOR LUX</div>
         </div>
     </section>
 </footer>
