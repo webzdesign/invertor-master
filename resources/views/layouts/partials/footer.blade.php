@@ -11,7 +11,7 @@
                 <div class="col-lg-3 text-center text-lg-start my-lg-0 my-4">
                     <ul class="m-0 p-0 links">
                         <li class="text-decoration-none text-slate-900 font-inter-regular text-lg">
-                            Contact Details
+                            Company Details
                         </li>
                         <li class="text-decoration-none text-slate-900 font-inter-regular text-sm-mob mt-3">
                             <span class="font-semibold">"INVERTOR LUX" SRL</span></br>
