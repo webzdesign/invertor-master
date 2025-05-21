@@ -190,3 +190,4 @@
 <script src="{{ asset( 'assets/js/owl.carousel.min.js' ) . '?v=' . config('services.asset_version') }}"></script>
 <script src="{{ asset( 'assets/js/slick.min.js' ) . '?v=' . config('services.asset_version') }}"></script>
 <script src="{{ asset( 'assets/js/custom.js' ) . '?v=' . config('services.asset_version') }}"></script>
+<script type="module" src="https://bubble.aichat.md/apif/serve/chatbot-script.js?UserID=653"></script>
