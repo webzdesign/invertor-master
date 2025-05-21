@@ -259,9 +259,9 @@
 <section class="product">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
-            <h2 class="font-bebas">Explore Our Cooling<br/> Collection</h2>
+            <h2 class="font-bebas text-32px-mob">Explore Our Cooling<br/> Collection</h2>
             <div class="top-content">
-                <p class="text-xl text-gray-500 font-inter-medium">We have the right model for your needs and budget.</p>
+                <p class="text-xl text-gray-500 font-inter-medium text-base-mob">We have the right model for your needs and budget.</p>
                 <a href="{{ route('shop') }}" class="button-dark mt-3">See our collections</a>
             </div>
         </div>

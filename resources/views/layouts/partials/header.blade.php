@@ -132,7 +132,7 @@
             </div>
         </div>
     </div>
-    <div class="fixed-menu bg-slate-900 position-fixed bottom-0 left-0 right-0 d-flex d-lg-none align-items-center justify-content-between px-5">
+    <div class="fixed-menu bg-slate-900 position-fixed bottom-0 left-0 right-0 d-flex d-lg-none align-items-center justify-content-between">
         <a href="{{ route('home') }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M12 17H12.009" stroke="#FEFEFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

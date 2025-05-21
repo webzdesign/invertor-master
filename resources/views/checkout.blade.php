@@ -10,7 +10,7 @@
 @section('content')
 
 <section class="checkout pb-5">
-    <div class="paginationSec px-4 border-bottom border-top border-slate-100">
+    <div class="paginationSec px-sm-4 border-bottom border-top border-slate-100">
         <div class="container">
             <div class="d-flex overflow-auto gap-3 align-items-center justify-content-start justify-content-md-center py-3">
                 <div class="pageTab active d-flex align-items-center gap-3">
