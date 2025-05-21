@@ -9,22 +9,21 @@
                     <p class="text-slate-900 font-inter-regular mt-4 mx-auto mx-lg-0">we specialize in making your home and workspace more comfortable with smart, energy-efficient air conditioning solutions.</p>
                 </div>
                 <div class="col-lg-3 text-center text-lg-start my-lg-0 my-4">
-                    <ul class="m-0 p-0 links"> 
+                    <ul class="m-0 p-0 links">
                         <li class="text-decoration-none text-slate-900 font-inter-regular text-lg">
                             Contact Details
                         </li>
-                        <li class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob mt-3">
-                            <span class="font-semibold">RUNMAX LIMITED</span></br>
-                            MD-2002, mun. Chișinău, Republica Moldova,<br/> str. Simeon Murafa 13 ap. 15 c/f<br/> 1018600028767 
-                            Cod TVA: 0610605
-                            IBAN: MD93ML0000000022514361455 BC 
-                            Email : <a class="text-slate-900 text-decoration-none" href="mailto:info@invertor.md" >info@invertor.md</a></br>
-                            Phone : <a class="text-slate-900 text-decoration-none" href="tel:+079 315994" >+079 315994</a>
+                        <li class="text-decoration-none text-slate-900 font-inter-regular text-sm-mob mt-3">
+                            <span class="font-semibold">"INVERTOR LUX" SRL</span></br>
+                            Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>
+                            str. Muncesti 400/1<br/>
+                            c/f 1018600028767<br>
+                            tel.<a class="text-slate-900 text-decoration-none" href="tel:79315994"> 79315994</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-4">
-                    <ul class="m-0 p-0 links mx-auto d-table"> 
+                    <ul class="m-0 p-0 links mx-auto d-table">
                         <li class="text-decoration-none text-slate-900 font-inter-regular text-lg whitespace-nowrap">
                             Quick Links
                         </li>
@@ -34,7 +33,7 @@
                         <li class="mt-3">
                             <a href="{{ route('shop') }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">Address</a>
                         </li>
-                       
+
                         <li class="mt-3">
                             <a href="{{ route( 'blog' ) }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">Blog</a>
                         </li>
@@ -123,7 +122,7 @@
                         </a>
                     </li>
                     @endif
-                  
+
                 </ul>
                 <div class="text-center my-lg-0 my-4">
                     <svg width="276" height="42" viewBox="0 0 276 42" fill="none" xmlns="http://www.w3.org/2000/svg">
