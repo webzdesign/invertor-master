@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-GB" dir="ltr" style="background-color: rgb(55, 58, 61);">
     <head>
-        <title>SKOOTZ | Buy E-Scooters Online</title>
+        <title>{{ config('app.name') }} | Buy E-Scooters Online</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height">
         <meta name="referrer" content="origin">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="title" content="SKOOTZ | Buy E-Scooters Online">
+        <meta name="title" content="{{ config('app.name') }} | Buy E-Scooters Online">
         <meta name="description" content="Explore high-performance electric scooters and e-bikes at Skootz. Enjoy fast free UK shipping, powerful motors, and eco-friendly commuting solutions. Ride smarter today!">
         <link rel="stylesheet" crossorigin="" href="{{ asset('assets/checkoutCss/StackedMerchandisePreview._xnAOXmq.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">

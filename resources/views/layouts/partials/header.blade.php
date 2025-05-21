@@ -53,7 +53,7 @@
 <header class="d-flex align-items-center flex-column justify-content-center position-sticky bg-white" id="header">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
-            <a href="{{ route( 'home' ) }}" aria-label="Skootz" class="logo">
+            <a href="{{ route( 'home' ) }}" aria-label="{{ config('app.name') }}" class="logo">
                 <img src="{{ asset( 'assets/images/Invertor-logo.svg' ) }}" alt="" width="100%" height="100%">
             </a>
             <ul class="menu align-items-center d-lg-flex gap-xl-5 gap-4 m-0 p-0 d-none nav" id="nav-menu-container">

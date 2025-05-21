@@ -350,7 +350,7 @@
                             <div class="form-check">
                                 <input class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" id="terms_and_condtion" name="terms_and_condtion">
                                 <label class="form-check-label font-inter-regular text-sm text-gray-500 cursor-pointer ms-2" for="checkbox1">
-                                    By clicking this, I agree to Skootz <a href="{{ route('terms-conditions') }}" target="_blank" class="text-blue-500 font-inter-semibold text-decoration-none">Terms &
+                                    By clicking this, I agree to {{ config('app.name') }} <a href="{{ route('terms-conditions') }}" target="_blank" class="text-blue-500 font-inter-semibold text-decoration-none">Terms &
                                         Conditions</a> and <a href="{{ route('privacy-policy') }}" target="_blank" class="text-blue-500 font-inter-semibold text-decoration-none">Privacy Policy</a>
                                 </label>
                             </div>
