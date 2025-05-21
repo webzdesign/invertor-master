@@ -43,14 +43,14 @@
 
 <title> @yield('title')</title>
 
-<link rel="stylesheet" href="{{ asset( 'assets/css/bootstrap.min.css' ) . '?' . time() }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/swiper-bundle.min.css' ) . '?' . time() }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/owl.carousel.min.css' ) . '?' . time() }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/slick-theme.min.css' ) . '?' . time() }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/slick.min.css' ) . '?' . time() }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/style.css' ) . '?' . time() }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/utilities.css' ) . '?' . time() }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/responsive.css' ) . '?' . time() }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/bootstrap.min.css' ) . '?v=' . config('services.asset_version') }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/swiper-bundle.min.css' ) . '?v=' . config('services.asset_version') }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/owl.carousel.min.css' ) . '?v=' . config('services.asset_version') }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/slick-theme.min.css' ) . '?v=' . config('services.asset_version') }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/slick.min.css' ) . '?v=' . config('services.asset_version') }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/style.css' ) . '?v=' . config('services.asset_version') }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/utilities.css' ) . '?v=' . config('services.asset_version') }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/responsive.css' ) . '?v=' . config('services.asset_version') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hubot+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">

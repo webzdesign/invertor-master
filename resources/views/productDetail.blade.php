@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('title') {{$product->slider_title}} | Skootz  @endsection
+@section('title') {{$product->slider_title}} | {{ config('app.name') }} @endsection
 @section('description') {{$product->slider_content}} @endsection
-@section('conversion')  
+@section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/BGUeCOmh4ZcaEKT6w9o-'});
   </script>
@@ -12,7 +12,7 @@
     $sz_p_encrypt_id = encrypt( $product->id );
     $first_image = !empty($product->images->first()->name) ? $product->images->first()->name : '';
 @endphp
-@section('ogimage') 
+@section('ogimage')
 @if($first_image != '')
  <meta property="og:image" content="{{ env('APP_Image_URL') . 'storage/product-images/' . $product->images->first()->name }}">
 @else
@@ -74,7 +74,7 @@
                                     <path d="M17.5 17.5L22 22" stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="#5D5D5D" stroke-width="1.5" stroke-linejoin="round"/>
                                     <path d="M7.5 11H14.5M11 7.5V14.5" stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>                                    
+                                </svg>
                             </button>
                             {{-- <button class="zoom-btn d-flex align-items-center justify-content-center border-0 bg-slate-100 rounded-pill">
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,7 +106,7 @@
                     <label class="saleLbl bg-violet-500 w-fit px-2 d-block mb-2 text-white text-sm py-1 pointer-event-none rounded-pill mt-lg-0 mt-4">Sale 🔥</label>
                 @endif
                 <h2 class="text-slate-900 font-bebas text-6xl text-4xl-mob {{ $sz_discount_flag != '1' ? 'mt-lg-0 mt-3' : '' }}">{{ $product->name }}</h2>
-                <div class="d-flex align-items-center gap-3 mb-2">
+                {{--<div class="d-flex align-items-center gap-3 mb-2">
                     <h3 class="text-4xl text-3xl-laptop mb-0 text-blue-500 font-bebas">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h3>
                     @if( $sz_discount_flag == '1' )
                         <h4 class="text-2xl mx-0 mb-0 text-gray-500 font-bebas text-gray-600 text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_old_price, 2) }}</h4>
@@ -115,14 +115,14 @@
                                 {!! $sale_season_icon !!}
                             @endif
                         </div>
-                        <label class="whitespace-nowrap rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-block d-none">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>   
+                        <label class="whitespace-nowrap rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-block d-none">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
                         <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-none whitespace-nowrap">SAVE {{ $sz_discount_pr }}%</label>
                     @endif
-                </div>
+                </div>--}}
                 <p class="text-gray-500 font-inter-regular text-xl text-base-mob">{{ $product->slider_content }}</p>
                 <div class="d-flex align-items-center gap-2">
                     <div>
-                        
+
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="white" stroke="#ffd53f" stroke-width="2" />
                         </svg>
@@ -164,7 +164,7 @@
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Warranty</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">1 Year</h6>
                     </div>
-                    {{-- <div class="d-flex align-items-center mb-2"> 
+                    {{-- <div class="d-flex align-items-center mb-2">
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Color</h6>
                         <div class="d-flex gap-1">
                             <div class="form-check">
@@ -184,7 +184,7 @@
                     </div>
 
                     <button class="button-dark AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ $sz_p_encrypt_id }}">
-                        Add to cart
+                        Get Price
                         <span class="sz_add_to_cart_circle {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
@@ -193,7 +193,7 @@
                         </span>
                     </button>
                 </div>
-              
+
                 <div class="accordion mt-4" id="accordionExample">
                     <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingOne">
@@ -235,7 +235,7 @@
                             </div>
                         </div>
                     </div> --}}
-                    @if( !empty($product->shipping_and_payment) )
+                    {{--@if( !empty($product->shipping_and_payment) )
                         <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -260,7 +260,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
+                    @endif--}}
                     {{-- <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -336,7 +336,7 @@
                                 <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="white"></rect>
                                 </clipPath>
                                 </defs>
-                            </svg>                        
+                            </svg>
                         </div>
                     </div>
                 </div>
@@ -354,7 +354,7 @@
             </div>
         </div>
     </div>
-</section> --}}
+</section>--}}
 
 <section class="product">
     <div class="container">
@@ -387,7 +387,7 @@
                     </a>
                     <div class="text-lg-start text-center">
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4">{{ $o_product->name }}</h2>
-                        <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
+                        {{--<div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                             <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                                 <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($o_product->web_sales_price, 2) }}</h2>
                                 @if( $sz_o_discount_flag == '1' )
@@ -402,10 +402,10 @@
                             @if( $sz_o_discount_flag == '1' )
                                 <label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_o_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_o_save_price }})</label>
                             @endif
-                        </div>
+                        </div>--}}
 
                         <button class="button-dark mt-3 AddToCartBtn d-flex align-items-center gap-2 mx-auto mx-lg-0" data-pid="{{ encrypt( $o_product->id ) }}">
-                            Add to cart
+                            Get Price
                             <span class="sz_add_to_cart_circle {{ empty($cart_products[$o_product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
@@ -413,7 +413,7 @@
                                 </svg>
                             </span>
                         </button>
-                    
+
                     </div>
                 </div>
             @endforeach
@@ -424,13 +424,13 @@
 <div class="fixed-add-to-cart">
     <div class="row w-100 align-items-center">
         <div class="col-lg-6">
-            <div class="d-flex align-items-start gap-3">
+            <div class="d-flex align-items-center gap-3">
                 <div class="img-pro bg-white rounded-lg border border-slate-100">
                     <img src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_image }}" alt="product" width="70" height="70" class="object-fit-contain">
                 </div>
                 <div>
                     <h3 class="text-slate-900 text-3xl text-2xl-mob font-bebas mb-0">{{ $product->name }}</h3>
-                    <div class="d-flex align-items-center gap-sm-3 gap-2 mb-2">
+                    {{--<div class="d-flex align-items-center gap-sm-3 gap-2 mb-2">
                         <h4 class="whitespace-nowrap text-blue-500 mb-0 font-bebas text-2xl mb-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h4>
                         @if( $sz_discount_flag == '1' )
                             <h4 class="whitespace-nowrap text-2xl text-xl-mob mx-0 mb-0 text-gray-500 font-bebas text-gray-600 text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_old_price, 2) }}</h4>
@@ -442,7 +442,7 @@
                             <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-block d-none">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
                             <label class="rounded-pill text-xs-mob text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-none whitespace-nowrap">SAVE {{ $sz_discount_pr }}%</label>
                         @endif
-                    </div>
+                    </div>--}}
                 </div>
             </div>
         </div>
@@ -466,9 +466,9 @@
                     <span class="sz_product_quantity">1</span>
                     <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
                 </div>
-        
+
                 <button class="button-dark AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ $sz_p_encrypt_id }}">
-                    Add to cart
+                    Get price
                     <span class="sz_add_to_cart_circle {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
@@ -541,7 +541,7 @@
             const imgSrc = $('.slick-current img').attr('src');
             $('#imgZoomModal img').attr('src', imgSrc);
         });
-    
+
         $('.add-quantity-btn-product').each(function () {
             let container = $(this);
 

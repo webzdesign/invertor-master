@@ -184,9 +184,9 @@
     </span>
 </div>
 
-<script src="{{ asset( 'assets/js/jquery.min.js' ) . '?' . time() }}"></script>
-<script src="{{ asset( 'assets/js/bootstrap.min.js' ) . '?' . time() }}"></script>
-<script src="{{ asset( 'assets/js/popper.min.js' ) . '?' . time() }}"></script>
-<script src="{{ asset( 'assets/js/owl.carousel.min.js' ) . '?' . time() }}"></script>
-<script src="{{ asset( 'assets/js/slick.min.js' ) . '?' . time() }}"></script>
-<script src="{{ asset( 'assets/js/custom.js' ) . '?' . time() }}"></script>
+<script src="{{ asset( 'assets/js/jquery.min.js' ) . '?v=' . config('services.asset_version') }}"></script>
+<script src="{{ asset( 'assets/js/bootstrap.min.js' ) . '?v=' . config('services.asset_version') }}"></script>
+<script src="{{ asset( 'assets/js/popper.min.js' ) . '?v=' . config('services.asset_version') }}"></script>
+<script src="{{ asset( 'assets/js/owl.carousel.min.js' ) . '?v=' . config('services.asset_version') }}"></script>
+<script src="{{ asset( 'assets/js/slick.min.js' ) . '?v=' . config('services.asset_version') }}"></script>
+<script src="{{ asset( 'assets/js/custom.js' ) . '?v=' . config('services.asset_version') }}"></script>

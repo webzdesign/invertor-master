@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('title') Terms & Conditions | Skootz @endsection
+@section('title') Terms & Conditions | {{ config('app.name') }} @endsection
 @section('description')Read Skootz’s terms and conditions for policies on orders, warranties, and customer support for electric scooters and e-bikes.@endsection
-@section('conversion')  
+@section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
   </script>

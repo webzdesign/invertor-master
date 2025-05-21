@@ -844,7 +844,7 @@
 
                         <!----- content ----->
                         @yield('content')
-                        
+
                         <script src="{{ asset('assets/js/jquery3-6-0.min.js') }}"></script>
                         <script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
 

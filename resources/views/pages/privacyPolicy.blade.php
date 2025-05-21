@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('title') Privacy Policy | Skootz  @endsection
+@section('title') Privacy Policy | {{ config('app.name') }} @endsection
 @section('description') Learn how Skootz safeguards your personal data, ensures secure transactions, and complies with GDPR and privacy regulations. @endsection
-@section('conversion')  
+@section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
   </script>

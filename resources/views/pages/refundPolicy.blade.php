@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('title') Refund & Return Policy | Skootz @endsection
+@section('title') Refund & Return Policy | {{ config('app.name') }} @endsection
 @section('description') Need to return a product? Check Skootz’s refund and return policy for simple, stress-free returns on electric scooters and e-bikes. @endsection
-@section('conversion')  
+@section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
   </script>
@@ -33,7 +33,7 @@
     <div class="container">
         <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">Refund Policy</h3>
         <div class="mb-4">
-          
+
             <p class="text-gray-500 text-lg font-inter-regular mb-0">At Skootz, your satisfaction is our priority. If you’re unsatisfied with your purchase, we’re here to make it right with a hassle-free return and refund process.
             </p>
         </div>
@@ -79,7 +79,7 @@
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Refund Timeline:</b> Refunds will be processed within <b>7 business days</b> after approval.</li>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Refund Method: </b> will be credited to your original payment method.</li>
             </ul>
-          
+
         </div>
 
         <div class="mb-4">
@@ -93,13 +93,13 @@
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Sale or discounted items, unless proven defective.
                 </li>
             </ul>
-          
+
         </div>
 
         <div class="mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Important Notes
             </h4>
-           
+
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Customers are responsible for return shipping costs unless the return is due to our error (e.g., wrong or defective item sent).
                 </li>
@@ -109,7 +109,7 @@
 
                 </li>
             </ul>
-          
+
         </div>
 
         <div class="mb-4">
@@ -126,14 +126,14 @@
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Phone:</b> +44 7918816728
 
                 </li>
-              
+
             </ul>
             <p class="text-gray-500 text-lg font-inter-regular mb-0">Our team is available during support hours to assist you promptly.</p>
             <p class="text-gray-500 text-lg font-inter-regular mb-0">For full details, please visit our <a href="{{ route( 'terms-conditions' ) }}" class="font-inter-semibold text-decoration-none text-slate-900">Terms and Conditions</a> or <a href="{{ route('shipping-policy') }}" class="font-inter-semibold text-decoration-none text-slate-900">Shipping Policy.</a>
             </p>
             <p class="text-gray-500 text-lg font-inter-regular mb-0">Thank you for choosing Skootz. We’re here to ensure your satisfaction with every purchase!
             </p>
-          
+
         </div>
 
     </div>

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quotation;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Log;
 use Stripe\Charge;
 use Stripe\Stripe;
 use App\Models\User;
@@ -165,8 +168,8 @@ class HomeController extends Controller
                     <div class="ms-3 w-100 d-flex flex-column justify-content-between">
                         <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob pe-5">' . $cp_val['name'] . '</h3>
                         <div class="d-flex nowrap align-items-center justify-content-between">
-                            <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">' . env( 'SZ_CURRENCY_SYMBOL' ) .' ' . number_format($cp_val['price'], 2) .'</p>
-                            <div class="quantityWrapper d-flex align-items-center gap-3">
+
+                            <div class="quantityWrapper d-flex align-items-center gap-3 ms-auto">
                                 <div>
                                     <div class="count font-inter-regular text-gray-500 text-end text-sm">x ' . $sz_quantity . '</div>
                                 </div>
@@ -201,7 +204,7 @@ class HomeController extends Controller
                 $total_cart_count += $cp_val['quantity'];
             }
         }
-        $sub_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($sub_total, 2);
+        /*$sub_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($sub_total, 2);
         $total_discount = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($total_discount, 2);
         $total_tax = $delivery_cost = env( 'SZ_CURRENCY_SYMBOL' ) . ' 0.00';
         $sz_cart_price_html = '<div class="py-4 d-flex flex-column gap-3">
@@ -221,7 +224,8 @@ class HomeController extends Controller
                     <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular mb-0">Delivery Cost</h4>
                     <h3 class="text-slate-900 text-xl text-xl-mob font-inter-medium mb-0">' . $delivery_cost . '</h3>
                 </div>
-            </div>';
+            </div>';*/
+        $sz_cart_price_html = '';
         $msg = 'Added to cart Successfully';
         if( $sz_cart_reached_status == 1 ){
             $msg = 'Sorry, you can’t add more of this product.';
@@ -878,5 +882,68 @@ class HomeController extends Controller
         $xmlContent = $sitemap->asXML();
 
         file_put_contents(base_path('sitemap.xml'), $xmlContent);
+    }
+
+
+    public function storeQuotationRequest(CheckoutRequest $request)
+    {
+        DB::beginTransaction();
+        try {
+            $purchase_source = '';
+            if( $request->hasCookie('sz_utm_source') != false ){
+                $purchase_source = $request->cookie('sz_utm_source');
+                if( strlen($purchase_source) > 255 ){
+                    $purchase_source = substr($purchase_source, 0, 255);
+                }
+            }
+
+            $quotation = Quotation::create([
+                "customer_name" => $request->customer_name,
+                "post_code" => $request->post_code,
+                "phone" => $request->phone,
+                "country_dial_code" => $request->country_dial_code ?? null,
+                "country_iso_code" => $request->country_iso_code ?? null,
+                "purchase_source" => $purchase_source,
+                "quotation_date" => now()->toDateTimeString()
+            ]);
+
+            Quotation::updateQuotationNumber($quotation->id);
+
+            if( !empty($request->productId) ) {
+                foreach ($request->productId as $key => $productId) {
+                    $product = Product::find(decrypt($productId));
+
+                    $quotation->items()->create([
+                        "product_id" => $product->id,
+                        "category_id" => $product->category_id,
+                        "name" => $product->name,
+                        "quantity" => $request->quantity[$key] ?? 1,
+                    ]);
+                }
+            }
+
+            DB::commit();
+            session()->forget('cart');
+
+            Artisan::call('quotation:add-to-google-sheet', ['ids' => $quotation->id]);
+
+            return redirect()->route('quotation.successfully-requested', ['id' => encrypt($quotation->id)]);
+        } catch (\Exception $e) {
+            Log::error($e);
+            DB::rollBack();
+        }
+
+        return redirect()->route('checkout');
+    }
+
+    public function quotationSuccessfullyRequested($quotationId)
+    {
+        $quotation = Quotation::with('items')->find(decrypt($quotationId));
+
+        if ($quotation) {
+            return view('quotation.successfully-requested', compact('quotation'));
+        }
+
+        return redirect()->route('home');
     }
 }

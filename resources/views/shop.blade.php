@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('title')Shop Electric Scooters & E-Bikes | Skootz UK @endsection
+@section('title') Shop Electric Scooters & E-Bikes | {{ config('app.name') }} @endsection
 @section('description')Browse our full collection of electric scooters and e-bikes. Whether for commuting or adventure, find the perfect ride with advanced features and long-range batteries.@endsection
-@section('conversion')  
+@section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/pxScCIyt4ZcaEKT6w9o-'});
   </script>
@@ -27,7 +27,7 @@
                 <svg class="search-icon position-absolute top-50 translate-middle-y left-0 ms-3" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.66634 14.0007C11.1641 14.0007 13.9997 11.1651 13.9997 7.66732C13.9997 4.16951 11.1641 1.33398 7.66634 1.33398C4.16854 1.33398 1.33301 4.16951 1.33301 7.66732C1.33301 11.1651 4.16854 14.0007 7.66634 14.0007Z" stroke="#0D163A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M14.6663 14.6673L13.333 13.334" stroke="#0D163A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>                        
+                </svg>
             </div>
             <div class="filter-menu d-flex gap-3">
                 <button type="button" class="border-0 bg-slate-100 rounded-pill d-flex align-items-center justify-content-center">
@@ -74,7 +74,7 @@
                     <div class="text-lg-start text-center">
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4"><a class="text-gray-950 text-decoration-none" href="{{ route('productDetail', $product->slug) }}">{{ $product->name }}</a></h2>
                         <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
-                            <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
+                            {{--<div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                                 <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h2>
                                 @if( $sz_discount_flag == '1' )
                                     <h6 class="text-base text-gray-400 mb-0 font-inter-regular text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_old_price, 2) }}</h6>
@@ -87,10 +87,10 @@
                             </div>
                             @if( $sz_discount_flag == '1' )
                                 <label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
-                            @endif
+                            @endif--}}
                         </div>
                         <button class="button-dark AddToCartBtn mt-3 d-flex align-items-center gap-2 mx-auto mx-lg-0" data-pid="{{ encrypt( $product->id ) }}">
-                            Add to cart
+                            Get Price
                             <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
@@ -98,7 +98,7 @@
                                 </svg>
                             </span>
                         </button>
-                       
+
                     </div>
                 </div>
             @endforeach

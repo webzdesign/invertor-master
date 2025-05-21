@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('title') Shipping Policy | Skootz  @endsection
+@section('title') Shipping Policy | {{ config('app.name') }} @endsection
 @section('description') Read our shipping policy for delivery details, costs, and estimated arrival times for electric scooters and e-bikes. Enjoy quick and reliable service! @endsection
-@section('conversion')  
+@section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
   </script>
@@ -45,7 +45,7 @@
             </h4>
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular list-disc">Orders are processed within 1 business day after payment confirmation. Orders placed on weekends or public holidays will be processed the next business day.</li>
-                
+
             </ul>
         </div>
         <div class="mb-4">
@@ -53,7 +53,7 @@
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Free Delivery:</b> Available for orders over £100.
                 </li>
-               
+
             </ul>
         </div>
         <div class="mb-4">
@@ -87,7 +87,7 @@
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><b>Phone:</b> +44 7918816728
 
                 </li>
-              
+
             </ul>
             <p class="text-gray-500 text-lg font-inter-regular mb-0">Our team is available during support hours to assist you promptly.</p>
         </div>

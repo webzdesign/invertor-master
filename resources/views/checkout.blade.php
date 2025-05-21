@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title')SKOOTZ | Buy E-Scooters Online @endsection
+@section('title'){{ config('app.name') }} | VÂNZARE SI INSTALARE @endsection
 @section('description')Explore high-performance electric scooters and e-bikes at Skootz. Enjoy fast free UK shipping, powerful motors, and eco-friendly commuting solutions. Ride smarter today!@endsection
 
 @section('conversion')
@@ -20,7 +20,7 @@
                 <hr class="hrLine min-w-100 bg-slate-100">
                 <div class="pageTab active d-flex align-items-center gap-3">
                     <div class="count bg-slate-100 text-slate-900 d-flex align-items-center justify-content-center rounded-pill font-inter-semibold text-sm">2</div>
-                    <h6 class="whitespace-nowrap text-gray-500 font-hubot mb-0">Place Order</h6>
+                    <h6 class="whitespace-nowrap text-gray-500 font-hubot mb-0">Place Quotation</h6>
                 </div>
                 <hr class="hrLine min-w-100 bg-slate-100">
                 <div class="pageTab d-flex align-items-center gap-3">
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-    <form action="{{ route('orderPlace') }}" method="POST" id="addOrder" enctype="multipart/form-data"> @csrf
+    <form action="{{ route('quotation.request') }}" method="POST" id="addOrder" enctype="multipart/form-data"> @csrf
         <div class="container">
             <div class="row mt-sm-5 mt-4">
                 <div class="col-xl-7 mb-4">
@@ -192,7 +192,7 @@
                 <div class="col-xl-5">
                     <div class="cardCheckout order-history bg-slate-50 border border-slate-100 p-4 rounded-lg">
                         <div class="px-0 pb-3 pb-sm-4">
-                            <h5 class="text-slate-900 mb-0 font-hubot font-semibold text-2xl text-xl-mob">Order Summary</h5>
+                            <h5 class="text-slate-900 mb-0 font-hubot font-semibold text-2xl text-xl-mob">Quotation Summary</h5>
                         </div>
                         <div class="offcanvas-body p-0 border-top border-gray-300">
                             <ul class="p-0 m-0 sz_card_popup_products">
@@ -207,8 +207,8 @@
                                             <div class="ms-3 w-100 d-flex flex-column justify-content-between">
                                                 <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob pe-5">{{ $cp_val['name'] }}</h3>
                                                 <div class="d-flex nowrap align-items-center justify-content-between">
-                                                    <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($cp_val['price'], 2) }}</p>
-                                                    <div class="quantityWrapper d-flex align-items-center gap-3">
+                                                    {{--<p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($cp_val['price'], 2) }}</p>--}}
+                                                    <div class="quantityWrapper d-flex align-items-center gap-3 ms-auto">
                                                         <div>
                                                             @php
                                                                 $sz_quantity = $cp_val['quantity'];
@@ -239,7 +239,7 @@
                                                 </button>
                                             </div>
                                         </li>
-                                        @php
+                                        {{--@php
                                             $product_price = $cp_val['price'] * $cp_val['quantity'];
                                             $grand_total += $product_price;
                                             if( !empty($cp_val['original_price']) ){
@@ -247,18 +247,18 @@
                                             }
                                             $sub_total += $original_price;
                                             $total_discount += $original_price - $product_price;
-                                        @endphp
+                                        @endphp--}}
                                         <input type="hidden" name="productId[]" value="{{ $cp_val['productId'] }}" />
                                         <input type="hidden" name="quantity[]" value="{{ $cp_val['quantity'] }}" />
                                     @endforeach
                                 @endif
                             </ul>
-                            @php
+                            {{--@php
                                 $sub_total = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($sub_total, 2);
                                 $total_discount = env( 'SZ_CURRENCY_SYMBOL' ) . ' ' . number_format($total_discount, 2);
                                 $total_tax = $delivery_cost = env( 'SZ_CURRENCY_SYMBOL' ) . ' 0.00';
-                            @endphp
-                            <div class="border-bottom border-gray-300">
+                            @endphp--}}
+                            {{--<div class="border-bottom border-gray-300">
                                 <h4 class="text-slate-900 text-lg font-inter-semibold my-4">Price Details</h4>
                             </div>
                             <div class="sz_cart_price_details">
@@ -290,10 +290,11 @@
                                     </svg>
                                     <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</span>
                                 </h4>
-                            </div>
+                            </div>--}}
                         </div>
                     </div>
-                    <div class="cardCheckout paymentMethod order-history bg-slate-50 border border-slate-100 p-4 rounded-lg mt-4">
+
+                    {{--<div class="cardCheckout paymentMethod order-history bg-slate-50 border border-slate-100 p-4 rounded-lg mt-4">
                         <h5 class="text-slate-900 font-hubot font-semibold text-2xl text-xl-mob mb-3 d-inline-flex align-items-center gap-1">
                             Payment Method
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -333,16 +334,16 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>--}}
 
-                    <div class="cardCheckout order-history bg-slate-50 border border-slate-100 p-4 rounded-lg mt-4 cardInfoDiv" style="display: none;">
+                    {{--<div class="cardCheckout order-history bg-slate-50 border border-slate-100 p-4 rounded-lg mt-4 cardInfoDiv" style="display: none;">
                         <div class="">
                             <label class="form-check-label font-inter-regular text-sm text-slate-900 cursor-pointer mt-1" for="online_payment">Card Information</label>
                         </div>
                         <input type='hidden' name='stripeToken' id='stripe-token-id'>
                         <div id="card-element" class="form-control p-3"></div>
                         <span class="text-danger card-msg-error"></span>
-                    </div>
+                    </div>--}}
 
                     <div class="py-4">
                         <div class="overflow-hidden border border-slate-700 rounded-lg p-3">
@@ -357,14 +358,17 @@
                     </div>
                     <div>
                         <button id="sz_submit_btn" type="submit" class="button-dark font-inter-semibold w-100 mt-md-3 text-center rounded-lg" >
-                            Order Now <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</span>
+                            Place quotation to get price
                         </button>
+                        {{--<button id="sz_submit_btn" type="submit" class="button-dark font-inter-semibold w-100 mt-md-3 text-center rounded-lg" >
+                            Order Now <span class="sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</span>
+                        </button>--}}
 
-                        <button id='checkout-button' class="button-dark font-inter-semibold w-100 mt-md-3 text-center rounded-lg" type="button" onclick="createToken()" style="display: none;">Pay {{ env('SZ_CURRENCY_SYMBOL') }} <span id="online_paid_amount">{{ number_format($grand_total, 2) }}</span></button>
+                        {{--<button id='checkout-button' class="button-dark font-inter-semibold w-100 mt-md-3 text-center rounded-lg" type="button" onclick="createToken()" style="display: none;">Pay {{ env('SZ_CURRENCY_SYMBOL') }} <span id="online_paid_amount">{{ number_format($grand_total, 2) }}</span></button>--}}
 
-                        <div class="text-gray-400 text-sm mt-4 mx-auto text-center w-100" style="max-width:260px">
+                        {{--<div class="text-gray-400 text-sm mt-4 mx-auto text-center w-100" style="max-width:260px">
                             By clicking Pay, you agree to the Link <span class="font-inter-semibold">Terms</span> and <span class="font-inter-semibold">Privacy Policy</span>.
-                        </div>
+                        </div>--}}
                     </div>
                     @if( $othersProducts->isNotEmpty() )
                         <div class="cardCheckout likeProuctCard order-history bg-slate-50 border border-slate-100 p-4 rounded-lg mt-4">
@@ -386,12 +390,12 @@
                                                 </div>
                                                 <div class="ms-3 w-100">
                                                     <h3 class="text-slate-900 font-inter-medium text-lg text-base-mob">{{ $o_product->name }}</h3>
-                                                    <p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($o_product->web_sales_price, 2) }}</p>
+                                                    {{--<p class="mb-0 text-slate-900 text-xl font-inter-medium text-lg-mob">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($o_product->web_sales_price, 2) }}</p>--}}
                                                 </div>
                                             </div>
                                             <div class="ps-2 likeProuct mt-xl-0 mt-3">
                                                 <button class="button-dark text-base AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ encrypt( $o_product->id ) }}">
-                                                    Add to cart
+                                                    Get Price
                                                     <span class="sz_add_to_cart_circle {{ empty($cart_products[$o_product->id]) ? 'd-none' : '' }}">
                                                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
@@ -418,16 +422,16 @@
 <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
 <script src="{{ asset('assets/js/intel.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
-<script src="https://js.stripe.com/v3/"></script>
+{{--<script src="https://js.stripe.com/v3/"></script>--}}
 
 <script>
 //stripe card genrate
-var stripe = Stripe('{{ env('STRIPE_KEY') }}')
+/*var stripe = Stripe('{{ env('STRIPE_KEY') }}')
 var elements = stripe.elements();
 var cardElement = elements.create('card', {
     disabled: true, // Disables the Card Element by default
 });
-cardElement.mount('#card-element');
+cardElement.mount('#card-element');*/
 
 $(document).ready(function(){
 
@@ -465,8 +469,8 @@ $(document).ready(function(){
         }
     });
 
-    var submitStatus = 0;
-    $('body').on('change', '#post_code, #house_no', function(e){
+    var submitStatus = 1;
+    /*$('body').on('change', '#post_code, #house_no', function(e){
 
         var post_code = $('#post_code').val();
         var house_no = $('#house_no').val();
@@ -496,14 +500,14 @@ $(document).ready(function(){
                 }
             });
         }
-    });
+    });*/
     jQuery.validator.addMethod("alphanumeric", function(value, element) {
         return this.optional(element) || /^[\w\s]+$/i.test(value);
     }, "Please use only alphanumeric or alphabetic characters");
 
     $("#addOrder").validate({
         rules: {
-            first_name: {
+            /*first_name: {
                 required: function(){
                    let paymentType = $('input[name="payment_type"]:checked').val();
                    if(paymentType == 'COD'){
@@ -598,7 +602,7 @@ $(document).ready(function(){
                         return true;
                    }
                 },
-            },
+            },*/
             post_code: {
                 required: true,
             },
@@ -615,7 +619,7 @@ $(document).ready(function(){
                 maxlength: 100,
                 alphanumeric: true,
             },
-            city: {
+            /*city: {
                 required: function(){
                    let paymentType = $('input[name="payment_type"]:checked').val();
                    if(paymentType == 'COD'){
@@ -682,7 +686,7 @@ $(document).ready(function(){
                         return true;
                    }
                 },
-            },
+            },*/
         },
         messages: {
             first_name: {
