@@ -2,7 +2,7 @@
 @section('title')Contact Skotz | Get Support for Electric Scooters & E-Bikes @endsection
 @section('description')Need help? Contact Skootz for product inquiries, order support, or technical assistance with your electric scooter or e-bike.@endsection
 
-@section('conversion')  
+@section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
   </script>
@@ -76,24 +76,24 @@
                 <div class="contact-card border border-slate-100 mt-4 mt-lg-0">
                     <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3">Get in Touch</h3>
                     <div class="d-flex mb-3">
-                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Phone</div>
-                        <a href="tel:+44 7918816728" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">+44 7918816728</a>
+                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Tel.</div>
+                        <a href="tel:79315994" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">79315994</a>
                     </div>
-                    <div class="d-flex mb-3">
+                    {{--<div class="d-flex mb-3">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Email</div>
                         <a href="mailto:runmaxlimited@gmail.com" class="text-slate-900 font-inter-semibold text-sm">runmaxlimited@gmail.com</a>
                     </div>
                     <div class="d-flex mb-3">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Support</div>
                         <a href="mailto:support@skotz.co.uk" class="text-slate-900 font-inter-semibold text-sm">support@skotz.co.uk</a>
-                    </div>
+                    </div>--}}
                     <div class="d-flex">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Address</div>
                         <div class="text-decoration-none text-slate-900 font-inter-regular text-sm">
-                            <b>RUNMAX LIMITED</b></br>
-                            129 Toronto Road</br>
-                            Portsmouth, England</br>
-                            PO2 7QD
+                            <b>"INVERTOR LUX" SRL</b></br>
+                            Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>
+                            str. Muncesti 400/1<br/>
+                            c/f 1018600028767<br>
                         </div>
                     </div>
                 </div>
