@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('title')Contact {{ config('app.name') }} | Get Support for Electric Scooters & E-Bikes @endsection
-@section('description')Need help? Contact Skootz for product inquiries, order support, or technical assistance with your electric scooter or e-bike.@endsection
+@section('title')Contact {{ config('app.name') }} | Get Support for Electric Invertor & E-Bikes @endsection
+@section('description')Need help? Contact Skootz for product inquiries, order support, or technical assistance with your electric Invertor or e-bike.@endsection
 
 @section('conversion')
 <script>
@@ -10,15 +10,15 @@
 @section('content')
 
 <section class="strore-banner p-2 position-relative">
-    <img src="{{ asset('assets/images/contact_us-banner.png') }}" alt="banner" width="100%" class="rounded-3xl d-none d-sm-block">
-    <img src="{{ asset('assets/images/contact_us-banner-mob.png') }}" alt="banner" width="100%" class="d-sm-none">
+    <img src="{{ asset('assets/images/contact-us-banner.jpg') }}" alt="banner" width="100%" height="400px" class="rounded-3xl d-none d-sm-block">
+    <img src="{{ asset('assets/images/contact-us-banner-mob.jpg') }}" alt="banner" width="100%" class="d-sm-none">
     <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">Contact Us</h2>
 </section>
 
 <section class="contactUs pt-sm-5 pt-4">
     <div class="container">
         <h2 class="text-6xl text-4xl-mob text-slate-900 font-bebas text-center">Contact Us</h2>
-        <p class="text-gray-500 mt-3 text-xl text-base-mob font-inter-regular text-center">At Skootz Electric Scooters, we're here to help you find the perfect scooter for your lifestyle and answer any questions you may have. Whether you're curious about our products, need assistance with your order, or want advice on choosing the best scooter for your needs, our team is ready to assist!</p>
+        <p class="text-gray-500 mt-3 text-xl text-base-mob font-inter-regular text-center">At Invertor Electric Invertor, we're here to help you find the perfect Invertor for your lifestyle and answer any questions you may have. Whether you're curious about our products, need assistance with your order, or want advice on choosing the best Invertor for your needs, our team is ready to assist!</p>
         <p class="text-gray-500 mt-4 mb-0 text-xl text-lg-mob font-inter-regular text-center">Feel free to contact us anytime—we look forward to hearing from you!</p>
         <div class="row mt-4">
             <div class="col-lg-7 col-xl-8">
@@ -124,8 +124,8 @@
     const errorMap = ["Phone number is invalid.", "Invalid country code", "Too short", "Too long"];
 
     const iti = window.intlTelInput(input, {
-        initialCountry: "gb",
-        preferredCountries: ['gb', 'pk'],
+        initialCountry: "md",
+        preferredCountries: ['md','gb', 'pk'],
         separateDialCode:true,
         nationalMode:false,
         utilsScript: "{{ asset('assets/js/intel2.js') }}"

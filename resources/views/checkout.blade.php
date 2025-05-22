@@ -440,8 +440,8 @@ $(document).ready(function(){
     const grandTotal = '{{$grand_total}}';
 
     const iti = window.intlTelInput(input, {
-        initialCountry: "gb",
-        preferredCountries: ['gb', 'pk'],
+        initialCountry: "md",
+        preferredCountries: ['md','gb', 'pk'],
         separateDialCode:true,
         nationalMode:false,
         utilsScript: "{{ asset('assets/js/intel2.js') }}"
