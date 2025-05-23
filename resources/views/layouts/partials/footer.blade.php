@@ -34,9 +34,9 @@
                             <a href="{{ route('shop') }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">Address</a>
                         </li>
 
-                        <li class="mt-3">
+                        {{-- <li class="mt-3">
                             <a href="{{ route( 'blog' ) }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">Blog</a>
-                        </li>
+                        </li> --}}
                         <li class="mt-3">
                             <a href="{{ route( 'contact-us' ) }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">Contact Us</a>
                         </li>
@@ -74,7 +74,7 @@
                 <ul class="d-inline-flex gap-3 m-0 p-0 justify-content-center w-100 order-lg-0 order-1">
                     @if($links->facebookUrl != '')
                     <li>
-                        <a href="{{$links->facebookUrl}}">
+                        <a href="{{$links->facebookUrl}}" target="_blank" >
                             <svg width="49" height="48" viewBox="0 0 49 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <rect x="0.1875" width="48" height="48" rx="24" fill="white" fill-opacity="0.08"/>
                                 <path d="M34.1875 28.19C34.1875 31.83 32.0175 34 28.3775 34H27.1875C26.6375 34 26.1875 33.55 26.1875 33V27.23C26.1875 26.96 26.4075 26.73 26.6775 26.73L28.4375 26.7C28.5775 26.69 28.6975 26.59 28.7275 26.45L29.0775 24.54C29.1075 24.36 28.9675 24.19 28.7775 24.19L26.6475 24.22C26.3675 24.22 26.1475 24 26.1375 23.73L26.0975 21.28C26.0975 21.12 26.2275 20.98 26.3975 20.98L28.7975 20.94C28.9675 20.94 29.0975 20.81 29.0975 20.64L29.0575 18.24C29.0575 18.07 28.9275 17.94 28.7575 17.94L26.0575 17.98C24.3975 18.01 23.0775 19.37 23.1075 21.03L23.1575 23.78C23.1675 24.06 22.9475 24.28 22.6675 24.29L21.4675 24.31C21.2975 24.31 21.1675 24.44 21.1675 24.61L21.1975 26.51C21.1975 26.68 21.3275 26.81 21.4975 26.81L22.6975 26.79C22.9775 26.79 23.1975 27.01 23.2075 27.28L23.2975 32.98C23.3075 33.54 22.8575 34 22.2975 34H19.9975C16.3575 34 14.1875 31.83 14.1875 28.18V19.81C14.1875 16.17 16.3575 14 19.9975 14H28.3775C32.0175 14 34.1875 16.17 34.1875 19.81V28.19Z" fill="#FEFEFE"/>
