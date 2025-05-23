@@ -34,7 +34,7 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $Products = Product::with('images')->orderByRaw("FIELD(id, 13) DESC")->limit(2)->get();
+        $Products = Product::with('images')->orderByRaw("FIELD(id, 13) DESC")->where('status',1)->limit(2)->get();
         $tuya_d8_url = '';
         if( !empty($Products) ){
             foreach ($Products as $product) {
@@ -94,7 +94,7 @@ class HomeController extends Controller
         if (!$product) {
             abort(404);
         }
-        $othersProducts = Product::with('images')->where('id', '!=', $product->id)->limit(2)->get();
+        $othersProducts = Product::with('images')->where('id', '!=', $product->id)->where('status',1)->limit(2)->get();
         $sale_season_icon = $this->getSeasonSellIcon();
         $getCategory =  Category::where('id',$product->category_id)->first();
         return view('productDetail', compact('product', 'othersProducts', 'sale_season_icon','getCategory'));
@@ -293,7 +293,7 @@ class HomeController extends Controller
             return redirect()->route('home');
         }
         $product_ids = array_keys($cartItems);
-        $othersProducts = Product::with('images')->whereNotIn('id', $product_ids)->limit(2)->get();
+        $othersProducts = Product::with('images')->whereNotIn('id', $product_ids)->where('status',1)->limit(2)->get();
 
         $countries = Country::whereIn('id', [251, 252])->get();
 
