@@ -50,7 +50,7 @@
         <div class="text-slate-50 font-inter-regular text-sm">🚛 Convenient & Trustworthy Delivery</div>
     </div>
 </section>
-<header class="d-flex align-items-center flex-column justify-content-center position-sticky bg-white" id="header">
+<header class="d-flex align-items-center flex-column justify-content-center position-sticky" id="header">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
             <a href="{{ route( 'home' ) }}" aria-label="{{ config('app.name') }}" class="logo">

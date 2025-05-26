@@ -12,6 +12,7 @@
   --slate-100: #F3F3F3;
   --slate-200: #CDCDCD;
   --slate-300: #D1D5DB;
+  --slate-400: #555555;
   --slate-700: #E7EAEB;
   --slate-800: #23262F;
   --slate-900: #292929;
@@ -148,6 +149,7 @@ header {
   /* min-height: 100px; */
   z-index: 4;
   top: 36px;
+  background-color: #E6E9F4;
 }
 
 .dropdown:hover>.dropdown-menu {
@@ -1022,4 +1024,34 @@ footer .copy-right{
 
 .our-partner{
   padding: 80px 0;
+}
+
+.hot-deals{
+  padding-top: 100px;
+  padding-bottom: 52px;
+}
+.hot-deals h2 {
+  font-size: 56px;
+  line-height: 66px;
+}
+.hot-deals .cards{
+  border-color: #E6E9F4;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+}
+.hot-deals .hot-d-label{
+  padding: 12px 24px 12px 16px;
+  letter-spacing: -0.3px;
+  border-radius: 10px 11px 100px 2px;
+  top: -8px;
+  left: -8px;
+}
+.hot-deals .hot-d-label svg{
+  bottom: 2px;
+}
+.hot-deals .hot-col{
+  padding: 0 40px;
+}
+.hot-deals .hot-row{
+  margin: 56px -40px 0;
 }

@@ -181,6 +181,10 @@
   .hero {
     padding: 50px 0 20px;
   }
+  .hot-deals{
+    padding-top: 42px;
+    padding-bottom: 0;
+  }
 
   .hero .spec ul li {
     width: 33.33%;
@@ -240,6 +244,12 @@
     height: 15px;
     top: -10px;
     right: -10px;
+  }
+  .hot-deals .hot-col{
+    padding: 0 16px;
+  }
+  .hot-deals .hot-row{
+    margin: 32px -16px 0;
   }
 }
 
