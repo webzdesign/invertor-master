@@ -38,8 +38,18 @@
 @endif
 <meta property="og:url" content="{{ url()->current() }}">
 <meta property="og:type" content="website">
-
-<link rel="shortcut icon" href="{{ asset( 'assets/images/favicon.ico' ) }}" type="image/x-icon">
+@php
+use App\Models\Setting;
+ $setting = Setting::select('favicon')->first();
+ $fIcon = '';
+ if ($setting) {
+   if ($setting->favicon) {
+     $fIcon = "assets/images/{$setting->favicon}";
+    }
+  }
+  
+@endphp
+<link rel="shortcut icon" href="{{ url('admin/public').'/'. $fIcon }}" type="image/x-icon">
 
 <title> @yield('title')</title>
 

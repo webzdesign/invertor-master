@@ -109,7 +109,7 @@
 </section>
 
 <section class="map rounded-lg overflow-hidden mt-4">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2721.9380247959693!2d28.89630040000001!3d46.9825519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c9790019e3c4a1%3A0x9491fb9fd0833ae6!2sCernat%20Barbershop%20%F0%9F%92%88!5e0!3m2!1sen!2sin!4v1747828129713!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1360.9736506283787!2d28.8950704!3d46.9823697!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c979de27354b97%3A0x41b1ae8770f76a34!2sInvertor%20Lux!5e0!3m2!1sen!2sin!4v1748263863203!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </section>
 
 @endsection

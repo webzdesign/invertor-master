@@ -291,21 +291,27 @@
     </div>
 </section>
 @php
-    $yt_url = 'https://www.youtube.com/embed/T3VUFXetSCk?si=1VVOASVR3t5kgaHm';
-    if( $product->unique_number == '012' ){
-        $first_img = asset('/assets/images/pro7.png');
-        $second_img = asset('/assets/images/pro8.png');
-        $last_img = asset('/assets/images/pro9.png');
-    } else if( $product->unique_number == '013' ){
-        $first_img = asset('/assets/images/pro10.png');
-        $second_img = asset('/assets/images/pro11.png');
-        $last_img = asset('/assets/images/pro12.png');
-        $yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=4j3hgX6dNsNhtjEs';
-    } else {
-        $first_img = !empty($product->images[1]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[1]->name : '';
-        $second_img = !empty($product->images[2]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[2]->name : '';
-        $last_img = !empty($product->images[3]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[3]->name : '';
-    }
+    // $yt_url = 'https://www.youtube.com/embed/T3VUFXetSCk?si=1VVOASVR3t5kgaHm';
+    // if( $product->unique_number == '012' ){
+    //     $first_img = asset('/assets/images/pro7.png');
+    //     $second_img = asset('/assets/images/pro8.png');
+    //     $last_img = asset('/assets/images/pro9.png');
+    // } else if( $product->unique_number == '013' ){
+    //     $first_img = asset('/assets/images/pro10.png');
+    //     $second_img = asset('/assets/images/pro11.png');
+    //     $last_img = asset('/assets/images/pro12.png');
+    //     $yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=4j3hgX6dNsNhtjEs';
+    // } else {
+    //     $first_img = !empty($product->images[1]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[1]->name : '';
+    //     $second_img = !empty($product->images[2]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[2]->name : '';
+    //     $last_img = !empty($product->images[3]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[3]->name : '';
+    //     $yt_url = $product->youtube_video_url;
+    // }
+    
+    $first_img = !empty($product->images[1]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[1]->name : '';
+    $second_img = !empty($product->images[2]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[2]->name : '';
+    $last_img = !empty($product->images[3]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[3]->name : '';
+    $yt_url = $product->youtube_video_url;
 @endphp
 @if( !empty($first_img) || !empty($second_img) || !empty($last_img) )
     <section class="why-choose-product bg-gray-50">
@@ -325,19 +331,21 @@
                 <div class="col-12 mb-4">
                     <div class="position-relative">
                         <img class="sz_banner_img" src="{{ $last_img }}" alt="bike">
-                        <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="{{ $yt_url }}">
-                            <svg class="icon-play" width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_67_17706)">
-                                <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"></rect>
-                                <path d="M58.0273 97.668C35.9353 97.668 18.0273 79.76 18.0273 57.668C18.0273 35.576 35.9353 17.668 58.0273 17.668C80.1193 17.668 98.0273 35.576 98.0273 57.668C98.0273 79.76 80.1193 97.668 58.0273 97.668ZM52.5153 43.328C52.2746 43.1674 51.9948 43.075 51.7058 43.0609C51.4167 43.0467 51.1292 43.1111 50.8739 43.2474C50.6186 43.3837 50.4051 43.5867 50.256 43.8347C50.1069 44.0827 50.0279 44.3666 50.0273 44.656V70.68C50.0279 70.9694 50.1069 71.2532 50.256 71.5012C50.4051 71.7493 50.6186 71.9523 50.8739 72.0885C51.1292 72.2248 51.4167 72.2893 51.7058 72.2751C51.9948 72.2609 52.2746 72.1686 52.5153 72.008L72.0313 59C72.2508 58.8539 72.4308 58.6559 72.5553 58.4235C72.6798 58.1911 72.7449 57.9316 72.7449 57.668C72.7449 57.4043 72.6798 57.1448 72.5553 56.9124C72.4308 56.68 72.2508 56.482 72.0313 56.336L52.5113 43.328H52.5153Z" fill="#FEFEFE"></path>
-                                </g>
-                                <defs>
-                                <clipPath id="clip0_67_17706">
-                                <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="white"></rect>
-                                </clipPath>
-                                </defs>
-                            </svg>
-                        </div>
+                        @if (!empty($yt_url))
+                            <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="{{ $yt_url }}">
+                                <svg class="icon-play" width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_67_17706)">
+                                    <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"></rect>
+                                    <path d="M58.0273 97.668C35.9353 97.668 18.0273 79.76 18.0273 57.668C18.0273 35.576 35.9353 17.668 58.0273 17.668C80.1193 17.668 98.0273 35.576 98.0273 57.668C98.0273 79.76 80.1193 97.668 58.0273 97.668ZM52.5153 43.328C52.2746 43.1674 51.9948 43.075 51.7058 43.0609C51.4167 43.0467 51.1292 43.1111 50.8739 43.2474C50.6186 43.3837 50.4051 43.5867 50.256 43.8347C50.1069 44.0827 50.0279 44.3666 50.0273 44.656V70.68C50.0279 70.9694 50.1069 71.2532 50.256 71.5012C50.4051 71.7493 50.6186 71.9523 50.8739 72.0885C51.1292 72.2248 51.4167 72.2893 51.7058 72.2751C51.9948 72.2609 52.2746 72.1686 52.5153 72.008L72.0313 59C72.2508 58.8539 72.4308 58.6559 72.5553 58.4235C72.6798 58.1911 72.7449 57.9316 72.7449 57.668C72.7449 57.4043 72.6798 57.1448 72.5553 56.9124C72.4308 56.68 72.2508 56.482 72.0313 56.336L52.5113 43.328H52.5153Z" fill="#FEFEFE"></path>
+                                    </g>
+                                    <defs>
+                                    <clipPath id="clip0_67_17706">
+                                    <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="white"></rect>
+                                    </clipPath>
+                                    </defs>
+                                </svg>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endif

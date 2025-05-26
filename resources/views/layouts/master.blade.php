@@ -434,11 +434,11 @@
 
                                     $('#success-container').append(successHtml);
 
-                                    setTimeout(function() {
-                                        if(response.success && response.redirect_url){
-                                            window.location.href = response.redirect_url;
-                                        }
-                                    }, 1000);
+                                    // setTimeout(function() {
+                                    //     if(response.success && response.redirect_url){
+                                    //         window.location.href = response.redirect_url;
+                                    //     }
+                                    // }, 1000);
                                 } else {
                                    const errorHtml = `
                                         <div id="errorMessage" class="alert alert-danger align-items-center gap-2 mt-3 p-3 rounded-2xl bg-red-100 text-red-900" role="alert">

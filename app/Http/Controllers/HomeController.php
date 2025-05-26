@@ -962,7 +962,7 @@ class HomeController extends Controller
             return response()->json([
                 'success' => true,
                 'quotation_id' => encrypt($quotation->id),
-                'redirect_url' => route('quotation.successfully-requested',['id' => encrypt($quotation->id)]),
+                // 'redirect_url' => route('quotation.successfully-requested',['id' => encrypt($quotation->id)]),
                 'message' => 'Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!'
             ]);
            
