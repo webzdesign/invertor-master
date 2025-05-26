@@ -44,7 +44,10 @@ class HomeController extends Controller
             }
         }
         $sale_season_icon = $this->getSeasonSellIcon();
-        return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon'));
+
+        $is_hot_products = $Products = Product::with('images')->where('status',1)->where('is_hot',1)->orderBy('id','DESC')->limit(4)->get();
+
+        return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products'));
     }
 
     public function shop(Request $request)
@@ -873,10 +876,12 @@ class HomeController extends Controller
         /* social media linkis */
         $links = Helper::getsocialLink();
         foreach ($links->toArray() as $link) {
-            $url = $sitemap->addChild('url');
-            $url->addChild('loc', htmlspecialchars($link));
-            $url->addChild('lastmod', now()->toAtomString());
-            $url->addChild('priority', '0.80');
+            if(!empty($link)){
+                $url = $sitemap->addChild('url');
+                $url->addChild('loc', htmlspecialchars($link));
+                $url->addChild('lastmod', now()->toAtomString());
+                $url->addChild('priority', '0.80');
+            }
         }
 
         /* blogs - 'Discover-Skootz-Electric-Scooters-Your-Ultimate-Destination-for-E-Scooters' */

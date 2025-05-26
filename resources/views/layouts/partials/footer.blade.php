@@ -31,7 +31,7 @@
                             <a href="{{ route( 'about-us' ) }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">About</a>
                         </li>
                         <li class="mt-3">
-                            <a href="{{ route('shop') }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">Address</a>
+                            <a href="https://maps.app.goo.gl/XvBF3gg4hz1YcdBQ8" target="_blank" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">Address</a>
                         </li>
 
                         {{-- <li class="mt-3">
