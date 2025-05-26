@@ -54,7 +54,7 @@
             <h2 class="font-bebas text-32px-mob">Explore Our Cooling<br> Collection</h2>
             <div class="top-content">
                 <p class="text-xl text-gray-500 font-inter-medium text-base-mob">We have the right model for your needs and budget.</p>
-                <a href="http://localhost/e-bike/collections/all" class="button-dark mt-3">See our collections</a>
+                <a href="{{ route('shop') }}" class="button-dark mt-3">See our collections</a>
             </div>
         </div>
         <div class="d-flex justify-content-between align-items-center gap-3 mb-4">

@@ -16,35 +16,61 @@
 <section class="hero bg-slate-100 position-relative overflow-hidden">
     <div class="container">
         <div class="owl-carousel hero__slider">
-            @foreach ($Products as $slider_product)
+            @if(!empty($Products) && count($Products) > 0)
+                @foreach ($Products as $slider_product)
+                    <div class="owl-item-hero">
+                        <div class="row align-items-center">
+                            <div class="col-xl-6 col-lg-8 left-slide">
+                                @php
+                                    $breaks = array("<br />","<br>","<br/>");
+                                    $p_description = str_ireplace($breaks, "", $slider_product->slider_content);
+                                    if( mb_strlen($p_description) > 70 ){
+                                        $p_description = mb_strimwidth($p_description, 0, 70, '...');
+                                    }
+                                    $p_name = str_ireplace($breaks, "", $slider_product->slider_title);
+                                    if( mb_strlen($p_name) > 20 ){
+                                        $p_name = mb_strimwidth($p_name, 0, 20, '...');
+                                    }
+                                    $slider_yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=y1pFEns95QWdhO-W';
+                                    $slider_img = !empty($slider_product->images->first()->name) ? $slider_product->images->first()->name : '';
+                                @endphp
+                                <h1 class="fadeItem text-neutrino-blue-600 font-bebas">
+                                    <a class="text-decoration-none text-neutrino-blue-600" href="{{ route('productDetail', $slider_product->slug) }}">
+                                        <!-- {{ $p_name }} -->
+                                        Stay Cool, Stay Comfortable
+                                    </a>
+                                </h1>
+                                <p class="fadeItem text-gray-500 font-inter-regular text-lg my-4 text-lg-start text-center mx-auto mx-lg-0">
+                                    <!-- {{ $p_description }} -->
+                                    Energy-saving, ultra-quiet, and built for Moldova’s climate.
+                                </p>
+                                {{--<h2 class="fadeItem text-lg-start text-center">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($slider_product->web_sales_price, 2) }}</h2>--}}
+                                <a  class="fadeItem order-btn mx-auto mx-lg-0 bg-neutrino-blue-400 d-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-5 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn_ eb_OrderNowBtn_ getPriceModalBtn" data-pid="{{encrypt($slider_product->id)}}">
+                                    Get Price
+                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="40" height="40" rx="20" fill="#F3F3F3"/>
+                                        <path d="M12 20H28M28 20L22 14M28 20L22 26" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    @break
+                @endforeach
+            @else 
                 <div class="owl-item-hero">
                     <div class="row align-items-center">
                         <div class="col-xl-6 col-lg-8 left-slide">
-                            @php
-                                $breaks = array("<br />","<br>","<br/>");
-                                $p_description = str_ireplace($breaks, "", $slider_product->slider_content);
-                                if( mb_strlen($p_description) > 70 ){
-                                    $p_description = mb_strimwidth($p_description, 0, 70, '...');
-                                }
-                                $p_name = str_ireplace($breaks, "", $slider_product->slider_title);
-                                if( mb_strlen($p_name) > 20 ){
-                                    $p_name = mb_strimwidth($p_name, 0, 20, '...');
-                                }
-                                $slider_yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=y1pFEns95QWdhO-W';
-                                $slider_img = !empty($slider_product->images->first()->name) ? $slider_product->images->first()->name : '';
-                            @endphp
                             <h1 class="fadeItem text-neutrino-blue-600 font-bebas">
-                                <a class="text-decoration-none text-neutrino-blue-600" href="{{ route('productDetail', $slider_product->slug) }}">
-                                    <!-- {{ $p_name }} -->
-                                      Stay Cool, Stay Comfortable
+                                <a class="text-decoration-none text-neutrino-blue-600" href="#">
+                                    Stay Cool, Stay Comfortable
                                 </a>
                             </h1>
                             <p class="fadeItem text-gray-500 font-inter-regular text-lg my-4 text-lg-start text-center mx-auto mx-lg-0">
-                                <!-- {{ $p_description }} -->
                                 Energy-saving, ultra-quiet, and built for Moldova’s climate.
                             </p>
                             {{--<h2 class="fadeItem text-lg-start text-center">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($slider_product->web_sales_price, 2) }}</h2>--}}
-                            <a  class="fadeItem order-btn mx-auto mx-lg-0 bg-neutrino-blue-400 d-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-5 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn_ eb_OrderNowBtn_ getPriceModalBtn" data-pid="{{encrypt($slider_product->id)}}">
+                            <a  class="fadeItem order-btn mx-auto mx-lg-0 bg-neutrino-blue-400 d-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-5 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3" data-pid="">
                                 Get Price
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="40" height="40" rx="20" fill="#F3F3F3"/>
@@ -54,8 +80,7 @@
                         </div>
                     </div>
                 </div>
-                @break
-            @endforeach
+            @endif
         </div>
         <div class="right-slide">
             <div class="d-lg-flex align-items-start text-center justify-content-end position-relative">
