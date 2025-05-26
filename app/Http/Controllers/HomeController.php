@@ -609,32 +609,32 @@ class HomeController extends Controller
         foreach ($products as $key => $product) {
             $product_name =  htmlspecialchars($product->name);
             $product_name = strlen($product_name) > 150 ? substr($product_name, 0, 150) : $product_name;
-            $description = htmlspecialchars(html_entity_decode(strip_tags($product->description)));
-            $description = strlen($description) > 5000 ? substr($description, 0, 5000) : $description;
+            // $description = htmlspecialchars(html_entity_decode(strip_tags($product->description)));
+            // $description = strlen($description) > 5000 ? substr($description, 0, 5000) : $description;
             $product_link = route('productDetail', $product->slug);
             $product_main_img = !empty($product->images->first()->name) ? env( 'APP_Image_URL' ) . 'storage/product-images/' . $product->images->first()->name : '';
             $additional_image_link = !empty($product->images->get(1)->name) ? env( 'APP_Image_URL' ) . 'storage/product-images/' . $product->images->get(1)->name : '';
-            $price = !empty($product->web_sales_old_price) ? $product->web_sales_old_price : $product->web_sales_price;
-            $price .= ' POUND';
-            $sales_price = $product->web_sales_price . ' POUND';
+            // $price = !empty($product->web_sales_old_price) ? $product->web_sales_old_price : $product->web_sales_price;
+            // $price .= ' POUND';
+            // $sales_price = $product->web_sales_price . ' POUND';
 
             $product_details = $xml->addChild('product');
             $product_details->addChild('id', time() . $key);
             $product_details->addChild('title', $product_name);
-            $product_details->addChild('description', $description);
+            // $product_details->addChild('description', $description);
             $product_details->addChild('link', $product_link);
             $product_details->addChild('image_link', $product_main_img);
             $product_details->addChild('additional_image_link', $additional_image_link);
-            $product_details->addChild('availability', 'In Stock');
-            $product_details->addChild('price', $price);
-            $product_details->addChild('sales_price', $sales_price);
-            $product_details->addChild('brand', $product->brand);
-            $product_details->addChild('sku', $product->sku);
-            $product_details->addChild('gtin', $product->gtin);
-            $product_details->addChild('mpn', $product->mpn);
-            $product_details->addChild('condition', 'New');
-            $product_details->addChild('shipping', '0 POUND');
-            $product_details->addChild('tax', 'no');
+            // $product_details->addChild('availability', 'In Stock');
+            // $product_details->addChild('price', $price);
+            // $product_details->addChild('sales_price', $sales_price);
+            // $product_details->addChild('brand', $product->brand);
+            // $product_details->addChild('sku', $product->sku);
+            // $product_details->addChild('gtin', $product->gtin);
+            // $product_details->addChild('mpn', $product->mpn);
+            // $product_details->addChild('condition', 'New');
+            // $product_details->addChild('shipping', '0 POUND');
+            // $product_details->addChild('tax', 'no');
         }
 
         $xmlContent = $xml->asXML();
@@ -822,12 +822,6 @@ class HomeController extends Controller
         $url->addChild('lastmod', now()->toAtomString());
         $url->addChild('priority', '0.80');
 
-        /* blog */
-        $url = $sitemap->addChild('url');
-        $url->addChild('loc', htmlspecialchars(route('blog')));
-        $url->addChild('lastmod', now()->toAtomString());
-        $url->addChild('priority', '0.80');
-
         /* contact-us */
         $url = $sitemap->addChild('url');
         $url->addChild('loc', htmlspecialchars(route('contact-us')));
@@ -835,10 +829,19 @@ class HomeController extends Controller
         $url->addChild('priority', '0.80');
 
         /* products */
-        $products = Product::with('images')->where('status', '1')->orderBy('id', 'desc')->get();
+        $products = Product::with(['images','category:id,slug'])->where('status', '1')->orderBy('id', 'desc')->get();
         foreach ($products as $product) {
             $url = $sitemap->addChild('url');
             $url->addChild('loc', htmlspecialchars(route('productDetail', $product->slug)));
+            $url->addChild('lastmod', now()->toAtomString());
+            $url->addChild('priority', '0.80');
+        }
+
+        /* category wise products */
+        $categories = Helper::getCategories();
+        foreach ($categories as $category) {
+            $url = $sitemap->addChild('url');
+            $url->addChild('loc', htmlspecialchars(route('shopCategory',$category->slug)));
             $url->addChild('lastmod', now()->toAtomString());
             $url->addChild('priority', '0.80');
         }
@@ -867,17 +870,34 @@ class HomeController extends Controller
         $url->addChild('lastmod', now()->toAtomString());
         $url->addChild('priority', '0.80');
 
+        /* social media linkis */
+        $links = Helper::getsocialLink();
+        foreach ($links->toArray() as $link) {
+            $url = $sitemap->addChild('url');
+            $url->addChild('loc', htmlspecialchars($link));
+            $url->addChild('lastmod', now()->toAtomString());
+            $url->addChild('priority', '0.80');
+        }
+
         /* blogs - 'Discover-Skootz-Electric-Scooters-Your-Ultimate-Destination-for-E-Scooters' */
-        $url = $sitemap->addChild('url');
-        $url->addChild('loc', htmlspecialchars(route('blogDetail', 'Discover-Skootz-Electric-Scooters-Your-Ultimate-Destination-for-E-Scooters')));
-        $url->addChild('lastmod', now()->toAtomString());
-        $url->addChild('priority', '0.80');
+        // $url = $sitemap->addChild('url');
+        // $url->addChild('loc', htmlspecialchars(route('blogDetail', 'Discover-Skootz-Electric-Scooters-Your-Ultimate-Destination-for-E-Scooters')));
+        // $url->addChild('lastmod', now()->toAtomString());
+        // $url->addChild('priority', '0.80');
 
         /* blogs - 'Unveiling-the-Advantages-of-Electric-Scooters-A-Comprehensive-Guide' */
-        $url = $sitemap->addChild('url');
-        $url->addChild('loc', htmlspecialchars(route('blogDetail', 'Unveiling-the-Advantages-of-Electric-Scooters-A-Comprehensive-Guide')));
-        $url->addChild('lastmod', now()->toAtomString());
-        $url->addChild('priority', '0.80');
+        // $url = $sitemap->addChild('url');
+        // $url->addChild('loc', htmlspecialchars(route('blogDetail', 'Unveiling-the-Advantages-of-Electric-Scooters-A-Comprehensive-Guide')));
+        // $url->addChild('lastmod', now()->toAtomString());
+        // $url->addChild('priority', '0.80');
+
+        /* blog */
+        // $url = $sitemap->addChild('url');
+        // $url->addChild('loc', htmlspecialchars(route('blog')));
+        // $url->addChild('lastmod', now()->toAtomString());
+        // $url->addChild('priority', '0.80');
+
+
 
         $xmlContent = $sitemap->asXML();
 
@@ -889,6 +909,12 @@ class HomeController extends Controller
     {
         DB::beginTransaction();
         try {
+            if ($request->filled('is_scammers')) {
+                return response()->json([
+                    'success' => false,                        
+                    'message' => 'Something went wrong! Please try again.'
+                ]);
+            }
             $purchase_source = '';
             if( $request->hasCookie('sz_utm_source') != false ){
                 $purchase_source = $request->cookie('sz_utm_source');
@@ -926,22 +952,25 @@ class HomeController extends Controller
             session()->forget('cart');
 
             Artisan::call('quotation:add-to-google-sheet', ['ids' => $quotation->id]);
-            if(isset($request->modalRequest) && $request->modalRequest == true) {
-                return response()->json(['success' => true,'quotation_id' => encrypt($quotation->id), 'redirect_url' => route('quotation.successfully-requested', ['id' => encrypt($quotation->id)]),'message' => 'Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!']);
-            } else {
-                return redirect()->route('quotation.successfully-requested', ['id' => encrypt($quotation->id)]);
-            }
+            
+            
+            return response()->json([
+                'success' => true,
+                'quotation_id' => encrypt($quotation->id),
+                'redirect_url' => route('quotation.successfully-requested',['id' => encrypt($quotation->id)]),
+                'message' => 'Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!'
+            ]);
+           
 
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             DB::rollBack();
         }
 
-        // if(isset($request->modalRequest) && $request->modalRequest == true) {
-        //     return response()->json(['success' => true, 'message' => 'Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!']);
-        // } else {
-        //     return redirect()->route('checkout');
-        // }
+        return response()->json([
+            'success' => false,                        
+            'message' => 'Something went wrong! Please try again.'
+        ]);
         
     }
 

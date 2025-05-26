@@ -33,7 +33,7 @@ Route::middleware([PreventBackButtonMiddleware::class])->group(function () {
 
 
     /* cms pages */
-    Route::get('pages/about-skootz', [PageController::class, 'aboutUs'])->name('about-us');
+    Route::get('pages/about', [PageController::class, 'aboutUs'])->name('about-us');
     Route::get('pages/testimonial', [PageController::class, 'testimonial'])->name('testimonial');
     Route::get('pages/contact-us', [PageController::class, 'contactUs'])->name('contact-us');
     Route::post('contact-us/store', [HomeController::class, 'contactUsStore'])->middleware('throttle:5,1')->name('contactUs.store');

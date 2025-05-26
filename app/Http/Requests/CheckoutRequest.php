@@ -28,7 +28,11 @@ class CheckoutRequest extends FormRequest
             // "house_no" => "required",
             // "customer_name" => "required",
             // "post_code" => "required",
-            "phone" => "required",
+           "phone" => [
+                'required',
+                'phone:' . strtoupper($this->input('country_iso_code')), // Example: phone:GB or phone:MD
+            ],
+            // "is_scammers" => "max:0"
         ];
     }
 
@@ -42,6 +46,8 @@ class CheckoutRequest extends FormRequest
             "house_no.required" => "House No is required.",
             "post_code.required" => "Post code is required.",
             "phone.required" => "Phone is required.",
+            "phone.phone" => "Phone number format is invalid.",
+            "is_scammers.max" => "Spam detected.",
         ];
     }
 }
