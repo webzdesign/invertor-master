@@ -120,7 +120,7 @@
                                 <label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
                             @endif--}}
                         </div>
-                        <button class="button-dark AddToCartBtn mt-3 d-flex align-items-center gap-2 mx-auto mx-lg-0" data-pid="{{ encrypt( $product->id ) }}">
+                        <button class="button-dark AddToCartBtn_ mt-3 d-flex align-items-center gap-2 mx-auto mx-lg-0 getPriceModalBtn" data-pid="{{ encrypt( $product->id ) }}">
                             Get Price
                             <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">

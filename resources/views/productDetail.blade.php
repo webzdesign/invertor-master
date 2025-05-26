@@ -183,7 +183,7 @@
                         <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
                     </div>
 
-                    <button class="button-dark AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ $sz_p_encrypt_id }}">
+                    <button class="button-dark AddToCartBtn_ getPriceModalBtn d-flex align-items-center gap-2" data-pid="{{ $sz_p_encrypt_id }}">
                         Get Price
                         <span class="sz_add_to_cart_circle {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -404,7 +404,7 @@
                             @endif
                         </div>--}}
 
-                        <button class="button-dark mt-3 AddToCartBtn d-flex align-items-center gap-2 mx-auto mx-lg-0" data-pid="{{ encrypt( $o_product->id ) }}">
+                        <button class="button-dark mt-3 AddToCartBtn_ getPriceModalBtn d-flex align-items-center gap-2 mx-auto mx-lg-0" data-pid="{{ encrypt( $o_product->id ) }}">
                             Get Price
                             <span class="sz_add_to_cart_circle {{ empty($cart_products[$o_product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -467,7 +467,7 @@
                     <span class="plus-btn cursor-pointer w-4 d-inline-flex align-items-center justify-content-end text-2xl">+</span>
                 </div>
 
-                <button class="button-dark AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ $sz_p_encrypt_id }}">
+                <button class="button-dark AddToCartBtn_ getPriceModalBtn d-flex align-items-center gap-2" data-pid="{{ $sz_p_encrypt_id }}">
                     Get price
                     <span class="sz_add_to_cart_circle {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">

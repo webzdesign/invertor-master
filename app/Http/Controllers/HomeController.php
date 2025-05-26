@@ -34,7 +34,7 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $Products = Product::with('images')->orderByRaw("FIELD(id, 13) DESC")->where('status',1)->limit(2)->get();
+        $Products = Product::with('images')->orderByRaw("FIELD(id, 13) DESC")->where('status',1)->where('is_hot',1)->limit(2)->get();
         $tuya_d8_url = '';
         if( !empty($Products) ){
             foreach ($Products as $product) {
@@ -896,7 +896,7 @@ class HomeController extends Controller
                     $purchase_source = substr($purchase_source, 0, 255);
                 }
             }
-
+            
             $quotation = Quotation::create([
                 "customer_name" => $request->customer_name,
                 "post_code" => $request->post_code,
@@ -906,7 +906,7 @@ class HomeController extends Controller
                 "purchase_source" => $purchase_source,
                 "quotation_date" => now()->toDateTimeString()
             ]);
-
+            
             Quotation::updateQuotationNumber($quotation->id);
 
             if( !empty($request->productId) ) {
@@ -926,14 +926,23 @@ class HomeController extends Controller
             session()->forget('cart');
 
             Artisan::call('quotation:add-to-google-sheet', ['ids' => $quotation->id]);
+            if(isset($request->modalRequest) && $request->modalRequest == true) {
+                return response()->json(['success' => true,'quotation_id' => encrypt($quotation->id), 'redirect_url' => route('quotation.successfully-requested', ['id' => encrypt($quotation->id)]),'message' => 'Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!']);
+            } else {
+                return redirect()->route('quotation.successfully-requested', ['id' => encrypt($quotation->id)]);
+            }
 
-            return redirect()->route('quotation.successfully-requested', ['id' => encrypt($quotation->id)]);
         } catch (\Exception $e) {
-            Log::error($e);
+            Log::error($e->getMessage());
             DB::rollBack();
         }
 
-        return redirect()->route('checkout');
+        // if(isset($request->modalRequest) && $request->modalRequest == true) {
+        //     return response()->json(['success' => true, 'message' => 'Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!']);
+        // } else {
+        //     return redirect()->route('checkout');
+        // }
+        
     }
 
     public function quotationSuccessfullyRequested($quotationId)

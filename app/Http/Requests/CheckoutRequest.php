@@ -26,8 +26,8 @@ class CheckoutRequest extends FormRequest
             // "last_name" => "required",
             // "address" => "required",
             // "house_no" => "required",
-            "customer_name" => "required",
-            "post_code" => "required",
+            // "customer_name" => "required",
+            // "post_code" => "required",
             "phone" => "required",
         ];
     }

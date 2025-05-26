@@ -394,7 +394,7 @@
                                                 </div>
                                             </div>
                                             <div class="ps-2 likeProuct mt-xl-0 mt-3">
-                                                <button class="button-dark text-base AddToCartBtn d-flex align-items-center gap-2" data-pid="{{ encrypt( $o_product->id ) }}">
+                                                <button class="button-dark text-base AddToCartBtn_ getPriceModalBtn d-flex align-items-center gap-2" data-pid="{{ encrypt( $o_product->id ) }}">
                                                     Get Price
                                                     <span class="sz_add_to_cart_circle {{ empty($cart_products[$o_product->id]) ? 'd-none' : '' }}">
                                                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -28,6 +28,36 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="getPriceModal" tabindex="-1" aria-labelledby="getPriceModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-md">
+                <div class="modal-content border-slate-200 rounded-2xl">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-3" id="getPriceModalLabel">Enter Your Phone Number </br> Get The Offer</h1>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-body">
+                        <form class="phone-modal-form" id="phoneModalForm" >
+                            <div class="row">
+                                <div class="col-lg-12 mb-1" id="phoneModalData">
+                                    <input type="hidden" name="productId[]" id="productId">
+                                    <label class="font-inter-regular text-sm d-block mb-1" for="phone">Phone number<span class="text-rose-500">*</span></label>
+                                    <input type="hidden" name="country_dial_code_modal" id="country_dial_code_modal">
+                                    <input type="hidden" name="country_iso_code_modal" id="country_iso_code_modal">
+                                    <input type="text" class="input-control w-100" name="sz_phone_modal" id="phone_modal" value="">
+                                </div>
+                                <label id="phone_modal-error" class="error" style="color: red;" for="phone_modal"></label>
+                                <div id="success-container"></div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12">
+                                    <button type="submit" id="phoneModalFormSubmit" class="button-dark w-100">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script>
 
             $(document).ready(function(){
@@ -291,6 +321,134 @@
             }
             </script>
 
+        <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
+        <script src="{{ asset('assets/js/intel.min.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
         @yield('script')
+
+        <script>
+            const inputModal = document.querySelector('#phone_modal');
+            const errorMapModal = ["Phone number is invalid.", "Invalid country code", "Too short", "Too long"];
+
+            const itiModal = window.intlTelInput(inputModal, {
+                initialCountry: "md",
+                preferredCountries: ['md','gb', 'pk'],
+                separateDialCode:true,
+                nationalMode:false,
+                utilsScript: "{{ asset('assets/js/intel2.js') }}"
+            });
+
+            $.validator.addMethod('inttel_modal', function (value, element) {
+                if (value.trim() == '' || itiModal.isValidNumber()) {
+                    return true;
+                }
+                return false;
+            }, function (result, element) {
+                    return errorMapModal[itiModal.getValidationError()] || errorMapModal[0];
+            });
+
+            inputModal.addEventListener('keyup', () => {
+                if (itiModal.isValidNumber()) {
+                    $('#phoneModalFormSubmit').attr('disabled', false);
+                    $('#country_dial_code_modal').val(itiModal.s.dialCode);
+                    $('#country_iso_code_modal').val(itiModal.j);
+                } 
+            });
+            inputModal.addEventListener("countrychange", function() {
+                if (itiModal.isValidNumber()) {
+                    $('#country_dial_code_modal').val(itiModal.s.dialCode);
+                    $('#country_iso_code_modal').val(itiModal.j);
+                }
+            });
+
+            $(document).ready(function() {
+
+                $(document).on('click','.getPriceModalBtn',function(){
+                    $('#getPriceModal').modal('show');
+                    let pID = $(this).data('pid');
+                    if(pID) {
+                        $(document).find('#phoneModalForm').find('#phoneModalData').find('#productId').val(pID);
+                    }
+                });
+
+                $('#getPriceModal').on('hidden.bs.modal', function () {
+                    let form = $('#phoneModalForm');
+                    form[0].reset();
+                    $('#success-container').empty();
+                    form.find('.error').html('');
+                    form.find('#productId').val('');
+                });
+
+                $('#phoneModalFormSubmit').attr('disabled', true);
+
+                 $("#phoneModalForm").validate({
+                    rules: {
+                        sz_phone_modal: {
+                            required: true,
+                            inttel_modal: true,
+                            number: true
+                        },
+                    },
+                    messages: {
+                        sz_phone_modal: {
+                            required: "Phone is required.",
+                            number : 'Phone number is invalid formate'
+                        },
+                    },
+                    errorPlacement: function(error, element) {
+                        error.appendTo(element.parent("div"));
+                    },
+                    submitHandler:function(form) {
+                        $('#phoneModalFormSubmit').attr('disabled', true);
+
+                        const formData = new FormData(form);
+                        const rawData = Object.fromEntries(formData.entries());
+                        const productIds = formData.getAll('productId[]');
+                        const data = {
+                            country_dial_code: rawData.country_dial_code_modal,
+                            country_iso_code: rawData.country_iso_code_modal,
+                            phone: rawData.sz_phone_modal,
+                            productId: productIds,
+                            modalRequest: true
+                        };
+                        
+                        // form.submit();
+                        $.ajax({
+                            url: "{{ route('quotation.request') }}",    
+                            method: "POST",
+                            data: data, 
+                            success: function (response) {
+                                // console.log("Success:", response);
+                                $('#phoneModalForm')[0].reset();
+                                $('#success-container').empty();
+
+                                const successHtml = `
+                                <div id="successMessage" class="alert alert-primary align-items-center gap-2 mt-3 p-3 rounded-2xl bg-blue-100 text-blue-900" role="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-check-circle-fill text-blue-600" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 0 0-1.06-1.06L7.5 9.44 5.53 7.47a.75.75 0 0 0-1.06 1.06l2.5 2.5z"/>
+                                    </svg>
+                                    <span id="successText">${response.message}</span>
+                                </div>  
+                                `;
+
+                                $('#success-container').append(successHtml);
+
+                                setTimeout(function() {
+                                    if(response.success && response.redirect_url){
+                                        window.location.href = response.redirect_url;
+                                    }
+                                }, 1000);
+
+                            },
+                            error: function (xhr) {
+                                console.error("Error:", xhr.responseJSON);
+                                $('#phoneModalFormSubmit').attr('disabled', false); 
+                            }
+                        });
+                    }
+                });
+            });
+
+        </script>
     </body>
 </html>

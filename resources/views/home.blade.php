@@ -44,7 +44,7 @@
                                 Energy-saving, ultra-quiet, and built for Moldova’s climate.
                             </p>
                             {{--<h2 class="fadeItem text-lg-start text-center">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($slider_product->web_sales_price, 2) }}</h2>--}}
-                            <a  class="fadeItem order-btn mx-auto mx-lg-0 bg-neutrino-blue-400 d-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-5 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn eb_OrderNowBtn" data-pid="{{encrypt($slider_product->id)}}">
+                            <a  class="fadeItem order-btn mx-auto mx-lg-0 bg-neutrino-blue-400 d-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-5 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn_ eb_OrderNowBtn_ getPriceModalBtn" data-pid="{{encrypt($slider_product->id)}}">
                                 Get Price
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="40" height="40" rx="20" fill="#F3F3F3"/>
@@ -312,7 +312,7 @@
                             </label>--}}
                         </div>
 
-                        <button class="button-dark mt-3 AddToCartBtn d-flex align-items-center gap-2 mx-auto mx-lg-0" data-pid="{{ encrypt( $product->id ) }}">
+                        <button class="button-dark mt-3 AddToCartBtn_ d-flex align-items-center gap-2 mx-auto mx-lg-0 getPriceModalBtn" data-pid="{{ encrypt( $product->id ) }}">
                             Get Price
                             <span class="sz_add_to_cart_circle align-text-top ms-1 leading-0 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
