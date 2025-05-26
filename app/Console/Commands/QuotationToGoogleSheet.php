@@ -45,6 +45,7 @@ class QuotationToGoogleSheet extends Command
             $rows = [];
             foreach ($quotations as $quotation) {
                 $phone = $quotation->phone;
+                $purchase_source = $quotation->purchase_source;
                 $code = $quotation->country_dial_code;
                 $phoneCode = Str::substr(str_replace([" ","+"], "", $phone),0, Str::length($code));
 
@@ -77,20 +78,20 @@ class QuotationToGoogleSheet extends Command
                     /*"V"*/ "",
                     /*"W"*/ "",
                     /*"X"*/ "",
-                    /*"Y"*/ "invertor.md",
+                    /*"Y"*/ (!empty($phone) && !empty($purchase_source) ? $purchase_source : "invertor.md"),
                 ];
 
                 $this->info("{$quotation->quotation_no} | {$phone}");
             }
 
             Sheets::spreadsheet("1px7nDQnWGX44ECRqWpm8ez6A9399rmdhzUcjLhZzseg")
-                ->sheet("Clienti")
-                ->range("Clienti!A:A")
-                ->append($rows);
+            ->sheet("Clienti")
+            ->range("Clienti!A:A")
+            ->append($rows);
 
             Quotation::whereIn("id", $quotations->pluck("id"))->update(["is_sheet_added" => 1]);
         } catch (\Exception $e) {
-            Log::error($e);
+            Log::error($e->getMessage());
         }
     }
 }
