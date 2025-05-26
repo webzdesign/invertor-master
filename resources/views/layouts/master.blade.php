@@ -40,6 +40,7 @@
                             <div class="row">
                                 <div class="col-lg-12 mb-1" id="phoneModalData">
                                     <input type="hidden" name="productId[]" id="productId">
+                                    <input type="text" name="is_scammers" style="display: none;">
                                     <label class="font-inter-regular text-sm d-block mb-1" for="phone">Phone number<span class="text-rose-500">*</span></label>
                                     <input type="hidden" name="country_dial_code_modal" id="country_dial_code_modal">
                                     <input type="hidden" name="country_iso_code_modal" id="country_iso_code_modal">
@@ -409,7 +410,8 @@
                             country_iso_code: rawData.country_iso_code_modal,
                             phone: rawData.sz_phone_modal,
                             productId: productIds,
-                            modalRequest: true
+                            is_scammers: rawData.is_scammers,
+                            modalRequest: true,
                         };
                         
                         // form.submit();
@@ -418,26 +420,37 @@
                             method: "POST",
                             data: data, 
                             success: function (response) {
-                                // console.log("Success:", response);
                                 $('#phoneModalForm')[0].reset();
                                 $('#success-container').empty();
 
-                                const successHtml = `
-                                <div id="successMessage" class="alert alert-primary align-items-center gap-2 mt-3 p-3 rounded-2xl bg-blue-100 text-blue-900" role="alert">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-check-circle-fill text-blue-600" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 0 0-1.06-1.06L7.5 9.44 5.53 7.47a.75.75 0 0 0-1.06 1.06l2.5 2.5z"/>
-                                    </svg>
-                                    <span id="successText">${response.message}</span>
-                                </div>  
-                                `;
+                                if (response.success)  {
+                                    const successHtml = `
+                                        <div id="successMessage" class="alert alert-primary align-items-center gap-2 mt-3 p-3 rounded-2xl bg-blue-100 text-blue-900" role="alert">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-check-circle-fill text-blue-600" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 0 0-1.06-1.06L7.5 9.44 5.53 7.47a.75.75 0 0 0-1.06 1.06l2.5 2.5z"/>
+                                            </svg>
+                                            <span id="successText">${response.message}</span>
+                                        </div>`;
 
-                                $('#success-container').append(successHtml);
+                                    $('#success-container').append(successHtml);
 
-                                setTimeout(function() {
-                                    if(response.success && response.redirect_url){
-                                        window.location.href = response.redirect_url;
-                                    }
-                                }, 1000);
+                                    setTimeout(function() {
+                                        if(response.success && response.redirect_url){
+                                            window.location.href = response.redirect_url;
+                                        }
+                                    }, 1000);
+                                } else {
+                                   const errorHtml = `
+                                        <div id="errorMessage" class="alert alert-danger align-items-center gap-2 mt-3 p-3 rounded-2xl bg-red-100 text-red-900" role="alert">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill text-red-600" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                                <path d="M8 0c-.538 0-1.047.214-1.414.586L.586 6.586A2 2 0 0 0 0 8c0 .538.214 1.047.586 1.414l6 6A2 2 0 0 0 8 16a2 2 0 0 0 1.414-.586l6-6A2 2 0 0 0 16 8a2 2 0 0 0-.586-1.414l-6-6A1.995 1.995 0 0 0 8 0zM7.001 4a1 1 0 1 1 2 0v3a1 1 0 0 1-2 0V4zm1 7a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 8 11z"/>
+                                            </svg>
+                                            <span id="errorText">${response.message}</span>
+                                        </div>`;
+
+                                    $('#success-container').html(errorHtml);
+                                    $('#phoneModalFormSubmit').attr('disabled', false);
+                                }
 
                             },
                             error: function (xhr) {

@@ -889,6 +889,12 @@ class HomeController extends Controller
     {
         DB::beginTransaction();
         try {
+            if ($request->filled('is_scammers')) {
+                return response()->json([
+                    'success' => false,                        
+                    'message' => 'Something went wrong! Please try again.'
+                ]);
+            }
             $purchase_source = '';
             if( $request->hasCookie('sz_utm_source') != false ){
                 $purchase_source = $request->cookie('sz_utm_source');
@@ -926,22 +932,25 @@ class HomeController extends Controller
             session()->forget('cart');
 
             Artisan::call('quotation:add-to-google-sheet', ['ids' => $quotation->id]);
-            if(isset($request->modalRequest) && $request->modalRequest == true) {
-                return response()->json(['success' => true,'quotation_id' => encrypt($quotation->id), 'redirect_url' => route('quotation.successfully-requested', ['id' => encrypt($quotation->id)]),'message' => 'Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!']);
-            } else {
-                return redirect()->route('quotation.successfully-requested', ['id' => encrypt($quotation->id)]);
-            }
+            
+            
+            return response()->json([
+                'success' => true,
+                'quotation_id' => encrypt($quotation->id),
+                'redirect_url' => route('quotation.successfully-requested',['id' => encrypt($quotation->id)]),
+                'message' => 'Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!'
+            ]);
+           
 
         } catch (\Exception $e) {
             Log::error($e->getMessage());
             DB::rollBack();
         }
 
-        // if(isset($request->modalRequest) && $request->modalRequest == true) {
-        //     return response()->json(['success' => true, 'message' => 'Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!']);
-        // } else {
-        //     return redirect()->route('checkout');
-        // }
+        return response()->json([
+            'success' => false,                        
+            'message' => 'Something went wrong! Please try again.'
+        ]);
         
     }
 
