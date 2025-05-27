@@ -20,16 +20,6 @@
 @endif
  @endsection
 @section('content')
-<style>
-    footer{
-        padding-bottom: 130px;
-    }
-    @media (max-width:991px) {
-        footer{
-            padding-bottom: 160px;
-        }
-    }
-</style>
 
 <section class="breadcrumb mb-0 bg-slate-100 py-3 d-none d-md-block">
     <div class="container">
@@ -349,7 +339,25 @@
                     </div>
                 </div>
             @endif
-        </div>
+            <!-- <div class="col-12 mb-4">
+                <div class="position-relative">
+                    <img class="sz_banner_img rounded-lg" src="{{ asset( 'assets/images/inv-video-bg.png' ) }}" alt="video">
+                        <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="{{ $yt_url }}">
+                            <svg class="icon-play" width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_67_17706)">
+                                <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"></rect>
+                                <path d="M58.0273 97.668C35.9353 97.668 18.0273 79.76 18.0273 57.668C18.0273 35.576 35.9353 17.668 58.0273 17.668C80.1193 17.668 98.0273 35.576 98.0273 57.668C98.0273 79.76 80.1193 97.668 58.0273 97.668ZM52.5153 43.328C52.2746 43.1674 51.9948 43.075 51.7058 43.0609C51.4167 43.0467 51.1292 43.1111 50.8739 43.2474C50.6186 43.3837 50.4051 43.5867 50.256 43.8347C50.1069 44.0827 50.0279 44.3666 50.0273 44.656V70.68C50.0279 70.9694 50.1069 71.2532 50.256 71.5012C50.4051 71.7493 50.6186 71.9523 50.8739 72.0885C51.1292 72.2248 51.4167 72.2893 51.7058 72.2751C51.9948 72.2609 52.2746 72.1686 52.5153 72.008L72.0313 59C72.2508 58.8539 72.4308 58.6559 72.5553 58.4235C72.6798 58.1911 72.7449 57.9316 72.7449 57.668C72.7449 57.4043 72.6798 57.1448 72.5553 56.9124C72.4308 56.68 72.2508 56.482 72.0313 56.336L52.5113 43.328H52.5153Z" fill="#FEFEFE"></path>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_67_17706">
+                                <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="white"></rect>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
     </section>
 @endif
 {{-- <section class="customer-review bg-gray-500 py-5">
@@ -607,19 +615,28 @@
                 });
             });
         });
+    });
 
-        function toggleHeaderClass() {
-            if ($(window).scrollTop() >= 500) {
-                $(".fixed-add-to-cart").addClass("active");
-            } else {
-                $(".fixed-add-to-cart").removeClass("active");
+    document.addEventListener("DOMContentLoaded", function () {
+        (function () {
+            const showElement = document.querySelector(".fixed-add-to-cart");
+            const footer = document.querySelector("footer");
+
+            function toggleClass() {
+                const scrolledPast = window.scrollY >= 500;
+                const footerInView = footer.getBoundingClientRect().top <= window.innerHeight;
+
+                if (scrolledPast && !footerInView) {
+                    showElement.classList.add("active");
+                } else {
+                    showElement.classList.remove("active");
+                }
             }
-        }
-        toggleHeaderClass();
-        $(window).on("scroll", function () {
-            toggleHeaderClass();
-        });
-
+            toggleClass();
+            window.addEventListener("scroll", toggleClass);
+        })();
     });
 </script>
 @endsection
+
+
