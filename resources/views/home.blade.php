@@ -218,7 +218,7 @@
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
                 <h2 class="font-bebas text-32px-mob mb-0">Hot Deals</h2>
-                <a href="javascript:;" class="button-dark d-flex align-items-center px-4">
+                <a href="{{ route('shop') }}" class="button-dark d-flex align-items-center px-4">
                     See All
                     <svg class="ms-3" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 11L6 18" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
