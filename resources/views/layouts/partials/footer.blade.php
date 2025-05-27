@@ -6,46 +6,46 @@
                     <a href="{{ route('home') }}">
                         <img src="{{ asset( 'assets/images/inv-footer-logo.svg' ) }}" alt="logo">
                     </a>
-                    <p class="text-slate-900 font-inter-regular mt-4 mx-auto mx-lg-0">we specialize in making your home and workspace more comfortable with smart, energy-efficient air conditioning solutions.</p>
+                    <p class="text-slate-900 font-inter-regular mt-4 mx-auto mx-lg-0">{{ __('we specialize in making your home and workspace more comfortable with smart, energy-efficient air conditioning solutions.')}}</p>
                 </div>
                 <div class="col-lg-3 text-center text-lg-start my-lg-0 my-4">
                     <ul class="m-0 p-0 links">
                         <li class="text-decoration-none text-slate-900 font-inter-regular text-lg">
-                            Company Details
+                            {{ __('Company Details')}}
                         </li>
                         <li class="text-decoration-none text-slate-900 font-inter-regular text-sm-mob mt-3">
-                            <span class="font-semibold">"INVERTOR LUX" SRL</span></br>
-                            Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>
+                            <span class="font-semibold">{{ __('"INVERTOR LUX" SRL')}}</span></br>
+                            {!! __('Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>
                             str. Muncesti 400/1<br/>
-                            c/f 1018600028767<br>
-                            tel.<a class="text-slate-900 text-decoration-none" href="tel:79315994"> 79315994</a>
+                            c/f 1018600028767<br>') !!}
+                            {{__('tel')}}.<a class="text-slate-900 text-decoration-none" href="{{__('tel')}}:79315994"> 79315994</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-4">
                     <ul class="m-0 p-0 links mx-auto d-table">
                         <li class="text-decoration-none text-slate-900 font-inter-regular text-lg whitespace-nowrap">
-                            Quick Links
+                            {{ __('Quick Links')}}
                         </li>
                         <li class="mt-3">
-                            <a href="{{ route( 'about-us' ) }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">About</a>
+                            <a href="{{ route( 'about-us' ) }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">{{ __('About')}}</a>
                         </li>
                         <li class="mt-3">
-                            <a href="https://maps.app.goo.gl/XvBF3gg4hz1YcdBQ8" target="_blank" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">Address</a>
+                            <a href="https://maps.app.goo.gl/XvBF3gg4hz1YcdBQ8" target="_blank" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">{{ __('Address')}}</a>
                         </li>
 
                         {{-- <li class="mt-3">
                             <a href="{{ route( 'blog' ) }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">Blog</a>
                         </li> --}}
                         <li class="mt-3">
-                            <a href="{{ route( 'contact-us' ) }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">Contact Us</a>
+                            <a href="{{ route( 'contact-us' ) }}" class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob">{{ __('Contact Us')}}</a>
                         </li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-8 order-lg-0 order-1">
                     <ul>
-                        <li class="text-decoration-none text-slate-900 font-inter-regular text-lg">VISIT US TODAY!</li>
-                        <li class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob mt-3">Visit us in Chișinău to explore our wide range of air conditioners — from compact units to powerful systems. Our experts are ready to guide you with honest advice and tailored recommendations.</li>
+                        <li class="text-decoration-none text-slate-900 font-inter-regular text-lg">{{ __('VISIT US TODAY!')}}</li>
+                        <li class="text-decoration-none text-slate-900 font-inter-regular text-lg text-sm-mob mt-3">{{ __('Visit us in Chișinău to explore our wide range of air conditioners — from compact units to powerful systems. Our experts are ready to guide you with honest advice and tailored recommendations.')}}</li>
                     </ul>
                 </div>
             </div>
@@ -56,16 +56,16 @@
             <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between">
                 <ul class="m-0 p-0 d-flex align-items-center gap-4 justify-content-center">
                     <li>
-                        <a href="{{ route( 'terms-conditions' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Terms</a>
+                        <a href="{{ route( 'terms-conditions' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">{{ __('Terms')}}</a>
                     </li>
                     <li>
-                        <a href="{{ route( 'privacy-policy' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Privacy</a>
+                        <a href="{{ route( 'privacy-policy' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">{{ __('Privacy')}}</a>
                     </li>
                     <li>
-                        <a href="{{ route('shipping-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Shipping</a>
+                        <a href="{{ route('shipping-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">{{ __('Shipping')}}</a>
                     </li>
                     <li>
-                        <a href="{{ route('refund-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">Refund</a>
+                        <a href="{{ route('refund-policy') }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">{{ __('Refund')}}</a>
                     </li>
                 </ul>
                 @php
@@ -168,7 +168,7 @@
                     </svg>
                 </div>
             </div>
-            <div class="text-white font-inter-regular text-center mt-4">©{{ date("Y") }} Copyright By INVERTOR LUX</div>
+            <div class="text-white font-inter-regular text-center mt-4">©{{ date("Y") }} {{ __('Copyright By')}} INVERTOR LUX</div>
         </div>
     </section>
 </footer>

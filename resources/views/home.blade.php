@@ -36,16 +36,16 @@
                                 <h1 class="fadeItem text-neutrino-blue-600 font-bebas">
                                     <a class="text-decoration-none text-neutrino-blue-600" href="{{ route('productDetail', $slider_product->slug) }}">
                                         <!-- {{ $p_name }} -->
-                                        Stay Cool, Stay Comfortable
+                                        {{ __('Stay Cool, Stay Comfortable')}} 
                                     </a>
                                 </h1>
                                 <p class="fadeItem text-gray-500 font-inter-regular text-lg my-4 text-lg-start text-center mx-auto mx-lg-0">
                                     <!-- {{ $p_description }} -->
-                                    Energy-saving, ultra-quiet, and built for Moldova’s climate.
+                                    {{ __('Energy-saving, ultra-quiet, and built for Moldova’s climate.')}}
                                 </p>
                                 {{--<h2 class="fadeItem text-lg-start text-center">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($slider_product->web_sales_price, 2) }}</h2>--}}
                                 <a  class="fadeItem order-btn mx-auto mx-lg-0 bg-neutrino-blue-400 d-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-5 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn_ eb_OrderNowBtn_ getPriceModalBtn" data-pid="{{encrypt($slider_product->id)}}">
-                                    Get Price
+                                    {{ __('Get Price')}}
                                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <rect width="40" height="40" rx="20" fill="#F3F3F3"/>
                                         <path d="M12 20H28M28 20L22 14M28 20L22 26" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -62,15 +62,15 @@
                         <div class="col-xl-6 col-lg-8 left-slide">
                             <h1 class="fadeItem text-neutrino-blue-600 font-bebas">
                                 <a class="text-decoration-none text-neutrino-blue-600" href="#">
-                                    Stay Cool, Stay Comfortable
+                                    {{ __('Stay Cool, Stay Comfortable')}}
                                 </a>
                             </h1>
                             <p class="fadeItem text-gray-500 font-inter-regular text-lg my-4 text-lg-start text-center mx-auto mx-lg-0">
-                                Energy-saving, ultra-quiet, and built for Moldova’s climate.
+                                {{ __('Energy-saving, ultra-quiet, and built for Moldova’s climate.')}}
                             </p>
                             {{--<h2 class="fadeItem text-lg-start text-center">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($slider_product->web_sales_price, 2) }}</h2>--}}
                             <a  class="fadeItem order-btn mx-auto mx-lg-0 bg-neutrino-blue-400 d-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-5 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3" data-pid="">
-                                Get Price
+                                {{ __('Get Price')}}
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="40" height="40" rx="20" fill="#F3F3F3"/>
                                     <path d="M12 20H28M28 20L22 14M28 20L22 26" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -139,7 +139,7 @@
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M33.2059 32.7012L36.6417 28.6013C37.1618 27.9808 37.0797 27.0545 36.4614 26.5366C36.2515 26.3609 36.0075 26.2537 35.7565 26.2148C35.9687 26.7054 35.9025 27.2985 35.5352 27.7366L32.0994 31.8387C31.8371 32.149 31.5039 32.3223 31.1001 32.3566C30.8423 32.3794 30.6028 32.3406 30.3838 32.2425L31.1343 32.8791C31.4446 33.1414 31.8028 33.2555 32.2066 33.2213C32.6104 33.1871 32.9458 33.0138 33.2059 32.7012Z" fill="#00A887"/>
                         </g>
                     </svg>
-                    <div class="font-semibold text-lg m-0 text-slate-900">Professional Installation</div>
+                    <div class="font-semibold text-lg m-0 text-slate-900">{{ __('Professional Installation')}}</div>
                 </li>
                 <li class="text-center">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +158,7 @@
                         <path d="M20.4174 26.2521C20.297 26.257 20.1801 26.3055 20.097 26.3944L19.6254 26.8659C19.4326 27.0446 19.4281 27.3464 19.6134 27.5326C19.7992 27.7179 20.1032 27.7139 20.2823 27.5206L20.7517 27.0486C21.0561 26.7544 20.8405 26.241 20.4174 26.2521Z" fill="#808080"/>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M25.1206 21.45C25.5086 21.45 25.8153 21.7548 25.8153 22.1446C25.8153 22.5353 25.5091 22.8393 25.1206 22.8393C24.7331 22.8393 24.426 22.5353 24.426 22.1446C24.426 21.7544 24.7331 21.45 25.1206 21.45ZM28.2535 18.3966C28.1353 18.3988 28.0193 18.4477 27.9353 18.5335L25.7966 20.6775C25.5895 20.5802 25.362 20.522 25.1206 20.522C24.2313 20.522 23.502 21.2557 23.502 22.1446C23.502 23.034 24.2313 23.7686 25.1206 23.7686C26.01 23.7686 26.7397 23.034 26.7397 22.1446C26.7397 21.8313 26.6464 21.5415 26.4913 21.2926L28.5904 19.1886C28.8877 18.8935 28.674 18.3868 28.2535 18.3966Z" fill="#808080"/>
                     </svg>
-                    <div class="font-semibold text-lg m-0 text-slate-900">Fast Delivery</div>
+                    <div class="font-semibold text-lg m-0 text-slate-900">{{ __('Fast Delivery')}}</div>
                 </li>
                 <li class="text-center">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -183,7 +183,7 @@
                             <path d="M12.5 19.6875C13.1904 19.6875 13.75 19.1279 13.75 18.4375C13.75 17.7471 13.1904 17.1875 12.5 17.1875C11.8096 17.1875 11.25 17.7471 11.25 18.4375C11.25 19.1279 11.8096 19.6875 12.5 19.6875Z" fill="#BECDF0"/>
                         </g>
                     </svg>
-                    <div class="font-semibold text-lg m-0 text-slate-900">Expert Support</div>
+                    <div class="font-semibold text-lg m-0 text-slate-900">{{ __('Expert Support')}}</div>
                 </li>
                 <li class="text-center">
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -201,7 +201,7 @@
                         <path d="M22.9573 22.0508L17.3515 22.6488L14.877 25.1234L23.1904 24.2364L22.9573 22.0508Z" fill="#3D6C6F"/>
                     </g>
                     </svg>
-                    <div class="font-semibold text-lg m-0 text-slate-900">Transparent pricing</div>
+                    <div class="font-semibold text-lg m-0 text-slate-900">{{ __('Transparent pricing')}}</div>
                 </li>
 
             </ul>
@@ -216,9 +216,9 @@
     <section class="hot-deals">
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
-                <h2 class="font-bebas text-32px-mob mb-0">Hot Deals</h2>
+                <h2 class="font-bebas text-32px-mob mb-0">{{ __('Hot Deals')}}</h2>
                 <a href="{{ route('shop') }}" class="button-dark d-flex align-items-center px-4">
-                    See All
+                    {{ __('See All')}}
                     <svg class="ms-3" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 11L6 18" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M15.541 6.08278L14.2992 6.19567C12.2873 6.37857 11.2814 6.47002 11.0447 7.12388C10.8079 7.77774 11.5222 8.49198 12.9507 9.92046L14.0795 11.0493C15.508 12.4778 16.2223 13.1921 16.8761 12.9553C17.53 12.7186 17.6214 11.7127 17.8043 9.70078L17.9172 8.45902C18.0273 7.24766 18.0824 6.64198 17.7202 6.27979C17.358 5.9176 16.7523 5.97266 15.541 6.08278Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -245,7 +245,7 @@
                             <div class="p-3">
                                 <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold">{{ $ishot->name }}</h3>
                                 <div class="d-flex align-items-center justify-content-between mt-3">
-                                    <h4 class="font-inter-regular text-sm text-slate-900 -tracking-02 m-0">10% Discount</h4>
+                                    <h4 class="font-inter-regular text-sm text-slate-900 -tracking-02 m-0">10% {{ __('Discount')}}</h4>
                                     <div class="d-flex align-items-center gap-1">
                                         <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.6431 7.67741L11.8306 10.1043L12.6875 13.7337C12.7347 13.9307 12.7226 14.1373 12.6525 14.3274C12.5824 14.5175 12.4575 14.6826 12.2937 14.8018C12.1298 14.9209 11.9343 14.9889 11.7319 14.997C11.5294 15.0051 11.3291 14.9531 11.1562 14.8474L7.99996 12.9049L4.84184 14.8474C4.66898 14.9525 4.4689 15.004 4.2668 14.9956C4.06469 14.9872 3.8696 14.9191 3.70609 14.8001C3.54257 14.681 3.41795 14.5162 3.3479 14.3264C3.27786 14.1367 3.26553 13.9304 3.31246 13.7337L4.17246 10.1043L1.35996 7.67741C1.20702 7.54523 1.09641 7.37092 1.04195 7.17626C0.987486 6.98159 0.99158 6.77519 1.05372 6.58283C1.11586 6.39048 1.23329 6.22069 1.39135 6.09468C1.54941 5.96867 1.7411 5.89201 1.94246 5.87429L5.62996 5.57679L7.05246 2.13429C7.12946 1.94667 7.2605 1.78619 7.42894 1.67325C7.59738 1.56031 7.7956 1.5 7.9984 1.5C8.2012 1.5 8.39942 1.56031 8.56785 1.67325C8.73629 1.78619 8.86734 1.94667 8.94434 2.13429L10.3662 5.57679L14.0537 5.87429C14.2555 5.89135 14.4477 5.96758 14.6064 6.09342C14.765 6.21926 14.883 6.38911 14.9455 6.5817C15.008 6.77429 15.0123 6.98105 14.9579 7.17607C14.9034 7.37109 14.7926 7.54571 14.6393 7.67804L14.6431 7.67741Z" fill="#04248C"/>
@@ -258,10 +258,10 @@
                                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.7123 10.037L7 13.625L3.28767 10.037C2.55345 9.32741 2.05344 8.42328 1.85087 7.439C1.64831 6.45472 1.75228 5.43449 2.14964 4.50732C2.547 3.58015 3.21991 2.78769 4.08326 2.23014C4.94662 1.67259 5.96165 1.375 7 1.375C8.03835 1.375 9.05338 1.67259 9.91674 2.23014C10.7801 2.78769 11.453 3.58015 11.8504 4.50732C12.2477 5.43449 12.3517 6.45472 12.1491 7.439C11.9466 8.42328 11.4466 9.32741 10.7123 10.037ZM7 7.57665C7.30942 7.57665 7.60616 7.45785 7.82496 7.24639C8.04375 7.03493 8.16667 6.74813 8.16667 6.44907C8.16667 6.15002 8.04375 5.86321 7.82496 5.65175C7.60616 5.44029 7.30942 5.32149 7 5.32149C6.69058 5.32149 6.39384 5.44029 6.17504 5.65175C5.95625 5.86321 5.83333 6.15002 5.83333 6.44907C5.83333 6.74813 5.95625 7.03493 6.17504 7.24639C6.39384 7.45785 6.69058 7.57665 7 7.57665Z" fill="#04248C"/>
                                         </svg>
-                                        <h4 class="font-inter-regular text-sm text-slate-400 m-0">Moldova</h4>
+                                        <h4 class="font-inter-regular text-sm text-slate-400 m-0">{{ __('Moldova')}}</h4>
                                     </div>
                                     <div class="d-flex align-items-center gap-1">
-                                        <h4 class="font-inter-regular text-sm text-slate-400 m-0">50k Sold</h4>
+                                        <h4 class="font-inter-regular text-sm text-slate-400 m-0">50{{ __('k')}} {{ __('Sold')}}</h4>
                                     </div>
                                 </div>
                                 <div class="text-center mt-3">
@@ -288,7 +288,7 @@
                                 H
                                 <svg class="position-relative" width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M7.67273 0.637185C7.59954 0.576331 7.51279 0.533966 7.41979 0.513663C7.32679 0.49336 7.23028 0.495714 7.13838 0.520525C7.04648 0.545337 6.9619 0.591879 6.89176 0.656228C6.82162 0.720577 6.76797 0.800847 6.73535 0.89027L5.10254 5.37382L3.30941 3.63636C3.24919 3.57796 3.17728 3.53297 3.09842 3.50438C3.01955 3.47578 2.93552 3.46423 2.85186 3.47047C2.7682 3.47671 2.68681 3.50061 2.61306 3.54059C2.53931 3.58057 2.47487 3.63572 2.42398 3.70242C0.816407 5.80875 0 7.92769 0 9.99988C0 11.7321 0.688112 13.3933 1.91296 14.6182C3.13781 15.843 4.79906 16.5311 6.53125 16.5311C8.26344 16.5311 9.9247 15.843 11.1495 14.6182C12.3744 13.3933 13.0625 11.7321 13.0625 9.99988C13.0625 5.58757 9.29293 1.98425 7.67273 0.637185ZM10.6793 10.6931C10.5254 11.5531 10.1116 12.3452 9.4938 12.9629C8.87597 13.5806 8.08372 13.9942 7.22371 14.148C7.19111 14.1536 7.15808 14.1563 7.125 14.1561C6.97606 14.1561 6.83258 14.1001 6.72301 13.9992C6.61343 13.8983 6.54577 13.76 6.53344 13.6115C6.52111 13.4631 6.56501 13.3155 6.65644 13.1979C6.74787 13.0803 6.88014 13.0014 7.02703 12.9768C8.25683 12.7697 9.30035 11.7262 9.50891 10.4942C9.53528 10.3389 9.62227 10.2004 9.75074 10.1092C9.87921 10.0181 10.0386 9.98167 10.1939 10.008C10.3493 10.0344 10.4877 10.1214 10.5789 10.2499C10.6701 10.3784 10.7065 10.5378 10.6801 10.6931H10.6793Z" fill="#FFF4EA"/>
-                                </svg>T DEALS
+                                </svg>T {{ __('DEALS')}}
                             </div>
                         </a>
                     </div>
@@ -303,8 +303,8 @@
         <div class="col-xxl-4 left-side p-0">
             <div class="position-relative">
                 <img src="{{ asset( 'assets/images/Cool-Comfort-Smarter-Living.png' ) }}" alt="Cool-Comfort-Smarter-Living" width="100%" height="100%">
-                <h2 class="text-white font-bebas position-absolute top-0 text-center mt-5 w-100">Cool Comfort & <br/> Smarter Living</h2>
-                <a href="{{ $tuya_d8_url }}" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn">Top Brands</a>
+                <h2 class="text-white font-bebas position-absolute top-0 text-center mt-5 w-100">{!! __('Cool Comfort & <br/> Smarter Living') !!}</h2>
+                <a href="{{ $tuya_d8_url }}" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn">{{ __('Top Brands')}}</a>
             </div>
         </div>
         <div class="col-xxl-8 right-side my-auto">
@@ -317,8 +317,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-xl text-slate-50 mt-5">Top-Quality Air Conditioners</h3>
-                            <p class="text-sm text-slate-50 font-inter-regular m-0">Our inventory features top brands like General, TCL, GREE, Hoapp, AURATSU, and HUNDAY — built for powerful cooling and long-lasting performance.</p>
+                            <h3 class="text-xl text-slate-50 mt-5">{{__('Top-Quality Air Conditioners')}}</h3>
+                            <p class="text-sm text-slate-50 font-inter-regular m-0">{{ __('Our inventory features top brands like General, TCL, GREE, Hoapp, AURATSU, and HUNDAY — built for powerful cooling and long-lasting performance.')}}</p>
                         </div>
                     </div>
                 </div>
@@ -330,8 +330,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-xl text-slate-50 mt-5">Affordable Pricing</h3>
-                            <p class="text-sm text-slate-50 font-inter-regular m-0">Enjoy competitive prices and seasonal offers. We make premium air conditioning affordable for homes and businesses across Moldova.</p>
+                            <h3 class="text-xl text-slate-50 mt-5">{{ __('Affordable Pricing')}}</h3>
+                            <p class="text-sm text-slate-50 font-inter-regular m-0">{{ __('Enjoy competitive prices and seasonal offers. We make premium air conditioning affordable for homes and businesses across Moldova.')}}</p>
                         </div>
                     </div>
                 </div>
@@ -343,8 +343,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-xl text-slate-50 mt-5">Energy-Efficient Solutions</h3>
-                            <p class="text-sm text-slate-50 font-inter-regular m-0">All our ACs feature advanced inverter technology to reduce energy consumption and cut down on electricity bills – perfect for eco-conscious living.</p>
+                            <h3 class="text-xl text-slate-50 mt-5">{{ __('Energy-Efficient Solutions')}}</h3>
+                            <p class="text-sm text-slate-50 font-inter-regular m-0">{{ __('All our ACs feature advanced inverter technology to reduce energy consumption and cut down on electricity bills – perfect for eco-conscious living.')}}</p>
                         </div>
                     </div>
                 </div>
@@ -356,8 +356,8 @@
                             </svg>
                         </div>
                         <div>
-                            <h3 class="text-xl text-slate-50 mt-5">Expert Support</h3>
-                            <p class="text-sm text-slate-50 font-inter-regular m-0">From product selection to installation and after-sales service, our local experts are here to help — fast, friendly, and professional.</p>
+                            <h3 class="text-xl text-slate-50 mt-5">{{__('Expert Support')}}</h3>
+                            <p class="text-sm text-slate-50 font-inter-regular m-0">{{ __('From product selection to installation and after-sales service, our local experts are here to help — fast, friendly, and professional.')}}</p>
                         </div>
                     </div>
                 </div>
@@ -369,10 +369,10 @@
 <section class="product">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
-            <h2 class="font-bebas text-32px-mob">Explore Our Cooling<br/> Collection</h2>
+            <h2 class="font-bebas text-32px-mob">{!! __('Explore Our Cooling<br/> Collection') !!}</h2>
             <div class="top-content">
-                <p class="text-xl text-gray-500 font-inter-medium text-base-mob">We have the right model for your needs and budget.</p>
-                <a href="{{ route('shop') }}" class="button-dark mt-3">See our collections</a>
+                <p class="text-xl text-gray-500 font-inter-medium text-base-mob">{{ __('We have the right model for your needs and budget.')}}</p>
+                <a href="{{ route('shop') }}" class="button-dark mt-3">{{ __('See our collections')}}</a>
             </div>
         </div>
         <div class="row mt-5">
@@ -423,7 +423,7 @@
                         </div>
 
                         <button class="button-dark mt-3 AddToCartBtn_ d-flex align-items-center gap-2 mx-auto mx-lg-0 getPriceModalBtn" data-pid="{{ encrypt( $product->id ) }}">
-                            Get Price
+                            {{ __('Get Price')}}
                             <span class="sz_add_to_cart_circle align-text-top ms-1 leading-0 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
@@ -441,20 +441,20 @@
 
 <section class="premier bg-neutrino-blue-500">
     <div class="container">
-        <h2 class="text-white font-bebas">Comfortable atmosphere at any time</h2>
+        <h2 class="text-white font-bebas">{{ __('Comfortable atmosphere at any time')}}</h2>
         <div class="row mt-sm-5 mt-4">
             <div class="col-xl-7 col-lg-6 mb-4">
                 <div class="premier-card bg-neutrino-blue-300 rounded-lg pb-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
-                    <h3 class="text-slate-50 font-bebas">Your Journey, Reimagined</h3>
-                    <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">Check Out Our Line of Cutting Edge E-Scooters</p>
+                    <h3 class="text-slate-50 font-bebas">{{ __('Your Journey, Reimagined')}}</h3>
+                    <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">{{ __('Check Out Our Line of Cutting Edge E-Scooters')}}</p>
                     <img src="{{ asset( 'assets/images/inv-01.png' ) }}" alt="invertor"  width="100%" height="100%">
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6 mb-4">
                 <div class="premier-card bg-neutrino-blue-300 rounded-3xl p-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
                     <div class="card-content pb-0">
-                        <h3 class="text-slate-50 font-bebas">Artificial intelligence algorithm of the inverter</h3>
-                        <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">Artificial intelligence technology allows you to reach the set temperature faster and maintain it more accurately during operation.</p>
+                        <h3 class="text-slate-50 font-bebas">{{ __('Artificial intelligence algorithm of the inverter')}}</h3>
+                        <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">{{ __('Artificial intelligence technology allows you to reach the set temperature faster and maintain it more accurately during operation.')}}</p>
                     </div>
                     <img src="{{ asset( 'assets/images/inv-02.png' ) }}" alt="invertor"  width="100%" height="100%">
                 </div>
@@ -465,8 +465,8 @@
                 <div class="row align-items-center">
                     <div class="col-xl-5 col-lg-6">
                         <div class="card-content pb-0">
-                            <h3 class="text-slate-50 font-bebas">IOT Wi-Fi control</h3>
-                            <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">IoT Wi-Fi control of TCL home appliances with one APP, support deep neural network voice control. TCL HOME APP. The Wi-Fi module is not included in the delivery of the air conditioner (it is purchased as an option).</p>
+                            <h3 class="text-slate-50 font-bebas">{{ __('IOT Wi-Fi control')}}</h3>
+                            <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">{{ __('IoT Wi-Fi control of TCL home appliances with one APP, support deep neural network voice control. TCL HOME APP. The Wi-Fi module is not included in the delivery of the air conditioner (it is purchased as an option).')}}</p>
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-6">

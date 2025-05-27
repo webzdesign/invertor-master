@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('title')Contact {{ config('app.name') }} | Get Support for Electric Invertor & E-Bikes @endsection
-@section('description')Need help? Contact Skootz for product inquiries, order support, or technical assistance with your electric Invertor or e-bike.@endsection
+@section('title'){{ __('Contact')}} {{ config('app.name') }} | {{ __('Get Support for Electric Invertor & E-Bikes')}} @endsection
+@section('description'){{ __('Need help? Contact Skootz for product inquiries, order support, or technical assistance with your electric Invertor or e-bike.')}}@endsection
 
 @section('conversion')
 <script>
@@ -12,14 +12,14 @@
 <section class="strore-banner p-2 position-relative">
     <img src="{{ asset('assets/images/inv-our-store-banner.png') }}" alt="banner" width="100%" class="rounded-3xl d-none d-sm-block">
     <img src="{{ asset('assets/images/inv-our-store-banner-mob.png') }}" alt="banner" width="100%" class="d-sm-none">
-    <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">Contact Us</h2>
+    <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">{{ __('Contact Us')}}</h2>
 </section>
 
 <section class="contactUs pt-sm-5 pt-4">
     <div class="container">
-        <h2 class="text-6xl text-4xl-mob text-slate-900 font-bebas text-center">Contact Us</h2>
-        <p class="text-gray-500 mt-3 text-xl text-base-mob font-inter-regular text-center">At Invertor Electric Invertor, we're here to help you find the perfect Invertor for your lifestyle and answer any questions you may have. Whether you're curious about our products, need assistance with your order, or want advice on choosing the best Invertor for your needs, our team is ready to assist!</p>
-        <p class="text-gray-500 mt-4 mb-0 text-xl text-lg-mob font-inter-regular text-center">Feel free to contact us anytime—we look forward to hearing from you!</p>
+        <h2 class="text-6xl text-4xl-mob text-slate-900 font-bebas text-center">{{( __('Contact Us'))}}</h2>
+        <p class="text-gray-500 mt-3 text-xl text-base-mob font-inter-regular text-center">{{ __('At Invertor Electric Invertor, we\'re here to help you find the perfect Invertor for your lifestyle and answer any questions you may have. Whether you\'re curious about our products, need assistance with your order, or want advice on choosing the best Invertor for your needs, our team is ready to assist!')}}</p>
+        <p class="text-gray-500 mt-4 mb-0 text-xl text-lg-mob font-inter-regular text-center">{{ __('Feel free to contact us anytime—we look forward to hearing from you!')}}</p>
         <div class="row mt-4">
             <div class="col-lg-7 col-xl-8">
                 <div class="contact-card leftCard border border-slate-100">
@@ -28,31 +28,31 @@
                     @endif
                     <form action="{{ route('contactUs.store') }}" id="contactUs" method="post">
                         @csrf
-                        <h4 class="text-slate-900 text-lg font-medium font-hubot text-center text-lg-start">You can reach us anytime</h4>
+                        <h4 class="text-slate-900 text-lg font-medium font-hubot text-center text-lg-start">{{ __('You can reach us anytime')}}</h4>
                         <div class="row mt-3">
                             <div class="col-6 pe-xl-4 mb-4">
-                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_firstname">First name<span class="text-rose-500">*</span></label>
-                                <input name="sz_firstname" id="sz_firstname" class="input-control w-100" type="text" placeholder="First name" value="{{ old('sz_firstname') }}">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_firstname">{{ __('First name')}}<span class="text-rose-500">*</span></label>
+                                <input name="sz_firstname" id="sz_firstname" class="input-control w-100" type="text" placeholder="{{ __('First name')}}" value="{{ old('sz_firstname') }}">
                                 @if ( $errors->has('sz_firstname') )
                                     <span class="text-danger d-block">{{ $errors->first('sz_firstname') }}</span>
                                 @endif
                             </div>
                             <div class="col-6 ps-xl-4 mb-4">
-                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_lastname">Last name<span class="text-rose-500">*</span></label>
-                                <input name="sz_lastname" id="sz_lastname" class="input-control w-100" type="text" placeholder="Last name" value="{{ old('sz_lastname') }}">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_lastname">{{ __('Last name')}}<span class="text-rose-500">*</span></label>
+                                <input name="sz_lastname" id="sz_lastname" class="input-control w-100" type="text" placeholder="{{ __('Last name')}}" value="{{ old('sz_lastname') }}">
                                 @if ( $errors->has('sz_lastname') )
                                     <span class="text-danger d-block">{{ $errors->first('sz_lastname') }}</span>
                                 @endif
                             </div>
                             <div class="col-12 mb-4">
-                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_email">Email<span class="text-rose-500">*</span></label>
+                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_email">{{ __('Email')}}<span class="text-rose-500">*</span></label>
                                 <input name="sz_email" id="sz_email" class="input-control w-100" type="text" placeholder="you@company.com" value="{{ old('sz_email') }}">
                                 @if ( $errors->has('sz_email') )
                                     <span class="text-danger d-block">{{ $errors->first('sz_email') }}</span>
                                 @endif
                             </div>
                             <div class="col-12 mb-4">
-                                <label class="font-inter-regular text-sm d-block mb-1" for="phone">Phone number<span class="text-rose-500">*</span></label>
+                                <label class="font-inter-regular text-sm d-block mb-1" for="phone">{{ __('Phone number')}}<span class="text-rose-500">*</span></label>
                                 <input type="hidden" name="country_dial_code" id="country_dial_code">
                                 <input type="hidden" name="country_iso_code" id="country_iso_code">
                                 <input type="text" class="input-control w-100" name="sz_phone" id="phone" value="{{ old('sz_phone') }}">
@@ -62,11 +62,11 @@
                                 @endif
                             </div>
                             <div class="col-12 mb-4">
-                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_message">Message</label>
+                                <label class="font-inter-regular text-sm d-block mb-1" for="sz_message">{{ __('Message')}}</label>
                                 <textarea name="sz_message" id="sz_message" class="input-control w-100 py-3 h-100" rows="3" cols="40">{{ old('sz_message') }}</textarea>
                             </div>
                             <div class="col-12 mt-4 mt-md-5">
-                                <button type="submit" class="button-dark w-100">Submit</button>
+                                <button type="submit" class="button-dark w-100">{{ __('Submit')}}</button>
                             </div>
                         </div>
                     </form>
@@ -74,10 +74,10 @@
             </div>
             <div class="col-lg-5 col-xl-4">
                 <div class="contact-card border border-slate-100 mt-4 mt-lg-0">
-                    <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3">Get in Touch</h3>
+                    <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3">{{ __('Get in Touch')}}</h3>
                     <div class="d-flex mb-3">
-                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Tel.</div>
-                        <a href="tel:79315994" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">79315994</a>
+                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">{{ __('Tel')}}.</div>
+                        <a href="{{ __('tel')}}:79315994" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">79315994</a>
                     </div>
                     {{--<div class="d-flex mb-3">
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Email</div>
@@ -88,19 +88,17 @@
                         <a href="mailto:support@skotz.co.uk" class="text-slate-900 font-inter-semibold text-sm">support@skotz.co.uk</a>
                     </div>--}}
                     <div class="d-flex">
-                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Address</div>
+                        <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">{{ __('Address')}}</div>
                         <div class="text-decoration-none text-slate-900 font-inter-regular text-sm">
-                            <b>"INVERTOR LUX" SRL</b></br>
-                            Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>
-                            str. Muncesti 400/1<br/>
-                            c/f 1018600028767<br>
+                            <b>{{ __('"INVERTOR LUX" SRL')}}</b></br>
+                            {!! __('Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>str. Muncesti 400/1<br/>c/f 1018600028767<br>') !!}
                         </div>
                     </div>
                 </div>
                 <div class="contact-card border border-slate-100 mt-4">
-                    <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3">Customer Support Hours</h3>
-                    <div class="text-slate-900 text-sm font-inter-semibold mb-3">Monday – Friday: <span class="font-inter-regular">9:00 AM – 6:00 PM</span></div>
-                    <div class="text-slate-900 text-sm font-inter-semibold mb-0">Saturday: <span class="font-inter-regular">10:00 AM – 4:00 PM</span></div>
+                    <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3">{{ __('Customer Support Hours')}}</h3>
+                    <div class="text-slate-900 text-sm font-inter-semibold mb-3">{{ __('Monday – Friday')}}: <span class="font-inter-regular">9:00 AM – 6:00 PM</span></div>
+                    <div class="text-slate-900 text-sm font-inter-semibold mb-0">{{ __('Saturday')}}: <span class="font-inter-regular">10:00 AM – 4:00 PM</span></div>
                 </div>
             </div>
         </div>

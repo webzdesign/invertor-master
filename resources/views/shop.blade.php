@@ -18,7 +18,7 @@
     <img src="{{ asset( 'assets/images/inv-our-store-banner-mob.png' ) }}" alt="banner" width="100%" class="d-sm-none">
     <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">
         <!-- @if($categoryName !='') {{$categoryName}} @else Our Store @endif -->
-        Our Store
+        {{ __('Our Store')}}
     </h2>
 </section>
 
@@ -51,15 +51,15 @@
 <section class="product store-product">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-between mb-5">
-            <h2 class="font-bebas text-32px-mob">Explore Our Cooling<br> Collection</h2>
+            <h2 class="font-bebas text-32px-mob">{!! __('Explore Our Cooling<br/> Collection') !!}</h2>
             <div class="top-content">
-                <p class="text-xl text-gray-500 font-inter-medium text-base-mob">We have the right model for your needs and budget.</p>
-                <a href="{{ route('shop') }}" class="button-dark mt-3">See our collections</a>
+                <p class="text-xl text-gray-500 font-inter-medium text-base-mob">{{ __('We have the right model for your needs and budget.')}}</p>
+                <a href="{{ route('shop') }}" class="button-dark mt-3">{{ __('See our collections')}}</a>
             </div>
         </div>
         <div class="d-flex justify-content-between align-items-center gap-3 mb-4">
             <div class="position-relative">
-                <input type="text" placeholder="Search products" class="bg-slate-100 rounded-pill border-0 text-gray-900 font-inter-regular pe-4">
+                <input type="text" placeholder="{{ __('Search products')}}" class="bg-slate-100 rounded-pill border-0 text-gray-900 font-inter-regular pe-4">
                 <svg class="search-icon position-absolute top-50 translate-middle-y left-0 ms-3" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.66634 14.0007C11.1641 14.0007 13.9997 11.1651 13.9997 7.66732C13.9997 4.16951 11.1641 1.33398 7.66634 1.33398C4.16854 1.33398 1.33301 4.16951 1.33301 7.66732C1.33301 11.1651 4.16854 14.0007 7.66634 14.0007Z" stroke="#0D163A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                     <path d="M14.6663 14.6673L13.333 13.334" stroke="#0D163A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -121,7 +121,7 @@
                             @endif--}}
                         </div>
                         <button class="button-dark AddToCartBtn_ mt-3 d-flex align-items-center gap-2 mx-auto mx-lg-0 getPriceModalBtn" data-pid="{{ encrypt( $product->id ) }}">
-                            Get Price
+                            {{ __('Get Price')}}
                             <span class="sz_add_to_cart_circle align-text-top ms-1 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>

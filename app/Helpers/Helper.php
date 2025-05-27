@@ -622,4 +622,9 @@ class Helper {
             }
         }
     }
+
+    public static function getMultiLang() {
+        return ['en', 'ro', 'ru'];
+    } 
+
 }

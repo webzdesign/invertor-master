@@ -41,13 +41,13 @@
 </style>
 <section class="top-navigation bg-neutrino-blue-500 py-2 px-4 text-center position-sticky top-0">
     <div class="owl-carousel fade-owl-slider">
-        <div class="text-slate-50 font-inter-regular text-sm">🚚 Same-Day Delivery</div>
-        <div class="text-slate-50 font-inter-regular text-sm">💰 Payment After Delivery</div>
-        <div class="text-slate-50 font-inter-regular text-sm">⚡ Fast & Reliable Service</div>
-        <div class="text-slate-50 font-inter-regular text-sm">🚛 Order Today, Delivered Today</div>
-        <div class="text-slate-50 font-inter-regular text-sm">💶 Pay Only After Receiving</div>
-        <div class="text-slate-50 font-inter-regular text-sm">⚡ Quick Delivery, Zero Risk</div>
-        <div class="text-slate-50 font-inter-regular text-sm">🚛 Convenient & Trustworthy Delivery</div>
+        <div class="text-slate-50 font-inter-regular text-sm">🚚 {{ __('Same-Day Delivery')}}</div>
+        <div class="text-slate-50 font-inter-regular text-sm">💰 {{ __('Payment After Delivery')}}</div>
+        <div class="text-slate-50 font-inter-regular text-sm">⚡ {{ __('Fast & Reliable Service')}}</div>
+        <div class="text-slate-50 font-inter-regular text-sm">🚛 {{ __('Order Today, Delivered Today')}}</div>
+        <div class="text-slate-50 font-inter-regular text-sm">💶 {{ __('Pay Only After Receiving')}}</div>
+        <div class="text-slate-50 font-inter-regular text-sm">⚡ {{ __('Quick Delivery, Zero Risk')}}</div>
+        <div class="text-slate-50 font-inter-regular text-sm">🚛 {{ __('Convenient & Trustworthy Delivery')}}</div>
     </div>
 </section>
 <header class="d-flex align-items-center flex-column justify-content-center position-sticky" id="header">
@@ -58,10 +58,10 @@
             </a>
             <ul class="menu align-items-center d-lg-flex gap-xl-5 gap-4 m-0 p-0 d-none nav" id="nav-menu-container">
                 <li>
-                    <a class="text-decoration-none text-slate-900 {{ request()->is( '/' ) ? 'active' : '' }}" href="{{ route( 'home' ) }}">Home</a>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is( '/' ) ? 'active' : '' }}" href="{{ route( 'home' ) }}">{{ __('Home')}}</a>
                 </li>
                 <li>
-                    <a class="text-decoration-none text-slate-900 {{ request()->is( 'about-us' ) ? 'active' : '' }}" href="{{ route( 'about-us' ) }}">About Us</a>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is( 'about-us' ) ? 'active' : '' }}" href="{{ route( 'about-us' ) }}">{{ __('About Us')}}</a>
                 </li>
                 <li class="position-relative">
                     <div class="dropdown menu-dropdown">
@@ -72,7 +72,7 @@
                           data-mdb-toggle="dropdown"
                           aria-expanded="false"
                         >
-                        Products
+                        {{ __('Products')}}
                         <svg class="ms-1" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13.354 6.35403L8.35403 11.354C8.30759 11.4005 8.25245 11.4374 8.19175 11.4626C8.13105 11.4877 8.06599 11.5007 8.00028 11.5007C7.93457 11.5007 7.86951 11.4877 7.80881 11.4626C7.74811 11.4374 7.69296 11.4005 7.64653 11.354L2.64653 6.35403C2.55271 6.26021 2.5 6.13296 2.5 6.00028C2.5 5.8676 2.55271 5.74035 2.64653 5.64653C2.74035 5.55271 2.8676 5.5 3.00028 5.5C3.13296 5.5 3.26021 5.55271 3.35403 5.64653L8.00028 10.2934L12.6465 5.64653C12.693 5.60007 12.7481 5.56322 12.8088 5.53808C12.8695 5.51294 12.9346 5.5 13.0003 5.5C13.066 5.5 13.131 5.51294 13.1917 5.53808C13.2524 5.56322 13.3076 5.60007 13.354 5.64653C13.4005 5.69298 13.4373 5.74813 13.4625 5.80883C13.4876 5.86953 13.5006 5.93458 13.5006 6.00028C13.5006 6.06598 13.4876 6.13103 13.4625 6.19173C13.4373 6.25242 13.4005 6.30757 13.354 6.35403Z" fill="#292929"/>
                         </svg>
@@ -94,7 +94,7 @@
                 </li> --}}
 
                 <li>
-                    <a class="text-decoration-none text-slate-900 {{ request()->is( 'contact-us' ) ? 'active' : '' }}" href="{{ route( 'contact-us' ) }}">Contact Us</a>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is( 'contact-us' ) ? 'active' : '' }}" href="{{ route( 'contact-us' ) }}">{{ __('Contact Us')}}</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center gap-md-4 gap-2" id="right-nav">
@@ -108,24 +108,45 @@
                     </svg>
                     <span class="sz_cart-badge">{{ $total_cart_count }}</span>
                 </a> --}}
+
+                @php
+                    $langArray = [
+                        [
+                            'code' => 'en',
+                            'shortcode' => 'ENG',
+                            'icon' => 'United Kingdom (GB).png'
+                        ],
+                        [
+                            'code' => 'ro',
+                            'shortcode' => 'ROM',
+                            'icon' => 'RO.png'
+                        ],
+                        [
+                            'code' => 'ru',
+                            'shortcode' => 'RUS',
+                            'icon' => 'RU.png'
+                        ],
+                    ];
+                @endphp
+
                 <div class="dropdown country-switcher">
-                    <button class="dropdown-toggle ms-auto bg-transparent border-0 d-flex align-items-center gap-2" type="button" id="selected-language" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span class="leading-0"><img src="{{ asset( 'assets/images/United Kingdom (GB).png' ) }}" alt="ENG"></span>
-                        <span class="text-base text-slate-900">ENG</span>
-                    </button>
+                     @foreach ($langArray as $lang)
+                        @if (app()->getLocale() == $lang['code'])
+                            <button class="dropdown-toggle ms-auto bg-transparent border-0 d-flex align-items-center gap-2" type="button" id="selected-language" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="leading-0"><img src="{{ asset( 'assets/images/' . $lang['icon']) }}" alt="{{$lang['shortcode']}}"></span>
+                                <span class="text-base text-slate-900">{{ $lang['shortcode'] }}</span>
+                            </button>
+                        @endif
+                    @endforeach
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="selected-language">
-                        <li class="dropdown-item cursor-pointer d-flex align-items-center gap-2">
-                            <span class="leading-0"><img src="{{ asset( 'assets/images/United Kingdom (GB).png' ) }}" alt="ENG"></span>
-                            <span class="text-base text-slate-900">ENG</span>
-                        </li>
-                        <li class="dropdown-item cursor-pointer d-flex align-items-center gap-2">
-                            <span class="leading-0"><img src="{{ asset( 'assets/images/inv-france-flag.png' ) }}" alt="FR"></span>
-                            <span class="text-base text-slate-900">FR</span>
-                        </li>
-                        <li class="dropdown-item cursor-pointer d-flex align-items-center gap-2">
-                            <span class="leading-0"><img src="{{ asset( 'assets/images/inv-india-flag.png' ) }}" alt="IND"></span>
-                            <span class="text-base text-slate-900">IND</span>
-                        </li>
+                        @foreach ($langArray as $lang)
+                            <a class="text-decoration-none" href="{{ route('change.language',[ 'locale' => $lang['code'] ]) }}">
+                                <li class="dropdown-item cursor-pointer d-flex align-items-center gap-2">
+                                    <span class="leading-0"><img src="{{ asset( 'assets/images/' . $lang['icon']) }}" alt="{{$lang['shortcode']}}"></span>
+                                    <span class="text-base text-slate-900">{{$lang['shortcode']}}</span>
+                                </li>
+                            </a>
+                        @endforeach
                     </ul>
                 </div>
                 {{--
@@ -184,7 +205,7 @@
     </div>
     <div class="order-history offcanvas offcanvas-end border-0 p-4" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header px-0 pb-4 pb-sm-4">
-            <h5 class="text-slate-900 mb-0 font-hubot font-medium text-2xl text-xl-mob">Quotation Summary</h5>
+            <h5 class="text-slate-900 mb-0 font-hubot font-medium text-2xl text-xl-mob">{{ __('Quotation Summary')}}</h5>
             <button type="button" class="border-0 bg-transparent" data-bs-dismiss="offcanvas" aria-label="Close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M18 6L12 12M12 12L6 18M12 12L18 18M12 12L6 6" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -280,7 +301,7 @@
                 <h4 class="text-slate-900 text-lg text-base-mob font-inter-regular">Total</h4>
                 <h3 class="text-slate-900 text-xl text-lg-mob font-inter-medium sz_cart_total">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($grand_total, 2) }}</h3>
             </div>--}}
-            <a href="{{ route('checkout') }}"><button class="sz_order_now-btn button-dark w-100 mt-2 mt-sm-4 text-center" {{ empty($cart_products) ? 'disabled' : '' }}>Get Price</button></a>
+            <a href="{{ route('checkout') }}"><button class="sz_order_now-btn button-dark w-100 mt-2 mt-sm-4 text-center" {{ empty($cart_products) ? 'disabled' : '' }}>{{ __('Get Price')}}</button></a>
         </div>
     </div>
 </header>

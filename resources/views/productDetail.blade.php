@@ -25,7 +25,7 @@
     <div class="container">
         <ul class="p-0 m-0 d-flex align-items-center flex-wrap gap-3">
             <li>
-                <a href="{{ route( 'home' ) }}" class="text-slate-900 font-inter-medium text-xl text-decoration-none">Home</a>
+                <a href="{{ route( 'home' ) }}" class="text-slate-900 font-inter-medium text-xl text-decoration-none">{{ __('Home')}}</a>
             </li>
             <li>
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +93,7 @@
                     }
                 @endphp
                 @if( $sz_discount_flag == '1' )
-                    <label class="saleLbl bg-violet-500 w-fit px-2 d-block mb-2 text-white text-sm py-1 pointer-event-none rounded-pill mt-lg-0 mt-4">Sale 🔥</label>
+                    <label class="saleLbl bg-violet-500 w-fit px-2 d-block mb-2 text-white text-sm py-1 pointer-event-none rounded-pill mt-lg-0 mt-4">{{ __('Sale')}} 🔥</label>
                 @endif
                 <h2 class="text-slate-900 font-bebas text-6xl text-4xl-mob {{ $sz_discount_flag != '1' ? 'mt-lg-0 mt-3' : '' }}">{{ $product->name }}</h2>
                 {{--<div class="d-flex align-items-center gap-3 mb-2">
@@ -129,30 +129,30 @@
                             <path d="M14.6787 16.8257C14.0789 17.2529 10.2304 14.5448 9.49335 14.5388C8.75627 14.5329 4.86444 17.1787 4.27165 16.7419C3.67886 16.3051 5.07248 11.8185 4.85039 11.1177C4.6283 10.4169 0.902108 7.54362 1.13552 6.84646C1.36898 6.14929 6.07879 6.08454 6.67858 5.65732C7.27836 5.23015 8.86732 0.808558 9.60445 0.814459C10.3415 0.820411 11.8586 5.26699 12.4514 5.70381C13.0442 6.14057 17.7524 6.28116 17.9746 6.98197C18.1967 7.68278 14.4245 10.4957 14.1911 11.1929C13.9576 11.89 15.2785 16.3985 14.6787 16.8257Z" fill="white" stroke="#ffd53f" stroke-width="2" />
                         </svg>
                     </div>
-                    <h6 class="mb-0 text-slate-900 font-inter-semibold">0 In review</h6>
+                    <h6 class="mb-0 text-slate-900 font-inter-semibold">0 {{ __('In review')}}</h6>
                     {{-- <span class="text-gray-400">|</span>
                     <h6 class="mb-0 text-slate-900 font-inter-semibold">5 questions</h6> --}}
                 </div>
                 <div>
                     <div class="d-flex align-items-center my-3">
-                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Availability</h6>
-                        <h6 class="mb-0 text-slate-900 font-inter-semibold">In Stock</h6>
+                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">{{ __('Availability')}}</h6>
+                        <h6 class="mb-0 text-slate-900 font-inter-semibold">{{ __('In Stock')}}</h6>
                     </div>
                     <div class="d-flex align-items-center my-3">
-                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">SKU</h6>
+                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">{{ __('SKU')}}</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">{{ $product->sku }}</h6>
                     </div>
                     <div class="d-flex align-items-center my-3">
-                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Brand</h6>
+                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">{{ __('Brand')}}</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">{{ $product->brand }}</h6>
                     </div>
                     <div class="d-flex align-items-center mb-3">
-                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Condition</h6>
-                        <h6 class="mb-0 text-slate-900 font-inter-semibold">NEW</h6>
+                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">{{ __('Condition')}}</h6>
+                        <h6 class="mb-0 text-slate-900 font-inter-semibold">{{ __('NEW')}}</h6>
                     </div>
                     <div class="d-flex align-items-center mb-4">
-                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Warranty</h6>
-                        <h6 class="mb-0 text-slate-900 font-inter-semibold">1 Year</h6>
+                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">{{ __('Warranty')}}</h6>
+                        <h6 class="mb-0 text-slate-900 font-inter-semibold">1 {{ __('Year')}}</h6>
                     </div>
                     {{-- <div class="d-flex align-items-center mb-2">
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Color</h6>
@@ -194,7 +194,7 @@
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M1 5C1 3.89543 1.89543 3 3 3H21C22.1046 3 23 3.89543 23 5V19C23 20.1046 22.1046 21 21 21H3C1.89543 21 1 20.1046 1 19V5ZM4 17C4 16.4477 4.44772 16 5 16H12C12.5523 16 13 16.4477 13 17C13 17.5523 12.5523 18 12 18H5C4.44772 18 4 17.5523 4 17ZM12 12C11.4477 12 11 12.4477 11 13C11 13.5523 11.4477 14 12 14H19C19.5523 14 20 13.5523 20 13C20 12.4477 19.5523 12 19 12H12ZM15 17C15 16.4477 15.4477 16 16 16H19C19.5523 16 20 16.4477 20 17C20 17.5523 19.5523 18 19 18H16C15.4477 18 15 17.5523 15 17ZM5 12C4.44772 12 4 12.4477 4 13C4 13.5523 4.44772 14 5 14H8C8.55228 14 9 13.5523 9 13C9 12.4477 8.55228 12 8 12H5Z" fill="#292929"/>
                                         </svg>
                                     </div>
-                                    About this item
+                                    {{ __('About this item')}}
                                 </div>
                             </button>
                         </h2>
@@ -375,7 +375,7 @@
 <section class="product">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
-            <h2 class="font-bebas text-4xl-mob">Related Product</h2>
+            <h2 class="font-bebas text-4xl-mob">{{ __('Related Product')}}</h2>
         </div>
         <div class="row mt-sm-5 mt-3">
             @foreach ($othersProducts as $o_product)
@@ -394,9 +394,9 @@
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
                             <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product_img }}" alt="{{ $o_product->name }}">
                             <div class="ws_sec position-absolute">
-                                <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
+                                <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-{{ __('year warranty')}}</label>
                                 @if( $sz_o_discount_flag == '1' )
-                                    <label class="saleLbl bg-violet-500 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
+                                    <label class="saleLbl bg-violet-500 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill w-fit px-2 whitespace-nowrap">{{ __('Sale')}} 🔥</label>
                                 @endif
                             </div>
                         </div>

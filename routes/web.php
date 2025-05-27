@@ -1,9 +1,14 @@
 <?php
 
+use App\Helpers\Helper;
+use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Middleware\PreventBackButtonMiddleware;
+use Illuminate\Support\Facades\App;
+use Stichoza\GoogleTranslate\GoogleTranslate;
+use Illuminate\Support\Facades\File;
 
 // Define your 404 route
 Route::get('/404', function () {
@@ -11,7 +16,12 @@ Route::get('/404', function () {
 })->name('404');
 
 
-Route::middleware([PreventBackButtonMiddleware::class])->group(function () {
+Route::group([
+    'middleware' => [
+        PreventBackButtonMiddleware::class,
+        SetLocale::class
+    ]
+],function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('collections/all', [HomeController::class, 'shop'])->name('shop');
     Route::get('collections/{slug?}', [HomeController::class, 'categoryshop'])->name('shopCategory');
@@ -49,3 +59,11 @@ Route::middleware([PreventBackButtonMiddleware::class])->group(function () {
 Route::fallback(function () {
     return redirect()->route('404');
 });
+
+Route::get('language/{locale}', function ($locale) {
+    if (in_array($locale, Helper::getMultiLang())) {
+        session(['locale' => $locale]);
+        App::setLocale($locale);
+    }
+    return redirect()->back();
+})->name('change.language');
