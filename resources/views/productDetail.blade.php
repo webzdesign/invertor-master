@@ -174,7 +174,7 @@
                     </div>
 
                     <button class="button-dark AddToCartBtn_ getPriceModalBtn d-flex align-items-center gap-2" data-pid="{{ $sz_p_encrypt_id }}">
-                        Get Price
+                        {{ __('Get Price')}}
                         <span class="sz_add_to_cart_circle {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
@@ -421,7 +421,7 @@
                         </div>--}}
 
                         <button class="button-dark mt-3 AddToCartBtn_ getPriceModalBtn d-flex align-items-center gap-2 mx-auto mx-lg-0" data-pid="{{ encrypt( $o_product->id ) }}">
-                            Get Price
+                            {{ __('Get Price')}}
                             <span class="sz_add_to_cart_circle {{ empty($cart_products[$o_product->id]) ? 'd-none' : '' }}">
                                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
@@ -484,7 +484,7 @@
                 </div>
 
                 <button class="button-dark AddToCartBtn_ getPriceModalBtn d-flex align-items-center gap-2" data-pid="{{ $sz_p_encrypt_id }}">
-                    Get price
+                    {{ __('Get Price')}}
                     <span class="sz_add_to_cart_circle {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
                         <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
