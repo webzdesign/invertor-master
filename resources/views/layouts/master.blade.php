@@ -32,7 +32,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header align-items-baseline p-0">
-                        <h1 class="modal-title text-slate-900 font-semibold" id="getPriceModalLabel">Enter Your Phone Number </br> Get The Offer</h1>
+                        <h1 class="modal-title text-slate-900 font-semibold" id="getPriceModalLabel">{!! __('Enter Your Phone Number </br> Get The Offer') !!}</h1>
                         <button type="button" class="btn-close-lf w-fit bg-transparent border-0" data-bs-dismiss="modal" aria-label="Close">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M24.999 25L15 15M15.0011 25L25 15" stroke="#FB7E06" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -45,7 +45,7 @@
                             <div class="mb-1 w-100" id="phoneModalData">
                                 <input type="hidden" name="productId[]" id="productId">
                                 <input type="text" name="is_scammers" style="display: none;">
-                                <label class="font-inter-regular text-sm d-block mb-1" for="phone">Phone number<span class="text-rose-500">*</span></label>
+                                <label class="font-inter-regular text-sm d-block mb-1" for="phone">{{ __('Phone number')}}<span class="text-rose-500">*</span></label>
                                 <input type="hidden" name="country_dial_code_modal" id="country_dial_code_modal">
                                 <input type="hidden" name="country_iso_code_modal" id="country_iso_code_modal">
                                 <input type="text" class="input-control w-100" name="sz_phone_modal" id="phone_modal" value="">
@@ -53,7 +53,7 @@
                             <label id="phone_modal-error" class="error" style="color: red;" for="phone_modal"></label>
                             <div id="success-container"></div>
                             <div class="mt-sm-4 mt-3">
-                                <button type="submit" id="phoneModalFormSubmit" class="button-dark w-100">Get the offer</button>
+                                <button type="submit" id="phoneModalFormSubmit" class="button-dark w-100">{{ __('Get the offer')}}</button>
                             </div>
                         </form>
                     </div>
