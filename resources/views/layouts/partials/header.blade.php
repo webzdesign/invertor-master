@@ -64,7 +64,7 @@
                     <a class="text-decoration-none text-slate-900 {{ request()->is( 'about-us' ) ? 'active' : '' }}" href="{{ route( 'about-us' ) }}">About Us</a>
                 </li>
                 <li class="position-relative">
-                    <div class="dropdown">
+                    <div class="dropdown menu-dropdown">
                         <button data-mdb-button-init
                           data-mdb-ripple-init data-mdb-dropdown-init class="bg-transparent border-0 dropdown-toggle"
                           type="button"
@@ -108,6 +108,26 @@
                     </svg>
                     <span class="sz_cart-badge">{{ $total_cart_count }}</span>
                 </a> --}}
+                <div class="dropdown country-switcher">
+                    <button class="dropdown-toggle ms-auto bg-transparent border-0 d-flex align-items-center gap-2" type="button" id="selected-language" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="leading-0"><img src="{{ asset( 'assets/images/United Kingdom (GB).png' ) }}" alt="ENG"></span>
+                        <span class="text-base text-slate-900">ENG</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="selected-language">
+                        <li class="dropdown-item cursor-pointer d-flex align-items-center gap-2">
+                            <span class="leading-0"><img src="{{ asset( 'assets/images/United Kingdom (GB).png' ) }}" alt="ENG"></span>
+                            <span class="text-base text-slate-900">ENG</span>
+                        </li>
+                        <li class="dropdown-item cursor-pointer d-flex align-items-center gap-2">
+                            <span class="leading-0"><img src="{{ asset( 'assets/images/inv-france-flag.png' ) }}" alt="FR"></span>
+                            <span class="text-base text-slate-900">FR</span>
+                        </li>
+                        <li class="dropdown-item cursor-pointer d-flex align-items-center gap-2">
+                            <span class="leading-0"><img src="{{ asset( 'assets/images/inv-india-flag.png' ) }}" alt="IND"></span>
+                            <span class="text-base text-slate-900">IND</span>
+                        </li>
+                    </ul>
+                </div>
                 {{--
                 <button type="button" class="bg-transparent border-0 d-lg-block d-none sz_cart_btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -264,3 +284,21 @@
         </div>
     </div>
 </header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const dropdownItems = document.querySelectorAll(".dropdown-menu .dropdown-item");
+        const selectedButton = document.getElementById("selected-language");
+
+        dropdownItems.forEach(function (item) {
+            item.addEventListener("click", function () {
+                const newImgSrc = item.querySelector("img").getAttribute("src");
+                const newLang = item.querySelector("span.text-base").textContent;
+
+                selectedButton.querySelector("img").setAttribute("src", newImgSrc);
+                selectedButton.querySelector("span.text-base").textContent = newLang;
+            });
+        });
+    });
+</script>
+

@@ -151,14 +151,19 @@ header {
   top: 36px;
   background-color: #E6E9F4;
 }
-
-.dropdown:hover>.dropdown-menu {
+.country-switcher .dropdown-menu {
+  min-width: 8rem;
+}
+.country-switcher{
+  min-width: 100px;
+}
+.menu-dropdown:hover>.dropdown-menu {
   display: block;
 }
 
-.dropdown>.dropdown-toggle:active {
+/* .dropdown>.dropdown-toggle:active {
   pointer-events: none;
-}
+} */
 
 header .menu a.active {
   font-weight: 500;
@@ -1054,4 +1059,30 @@ footer .copy-right{
 }
 .hot-deals .hot-row{
   margin: 56px -40px 0;
+}
+
+.lead-form-modal .modal-dialog{
+  max-width: 610px;
+}
+.lead-form-modal .modal-content{
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(243, 243, 243, 1);
+  border-radius: 12px;
+  padding: 32px;
+}
+.lead-form-modal .modal-title{
+  font-size: 32px;
+  letter-spacing: -0.75px;
+  line-height: 42px;
+  margin-bottom: 24px;
+}
+.lead-form-modal .iti--allow-dropdown{
+  width: 100%;
+}
+.lead-form-modal .success-message{
+  background-color: #E6E9F4;
+  padding: 10px 4px;
+}
+.lead-form-modal .button-dark:disabled{
+  background-color: #B1BBDB !important;
 }

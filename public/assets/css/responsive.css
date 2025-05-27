@@ -360,6 +360,18 @@
   .hero-banner img{
     width: 90%;
   }
+  .lead-form-modal .modal-content {
+    padding: 16px;
+  }
+  .lead-form-modal .modal-title {
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 16px;
+  }
+  .lead-form-modal .btn-close-lf svg{
+    width: 24px;
+    height: 24px;
+  }
 
   .map {
     margin: 0 16px 30px;

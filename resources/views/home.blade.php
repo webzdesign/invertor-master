@@ -12,7 +12,6 @@
 @php
     $cart_products = session()->get('cart', []);
 @endphp
-
 <section class="hero bg-slate-100 position-relative overflow-hidden">
     <div class="container">
         <div class="owl-carousel hero__slider">

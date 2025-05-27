@@ -28,31 +28,32 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="getPriceModal" tabindex="-1" aria-labelledby="getPriceModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-md">
-                <div class="modal-content border-slate-200 rounded-2xl">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-3" id="getPriceModalLabel">Enter Your Phone Number </br> Get The Offer</h1>
+        <div class="modal fade lead-form-modal" id="getPriceModal" tabindex="-1" aria-labelledby="getPriceModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header align-items-baseline p-0">
+                        <h1 class="modal-title text-slate-900 font-semibold" id="getPriceModalLabel">Enter Your Phone Number </br> Get The Offer</h1>
+                        <button type="button" class="btn-close-lf w-fit bg-transparent border-0" data-bs-dismiss="modal" aria-label="Close">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.999 25L15 15M15.0011 25L25 15" stroke="#FB7E06" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M36.6673 19.9987C36.6673 10.7939 29.2053 3.33203 20.0007 3.33203C10.7959 3.33203 3.33398 10.7939 3.33398 19.9987C3.33398 29.2034 10.7959 36.6654 20.0007 36.6654C29.2053 36.6654 36.6673 29.2034 36.6673 19.9987Z" stroke="#FB7E06" stroke-width="2.5"/>
+                            </svg>
+                        </button>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <div class="modal-body">
+                    <div class="modal-body p-0 mt-sm-4 mt-3">
                         <form class="phone-modal-form" id="phoneModalForm" >
-                            <div class="row">
-                                <div class="col-lg-12 mb-1" id="phoneModalData">
-                                    <input type="hidden" name="productId[]" id="productId">
-                                    <input type="text" name="is_scammers" style="display: none;">
-                                    <label class="font-inter-regular text-sm d-block mb-1" for="phone">Phone number<span class="text-rose-500">*</span></label>
-                                    <input type="hidden" name="country_dial_code_modal" id="country_dial_code_modal">
-                                    <input type="hidden" name="country_iso_code_modal" id="country_iso_code_modal">
-                                    <input type="text" class="input-control w-100" name="sz_phone_modal" id="phone_modal" value="">
-                                </div>
-                                <label id="phone_modal-error" class="error" style="color: red;" for="phone_modal"></label>
-                                <div id="success-container"></div>
+                            <div class="mb-1 w-100" id="phoneModalData">
+                                <input type="hidden" name="productId[]" id="productId">
+                                <input type="text" name="is_scammers" style="display: none;">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="phone">Phone number<span class="text-rose-500">*</span></label>
+                                <input type="hidden" name="country_dial_code_modal" id="country_dial_code_modal">
+                                <input type="hidden" name="country_iso_code_modal" id="country_iso_code_modal">
+                                <input type="text" class="input-control w-100" name="sz_phone_modal" id="phone_modal" value="">
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-12">
-                                    <button type="submit" id="phoneModalFormSubmit" class="button-dark w-100">Submit</button>
-                                </div>
+                            <label id="phone_modal-error" class="error" style="color: red;" for="phone_modal"></label>
+                            <div id="success-container"></div>
+                            <div class="mt-sm-4 mt-3">
+                                <button type="submit" id="phoneModalFormSubmit" class="button-dark w-100">Get the offer</button>
                             </div>
                         </form>
                     </div>
@@ -425,11 +426,14 @@
 
                                 if (response.success)  {
                                     const successHtml = `
-                                        <div id="successMessage" class="alert alert-primary align-items-center gap-2 mt-3 p-3 rounded-2xl bg-blue-100 text-blue-900" role="alert">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-check-circle-fill text-blue-600" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0l3.992-3.992a.75.75 0 0 0-1.06-1.06L7.5 9.44 5.53 7.47a.75.75 0 0 0-1.06 1.06l2.5 2.5z"/>
-                                            </svg>
-                                            <span id="successText">${response.message}</span>
+                                        <div id="successMessage" class="success-message rounded-lg d-flex gap-2" role="alert">
+                                            <div>
+                                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M27.5 15C27.5 8.09644 21.9035 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9035 8.09644 27.5 15 27.5C21.9035 27.5 27.5 21.9035 27.5 15Z" fill="#04248C"/>
+                                                    <path d="M10 15.625L13.125 18.75L20 11.25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
+                                            <span class="text-sm text-slate-900" id="successText">${response.message}</span>
                                         </div>`;
 
                                     $('#success-container').append(successHtml);
