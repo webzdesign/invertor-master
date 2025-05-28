@@ -329,34 +329,34 @@
             </section>
 
             <article class="">
-                <p class="lh-lg fs-5">
+                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                     {!! __('At <strong>Invertor Lux</strong>, we believe that comfort is more than a luxury — it’s a necessity. Established in 2024 and headquartered in <strong>Chișinău, Moldova</strong>, we have rapidly grown into a trusted name in <strong>air conditioning sales and professional installation services</strong>, proudly serving residential homes, businesses, and institutions throughout the country.') !!}
                 </p>
-                <p class="lh-lg fs-5">
+                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                     {{ __('With a customer-first philosophy and a team of experienced HVAC professionals, we don’t just sell products — we create tailored climate control experiences that enhance everyday living and working environments.')}}
                 </p>
             </article>
 
             <section class="py-3">
                 <h2 class="fw-bold">{{ __('Who We Are')}}</h2>
-                <p class="lh-lg fs-5">
+                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                     {!! __('<strong>Invertor Lux</strong> was founded with a simple goal: to bring modern, energy-efficient climate solutions to every corner of Moldova. Whether it’s a small apartment, a large office space, or a commercial facility, we design and deliver cooling systems that meet your exact needs — no compromises.') !!}
                 </p>
-                <p class="lh-lg fs-5">
+                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                     {{ __('We are more than a supplier — we are a complete service partner. From personalized consultation and expert installation to post-sale support, we are with you every step of the way.')}}
                 </p>
             </section>
 
             <section class="py-3">
                 <h2 class="fw-bold">{{ __('Our Mission')}}</h2>
-                <p class="lh-lg fs-5">
+                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                     {{ __('To deliver high-quality, reliable, and affordable air conditioning systems along with expert installation services that prioritize customer comfort, energy savings, and long-term performance.')}}
                 </p>
             </section>
 
             <section class="py-3">
                 <h2 class="fw-bold">{{ __('Our Vision')}}</h2>
-                <p class="lh-lg fs-5">
+                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                     {{ __('To be recognized as Moldova’s most respected and forward-thinking climate solutions company — where every household and business can rely on us for dependable indoor comfort and peace of mind.')}}
                 </p>
             </section>
@@ -365,35 +365,35 @@
                 <h2 class="fw-bold">{{ __('Our Core Values')}}</h2>
                 <article class="">
                     <h4>{{ __('Professionalism')}}</h4>
-                    <p class="lh-lg fs-5">
+                    <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                         {{ __('We bring technical expertise and attention to detail to every installation, ensuring it’s done right the first time.')}}    
                     </p>
                 </article>
 
                 <article class="">
                     <h4>{{ __('Trust & Integrity')}}</h4>
-                    <p class="lh-lg fs-5">
+                    <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                         {{ __('We build long-term relationships based on honesty, transparency, and reliability. No hidden fees. No false promises.')}}    
                     </p>
                 </article>
 
                 <article class="">
                     <h4>{{ __('Innovation & Sustainability')}}</h4>
-                    <p class="lh-lg fs-5">
+                    <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                         {{ __('We offer the latest Inverter and energy-efficient technologies to help customers save on costs and reduce their environmental impact.')}}    
                     </p>
                 </article>
 
                 <article class="">
                     <h4>{{ __('Customer-Centric Service')}}</h4>
-                    <p class="lh-lg fs-5">
+                    <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                         {{ __('We listen carefully, respond quickly, and always put our customers’ needs at the heart of what we do.')}}    
                     </p>
                 </article>
 
                 <article class="">
                     <h4>{{ __('Nationwide Reach')}}</h4>
-                    <p class="lh-lg fs-5">
+                    <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
                         {{ __('We proudly serve clients across all of Moldova, regardless of your location or project size.')}}    
                     </p>
                 </article>
@@ -401,42 +401,42 @@
 
             <section class="py-3">
                 <h2>{{ __('What We Do')}}</h2>
-                <p class="fs-5">
+                <p class="fs-5 text-gray-500 text-lg font-inter-regular">
                     {{ __('Whether you\'re cooling a cozy home, outfitting a new office, or retrofitting a large commercial site, Invertor Lux delivers:')}}
                 </p>
-                <ul class="lh-lg">
-                    <li class="list-disc fs-5">{!! __('<strong>Top-brand air conditioning units</strong> from trusted global manufacturers') !!}</li>
-                    <li class="list-disc fs-5">{!! __('<strong>Custom installation plans</strong> based on your property type and layout') !!}</li>
-                    <li class="list-disc fs-5">{!! __('<strong>Certified installation teams</strong> trained for residential and commercial projects') !!}</li>
-                    <li class="list-disc fs-5">{!! __('<strong>Post-installation service & support,</strong> including maintenance, repair, and upgrades') !!}</li>
-                    <li class="list-disc fs-5">{!! __('<strong>Fast delivery and installation</strong> anywhere in Moldova') !!}</li>
+                <ul class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
+                    <li class="list-disc">{!! __('<strong>Top-brand air conditioning units</strong> from trusted global manufacturers') !!}</li>
+                    <li class="list-disc">{!! __('<strong>Custom installation plans</strong> based on your property type and layout') !!}</li>
+                    <li class="list-disc">{!! __('<strong>Certified installation teams</strong> trained for residential and commercial projects') !!}</li>
+                    <li class="list-disc">{!! __('<strong>Post-installation service & support,</strong> including maintenance, repair, and upgrades') !!}</li>
+                    <li class="list-disc">{!! __('<strong>Fast delivery and installation</strong> anywhere in Moldova') !!}</li>
                 </ul>
             </section>
 
             <section class="py-3">
                 <h2>{{ __('Why Choose Invertor Lux') }}?</h2>
 
-                <p class="fs-5 lh-lg">✅ {!! __('<strong>Expert Advice You Can Trust</strong> – Our team provides honest guidance to help you choose the best system for your space.') !!}</p>
-                <p class="fs-5 lh-lg">✅ {!! __('<strong>Transparent Pricing</strong> – Fair, upfront costs with no surprise charges.') !!}</p>
-                <p class="fs-5 lh-lg">✅ {!! __('<strong>Premium Product Selection</strong> – Featuring high-performance, energy-saving air conditioners.') !!}</p>
-                <p class="fs-5 lh-lg">✅ {!! __('<strong>Rapid Response & Delivery</strong> – We work efficiently, so you don’t have to wait to feel the difference.') !!}</p>
-                <p class="fs-5 lh-lg">✅ {!! __('<strong>Total Satisfaction Guarantee</strong> – We’re not happy until you’re completely comfortable.') !!}</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Expert Advice You Can Trust</strong> – Our team provides honest guidance to help you choose the best system for your space.') !!}</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Transparent Pricing</strong> – Fair, upfront costs with no surprise charges.') !!}</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Premium Product Selection</strong> – Featuring high-performance, energy-saving air conditioners.') !!}</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Rapid Response & Delivery</strong> – We work efficiently, so you don’t have to wait to feel the difference.') !!}</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Total Satisfaction Guarantee</strong> – We’re not happy until you’re completely comfortable.') !!}</p>
             </section>
 
             <section class="py-3">
                 <h2>{{ __('Join the Invertor Lux Family')}}</h2>
 
-                <p class="fs-5 lh-lg">{{ __('Our reputation is built on the smiles of satisfied customers. Whether you\'re a homeowner looking for cooler summers, or a business needing scalable air conditioning solutions, Invertor Lux is here to serve.')}}</p>
-                <p class="fs-5 lh-lg">{{ __('Let us help you build a better, cooler future — one installation at a time')}}</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">{{ __('Our reputation is built on the smiles of satisfied customers. Whether you\'re a homeowner looking for cooler summers, or a business needing scalable air conditioning solutions, Invertor Lux is here to serve.')}}</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">{{ __('Let us help you build a better, cooler future — one installation at a time')}}</p>
             </section>
 
             <section class="py-3">
                 <h2>{{ __('Contact Us')}}</h2>
 
-                <p class="fs-5 lh-lg">📍  <strong>{{__('Address')}}:&nbsp;</strong>&nbsp;{{ __('Șoseaua Muncești 400, Chișinău, MD-2002, Moldova')}}</p>
-                <p class="fs-5 lh-lg">📞 <strong>{{__('Phone')}}:&nbsp;</strong>&nbsp;+373 793 15 994</p>
-                <p class="fs-5 lh-lg">🌐 <strong>{{ __('Website')}}:&nbsp;</strong>&nbsp;<a href="www.invertor.md">www.invertor.md</a> </p>
-                <p class="fs-5 lh-lg">📩  <strong>{{ __('Email')}}:&nbsp;</strong>&nbsp;info@invertor.md</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📍  <strong>{{__('Address')}}:&nbsp;</strong>&nbsp;{{ __('Șoseaua Muncești 400, Chișinău, MD-2002, Moldova')}}</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📞 <strong>{{__('Phone')}}:&nbsp;</strong>&nbsp;+373 793 15 994</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">🌐 <strong>{{ __('Website')}}:&nbsp;</strong>&nbsp;<a href="www.invertor.md">www.invertor.md</a> </p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📩  <strong>{{ __('Email')}}:&nbsp;</strong>&nbsp;info@invertor.md</p>
             </section>
 
         </div>
