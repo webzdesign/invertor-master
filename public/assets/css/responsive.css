@@ -153,7 +153,18 @@
 
   header .menu li {
     margin-bottom: 10px;
-    text-align: center;
+  }
+  header .dropdown.menu-dropdown button{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  header .dropdown-menu{
+    position: inherit;
+  }
+  header .menu .dropdown-menu li {
+    margin-bottom: 0;
   }
   
 
