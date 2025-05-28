@@ -54,7 +54,7 @@
     <section class="bg-neutrino-blue-500 copy-right">
         <div class="container">
             <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between">
-                <ul class="m-0 p-0 d-flex align-items-center gap-4 justify-content-center">
+                <ul class="m-0 p-0 d-flex align-items-center gap-4 justify-content-center flex-wrap">
                     <li>
                         <a href="{{ route( 'terms-conditions' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">{{ __('Terms')}}</a>
                     </li>

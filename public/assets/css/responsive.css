@@ -97,6 +97,7 @@
   .why-choose-product {
     padding: 50px;
   }
+  
 
   .fixed-add-to-cart {
     bottom: 52px;
@@ -112,7 +113,8 @@
     height: 400px;
   }
 
-  .faq {
+  .faq,
+  .review {
     padding: 50px 0;
   }
 
@@ -445,7 +447,7 @@
   }
 
   .hero .left-slide .order-btn {
-    width: 118px;
+    /* width: 118px; */
     height: 34px;
     margin-top: 20px !important;
     font-size: 11px !important;
@@ -463,8 +465,8 @@
   
 
   .why-choose .left-side h2 {
-    font-size: 48px;
-    line-height: 56px;
+    font-size: 32px;
+    line-height: 38px;
   }
 
   .why-choose .left-side .sz_tuya_d8_btn {

@@ -44,13 +44,17 @@
                                     {{ __('Energy-saving, ultra-quiet, and built for Moldova’s climate.')}}
                                 </p>
                                 {{--<h2 class="fadeItem text-lg-start text-center">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($slider_product->web_sales_price, 2) }}</h2>--}}
-                                <a  class="fadeItem order-btn mx-auto mx-lg-0 bg-neutrino-blue-400 d-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-5 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn_ eb_OrderNowBtn_ getPriceModalBtn" data-pid="{{encrypt($slider_product->id)}}">
-                                    {{ __('Get Price')}}
-                                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="40" height="40" rx="20" fill="#F3F3F3"/>
-                                        <path d="M12 20H28M28 20L22 14M28 20L22 26" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </a>
+                                <div class="text-center text-lg-start">
+                                    <a  class="fadeItem order-btn gap-sm-5 gap-3 bg-neutrino-blue-400 d-inline-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-5 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn_ eb_OrderNowBtn_ getPriceModalBtn" data-pid="{{encrypt($slider_product->id)}}">
+                                        {{ __('Get Price')}}
+                                        <div>
+                                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="40" height="40" rx="20" fill="#F3F3F3"/>
+                                                <path d="M12 20H28M28 20L22 14M28 20L22 26" stroke="#292929" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -215,7 +219,7 @@
 @if (!empty($is_hot_products) && count($is_hot_products) > 0)
     <section class="hot-deals">
         <div class="container">
-            <div class="d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center justify-content-between flex-wrap">
                 <h2 class="font-bebas text-32px-mob mb-0">{{ __('Hot Deals')}}</h2>
                 <a href="{{ route('shop') }}" class="button-dark d-flex align-items-center px-4">
                     {{ __('See All')}}
@@ -303,7 +307,7 @@
         <div class="col-xxl-4 left-side p-0">
             <div class="position-relative">
                 <img src="{{ asset( 'assets/images/Cool-Comfort-Smarter-Living.png' ) }}" alt="Cool-Comfort-Smarter-Living" width="100%" height="100%">
-                <h2 class="text-white font-bebas position-absolute top-0 text-center mt-5 w-100">{!! __('Cool Comfort & <br/> Smarter Living') !!}</h2>
+                <h2 class="text-white px-3 font-bebas position-absolute top-0 text-center mt-5 w-100">{!! __('Cool Comfort & <br/> Smarter Living') !!}</h2>
                 <a href="{{ $tuya_d8_url }}" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn">{{ __('Top Brands')}}</a>
             </div>
         </div>
@@ -482,17 +486,20 @@
 
 <section class="our-partner">
     <div class="container">
-        <div class="row">
-            <div class="col-xl-3 col-6 d-flex align-items-center justify-content-center">
+        <div class="owl-carousel owl-theme our-partner-owl">
+            <div class="item d-flex align-items-center justify-content-center h-100">
                 <img src="{{ asset( 'assets/images/inv-tcl.svg' ) }}" alt="TCL" width="100%">
             </div>
-            <div class="col-xl-3 col-6 d-flex align-items-center justify-content-center">
+            <div class="item d-flex align-items-center justify-content-center h-100">
                 <img src="{{ asset( 'assets/images/inv-general.svg' ) }}" alt="general" width="100%">
             </div>
-            <div class="col-xl-3 col-6 d-flex align-items-center justify-content-center">
+            <div class="item d-flex align-items-center justify-content-center h-100">
                 <img src="{{ asset( 'assets/images/inv-gree.svg' ) }}" alt="gree" width="100%">
             </div>
-            <div class="col-xl-3 col-6 d-flex align-items-center justify-content-center">
+            <div class="item d-flex align-items-center justify-content-center h-100">
+                <img src="{{ asset( 'assets/images/inv-kaisai.svg' ) }}" alt="kaisai" width="100%">
+            </div>
+            <div class="item d-flex align-items-center justify-content-center h-100">
                 <img src="{{ asset( 'assets/images/inv-kaisai.svg' ) }}" alt="kaisai" width="100%">
             </div>
         </div>
@@ -517,6 +524,26 @@
             autoHeight: false,
             autoplay: false
         });
+
+        $('.our-partner-owl').owlCarousel({
+            loop:false,
+            margin:20,
+            dots:true,
+            responsiveClass:true,
+            responsive:{
+                0:{
+                    items:2,
+                },
+                600:{
+                    items:3,
+                },
+                1000:{
+                    items:4,
+                    margin:50,
+                }
+            }
+        })
     });
+    
 </script>
 @endsection

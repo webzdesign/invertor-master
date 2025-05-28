@@ -213,6 +213,9 @@ select {
 }
 
 
+.bg-purple-300{
+    background-color: var(--purple-300) !important;
+}
 .bg-pumpkin-orange-500 {
     background-color: var(--pumpkin-orange-500) !important;
 }
@@ -403,4 +406,13 @@ select {
 
 .-tracking-02{
     letter-spacing: -0.2px;
+}
+
+.rounded-full{
+    border-radius: 50px !important;
+}
+
+.size-36{
+    width: 36px;
+    height: 36px;
 }
