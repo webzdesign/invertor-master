@@ -10,21 +10,21 @@
 
 <section class="bg-linear linear-banner rounded-3xl p-2 m-2 position-relative">
     <div class="w-100 h-100"></div>
-    <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0 text-6xl text-4xl-mob">Shipping & Installation Policy</h2>
+    <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0 text-6xl text-4xl-mob">{{ __('Shipping & Installation Policy')}}</h2>
 </section>
 
 <section class="breadcrumb mb-0 bg-slate-100 py-3 d-none d-md-block">
     <div class="container">
         <ul class="p-0 m-0 d-flex align-items-center flex-wrap gap-3">
             <li>
-                <a href="{{ route('home') }}" class="text-slate-900 font-inter-medium text-xl text-decoration-none">Home</a>
+                <a href="{{ route('home') }}" class="text-slate-900 font-inter-medium text-xl text-decoration-none">{{ __('Home')}}</a>
             </li>
             <li>
                 <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M9 18.5C9 18.5 15 14.0811 15 12.5C15 10.9188 9 6.5 9 6.5" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </li>
-            <li class="font-inter-regular text-xl text-decoration-none text-slate-900">Shipping & Installation Policy</li>
+            <li class="font-inter-regular text-xl text-decoration-none text-slate-900">{{ __('Shipping & Installation Policy')}}</li>
         </ul>
     </div>
 </section>
