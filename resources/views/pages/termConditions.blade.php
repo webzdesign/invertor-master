@@ -38,21 +38,21 @@
         </div>
         <div class="mb-sm-5 mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">1. Scope of Services</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Invertor Lux specializes in the sale and professional installation of residential and commercial air conditioning systems throughout Moldova. All our products are provided by consultation only — pricing and availability are determined after a personalized assessment of your needs.</p>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Invertor Lux specializes in the <strong>sale and professional installation</strong> of residential and commercial air conditioning systems throughout <strong>Moldova</strong>. All our products are provided <strong>by consultation only</strong> — pricing and availability are determined after a personalized assessment of your needs.</p>
         </div>
         <div class="mb-sm-5 mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">2. Order Process</h4>
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Users submit a request through our website form or by phone.</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Our team will contact the customer directly to assess their needs and provide a customized offer.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Our team will <strong>contact the customer directly</strong> to assess their needs and provide a <strong>customized offer</strong>.</li>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">No pricing is displayed online; all quotes are tailored and shared during the consultation call.</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Orders are confirmed only after the customer agrees to the quoted price and terms via verbal or written confirmation.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Orders are confirmed <strong>only after the customer agrees to the quoted price and terms</strong> via verbal or written confirmation.</li>
             </ul>
         </div>
         <div class="mb-sm-5 mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">3. Delivery & Installation</h4>
             <ul>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">After confirmation, we arrange for delivery and installation typically within 1–2 working days, depending on product availability.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">After confirmation, we arrange for delivery and installation typically within <strong>1–2 working days</strong>, depending on product availability.</li>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">We provide professional, on-site installation included with the purchase.</li>
             </ul>
         </div>
@@ -60,7 +60,7 @@
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">4. Service Eligibility</h4>
             <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">We reserve the right to:</p>
             <ul>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Decline service in locations that pose safety risks or where technical conditions make installation unfeasible.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Decline service in locations that pose <strong>safety risks</strong> or where <strong>technical conditions</strong> make installation unfeasible.</li>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Adjust delivery timelines based on stock or regional logistics.</li>
             </ul>
         </div>
