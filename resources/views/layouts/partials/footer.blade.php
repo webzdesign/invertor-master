@@ -54,7 +54,7 @@
     <section class="bg-neutrino-blue-500 copy-right">
         <div class="container">
             <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between">
-                <ul class="m-0 p-0 d-flex align-items-center gap-4 justify-content-center">
+                <ul class="m-0 p-0 d-flex align-items-center gap-4 justify-content-center flex-shrink-0 flex-wrap flex-md-nowrap">
                     <li>
                         <a href="{{ route( 'terms-conditions' ) }}" class="text-decoration-none text-white font-inter-regular text-sm-mob">{{ __('Terms')}}</a>
                     </li>
@@ -71,7 +71,7 @@
                 @php
                     $links = App\Helpers\Helper::getsocialLink();
                 @endphp
-                <ul class="d-inline-flex gap-3 m-0 p-0 justify-content-center w-100 order-lg-0 order-1">
+                <ul class="d-inline-flex gap-3 m-0 p-0 justify-content-center w-100 mt-lg-0 mt-4">
                     @if($links->facebookUrl != '')
                     <li>
                         <a href="{{$links->facebookUrl}}" target="_blank" >
@@ -124,8 +124,8 @@
                     @endif
 
                 </ul>
-                <div class="text-center my-lg-0 my-4">
-                    {{-- <svg width="276" height="42" viewBox="0 0 276 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {{-- <div class="text-center my-lg-0 my-4">
+                    <svg width="276" height="42" viewBox="0 0 276 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_715_5185)">
                         <path d="M58.125 0H5.625C2.7255 0 0.375 2.3505 0.375 5.25V36.75C0.375 39.6495 2.7255 42 5.625 42H58.125C61.0245 42 63.375 39.6495 63.375 36.75V5.25C63.375 2.3505 61.0245 0 58.125 0Z" fill="#252525"/>
                         <path d="M24 34.125C31.2487 34.125 37.125 28.2487 37.125 21C37.125 13.7513 31.2487 7.875 24 7.875C16.7513 7.875 10.875 13.7513 10.875 21C10.875 28.2487 16.7513 34.125 24 34.125Z" fill="#EB001B"/>
@@ -165,10 +165,10 @@
                         <rect width="63" height="42" fill="white" transform="translate(213)"/>
                         </clipPath>
                         </defs>
-                    </svg> --}}
-                </div>
-            </div>
-            <div class="text-white font-inter-regular text-center mt-4">©{{ date("Y") }} {{ __('Copyright By')}} INVERTOR LUX</div>
+                    </svg>
+                </div> --}}
+                <div class="text-white font-inter-regular text-center flex-shrink-0  mt-lg-0 mt-4">©{{ date("Y") }} {{ __('Copyright By')}} INVERTOR LUX</div>
+            </div> 
         </div>
     </section>
 </footer>
