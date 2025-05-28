@@ -1,6 +1,8 @@
 @extends('layouts.master')
-@section('title') Refund & Return Policy | {{ config('app.name') }} @endsection
-@section('description') Need to return a product? Check Skootz’s refund and return policy for simple, stress-free returns on electric scooters and e-bikes. @endsection
+@section('title', 'Refund & Cancellation Policy | '.config('app.name').' Lux')
+@section('description', 'Invertor Lux offers fair and transparent refund terms for defective units or unfulfilled orders. Learn more about your consumer rights.')
+@section('url', '/refund-and-return-policy')
+
 @section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
@@ -31,7 +33,7 @@
 
 <section class="py-md-5 py-3">
     <div class="container">
-        <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">{{ __('Refund & Cancellation Policy')}}</h3>
+        <h1 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">{{ __('Refund & Cancellation Terms')}}</h1>
         <div class="mb-4">
 
             <p class="text-gray-500 text-lg font-inter-regular mb-0">{{ __('We strive for 100% customer satisfaction. As we provide custom air conditioning solutions, our refund policy is designed to balance flexibility with operational realities.')}}</p>
@@ -62,7 +64,7 @@
             <p class="text-gray-500 text-lg font-inter-regular mb-0">{{ __('To initiate a refund')}}:</p>
             <ul>
                 <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">{!! __('Contact our support team within <strong>48 hours of installation or missed delivery</strong>.') !!}</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">{{ __('We will evaluate the claim, and if approved, refunds will be processed within <strong>7–10 business days</strong> via your original payment method or bank transfer.')}}</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">{!! __('We will evaluate the claim, and if approved, refunds will be processed within <strong>7–10 business days</strong> via your original payment method or bank transfer.') !!}</li>
             </ul>
 
         </div>

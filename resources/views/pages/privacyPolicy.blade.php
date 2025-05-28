@@ -1,6 +1,8 @@
 @extends('layouts.master')
-@section('title') Privacy Policy | {{ config('app.name') }} @endsection
-@section('description') Learn how Skootz safeguards your personal data, ensures secure transactions, and complies with GDPR and privacy regulations. @endsection
+@section('title' , 'Privacy Policy | How '.config('app.name').' Lux Protects Your Data')
+@section('description', 'Learn how Invertor Lux collects, uses, and protects your personal information. Fully GDPR compliant and committed to your privacy.')
+@section('url','/privacy-policy')
+
 @section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
@@ -31,7 +33,7 @@
 
 <section class="py-md-5 py-3">
     <div class="container">
-        <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">{{__('Privacy policy')}}</h3>
+        <h1 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">{{__('Our Commitment to Privacy – GDPR Compliant')}}</h1>
         <div>
             <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">{!! __('<strong>Invertor Lux</strong> is committed to protecting your personal data. Our privacy practices are aligned with the <strong>General Data Protection Regulation (GDPR - EU 2016/679)</strong> and applicable local laws.') !!}</p>
         </div>

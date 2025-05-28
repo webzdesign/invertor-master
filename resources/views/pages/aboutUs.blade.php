@@ -1,6 +1,7 @@
 @extends('layouts.master')
-@section('title'){{ __('About')}} {{ config('app.name') }} | Your Trusted Electric Scooter & E-Bike Store @endsection
-@section('description'){{ __('Learn about Skootz, your go-to destination for premium electric scooters and e-bikes. Discover our mission, commitment to quality, and passion for sustainable urban mobility.')}}@endsection
+@section('title', 'About' . ' ' . config('app.name') . ' Lux | Moldova’s Trusted Air Conditioner Experts')
+@section('description','Founded in 2024, Invertor Lux provides customized AC sales and installation services across Moldova. Discover our story, mission, and commitment to customer comfort')
+@section('url','/about')
 @section('conversion')
     <script>
         gtag('event', 'conversion', { 'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-' });
@@ -10,9 +11,9 @@
 @section('content')
 
     <section class="strore-banner p-2 position-relative">
-        <img src="{{ asset('assets/images/inv-our-store-banner.png') }}" alt="banner" width="100%"
+        <img src="{{ asset('assets/images/inv-our-store-banner.png') }}" alt="Invertor Lux team" width="100%"
             class="rounded-3xl d-none d-sm-block">
-        <img src="{{ asset('assets/images/inv-our-store-banner-mob.png') }}" alt="banner" width="100%" class="d-sm-none">
+        <img src="{{ asset('assets/images/inv-our-store-banner-mob.png') }}" alt="Invertor Lux team" width="100%" class="d-sm-none">
         <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">
             {{ __('About')}} {{ config('app.name') }}
         </h2>
@@ -324,7 +325,7 @@
     <section style="">
         <div class="container">
             <section class="py-2">
-                <h1 text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob>{{ __('About Invertor Lux')}}</h1>
+                <h1 text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob>{{ __('About Invertor Lux – Moldova’s Air Conditioning Partner')}}</h1>
                 <p class="fs-5">{{ __('Your Comfort is Our Craft. Your Satisfaction is Our Promise.')}}</p>
             </section>
 

@@ -51,6 +51,21 @@
                                 <input type="text" class="input-control w-100" name="sz_phone_modal" id="phone_modal" value="">
                             </div>
                             <label id="phone_modal-error" class="error" style="color: red;" for="phone_modal"></label>
+                             <div class="overflow-hidden border border-slate-700 rounded-lg p-3">
+                                <div class="form-check">
+                                    <input class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" id="terms_and_condtion"checked name="terms_and_condtion">
+                                    <label class="form-check-label font-inter-regular text-sm text-gray-500 cursor-pointer ms-2" for="checkbox1">
+                                        <span>
+                                            Prin trimiterea acestui formular, îți exprimi acordul pentru 
+                                            prelucrarea datelor tale cu caracter personal (nume, adresă de e-mail, număr 
+                                            de telefon etc.) de către Invertor Lux SRL și Iute Credit SRL, în scopul 
+                                            soluționării solicitării tale. Datele furnizate vor fi păstrate în condiții de 
+                                            siguranță și nu vor fi transmise către terți fără consimțământul tău, cu excepția 
+                                            cazurilor prevăzute de lege.
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
                             <div id="success-container"></div>
                             <div class="mt-sm-4 mt-3">
                                 <button type="submit" id="phoneModalFormSubmit" class="button-dark w-100">{{ __('Get the offer')}}</button>

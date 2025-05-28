@@ -15,7 +15,16 @@
   gtag('config', 'AW-16832855332');
 </script>
 
-
+@php
+use App\Models\Setting;
+ $setting = Setting::select('favicon')->first();
+ $fIcon = '';
+ if ($setting) {
+   if ($setting->favicon) {
+     $fIcon = "assets/images/{$setting->favicon}";
+    }
+  }
+@endphp
 
 <!-- conversion tag -->
 @yield('conversion')
@@ -34,21 +43,11 @@
 @if (request()->is('products*'))
   @yield('ogimage')
 @else
-  <meta property="og:image" content="{{ asset( 'assets/images/Skootz_Logo.svg' ) }}">
+  <meta property="og:image" content="{{ url('admin/public').'/'. $fIcon }}">
 @endif
-<meta property="og:url" content="{{ url()->current() }}">
+<meta property="og:url" content="@yield('url')">
 <meta property="og:type" content="website">
-@php
-use App\Models\Setting;
- $setting = Setting::select('favicon')->first();
- $fIcon = '';
- if ($setting) {
-   if ($setting->favicon) {
-     $fIcon = "assets/images/{$setting->favicon}";
-    }
-  }
-  
-@endphp
+
 <link rel="shortcut icon" href="{{ url('admin/public').'/'. $fIcon }}" type="image/x-icon">
 
 <title> @yield('title')</title>

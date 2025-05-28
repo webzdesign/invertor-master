@@ -1,64 +1,34 @@
 @php
     $customer_review_arr = array(
         array(
-            'name' => 'Oliver Wilson',
+            'name' => ' Cristina M., Chișinău',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
+            'review_content' => ' “From the moment I requested a quote, the Invertor Lux team was attentive and efficient. They helped me choose the right air conditioner for my apartment and installed it the very next day. The whole process felt smooth and professional.”',
         ),
         array(
-            'name' => 'Emily Johnson',
+            'name' => 'Andrei P., Bălți',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
+            'review_content' => '“I wasn’t sure which model to choose for my office, but their support team called me, asked the right questions, and gave a perfect recommendation. Delivery and installation were done in under 48 hours!”',
         ),
         array(
-            'name' => 'James Smith',
+            'name' => 'Irina D., Ungheni',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
+            'review_content' => ' “The air conditioner is working flawlessly, and the installation was done neatly without any hassle. The team respected my time and my space. Highly recommended for anyone in Moldova.”',
         ),
         array(
-            'name' => 'Sophie Brown',
+            'name' => 'Vlad C., Orhei',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
+            'review_content' => '“I’ve worked with many service providers before, but Invertor Lux stands out. Their advice was honest, the pricing was fair, and the quality of work was impressive.”',
         ),
         array(
-            'name' => 'Chloe Davis',
+            'name' => 'Natalia T., Cahul',
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
-        ),
-        array(
-            'name' => 'Liam Taylor',
-            'type' => 'Customer',
-            'img' => 'testiicon.png',
-            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
-        ),
-        array(
-            'name' => 'Mia Thompson',
-            'type' => 'Customer',
-            'img' => 'testiicon.png',
-            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
-        ),
-        array(
-            'name' => 'Noah Anderson',
-            'type' => 'Customer',
-            'img' => 'testiicon.png',
-            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
-        ),
-        array(
-            'name' => 'Olivia Martin',
-            'type' => 'Customer',
-            'img' => 'testiicon.png',
-            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
-        ),
-        array(
-            'name' => 'Jack White',
-            'type' => 'Customer',
-            'img' => 'testiicon.png',
-            'review_content' => 'The team installed my air conditioner in less than a day. Fast, clean, and super professional. Now my living room feels like heaven during these hot days. Highly recommended!',
+            'review_content' => '“This was my first time buying an AC for my store. The team took care of everything, from selecting the right model to installing it on a Sunday. That’s real customer care!”',
         ),
     );
 @endphp

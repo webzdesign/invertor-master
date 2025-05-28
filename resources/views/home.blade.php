@@ -1,13 +1,15 @@
 @extends('layouts.master')
 
-@section('title'){{ config('app.name') }} | VÂNZARE SI INSTALARE @endsection
-@section('description')Explore high-performance electric scooters and e-bikes at Skootz. Enjoy fast free UK shipping, powerful motors, and eco-friendly commuting solutions. Ride smarter today!@endsection
+@section('title', config('app.name') . ' Lux')
+@section('description', config('app.name') .' Lux offers expert consultation, fast delivery, and professional installation of air conditioners in Moldova. Personalized quotes, fast service, and total comfort.')
+@section('url', url()->current())
 
 @section('conversion')
-<script>
+    <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/SSujCJHi45caEKT6w9o-'});
   </script>
 @endsection
+
 @section('content')
 @php
     $cart_products = session()->get('cart', []);
@@ -211,7 +213,7 @@
             </ul>
         </div>
         <div class="hero-banner position-absolute end-0 top-0">
-            <img class="" src="{{ asset( 'assets/images/Hero-inv-1.png' ) }}" alt="hero">
+            <img class="" src="{{ asset( 'assets/images/Hero-inv-1.png' ) }}" alt="Home and office air conditioning">
         </div>
     </div>
 </section>
@@ -395,7 +397,7 @@
                     <a href="{{ route('productDetail', $product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
                             <!-- <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_img }}" alt="{{ $product->name }}" > -->
-                            <img class="sz_product_image" src="{{ asset( 'assets/images/inv-pro-1.png' ) }}" >
+                            <img class="sz_product_image" src="{{ asset( 'assets/images/inv-pro-1.png' ) }}" alt="{{ $product->name }}">
                             <!-- <div class="ws_sec position-absolute">
                                 <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
                                 @if( $sz_discount_flag == '1' )
@@ -451,7 +453,7 @@
                 <div class="premier-card bg-neutrino-blue-300 rounded-lg pb-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
                     <h3 class="text-slate-50 font-bebas">{{ __('Your Journey, Reimagined')}}</h3>
                     <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">{{ __('Check Out Our Line of Cutting Edge E-Scooters')}}</p>
-                    <img src="{{ asset( 'assets/images/inv-01.png' ) }}" alt="invertor"  width="100%" height="100%">
+                    <img src="{{ asset( 'assets/images/inv-01.png' ) }}" alt="Check Out Our Line of Cutting Edge invertor"  width="100%" height="100%">
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6 mb-4">
@@ -460,7 +462,7 @@
                         <h3 class="text-slate-50 font-bebas">{{ __('Artificial intelligence algorithm of the inverter')}}</h3>
                         <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">{{ __('Artificial intelligence technology allows you to reach the set temperature faster and maintain it more accurately during operation.')}}</p>
                     </div>
-                    <img src="{{ asset( 'assets/images/inv-02.png' ) }}" alt="invertor"  width="100%" height="100%">
+                    <img src="{{ asset( 'assets/images/inv-02.png' ) }}" alt="Artificial intelligence technology allows you to reach the set temperature faster and maintain it more accurately during operation"  width="100%" height="100%">
                 </div>
             </div>
         </div>
@@ -474,7 +476,7 @@
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-6">
-                        <img src="{{ asset( 'assets/images/inv-03.png' ) }}" alt="invertor"  width="100%" height="100%">
+                        <img src="{{ asset( 'assets/images/inv-03.png' ) }}" alt="IoT Wi-Fi control of TCL home appliances with one APP, support deep neural network voice control. TCL HOME APP. The Wi-Fi module is not included in the delivery of the air conditioner (it is purchased as an option)."  width="100%" height="100%">
                     </div>
                 </div>
             </div>

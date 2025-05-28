@@ -1,7 +1,9 @@
 @extends('layouts.master')
-@section('title') Shop Electric Scooters & E-Bikes | {{ config('app.name') }} @endsection
-@section('description')Browse our full collection of electric scooters and e-bikes. Whether for commuting or adventure, find the perfect ride with advanced features and long-range batteries.@endsection
+@section('title', 'Air Conditioner Collection | Residential & Commercial | '.config('app.name').' Lux Moldova')
+@section('description', 'Browse our full collection of high-quality air conditioners for homes, offices, and commercial spaces. Tailored solutions, professional installation, and next-day delivery.')
+@section('url', '/collection/all')
 @section('conversion')
+
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/pxScCIyt4ZcaEKT6w9o-'});
   </script>
@@ -14,8 +16,8 @@
 @endphp
 
 <section class="strore-banner p-2 position-relative">
-    <img src="{{ asset( 'assets/images/inv-our-store-banner.png' ) }}" alt="banner" width="100%" class="d-none d-sm-block">
-    <img src="{{ asset( 'assets/images/inv-our-store-banner-mob.png' ) }}" alt="banner" width="100%" class="d-sm-none">
+    <img src="{{ asset( 'assets/images/inv-our-store-banner.png' ) }}" alt="Split AC models in Moldova" width="100%" class="d-none d-sm-block">
+    <img src="{{ asset( 'assets/images/inv-our-store-banner-mob.png' ) }}" alt="Split AC models in Moldova" width="100%" class="d-sm-none">
     <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">
         <!-- @if($categoryName !='') {{$categoryName}} @else Our Store @endif -->
         {{ __('Our Store')}}
@@ -51,7 +53,7 @@
 <section class="product store-product">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-between mb-5">
-            <h2 class="font-bebas text-32px-mob">{!! __('Explore Our Cooling<br/> Collection') !!}</h2>
+            <h1 class="font-bebas text-32px-mob">{!! __('Explore Our Air Conditioner</br> Collection') !!}</h1>
             <div class="top-content">
                 <p class="text-xl text-gray-500 font-inter-medium text-base-mob">{{ __('We have the right model for your needs and budget.')}}</p>
                 <a href="{{ route('shop') }}" class="button-dark mt-3">{{ __('See our collections')}}</a>

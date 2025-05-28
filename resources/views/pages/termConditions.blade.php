@@ -1,6 +1,8 @@
 @extends('layouts.master')
-@section('title') Terms & Conditions | {{ config('app.name') }} @endsection
-@section('description')Read Skootz’s terms and conditions for policies on orders, warranties, and customer support for electric scooters and e-bikes.@endsection
+@section('title', 'Terms & Conditions | '.config('app.name').' Lux Moldova')
+@section('description', 'Review our service terms and policies for purchasing and installing air conditioners with Invertor Lux. Transparent, fair, and EU-compliant.')
+@section('url', '/terms-conditions')
+
 @section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
@@ -31,7 +33,7 @@
 
 <section class="py-md-5 py-3">
     <div class="container">
-        <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">{{ __('Terms and Conditions')}}</h3>
+        <h1 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">{{ __('Terms & Conditions of Sale and Installation')}}</h1>
         <div class="mb-sm-5 mb-4">
             <span class="fw-bold">{{ __('Last Updated')}}:&nbsp;&nbsp;28/05/2025</span>
             <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">{!! __('Welcome to <strong>Invertor Lux</strong>. By accessing our website <a href="https://invertor.md/" class="text-decoration-none">(https://invertor.md/)</a>, submitting a service request, or engaging with our company for consultation, delivery, or installation of air conditioning units, you agree to be bound by the following terms and conditions.') !!}</p>

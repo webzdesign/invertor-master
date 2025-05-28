@@ -1,6 +1,8 @@
 @extends('layouts.master')
-@section('title') Shipping Policy | {{ config('app.name') }} @endsection
-@section('description') Read our shipping policy for delivery details, costs, and estimated arrival times for electric scooters and e-bikes. Enjoy quick and reliable service! @endsection
+@section('title', 'Shipping & Delivery Policy | '.config('app.name').' Lux')
+@section('description', 'Fast delivery and professional installation of air conditioners across Moldova. Learn how we manage logistics, delivery timelines, and regional coverage.')
+@section('url', '/shipping-policy')
+
 @section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
@@ -31,7 +33,7 @@
 
 <section class="py-md-5 py-3">
     <div class="container">
-        <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">{{ __('Shipping & Installation Policy')}}</h3>
+        <h1 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">{{ __('Delivery & Installation Policy – Across Moldova')}}</h1>
         <div class="mb-4">
             <h4 class="text-slate-900 text-2xl font-hubot font-semibold">1. {{ __('Geographic Scope')}}</h4>
             <p>{!! __('We deliver and install across all regions of the <strong>Republic of Moldova</strong>') !!}.</p>

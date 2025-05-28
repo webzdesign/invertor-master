@@ -1,6 +1,7 @@
 @extends('layouts.master')
-@section('title'){{ __('Contact')}} {{ config('app.name') }} | {{ __('Get Support for Electric Invertor & E-Bikes')}} @endsection
-@section('description'){{ __('Need help? Contact Skootz for product inquiries, order support, or technical assistance with your electric Invertor or e-bike.')}}@endsection
+@section('title', 'Contact ' . config('app.name') . ' Lux | Request a Quote for AC Installation')
+@section('description', 'Need a new air conditioner? Contact Invertor Lux today. We’ll assess your space and give you a tailored quote with fast delivery and professional installation.')
+@section('url','/contact-us')
 
 @section('conversion')
 <script>
@@ -10,14 +11,14 @@
 @section('content')
 
 <section class="strore-banner p-2 position-relative">
-    <img src="{{ asset('assets/images/inv-our-store-banner.png') }}" alt="banner" width="100%" class="rounded-3xl d-none d-sm-block">
-    <img src="{{ asset('assets/images/inv-our-store-banner-mob.png') }}" alt="banner" width="100%" class="d-sm-none">
+    <img src="{{ asset('assets/images/inv-our-store-banner.png') }}" alt="Call center Moldova" width="100%" class="rounded-3xl d-none d-sm-block">
+    <img src="{{ asset('assets/images/inv-our-store-banner-mob.png') }}" alt="Call center Moldova" width="100%" class="d-sm-none">
     <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">{{ __('Contact Us')}}</h2>
 </section>
 
 <section class="contactUs pt-sm-5 pt-4">
     <div class="container">
-        <h2 class="text-6xl text-4xl-mob text-slate-900 font-bebas text-center">{{( __('Contact Us'))}}</h2>
+        <h1 class="text-6xl text-4xl-mob text-slate-900 font-bebas text-center">{{( __('Get in Touch with'))}} Invertor Lux</h1>
         <p class="text-gray-500 mt-3 text-xl text-base-mob font-inter-regular text-center">{{ __('At Invertor Electric Invertor, we\'re here to help you find the perfect Invertor for your lifestyle and answer any questions you may have. Whether you\'re curious about our products, need assistance with your order, or want advice on choosing the best Invertor for your needs, our team is ready to assist!')}}</p>
         <p class="text-gray-500 mt-4 mb-0 text-xl text-lg-mob font-inter-regular text-center">{{ __('Feel free to contact us anytime—we look forward to hearing from you!')}}</p>
         <div class="row mt-4">

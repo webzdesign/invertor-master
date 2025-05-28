@@ -1,6 +1,7 @@
 @extends('layouts.master')
-@section('title') {{$product->slider_title}} | {{ config('app.name') }} @endsection
-@section('description') {{$product->slider_content}} @endsection
+@section('title' , $product->brand .' '. $product->slider_title . ' Air Conditioner | Energy Efficient Cooling | '.config('app.name').' Lux Moldova')
+@section('description', 'Get the latest '.$product->name.' Inverter AC with silent operation and low energy usage. Perfect for homes and offices. Request a quote today!')
+@section('url', '/product/' . $product->slug)
 @section('conversion')
 <script>
     gtag('event', 'conversion', {'send_to': 'AW-16832855332/BGUeCOmh4ZcaEKT6w9o-'});
@@ -54,7 +55,7 @@
                         <div class="slider slider-for">
                             @foreach ($product->images as $imageKey => $image)
                                 <div>
-                                    <img class="pro-img" src="{{ env('APP_Image_URL') . 'storage/product-images/' . $image->name }}" alt="product">
+                                    <img class="pro-img" src="{{ env('APP_Image_URL') . 'storage/product-images/' . $image->name }}" alt="{{$image->name}}">
                                 </div>
                             @endforeach
                         </div>
@@ -76,7 +77,7 @@
                     <div class="slider slider-nav">
                         @foreach ($product->images as $imageKey => $image)
                             <div>
-                                <img class="thumb-img" src="{{ env('APP_Image_URL') . 'storage/product-images/' . $image->name }}" alt="product">
+                                <img class="thumb-img" src="{{ env('APP_Image_URL') . 'storage/product-images/' . $image->name }}" alt="{{$image->name}}">
                             </div>
                         @endforeach
                     </div>
@@ -95,7 +96,7 @@
                 @if( $sz_discount_flag == '1' )
                     <label class="saleLbl bg-violet-500 w-fit px-2 d-block mb-2 text-white text-sm py-1 pointer-event-none rounded-pill mt-lg-0 mt-4">{{ __('Sale')}} 🔥</label>
                 @endif
-                <h2 class="text-slate-900 font-bebas text-6xl text-4xl-mob {{ $sz_discount_flag != '1' ? 'mt-lg-0 mt-3' : '' }}">{{ $product->name }}</h2>
+                <h1 class="text-slate-900 font-bebas text-6xl text-4xl-mob {{ $sz_discount_flag != '1' ? 'mt-lg-0 mt-3' : '' }}">{{ $product->name }} Inverter AC – Energy Efficient & Whisper Quiet</h1>
                 {{--<div class="d-flex align-items-center gap-3 mb-2">
                     <h3 class="text-4xl text-3xl-laptop mb-0 text-blue-500 font-bebas">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h3>
                     @if( $sz_discount_flag == '1' )
@@ -309,18 +310,18 @@
         <div class="row m-0">
             @if( !empty($first_img) )
                 <div class="col-sm-6 mb-4">
-                    <img class="sz_banner_img" src="{{ $first_img }}" alt="bike">
+                    <img class="sz_banner_img" src="{{ $first_img }}" alt="{{ $first_img }}">
                 </div>
             @endif
             @if( !empty($second_img) )
                 <div class="col-sm-6 mb-4">
-                    <img class="sz_banner_img" src="{{ $second_img }}" alt="bike">
+                    <img class="sz_banner_img" src="{{ $second_img }}" alt="{{ $second_img }}">
                 </div>
             @endif
             @if( !empty($last_img) )
                 <div class="col-12 mb-4">
                     <div class="position-relative">
-                        <img class="sz_banner_img" src="{{ $last_img }}" alt="bike">
+                        <img class="sz_banner_img" src="{{ $last_img }}" alt="{{ $last_img }}">
                         @if (!empty($yt_url))
                             <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="{{ $yt_url }}">
                                 <svg class="icon-play" width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -428,7 +429,7 @@
                     <p class="m-0 text-sm text-gray-500 font-inter-regular">Dec 10  -  18 days ago</p>
                 </div>
                 <div class="my-2 d-flex align-items-center gap-3 flex-wrap">
-                    <h3 class="m-0 text-slate-900 text-2xl text-xl-mob font-medium">John M.</h3>
+                    <h3 class="m-0 text-slate-900 text-2xl text-xl-mob font-medium">Cristina M., Chișinău</h3>
                     <label class="m-0 bg-purple-300 px-3 py-2 rounded-full d-flex align-items-center gap-1">
                         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.46158 2.0939L9.45158 2.4839C9.80473 2.62293 10.1974 2.62293 10.5506 2.4839L11.5406 2.0939C12.1234 1.86468 12.7724 1.87053 13.351 2.1102C13.9296 2.34988 14.3926 2.80469 14.6426 3.3789L15.0666 4.3539C15.218 4.70186 15.4956 4.9795 15.8436 5.1309L16.8186 5.5549C17.393 5.80489 17.848 6.26808 18.0877 6.8469C18.3274 7.42571 18.3331 8.07497 18.1036 8.6579L17.7136 9.6479C17.5748 10.0007 17.5748 10.3931 17.7136 10.7459L18.1036 11.7359C18.3328 12.3187 18.327 12.9677 18.0873 13.5463C17.8476 14.1249 17.3928 14.5879 16.8186 14.8379L15.8436 15.2619C15.4956 15.4132 15.2179 15.6909 15.0666 16.0389L14.6426 17.0139C14.3926 17.5883 13.9294 18.0433 13.3506 18.283C12.7718 18.5227 12.1225 18.5284 11.5396 18.2989L10.5496 17.9089C10.1967 17.7701 9.80443 17.7701 9.45158 17.9089L8.46158 18.2989C7.87878 18.5281 7.22977 18.5223 6.65118 18.2826C6.0726 18.0429 5.60958 17.5881 5.35958 17.0139L4.93558 16.0389C4.78419 15.6909 4.50654 15.4133 4.15858 15.2619L3.18358 14.8379C2.60914 14.5879 2.15415 14.1247 1.91445 13.5459C1.67475 12.9671 1.66907 12.3178 1.89858 11.7349L2.28858 10.7449C2.42735 10.3921 2.42735 9.99974 2.28858 9.6469L1.89858 8.6569C1.66937 8.07409 1.67521 7.42508 1.91489 6.8465C2.15457 6.26791 2.60938 5.80489 3.18358 5.5549L4.15858 5.1309C4.50654 4.9795 4.78419 4.70186 4.93558 4.3539L5.35958 3.3789C5.60958 2.80445 6.07277 2.34946 6.65159 2.10976C7.2304 1.87007 7.87966 1.86438 8.46258 2.0939H8.46158ZM12.6276 7.8639L8.97958 11.9679L7.35458 10.3429C7.26028 10.2518 7.13398 10.2014 7.00288 10.2026C6.87179 10.2037 6.74638 10.2563 6.65367 10.349C6.56097 10.4417 6.50839 10.5671 6.50725 10.6982C6.50611 10.8293 6.5565 10.9556 6.64758 11.0499L8.64758 13.0499C8.69573 13.0981 8.75321 13.1359 8.8165 13.161C8.87978 13.1862 8.94754 13.1981 9.01561 13.1962C9.08368 13.1942 9.15064 13.1784 9.21237 13.1496C9.27409 13.1208 9.3293 13.0798 9.37458 13.0289L13.3746 8.5289C13.4628 8.42984 13.508 8.29981 13.5003 8.16741C13.4926 8.035 13.4326 7.91108 13.3336 7.8229C13.2345 7.73471 13.1045 7.68949 12.9721 7.69718C12.8397 7.70487 12.7158 7.76484 12.6276 7.8639Z" fill="#460BF4"/>
@@ -436,8 +437,8 @@
                         <span class="text-slate-900 text-sm font-inter-regular">Verified Purchase</span>
                     </label>
                 </div>
-                <h3 class="m-0 text-slate-900 text-2xl text-xl-mob font-medium">Fantastic scooter for daily commuting!</h3>
-                <p class="mt-2 text-slate-900 text-sm font-inter-regular">This scooter has been a game-changer for me. The range is excellent, and the ride is super smooth. I especially love the mobile app—it gives me all the details I need in real time. Highly recommend it to anyone looking for a reliable electric scooter!</p>
+                <h3 class="m-0 text-slate-900 text-2xl text-xl-mob font-medium">“Reliable service from start to finish”</h3>
+                <p class="mt-2 text-slate-900 text-sm font-inter-regular"> “From the moment I requested a quote, the Invertor Lux team was attentive and efficient. They helped me choose the right air conditioner for my apartment and installed it the very next day. The whole process felt smooth and professional.”</p>
                 <div class="d-flex align-items-center gap-2">
                     <div class="text-gray-500 text-sm font-inter-regular">Recommends this product:</div>
                     <div class="d-flex align-items-center gap-1">
@@ -470,7 +471,7 @@
                     <p class="m-0 text-sm text-gray-500 font-inter-regular">Dec 10  -  18 days ago</p>
                 </div>
                 <div class="my-2 d-flex align-items-center gap-3">
-                    <h3 class="m-0 text-slate-900 text-2xl text-xl-mob font-medium flex-wrap">John M.</h3>
+                    <h3 class="m-0 text-slate-900 text-2xl text-xl-mob font-medium flex-wrap">Andrei P., Bălți</h3>
                     <label class="m-0 bg-purple-300 px-3 py-2 rounded-full d-flex align-items-center gap-1">
                         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M8.46158 2.0939L9.45158 2.4839C9.80473 2.62293 10.1974 2.62293 10.5506 2.4839L11.5406 2.0939C12.1234 1.86468 12.7724 1.87053 13.351 2.1102C13.9296 2.34988 14.3926 2.80469 14.6426 3.3789L15.0666 4.3539C15.218 4.70186 15.4956 4.9795 15.8436 5.1309L16.8186 5.5549C17.393 5.80489 17.848 6.26808 18.0877 6.8469C18.3274 7.42571 18.3331 8.07497 18.1036 8.6579L17.7136 9.6479C17.5748 10.0007 17.5748 10.3931 17.7136 10.7459L18.1036 11.7359C18.3328 12.3187 18.327 12.9677 18.0873 13.5463C17.8476 14.1249 17.3928 14.5879 16.8186 14.8379L15.8436 15.2619C15.4956 15.4132 15.2179 15.6909 15.0666 16.0389L14.6426 17.0139C14.3926 17.5883 13.9294 18.0433 13.3506 18.283C12.7718 18.5227 12.1225 18.5284 11.5396 18.2989L10.5496 17.9089C10.1967 17.7701 9.80443 17.7701 9.45158 17.9089L8.46158 18.2989C7.87878 18.5281 7.22977 18.5223 6.65118 18.2826C6.0726 18.0429 5.60958 17.5881 5.35958 17.0139L4.93558 16.0389C4.78419 15.6909 4.50654 15.4133 4.15858 15.2619L3.18358 14.8379C2.60914 14.5879 2.15415 14.1247 1.91445 13.5459C1.67475 12.9671 1.66907 12.3178 1.89858 11.7349L2.28858 10.7449C2.42735 10.3921 2.42735 9.99974 2.28858 9.6469L1.89858 8.6569C1.66937 8.07409 1.67521 7.42508 1.91489 6.8465C2.15457 6.26791 2.60938 5.80489 3.18358 5.5549L4.15858 5.1309C4.50654 4.9795 4.78419 4.70186 4.93558 4.3539L5.35958 3.3789C5.60958 2.80445 6.07277 2.34946 6.65159 2.10976C7.2304 1.87007 7.87966 1.86438 8.46258 2.0939H8.46158ZM12.6276 7.8639L8.97958 11.9679L7.35458 10.3429C7.26028 10.2518 7.13398 10.2014 7.00288 10.2026C6.87179 10.2037 6.74638 10.2563 6.65367 10.349C6.56097 10.4417 6.50839 10.5671 6.50725 10.6982C6.50611 10.8293 6.5565 10.9556 6.64758 11.0499L8.64758 13.0499C8.69573 13.0981 8.75321 13.1359 8.8165 13.161C8.87978 13.1862 8.94754 13.1981 9.01561 13.1962C9.08368 13.1942 9.15064 13.1784 9.21237 13.1496C9.27409 13.1208 9.3293 13.0798 9.37458 13.0289L13.3746 8.5289C13.4628 8.42984 13.508 8.29981 13.5003 8.16741C13.4926 8.035 13.4326 7.91108 13.3336 7.8229C13.2345 7.73471 13.1045 7.68949 12.9721 7.69718C12.8397 7.70487 12.7158 7.76484 12.6276 7.8639Z" fill="#460BF4"/>
@@ -478,8 +479,8 @@
                         <span class="text-slate-900 text-sm font-inter-regular">Verified Purchase</span>
                     </label>
                 </div>
-                <h3 class="m-0 text-slate-900 text-2xl text-xl-mob font-medium">Fantastic scooter for daily commuting!</h3>
-                <p class="mt-2 text-slate-900 text-sm font-inter-regular">This scooter has been a game-changer for me. The range is excellent, and the ride is super smooth. I especially love the mobile app—it gives me all the details I need in real time. Highly recommend it to anyone looking for a reliable electric scooter!</p>
+                <h3 class="m-0 text-slate-900 text-2xl text-xl-mob font-medium">“Excellent support and fast delivery”</h3>
+                <p class="mt-2 text-slate-900 text-sm font-inter-regular"> “I wasn’t sure which model to choose for my office, but their support team called me, asked the right questions, and gave a perfect recommendation. Delivery and installation were done in under 48 hours!”</p>
                 <div class="d-flex align-items-center gap-2">
                     <div class="text-gray-500 text-sm font-inter-regular">Recommends this product:</div>
                     <div class="d-flex align-items-center gap-1">
@@ -517,7 +518,7 @@
                 <div class="col-lg-6 mb-5">
                     <a href="{{ route('productDetail', $o_product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                            <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product_img }}" alt="{{ $o_product->name }}">
+                            <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product_img }}" alt="{{ $o_product->name }} AC installed in Moldova">
                             <div class="ws_sec position-absolute">
                                 <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-{{ __('year warranty')}}</label>
                                 @if( $sz_o_discount_flag == '1' )
@@ -567,7 +568,7 @@
         <div class="col-lg-6">
             <div class="d-flex align-items-center gap-3">
                 <div class="img-pro bg-white rounded-lg border border-slate-100">
-                    <img src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_image }}" alt="product" width="70" height="70" class="object-fit-contain">
+                    <img src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_image }}" alt="{{$first_image}}" width="70" height="70" class="object-fit-contain">
                 </div>
                 <div>
                     <h3 class="text-slate-900 text-3xl text-2xl-mob font-bebas mb-0">{{ $product->name }}</h3>
@@ -629,7 +630,7 @@
         <div class="modal-content border-slate-200">
             <div class="modal-body text-center">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <img src="{{ asset('/assets/images/pro1.png') }}" alt="bike">
+                <img src="{{ asset('/assets/images/pro1.png') }}" alt="Daikin inverter AC front view">
             </div>
         </div>
     </div>
