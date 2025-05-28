@@ -31,63 +31,54 @@
 
 <section class="py-md-5 py-3">
     <div class="container">
-        <p class="text-gray-500 text-lg font-inter-regular mb-0">Effective December 10, 2024</p>
-        <p class="text-gray-500 text-lg font-inter-regular">Our privacy policy has been updated.</p>
         <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">Privacy Policy</h3>
         <div>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Privacy protection is our top priority at Skootz. The information contained in this Privacy Policy explains how we collect, use and discloses your information on the website including any other media form or mobile application made available by us.</p>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3"><strong>Invertor Lux</strong> is committed to protecting your personal data. Our privacy practices are aligned with the <strong>General Data Protection Regulation (GDPR - EU 2016/679)</strong> and applicable local laws.</p>
         </div>
         <div>
-            <h4 class="text-slate-900 text-2xl mt-4 font-hubot font-semibold">Information We Collect</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">We may collect personal information from you in various ways, including when you:</p>
+            <h4 class="text-slate-900 text-2xl mt-4 font-hubot font-semibold">1. Data We Collect</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">We collect:</p>
             <ul>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Register on our site</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Place an order</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Fill out a form</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><strong>Personal Identification Information</strong> Name, phone number, and address.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><strong>Service Preferences</strong> Type of location (residential/business), air conditioner requirements.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc"><strong>Communication History</strong> Notes from our support calls and any installation details.</li>
             </ul>
         </div>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">The types of information we may collect include:</h4>
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">2. How We Use Your Data</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">We use your data exclusively to:</p>
             <ul>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Name</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Email address</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Phone number</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Shipping and billing address</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Account related details (Name, Email, Phone, PayPal address, Credit Card number, Expiry date, State, Address)</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Contact you and understand your needs.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Provide a personalized quote and schedule installation.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Offer after-sales support.</li>
             </ul>
         </div>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">How We Use Your Information</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">We use the information we collect for the following purposes:</p>
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">3. Legal Grounds</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">We process your personal data:</p>
             <ul>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">It is necessary to process transactions and manage orders.</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">For improving its customer service to answer inquiries</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">For purposes of sending periodic emails about your order or other products and services;</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">We use it to personalize user experience and improve our site as a whole.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Based on your <strong>consent</strong> (when you submit a form or call us).</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">As part of fulfilling a <strong>contract</strong> (installing your purchased unit).</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">To meet <strong>legal obligations</strong>, such as warranty and taxation records.</li>
             </ul>
         </div>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Data Protection</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">There are different security steps that we take in order to keep your personal information secure. All your data is stored on secure servers and only accessible through authorized personnel.</p>
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">4. Data Storage & Security</h4>
+            <ul>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Your data is stored securely and <strong>never sold or shared</strong> with third parties without your explicit consent.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Data is only accessible to authorized staff for the purpose of service delivery.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">We use industry-standard safeguards (e.g., HTTPS encryption, secure servers).</li>
+            </ul>
         </div>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Cookies</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Cookies are used on our website to improve user experience. Through your browser settings, you can have your computer warn you each time a cookie is being sent, or you can turn off all cookies.</p>
+            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">5. Your Rights</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Under GDPR, you may:</p>
+            <ul>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Request access to or deletion of your data.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Correct inaccurate information.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Withdraw consent at any time by contacting us at: <strong>+373 79315994 or info@invertor.md</strong></li>
+            </ul>
         </div>
-        <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Third-Party Disclosure</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">In addition, we do not sell, trade, or transfer your personal information to outside parties without your consent (unless necessary to provide our services, e.g., payment processors).</p>
-        </div>
-        <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Your Rights</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">You should have the right of access to, correct or delete your personal information. If you wish to exercise these rights, please give notice to us by contacting us at <a href="mailto:runmaxlimited@gmail.com" class="font-inter-semibold text-decoration-none text-slate-900">runmaxlimited@gmail.com</a> or <a href="mailto:support@skotz.co.uk" class="font-inter-semibold text-decoration-none text-slate-900">support@skotz.co.uk</a>.</p>
-        </div>
-        <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl mt-sm-5 mt-4 font-hubot font-semibold">Changes to This Policy</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">It may be that we update this Privacy Policy from time to time. We will notify you by way of a notice to the email address you have provided to us or a notice on our Site, of any significant changes in the manner in which we will treat your personal information.</p>
-            <p>&nbsp;</p>
-        </div>
-        <h4 class="text-xl text-slate-900 font-inter-regular">Please forward any questions regarding this policy to <a href="mailto:runmaxlimited@gmail.com" class="font-inter-semibold text-decoration-none text-slate-900">runmaxlimited@gmail.com</a> or  <a href="mailto:support@skotz.co.uk" class="font-inter-semibold text-decoration-none text-slate-900">support@skotz.co.uk</a></h4>
     </div>
 </section>
 
