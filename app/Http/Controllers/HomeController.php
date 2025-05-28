@@ -917,7 +917,7 @@ class HomeController extends Controller
             if ($request->filled('is_scammers')) {
                 return response()->json([
                     'success' => false,                        
-                    'message' => 'Something went wrong! Please try again.'
+                    'message' => 'quotation.error'
                 ]);
             }
             $purchase_source = '';
@@ -963,7 +963,7 @@ class HomeController extends Controller
                 'success' => true,
                 'quotation_id' => encrypt($quotation->id),
                 // 'redirect_url' => route('quotation.successfully-requested',['id' => encrypt($quotation->id)]),
-                'message' => 'Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!'
+                'message' => 'quotation.success'
             ]);
            
 
@@ -974,7 +974,7 @@ class HomeController extends Controller
 
         return response()->json([
             'success' => false,                        
-            'message' => 'Something went wrong! Please try again.'
+            'message' => 'quotation.error'
         ]);
         
     }

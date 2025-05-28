@@ -110,5 +110,7 @@
     "\"INVERTOR LUX\" SRL" : "\"INVERTOR LUX\" SRL",
     "Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>str. Muncesti 400/1<br/>c/f 1018600028767<br>" : "Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>str. Muncesti 400/1<br/>c/f 1018600028767<br>",
     "Enter Your Phone Number </br> Get The Offer" : "Enter Your Phone Number </br> Get The Offer",
-    "Get the offer" : "Get the offer"
+    "Get the offer" : "Get the offer",
+    "quotation.success" : "Thank you! We’ve noted your number. A colleague will call you soon to give you the best offer. Have a cool day!",
+    "quotation.error" : "Something went wrong! Please try again."
 }

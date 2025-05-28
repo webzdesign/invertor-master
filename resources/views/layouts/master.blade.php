@@ -424,6 +424,11 @@
                                 $('#phoneModalForm')[0].reset();
                                 $('#success-container').empty();
 
+                                const translations = {
+                                    "quotation.success": @json(__('quotation.success')),
+                                    "quotation.error": @json(__('quotation.error'))
+                                };
+
                                 if (response.success)  {
                                     const successHtml = `
                                         <div id="successMessage" class="success-message rounded-lg d-flex gap-2" role="alert">
@@ -433,7 +438,7 @@
                                                     <path d="M10 15.625L13.125 18.75L20 11.25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                 </svg>
                                             </div>
-                                            <span class="text-sm text-slate-900" id="successText">${response.message}</span>
+                                            <span class="text-sm text-slate-900" id="successText">${translations[response.message]}</span>
                                         </div>`;
 
                                     $('#success-container').append(successHtml);
@@ -449,7 +454,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill text-red-600" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                                                 <path d="M8 0c-.538 0-1.047.214-1.414.586L.586 6.586A2 2 0 0 0 0 8c0 .538.214 1.047.586 1.414l6 6A2 2 0 0 0 8 16a2 2 0 0 0 1.414-.586l6-6A2 2 0 0 0 16 8a2 2 0 0 0-.586-1.414l-6-6A1.995 1.995 0 0 0 8 0zM7.001 4a1 1 0 1 1 2 0v3a1 1 0 0 1-2 0V4zm1 7a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 8 11z"/>
                                             </svg>
-                                            <span id="errorText">${response.message}</span>
+                                            <span id="errorText">${translations[response.message]}</span>
                                         </div>`;
 
                                     $('#success-container').html(errorHtml);
