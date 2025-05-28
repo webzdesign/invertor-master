@@ -31,35 +31,35 @@
 
 <section class="py-md-5 py-3">
     <div class="container">
-        <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">Shipping & Installation Policy</h3>
+        <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">{{ __('Shipping & Installation Policy')}}</h3>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">1. Geographic Scope</h4>
-            <p>We deliver and install across all regions of the <strong>Republic of Moldova</strong>.</p>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">1. {{ __('Geographic Scope')}}</h4>
+            <p>{!! __('We deliver and install across all regions of the <strong>Republic of Moldova</strong>') !!}.</p>
         </div>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">2. Delivery Timing</h4>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">2. {{ __('Delivery Timing')}}</h4>
             <ul>
-                <li class="text-gray-500 text-lg font-inter-regular list-disc">Orders are fulfilled within <strong>1–2 business days</strong>, depending on:</li>
+                <li class="text-gray-500 text-lg font-inter-regular list-disc">{!! __('Orders are fulfilled within <strong>1–2 business days</strong>, depending on') !!}:</li>
                 <ul>
-                    <li class="text-gray-500 text-lg font-inter-regular list-disc">Customer location</li>
-                    <li class="text-gray-500 text-lg font-inter-regular list-disc">Product availability in our warehouse</li>
+                    <li class="text-gray-500 text-lg font-inter-regular list-disc">{{ __('Customer location')}}</li>
+                    <li class="text-gray-500 text-lg font-inter-regular list-disc">{{ __('Product availability in our warehouse')}}</li>
                 </ul>
             </ul>
         </div>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">3. Process</h4>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">3. {{ __('Process')}}</h4>
             <ul>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">After quote acceptance, we coordinate directly with the customer to schedule delivery and installation.</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">All installations are carried out by trained professionals.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">{{ __('After quote acceptance, we coordinate directly with the customer to schedule delivery and installation.')}}</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">{{ __('All installations are carried out by trained professionals.')}}</li>
             </ul>
         </div>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">4. No Online Checkout</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Because each customer has unique requirements, we <strong>do not offer online checkout</strong>. All orders are confirmed after personalized consultation.</p> 
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">4. {{ __('No Online Checkout')}}</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">{!! __('Because each customer has unique requirements, we <strong>do not offer online checkout</strong>. All orders are confirmed after personalized consultation.') !!}</p> 
         </div>
         <div class="mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">5. Delivery Delays</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Any potential delays due to product unavailability, weather, or regional logistics will be communicated proactively.</p>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">5. {{ __('Delivery Delays')}}</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">{{ __('Any potential delays due to product unavailability, weather, or regional logistics will be communicated proactively.')}}</p>
         </div>
     </div>
 </section>

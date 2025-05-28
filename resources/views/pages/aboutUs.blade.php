@@ -324,7 +324,7 @@
     <section style="">
         <div class="container">
             <section class="py-2">
-                <h1 class="">{{ __('About Invertor Lux')}}</h1>
+                <h1 text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob>{{ __('About Invertor Lux')}}</h1>
                 <p class="fs-5">{{ __('Your Comfort is Our Craft. Your Satisfaction is Our Promise.')}}</p>
             </section>
 
@@ -400,7 +400,7 @@
             </section>
 
             <section class="py-3">
-                <h2>{{ __('What We Do')}}</h2>
+                <h3 class="text-slate-900 text-2xl font-hubot font-semibold">{{ __('What We Do')}}</h3>
                 <p class="fs-5 text-gray-500 text-lg font-inter-regular">
                     {{ __('Whether you\'re cooling a cozy home, outfitting a new office, or retrofitting a large commercial site, Invertor Lux delivers:')}}
                 </p>
@@ -414,7 +414,7 @@
             </section>
 
             <section class="py-3">
-                <h2>{{ __('Why Choose Invertor Lux') }}?</h2>
+                <h3 class="text-slate-900 text-2xl font-hubot font-semibold">{{ __('Why Choose Invertor Lux') }}?</h3>
 
                 <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Expert Advice You Can Trust</strong> – Our team provides honest guidance to help you choose the best system for your space.') !!}</p>
                 <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Transparent Pricing</strong> – Fair, upfront costs with no surprise charges.') !!}</p>
@@ -424,14 +424,14 @@
             </section>
 
             <section class="py-3">
-                <h2>{{ __('Join the Invertor Lux Family')}}</h2>
+                <h3 class="text-slate-900 text-2xl font-hubot font-semibold" >{{ __('Join the Invertor Lux Family')}}</h3>
 
                 <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">{{ __('Our reputation is built on the smiles of satisfied customers. Whether you\'re a homeowner looking for cooler summers, or a business needing scalable air conditioning solutions, Invertor Lux is here to serve.')}}</p>
                 <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">{{ __('Let us help you build a better, cooler future — one installation at a time')}}</p>
             </section>
 
             <section class="py-3">
-                <h2>{{ __('Contact Us')}}</h2>
+                <h3 class="text-slate-900 text-2xl font-hubot font-semibold">{{ __('Contact Us')}}</h3>
 
                 <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📍  <strong>{{__('Address')}}:&nbsp;</strong>&nbsp;{{ __('Șoseaua Muncești 400, Chișinău, MD-2002, Moldova')}}</p>
                 <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📞 <strong>{{__('Phone')}}:&nbsp;</strong>&nbsp;+373 793 15 994</p>
