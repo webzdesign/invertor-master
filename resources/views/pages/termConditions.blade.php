@@ -33,52 +33,44 @@
     <div class="container">
         <h3 class="text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob">Terms and Conditions</h3>
         <div class="mb-sm-5 mb-4">
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">We at Skootz Electric Scooters welcome you. Agreement with the following terms and conditions is made by access to our website and purchase of our products. Please read them carefully.</p>
+            <span class="fw-bold">Last Updated:&nbsp;&nbsp;28/05/2025</span>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Welcome to <strong>Invertor Lux</strong>. By accessing our website <a href="https://invertor.md/" class="text-decoration-none">(https://invertor.md/)</a>, submitting a service request, or engaging with our company for consultation, delivery, or installation of air conditioning units, you agree to be bound by the following terms and conditions.</p>
         </div>
         <div class="mb-sm-5 mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Acceptance of Terms</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">This site is a group of people and when you use this site you confirm that you have read, and agree with, the following terms and conditions. You may not use our website if you do not agree with any part of these terms.</p>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">1. Scope of Services</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Invertor Lux specializes in the sale and professional installation of residential and commercial air conditioning systems throughout Moldova. All our products are provided by consultation only — pricing and availability are determined after a personalized assessment of your needs.</p>
         </div>
         <div class="mb-sm-5 mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Product Information</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Products available in our store are listed on our website first. Some product and price information may be error-free, however, we cannot guarantee all of our descriptions, prices or other content is error-free.</p>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">2. Order Process</h4>
+            <ul>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Users submit a request through our website form or by phone.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Our team will contact the customer directly to assess their needs and provide a customized offer.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">No pricing is displayed online; all quotes are tailored and shared during the consultation call.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Orders are confirmed only after the customer agrees to the quoted price and terms via verbal or written confirmation.</li>
+            </ul>
         </div>
         <div class="mb-sm-5 mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Warranty</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">A One-year warranty comes with all scooters purchased from Skootz. This warranty covers manufacturing defects but excludes parts subject to wear and tear, including:</p>
-            <ol class="sz_ol_tag">
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Tires</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Brakes</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Chain</li>
-                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Seat</li>
-            </ol>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">3. Delivery & Installation</h4>
+            <ul>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">After confirmation, we arrange for delivery and installation typically within 1–2 working days, depending on product availability.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">We provide professional, on-site installation included with the purchase.</li>
+            </ul>
         </div>
         <div class="mb-sm-5 mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Ordering and Payment</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">If you place an order via our website, we assume that you agree to provide us with accurate and complete information. You need to pay at the time of purchase using one of the payment methods available on our site.</p>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">4. Service Eligibility</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">We reserve the right to:</p>
+            <ul>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Decline service in locations that pose safety risks or where technical conditions make installation unfeasible.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Adjust delivery timelines based on stock or regional logistics.</li>
+            </ul>
         </div>
         <div class="mb-sm-5 mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Delivery</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Our goal is to meet your estimated delivery time frame as specified at checkout. But we are not held responsible for any delay outside our control.</p>
-        </div>
-        <div class="mb-sm-5 mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Returns and Refunds</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Please let us know within 14 days from the day of delivery, if you wish to return a product. An item must be unused and in its original packaging to be eligible for a return. After we receive your returned item we will process refunds in a reasonable timeframe.</p>
-        </div>
-        <div class="mb-sm-5 mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Limitation of Liability</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Skootz Electric Scooters excludes itself from all liability for any loss or damage, whether direct, indirect, or consequential, resulting from the use of our products or services.</p>
-        </div>
-        <div class="mb-sm-5 mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Changes to Terms</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">These terms and conditions are subject to change at any time, so we reserve the right to do so. They will be effective immediately when posted on this website. Use of the site after changes are made means that you&rsquo;ve agreed to accept the new terms.</p>
-        </div>
-        <div class="mb-sm-5 mb-4">
-            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">Governing Law</h4>
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">The provisions of these terms shall be governed by and construed by the laws of the jurisdiction within which Skootz Electric Scooters operates.</p>
-        </div>
-        <div class="mb-sm-5 mb-4">
-            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">Wherever there are questions about these terms and conditions, please write to us on our contact form on our website. We are glad that you chose Skootz Electric Scooters!</p>
+            <h4 class="text-slate-900 text-2xl font-hubot font-semibold">5. Liability Disclaimer</h4>
+            <p class="text-gray-500 text-lg font-inter-regular mb-0 mt-3">While we ensure the highest service standards, Invertor Lux shall not be liable for:</p>
+            <ul>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Delays caused by supply chain issues or force majeure events.</li>
+                <li class="text-gray-500 text-lg font-inter-regular mb-0 list-disc">Faults resulting from improper use of the installed product by the customer.</li>
+            </ul>
         </div>
     </div>
 </section>
