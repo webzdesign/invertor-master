@@ -87,6 +87,10 @@
   .likeProuctCard .likeProuct {
     margin-top: 0 !important;
   }
+  .hero .spin-svg svg{
+    width: 100px;
+    height: 100px;
+  }
 }
 
 @media (max-width:991px) {
@@ -96,10 +100,6 @@
   .hero-banner{
     right: -300px !important;
     top: -130px !important;
-  }
-  .hero .spin-svg svg{
-    width: 100px;
-    height: 100px;
   }
   .hero .left-slide h1 {
     max-width: 430px;
