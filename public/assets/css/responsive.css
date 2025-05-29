@@ -28,6 +28,10 @@
   .hero .right-slide .arrow {
     display: none;
   }
+  .hero .left-slide h1 {
+    font-size: 54px;
+    line-height: 58px;
+  }
 
   .hero .right-slide>div {
     justify-content: flex-end !important;
@@ -65,6 +69,14 @@
   header .logo img{
     width: 180px;
   }
+  .hero .left-slide h1 {
+    font-size: 44px;
+    line-height: 48px;
+  }
+  .hero .left-slide h1 span::after {
+    width: calc(100% - -8px);
+    height: calc(100% - 14px);
+  }
 
   .likeProuctCard .offcanvas-body ul li {
     display: flex !important;
@@ -85,10 +97,17 @@
     right: -300px !important;
     top: -130px !important;
   }
-  .hero .left-slide h1{
-    font-size: 80px;
+  .hero .spin-svg svg{
+    width: 100px;
+    height: 100px;
+  }
+  .hero .left-slide h1 {
+    max-width: 430px;
+    margin: auto;
     text-align: center;
-    line-height: 90px;
+  }
+  .hero .hot-d-label{
+    margin: 0 auto 6px;
   }
   .product-card {
     padding: 50px 16px 20px;
@@ -270,11 +289,16 @@
   .product-detail .slider-nav .thumb-img {
     height: 80px;
   }
-
   .store-product input {
     width: 100%;
   }
-
+  .hero .owl-dots button span {
+    width: 20px;
+    height: 5px;
+  }
+  .hero .owl-dots button.active span {
+    width: 40px;
+  }
   .why-choose-product {
     padding: 30px 40px;
   }
@@ -322,6 +346,9 @@
 @media (max-width:576px) {
   .text-xs-mob{
     font-size: 12px !important;
+  }
+  .hero .owl-carousel .owl-item img{
+    height: auto;
   }
   .text-32px-mob {
     font-size: 32px !important;
@@ -444,30 +471,37 @@
     width: 50%;
   }
 
-  .hero .left-slide p {
+  /* .hero .left-slide p {
     font-size: 12px !important;
     line-height: 16px !important;
     max-width: 260px;
     margin: 0 auto !important;
-  }
+  } */
 
   .hero .left-slide h2 {
     font-size: 36px;
     line-height: 45px;
     margin-top: 10px;
   }
-
+  .hero .left-slide h1 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .hero .left-slide h1 span::after {
+    width: calc(100% - -7px);
+    height: calc(100% - 7px);
+    border-radius: 4px;
+  }
   .hero .left-slide .order-btn {
-    /* width: 118px; */
-    height: 34px;
+    height: 40px;
     margin-top: 20px !important;
-    font-size: 11px !important;
+    font-size: 14px !important;
     padding: 0 5px 0 12px !important;
   }
 
   .hero .left-slide .order-btn svg {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
   }
 
   .why-choose .right-side {
@@ -538,10 +572,6 @@
   #imgZoomModal .modal-body {
     height: 70vh;
   }
-  .hero .left-slide h1 {
-    font-size: 54px;
-    line-height: 60px;
-  }
 
   .sz_alert {
     width: 100%;
@@ -585,6 +615,9 @@
   }
   .our-partner{
     padding: 40px 0;
+  }
+  .hero .left-slide h1 {
+    max-width: 330px;
   }
 }
 

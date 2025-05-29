@@ -219,6 +219,9 @@ select {
 .bg-pumpkin-orange-500 {
     background-color: var(--pumpkin-orange-500) !important;
 }
+.bg-slate-50 {
+    background-color: var(--slate-50) !important;
+}
 .bg-slate-100 {
     background-color: var(--slate-100) !important;
 }
