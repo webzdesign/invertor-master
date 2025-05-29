@@ -376,11 +376,11 @@
 <section class="review">
     <div class="container">
         <h2 class="font-bebas text-4xl-mob my-0">CUSTOMER REVIEWS</h2>
-        <div class="mt-3 d-flex gap-3">
+        {{-- <div class="mt-3 d-flex gap-3">
             <a href="javascript:;" class="text-white bg-slate-900 font-semibold text-lg text-sm-mob py-sm-3 py-2 px-sm-4 px-3 rounded-full text-decoration-none">Write a review</a>
             <a href="javascript:;" class="text-white text-lg text-sm-mob font-semibold py-sm-3 py-2 px-sm-4 px-3 rounded-full text-decoration-none bg-gray-500">Ask a question</a>
-        </div>
-        <div class="r-pagination bg-slate-100 p-3 mt-4 d-flex align-items-center justify-content-between flex-wrap">
+        </div> --}}
+        {{-- <div class="r-pagination bg-slate-100 p-3 mt-4 d-flex align-items-center justify-content-between flex-wrap">
             <div class="text-lg text-sm-mob font-inter-regular text-slate-900">
                 <span>1 - 3 of <b>8 reviews</b></span>
             </div>
@@ -405,7 +405,7 @@
                     </svg>
                 </button>
             </div>
-        </div>
+        </div> --}}
         <div>
             <div class="review-card py-3 border-bottom border-gray-300">
                 <div class="d-flex align-items-center gap-1">
@@ -492,9 +492,9 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="border-slate-900 bg-transparent text-lg text-base-mob text-slate-900 font-semibold px-sm-5 px-4 py-sm-3 py-2 rounded-full border mx-auto d-table mt-4">
+        {{-- <button type="button" class="border-slate-900 bg-transparent text-lg text-base-mob text-slate-900 font-semibold px-sm-5 px-4 py-sm-3 py-2 rounded-full border mx-auto d-table mt-4">
             Load More
-        </button>
+        </button> --}}
     </div>
 </section>
 
