@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Quotation;
+use App\Models\Review;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Stripe\Charge;
@@ -101,7 +102,9 @@ class HomeController extends Controller
         $othersProducts = Product::with('images')->where('id', '!=', $product->id)->where('status',1)->limit(2)->get();
         $sale_season_icon = $this->getSeasonSellIcon();
         $getCategory =  Category::where('id',$product->category_id)->first();
-        return view('productDetail', compact('product', 'othersProducts', 'sale_season_icon','getCategory'));
+
+        $reviews = Review::where('product_id',$product->id)->where('status',1)->orderBy('id','DESC')->limit(4)->get();
+        return view('productDetail', compact('product', 'othersProducts', 'sale_season_icon','getCategory','reviews'));
     }
 
     public function addToCart(Request $request)
@@ -990,4 +993,41 @@ class HomeController extends Controller
 
         return redirect()->route('home');
     }
+
+    public function storeReview(Request $request) {
+
+        try {
+            if(!empty($request->is_scammers)) {
+                abort(404);
+            }
+
+            $review = new Review();
+            $review->product_id = decrypt($request->product_id);
+            $review->customer_name = $request->customer_name;
+            $review->review_title = $request->review_title;
+            $review->review_description = $request->review_description;
+            $review->rating = $request->rating;
+            $review->recommend_product = (isset($request->recommend_product) && $request->recommend_product == 1 ? 1 : 0) ;
+            $review->status = 1;
+
+            if($review->save()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'review.success'
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,                        
+                    'message' => 'review.error'
+                ]);
+            }
+        } catch (\Throwable $e) {
+            return response()->json([
+                'success' => false,                        
+                'message' => 'review.error'
+            ]);
+        }
+
+    }
+
 }
