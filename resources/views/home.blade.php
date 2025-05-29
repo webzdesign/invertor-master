@@ -407,7 +407,10 @@
                         </div>
                     </a>
                     <div class="text-lg-start text-center">
-                        <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4">{{ $product->name }}</h2>
+                        <label class="mt-sm-4 mt-3 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
+                            Free Gift Available
+                        </label>
+                        <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-2">{{ $product->name }}</h2>
                         <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                             <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                                 {{--<h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_price, 2) }}</h2>
