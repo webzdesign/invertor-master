@@ -504,9 +504,6 @@
             <div class="item d-flex align-items-center justify-content-center h-100">
                 <img src="{{ asset( 'assets/images/inv-kaisai.svg' ) }}" alt="kaisai" width="100%">
             </div>
-            <div class="item d-flex align-items-center justify-content-center h-100">
-                <img src="{{ asset( 'assets/images/inv-kaisai.svg' ) }}" alt="kaisai" width="100%">
-            </div>
         </div>
     </div>
 </section>

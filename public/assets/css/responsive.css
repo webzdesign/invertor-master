@@ -347,6 +347,15 @@
   .text-xs-mob{
     font-size: 12px !important;
   }
+  .our-partner .owl-dots button{
+    min-width: 35px;
+  }
+  .customer{
+    padding-top: 10px;
+  }
+  .our-partner .owl-dots button.active {
+    height: 7px;
+  }
   .hero .owl-carousel .owl-item img{
     height: auto;
   }
