@@ -174,14 +174,14 @@
         </div>
     </div>
     <div class="fixed-menu bg-slate-900 position-fixed bottom-0 left-0 right-0 d-flex d-lg-none align-items-center justify-content-between">
-        <a href="{{ route('home') }}">
+        <a href="{{ route('home') }}" aria-label="Home">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M12 17H12.009" stroke="#FEFEFE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 <path d="M20 8.5V13.5C20 17.2712 20 19.1569 18.8284 20.3284C17.6569 21.5 15.7712 21.5 12 21.5C8.22876 21.5 6.34315 21.5 5.17157 20.3284C4 19.1569 4 17.2712 4 13.5V8.5" stroke="#FEFEFE" stroke-width="1.5" />
                 <path d="M22 10.5L17.6569 6.33548C14.9902 3.77849 13.6569 2.5 12 2.5C10.3431 2.5 9.00981 3.77849 6.34315 6.33548L2 10.5" stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" />
             </svg>
         </a>
-        <a href="{{ route('shop') }}">
+        <a href="{{ route('shop') }}" aria-label="All Collections">
             <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M3.66699 10.9863V15.4917C3.66699 18.3235 3.66699 19.7395 4.54567 20.6192C5.42435 21.499 6.83856 21.499 9.66699 21.499H15.667C18.4954 21.499 19.9096 21.499 20.7883 20.6192C21.667 19.7395 21.667 18.3235 21.667 15.4917V10.9863" stroke="#FEFEFE" stroke-width="1.5" />
                 <path d="M15.667 16.9766C14.9829 17.5838 13.8938 17.9766 12.667 17.9766C11.4402 17.9766 10.3511 17.5838 9.66699 16.9766" stroke="#FEFEFE" stroke-width="1.5" stroke-linecap="round" />

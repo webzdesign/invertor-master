@@ -545,6 +545,11 @@
                 }
             }
         })
+
+        $('.owl-dot').each(function(index) {
+            $(this).attr('aria-label', `Go to slide ${index + 1}`);
+        });
+
     });
     
 </script>
