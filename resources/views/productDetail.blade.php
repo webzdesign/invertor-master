@@ -155,6 +155,14 @@
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">{{ __('Warranty')}}</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">1 {{ __('Year')}}</h6>
                     </div>
+                    <div class="d-flex align-items-center mb-4">
+                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular me-4">{{ __('Air Conditioner’s Capacity')}}</h6>
+                        <h6 class="mb-0 text-slate-900 font-inter-semibold">{{ $product->air_conditioner_capacity }}</h6>
+                    </div>
+                    <div class="d-flex align-items-center mb-4">
+                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular me-4">{{ __('Available Power Capacity')}}</h6>
+                        <h6 class="mb-0 text-slate-900 font-inter-semibold">  {{ $product->available_power_capacity}}</h6>
+                    </div>
                     {{-- <div class="d-flex align-items-center mb-2">
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Color</h6>
                         <div class="d-flex gap-1">
