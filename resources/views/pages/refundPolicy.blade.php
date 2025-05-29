@@ -12,7 +12,7 @@
 
 <section class="bg-linear linear-banner rounded-3xl p-2 m-2 position-relative">
     <div class="w-100 h-100"></div>
-    <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0 text-6xl text-3xl-mob">{{ __('Refund & Cancellation Policy')}}</h2>
+    <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0 text-6xl text-2xl-mob">{{ __('Refund & Cancellation Policy')}}</h2>
 </section>
 
 <section class="breadcrumb mb-0 bg-slate-100 py-3 d-none d-md-block">
