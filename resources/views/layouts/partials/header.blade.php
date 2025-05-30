@@ -89,9 +89,9 @@
                     </div>
                 </li>
 
-                {{-- <li>
-                    <a class="text-decoration-none text-slate-900 {{ request()->is('blog*') ? 'active' : '' }}" href="{{ route('blog') }}">News</a>
-                </li> --}}
+                <li>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is('promo*') ? 'active' : '' }}" href="{{ route('Promo') }}">Promo</a>
+                </li>
 
                 <li>
                     <a class="text-decoration-none text-slate-900 {{ request()->is( 'contact-us' ) ? 'active' : '' }}" href="{{ route( 'contact-us' ) }}">{{ __('Contact Us')}}</a>

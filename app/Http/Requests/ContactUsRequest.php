@@ -26,6 +26,7 @@ class ContactUsRequest extends FormRequest
             'sz_lastname' => 'required|string|max:255',
             'sz_email' => 'required|email|max:255',
             "sz_phone" => "required",
+            'whichform' => "required",
         ];
     }
 

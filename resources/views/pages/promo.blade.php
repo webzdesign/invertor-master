@@ -417,11 +417,12 @@
                         @if (session()->has('success'))
                             <div class="text-center mb-3 fs-4" style="color: green;">{{ session('success') }}</div>
                         @endif
-                        <form action="{{ route('contactUs.store') }}" id="contactUs" method="post">
+                        <form action="{{ route('contactUs.store') }}" id="promoForm" method="post">
                             @csrf
                             <h4 class="text-slate-900 text-lg font-medium font-hubot text-center text-lg-start">{{ __('You can reach us anytime')}}</h4>
                             <div class="row mt-3">
                                 <div class="col-6 pe-xl-4 mb-4">
+                                    <input type="hidden" name="whichform" value="promo_form">
                                     <label class="font-inter-regular text-sm d-block mb-1" for="sz_firstname">{{ __('First name')}}<span class="text-rose-500">*</span></label>
                                     <input name="sz_firstname" id="sz_firstname" class="input-control w-100" type="text" placeholder="{{ __('First name')}}" value="{{ old('sz_firstname') }}">
                                     @if ( $errors->has('sz_firstname') )
@@ -460,12 +461,12 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                         <label class="form-check-label text-sm font-inter-regular text-slate-900" for="flexCheckDefault">
-                                            Nota: Prin trimiterea acestui formular, îți exprimi acordul pentru prelucrarea datelor tale cu caracter personal <a href="javascript:;" class="font-inter-semibold text-neutrino-blue-400 text-decoration-none">Vezi mai multe</a>
+                                            {{__('Note')}}: {{__('By submitting this form, you consent to the processing of your personal data')}} <a href="javascript:;" class="font-inter-semibold text-neutrino-blue-400 text-decoration-none">{{__('See more')}}</a>
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col-12 mt-4 mt-md-5">
-                                    <button type="submit" class="button-dark w-100">Send Message</button>
+                                    <button type="submit" class="button-dark w-100">{{__('Send Message')}}</button>
                                 </div>
                             </div>
                         </form>
@@ -550,7 +551,7 @@
         }
     });
     $(document).ready(function(){
-        $("#contactUs").validate({
+        $("#promoForm").validate({
             rules: {
                 sz_firstname: {
                     required: true,

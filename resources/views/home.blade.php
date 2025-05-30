@@ -45,7 +45,7 @@
                                     <h1 class="fadeItem text-neutrino-blue-600 font-bebas">
                                         <a class="text-decoration-none text-neutrino-blue-600" href="{{ route('productDetail', $slider_product->slug) }}">
                                             <!-- {{ $p_name }} -->
-                                            {!! __('BUY AN <span class="position-relative text-white">AIR CONDITIONER.</span> GET A <span class="position-relative text-white">FREE INSTALLATION GIFT</span> CERTIFICATE!')!!} 
+                                            {{__('BUY AN')}} <span class="position-relative text-white">{{__('AIR CONDITIONER')}}.</span> {{__('GET A')}} <span class="position-relative text-white">{{__('FREE INSTALLATION GIFT')}}</span> {{__('CERTIFICATE')}}! 
                                         </a>
                                     </h1>
                                     <p class="fadeItem text-gray-500 font-inter-regular text-lg my-sm-4 my-2 text-sm-mob text-lg-start text-center mx-auto mx-lg-0">
@@ -408,7 +408,7 @@
                     </a>
                     <div class="text-lg-start text-center">
                         <label class="mt-sm-4 mt-3 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
-                            Free Gift Available
+                            {{__('Free Gift Available')}}
                         </label>
                         <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-2">{{ $product->name }}</h2>
                         <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">

@@ -586,7 +586,7 @@ class HomeController extends Controller
             $name .= ' ' . $request->sz_lastname;
         }
         $sz_message = !empty($request->sz_message) ? strip_tags($request->sz_message) : '';
-        $contact = ContactUs::create([ 'name' => $name, 'email' => $request->sz_email, 'phone' => $request->sz_phone, 'message' => $sz_message ]);
+        $contact = ContactUs::create([ 'name' => $name, 'email' => $request->sz_email, 'phone' => $request->sz_phone, 'message' => $sz_message, 'form' => $request->whichform ]);
 
         $this->sendContactEmailToAdmin($contact);
 
@@ -597,8 +597,14 @@ class HomeController extends Controller
     {
         $adminEmail = 'invertor.sales@gmail.com';
 
-        Mail::send('emails.contact', ['contact' => $contact], function ($message) use ($adminEmail) {
-            $message->to($adminEmail)->subject('New Contact Us Message');
+        if($contact->form == 'contact_us_form'){
+            $subject = 'New Contact Us Message';
+        } else {
+            $subject = 'New Promo Message';
+        }
+
+        Mail::send('emails.contact', ['contact' => $contact], function ($message) use ($adminEmail, $subject) {
+            $message->to($adminEmail)->subject($subject);
         });
     }
 

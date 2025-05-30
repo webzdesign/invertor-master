@@ -10,7 +10,11 @@
                 <h4 style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 8px;color: #242b3d;font-size: 18px;line-height: 23px;">
                 Hello, Admin
                 </h4>
-                <p style="margin-top: 0px;margin-bottom: 0px;">You have received a new message via the Contact Us form.</p>
+                @if ($contact->form == 'contact_us_form')
+                    <p style="margin-top: 0px;margin-bottom: 0px;">You have received a new message via the Contact Us form.</p>
+                @else 
+                    <p style="margin-top: 0px;margin-bottom: 0px;">You have received a new message via the Promo form.</p>
+                @endif
                 <p style="margin-top: 8px;margin-bottom: 0px;">Here are the details:</p>
                 <table style="margin-top: 20px;">
                 <tr>

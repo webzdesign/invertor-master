@@ -32,6 +32,7 @@
                         <h4 class="text-slate-900 text-lg font-medium font-hubot text-center text-lg-start">{{ __('You can reach us anytime')}}</h4>
                         <div class="row mt-3">
                             <div class="col-6 pe-xl-4 mb-4">
+                                <input type="hidden" name="whichform" value="contact_us_form">
                                 <label class="font-inter-regular text-sm d-block mb-1" for="sz_firstname">{{ __('First name')}}<span class="text-rose-500">*</span></label>
                                 <input name="sz_firstname" id="sz_firstname" class="input-control w-100" type="text" placeholder="{{ __('First name')}}" value="{{ old('sz_firstname') }}">
                                 @if ( $errors->has('sz_firstname') )
