@@ -11,8 +11,11 @@
 @section('content')
 
     <section class="strore-banner p-2 position-relative">
-        <img src="{{ asset('assets/images/promo-banner.png') }}" alt="Promo" width="100%">
-        <!-- <img src="{{ asset('assets/images/inv-our-store-banner-mob.png') }}" alt="Invertor Lux team" width="100%" class="d-sm-none"> -->
+        @if (!empty($information->page_banner))
+            <img src="{{ url('admin/storage/app/public/information-images/'.$information->page_banner) }}" alt="{{ $information->page_title }} Banner" width="100%">
+        @else
+            <img src="{{ asset('assets/images/inv-our-store-banner-mob.png') }}" alt="Invertor Lux team" width="100%" class="d-sm-none">
+        @endif
         <!-- <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">
             {{ __('About')}} {{ config('app.name') }}
         </h2> -->
@@ -321,7 +324,7 @@
         </div>
     </section> --}}
 
-    <section class="promo-content">
+    {{-- <section class="promo-content">
         <div class="container">
             <div>
                 <h2>Ofertă specială</h2>
@@ -400,7 +403,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
+
+    @if (!empty($information->page_description))
+        {!! $information->page_description !!}
+    @endif
 
     <section class="contactUs promo-contact">
         <div class="container">
