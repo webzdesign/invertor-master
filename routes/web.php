@@ -53,6 +53,7 @@ Route::group([
     Route::get('pages/blog/{slug}', [PageController::class, 'blogDetail'])->name('blogDetail');
     Route::get('pages/refund-and-return-policy', [PageController::class, 'refundPolicy'])->name('refund-policy');
     Route::get('pages/shipping-policy', [PageController::class, 'shippingPolicy'])->name('shipping-policy');
+    Route::get('pages/promo', [PageController::class, 'Promo'])->name('Promo');
 });
 
 

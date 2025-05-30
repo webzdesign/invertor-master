@@ -11,6 +11,10 @@ class PageController extends Controller
         return view('pages.aboutUs');
     }
 
+    public function Promo()
+    {
+        return view('pages.promo');
+    }
     public function testimonial()
     {
         return view('pages.testimonial');
