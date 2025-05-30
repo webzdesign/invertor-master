@@ -114,17 +114,20 @@
                         [
                             'code' => 'en',
                             'shortcode' => 'ENG',
-                            'icon' => 'United Kingdom (GB).png'
+                            'icon' => 'United Kingdom (GB).png',
+                            'name' => 'United Kingdom'
                         ],
                         [
                             'code' => 'ro',
                             'shortcode' => 'ROM',
-                            'icon' => 'RO.png'
+                            'icon' => 'RO.png',
+                            'name' => 'Romania'
                         ],
                         [
                             'code' => 'ru',
                             'shortcode' => 'RUS',
-                            'icon' => 'RU.png'
+                            'icon' => 'RU.png',
+                            'name' => 'Russia'
                         ],
                     ];
                 @endphp
@@ -133,7 +136,7 @@
                      @foreach ($langArray as $lang)
                         @if (app()->getLocale() == $lang['code'])
                             <button class="dropdown-toggle ms-auto bg-transparent border-0 d-flex align-items-center gap-2" type="button" id="selected-language" data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="leading-0"><img src="{{ asset( 'assets/images/' . $lang['icon']) }}" alt="{{$lang['shortcode']}}"></span>
+                                <span class="leading-0"><img src="{{ asset( 'assets/images/' . $lang['icon']) }}" alt="Flag of {{$lang['name']}}"></span>
                                 <span class="text-base text-slate-900">{{ $lang['shortcode'] }}</span>
                             </button>
                         @endif
@@ -142,7 +145,7 @@
                         @foreach ($langArray as $lang)
                             <a class="text-decoration-none" href="{{ route('change.language',[ 'locale' => $lang['code'] ]) }}">
                                 <li class="dropdown-item cursor-pointer d-flex align-items-center gap-2">
-                                    <span class="leading-0"><img src="{{ asset( 'assets/images/' . $lang['icon']) }}" alt="{{$lang['shortcode']}}"></span>
+                                    <span class="leading-0"><img src="{{ asset( 'assets/images/' . $lang['icon']) }}" alt="Flag of {{$lang['name']}}"></span>
                                     <span class="text-base text-slate-900">{{$lang['shortcode']}}</span>
                                 </li>
                             </a>
