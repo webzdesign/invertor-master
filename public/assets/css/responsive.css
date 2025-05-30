@@ -133,7 +133,9 @@
   }
 
   .faq,
-  .review {
+  .review,
+  .promo-content,
+  .promo-contact {
     padding: 50px 0;
   }
 
@@ -449,8 +451,26 @@
     width: 72px;
   }
 
-  .why-choose-product {
+  .why-choose-product,
+  .promo-content,
+  .promo-contact {
     padding: 30px 0;
+  }
+  .promo-content h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .promo-content p, .promo-content ul li{
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 12px;
+  }
+  .promo-content ul {
+    padding-left: 12px;
+  }
+  .promo-content h3 {
+    font-size: 18px;
+    line-height: 26px;
   }
 
   .get-in-touch input {

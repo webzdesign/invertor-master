@@ -211,6 +211,9 @@ select {
 .text-neutrino-blue-600 {
     color: var(--neutrino-blue-600) !important;
 }
+.text-neutrino-blue-400{
+    color: var(--neutrino-blue-400) !important;
+}
 
 
 .bg-purple-300{
@@ -418,4 +421,9 @@ select {
 .size-36{
     width: 36px;
     height: 36px;
+}
+
+.form-check-input:checked {
+    background-color: var(--neutrino-blue-400);
+    border-color: var(--neutrino-blue-400);
 }

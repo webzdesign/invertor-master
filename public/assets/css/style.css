@@ -1159,3 +1159,38 @@ footer .copy-right{
 .review .review-card:last-child{
   border-bottom: 0 !important;
 }
+
+.promo-content{
+  padding: 100px 0;
+}
+.promo-content h2{
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -1.5px;
+  color: var(--slate-900);
+}
+.promo-content p,
+.promo-content ul li{
+  color: var(--gray-500);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: -0.4px;
+  font-family: 'Inter' !important;
+  margin-top: 16px;
+}
+.promo-content h3{
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: -0.4px;
+  color: var(--slate-900);
+}
+.promo-content ul li{
+  margin-top: 4px;
+}
+.promo-contact{
+  background-color: #FDFDFD;
+  padding: 80px 0;
+}

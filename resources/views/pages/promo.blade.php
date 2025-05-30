@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'About' . ' ' . config('app.name') . ' Lux | Moldova’s Trusted Air Conditioner Experts')
+@section('title', 'Promo' . ' ' . config('app.name') . ' Lux | Moldova’s Trusted Air Conditioner Experts')
 @section('description','Founded in 2024, Invertor Lux provides customized AC sales and installation services across Moldova. Discover our story, mission, and commitment to customer comfort')
 @section('url','/about')
 @section('conversion')
@@ -11,12 +11,11 @@
 @section('content')
 
     <section class="strore-banner p-2 position-relative">
-        <img src="{{ asset('assets/images/inv-our-store-banner.png') }}" alt="Invertor Lux team" width="100%"
-            class="rounded-3xl d-none d-sm-block">
-        <img src="{{ asset('assets/images/inv-our-store-banner-mob.png') }}" alt="Invertor Lux team" width="100%" class="d-sm-none">
-        <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">
+        <img src="{{ asset('assets/images/promo-banner.png') }}" alt="Promo" width="100%">
+        <!-- <img src="{{ asset('assets/images/inv-our-store-banner-mob.png') }}" alt="Invertor Lux team" width="100%" class="d-sm-none"> -->
+        <!-- <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">
             {{ __('About')}} {{ config('app.name') }}
-        </h2>
+        </h2> -->
     </section>
 
     {{-- <section class="bg-slate-900 py-5">
@@ -322,124 +321,179 @@
         </div>
     </section> --}}
 
-    <section style="">
+    <section class="promo-content">
         <div class="container">
-            <section class="py-2">
-                <h1 text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob>{{ __('About Invertor Lux – Moldova’s Air Conditioning Partner')}}</h1>
-                <p class="fs-5">{{ __('Your Comfort is Our Craft. Your Satisfaction is Our Promise.')}}</p>
-            </section>
-
-            <article class="">
-                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                    {!! __('At <strong>Invertor Lux</strong>, we believe that comfort is more than a luxury — it’s a necessity. Established in 2024 and headquartered in <strong>Chișinău, Moldova</strong>, we have rapidly grown into a trusted name in <strong>air conditioning sales and professional installation services</strong>, proudly serving residential homes, businesses, and institutions throughout the country.') !!}
-                </p>
-                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                    {{ __('With a customer-first philosophy and a team of experienced HVAC professionals, we don’t just sell products — we create tailored climate control experiences that enhance everyday living and working environments.')}}
-                </p>
-            </article>
-
-            <section class="py-3">
-                <h2 class="fw-bold">{{ __('Who We Are')}}</h2>
-                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                    {!! __('<strong>Invertor Lux</strong> was founded with a simple goal: to bring modern, energy-efficient climate solutions to every corner of Moldova. Whether it’s a small apartment, a large office space, or a commercial facility, we design and deliver cooling systems that meet your exact needs — no compromises.') !!}
-                </p>
-                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                    {{ __('We are more than a supplier — we are a complete service partner. From personalized consultation and expert installation to post-sale support, we are with you every step of the way.')}}
-                </p>
-            </section>
-
-            <section class="py-3">
-                <h2 class="fw-bold">{{ __('Our Mission')}}</h2>
-                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                    {{ __('To deliver high-quality, reliable, and affordable air conditioning systems along with expert installation services that prioritize customer comfort, energy savings, and long-term performance.')}}
-                </p>
-            </section>
-
-            <section class="py-3">
-                <h2 class="fw-bold">{{ __('Our Vision')}}</h2>
-                <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                    {{ __('To be recognized as Moldova’s most respected and forward-thinking climate solutions company — where every household and business can rely on us for dependable indoor comfort and peace of mind.')}}
-                </p>
-            </section>
-
-            <section class="py-3">
-                <h2 class="fw-bold">{{ __('Our Core Values')}}</h2>
-                <article class="">
-                    <h4>{{ __('Professionalism')}}</h4>
-                    <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                        {{ __('We bring technical expertise and attention to detail to every installation, ensuring it’s done right the first time.')}}    
-                    </p>
-                </article>
-
-                <article class="">
-                    <h4>{{ __('Trust & Integrity')}}</h4>
-                    <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                        {{ __('We build long-term relationships based on honesty, transparency, and reliability. No hidden fees. No false promises.')}}    
-                    </p>
-                </article>
-
-                <article class="">
-                    <h4>{{ __('Innovation & Sustainability')}}</h4>
-                    <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                        {{ __('We offer the latest Inverter and energy-efficient technologies to help customers save on costs and reduce their environmental impact.')}}    
-                    </p>
-                </article>
-
-                <article class="">
-                    <h4>{{ __('Customer-Centric Service')}}</h4>
-                    <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                        {{ __('We listen carefully, respond quickly, and always put our customers’ needs at the heart of what we do.')}}    
-                    </p>
-                </article>
-
-                <article class="">
-                    <h4>{{ __('Nationwide Reach')}}</h4>
-                    <p class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                        {{ __('We proudly serve clients across all of Moldova, regardless of your location or project size.')}}    
-                    </p>
-                </article>
-            </section>
-
-            <section class="py-3">
-                <h3 class="text-slate-900 text-2xl font-hubot font-semibold">{{ __('What We Do')}}</h3>
-                <p class="fs-5 text-gray-500 text-lg font-inter-regular">
-                    {{ __('Whether you\'re cooling a cozy home, outfitting a new office, or retrofitting a large commercial site, Invertor Lux delivers:')}}
-                </p>
-                <ul class="lh-lg fs-5 text-gray-500 text-lg font-inter-regular">
-                    <li class="list-disc">{!! __('<strong>Top-brand air conditioning units</strong> from trusted global manufacturers') !!}</li>
-                    <li class="list-disc">{!! __('<strong>Custom installation plans</strong> based on your property type and layout') !!}</li>
-                    <li class="list-disc">{!! __('<strong>Certified installation teams</strong> trained for residential and commercial projects') !!}</li>
-                    <li class="list-disc">{!! __('<strong>Post-installation service & support,</strong> including maintenance, repair, and upgrades') !!}</li>
-                    <li class="list-disc">{!! __('<strong>Fast delivery and installation</strong> anywhere in Moldova') !!}</li>
+            <div>
+                <h2>Ofertă specială</h2>
+                <p>Bucură-te de confort în orice sezon - aparatele de aer condiționat vară-iarnă, acum la 20% reducere și cu posibilitatea de plată în rate cu iute!</p>
+            </div>
+            <div class="mt-sm-5 mt-4">
+                <h3>Avantajele tale</h3>
+                <ul>
+                    <li>
+                        ✅ Reducere limitată: 20% la toată gama de produse, valabilă doar în rate cu iute
+                    </li>
+                    <li>
+                        ✅ Cumperi acum, plătești în rate mai târziu, fără costuri adiționale
+                    </li>
+                    <li>
+                        ✅ Funcționează tot anul – răcește eficient vara și încălzește rapid iarna
+                    </li>
+                    <li>
+                        ✅ Garanție extinsă și consum redus de energie
+                    </li>
+                    <li>
+                        ✅ Design modern, silențios, ușor de instalat
+                    </li>
+                    <li>
+                        ✅ Zero stres – tu alegi, noi livrăm și montăm
+                    </li>
                 </ul>
-            </section>
+            </div>
+            <div class="mt-sm-5 mt-4">
+                <h3>Plătește în rate cu iute – super simplu!</h3>
+                <ul>
+                    <li>
+                        ✅ Aprobare rapidă, în câteva minute, doar cu buletinul
+                    </li>
+                    <li>
+                        ✅ ZERO costuri, fără avans, fără comisioane
+                    </li>
+                    <li>
+                        ✅ Semnezi contractul direct în aplicație
+                    </li>
+                    <li>
+                        ✅ Plătești în 4, 6 sau 12 rate, adaptate bugetului tău.
+                    </li>
+                </ul>
+            </div>
+            <div class="mt-sm-5 mt-4">
+                <h2>Cum faci o comandă?</h2>
+                <p>Completează formularul de mai jos cu datele tale. Un consultant te va contacta în scurt timp pentru a te ajuta să alegi cea mai bună opțiune și pentru a te ghida în procesul de aplicare pentru plata în rate cu iute. După ce ai ales modelul și ai primit aprobarea de la iute, noi ne ocupăm de livrare și instalare.</p>
+            </div>
+            <div class="mt-sm-5 mt-4">
+                <h2>Ai întrebări? Contactează-ne!</h2>
+                <div>
+                    <div class="text-lg text-base-mob text-gray-500">
+                        <span class="font-inter-semibold">📍 Address:</span>
+                        <span class="font-inter-regular">Șoseaua Muncești 400, Chișinău, MD2002, Moldova</span>
+                    </div>
+                    <div class="text-lg text-base-mob text-gray-500">
+                        <span class="font-inter-semibold">📞 Phone:</span>
+                        <span class="font-inter-regular"></span>
+                        <a href="tel:373 793 15 994" target="_blank" class="font-inter-regular text-gray-500 text-decoration-none">
+                            373 793 15 994
+                        </a>
+                    </div>
+                    <div class="text-lg text-base-mob text-gray-500">
+                        <span class="font-inter-semibold">🌐 Website:</span>
+                        <a href="https://www.invertor.md/" target="_blank" class="font-inter-regular text-gray-500">
+                            www.invertor.md
+                        </a>
+                    </div>
+                    <div class="text-lg text-base-mob text-gray-500">
+                        <span class="font-inter-semibold">📩 Email:</span>
+                        <a href="mailto:info@invertor.md" target="_blank" class="font-inter-regular text-gray-500">
+                            info@invertor.md
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <section class="py-3">
-                <h3 class="text-slate-900 text-2xl font-hubot font-semibold">{{ __('Why Choose Invertor Lux') }}?</h3>
-
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Expert Advice You Can Trust</strong> – Our team provides honest guidance to help you choose the best system for your space.') !!}</p>
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Transparent Pricing</strong> – Fair, upfront costs with no surprise charges.') !!}</p>
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Premium Product Selection</strong> – Featuring high-performance, energy-saving air conditioners.') !!}</p>
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Rapid Response & Delivery</strong> – We work efficiently, so you don’t have to wait to feel the difference.') !!}</p>
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">✅ {!! __('<strong>Total Satisfaction Guarantee</strong> – We’re not happy until you’re completely comfortable.') !!}</p>
-            </section>
-
-            <section class="py-3">
-                <h3 class="text-slate-900 text-2xl font-hubot font-semibold" >{{ __('Join the Invertor Lux Family')}}</h3>
-
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">{{ __('Our reputation is built on the smiles of satisfied customers. Whether you\'re a homeowner looking for cooler summers, or a business needing scalable air conditioning solutions, Invertor Lux is here to serve.')}}</p>
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">{{ __('Let us help you build a better, cooler future — one installation at a time')}}</p>
-            </section>
-
-            <section class="py-3">
-                <h3 class="text-slate-900 text-2xl font-hubot font-semibold">{{ __('Contact Us')}}</h3>
-
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📍  <strong>{{__('Address')}}:&nbsp;</strong>&nbsp;{{ __('Șoseaua Muncești 400, Chișinău, MD-2002, Moldova')}}</p>
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📞 <strong>{{__('Phone')}}:&nbsp;</strong>&nbsp;+373 793 15 994</p>
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">🌐 <strong>{{ __('Website')}}:&nbsp;</strong>&nbsp;<a href="www.invertor.md">www.invertor.md</a> </p>
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📩  <strong>{{ __('Email')}}:&nbsp;</strong>&nbsp;info@invertor.md</p>
-            </section>
-
+    <section class="contactUs promo-contact">
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-lg-7 col-xl-8">
+                    <div class="contact-card leftCard border border-slate-100 bg-white">
+                        @if (session()->has('success'))
+                            <div class="text-center mb-3 fs-4" style="color: green;">{{ session('success') }}</div>
+                        @endif
+                        <form action="{{ route('contactUs.store') }}" id="contactUs" method="post">
+                            @csrf
+                            <h4 class="text-slate-900 text-lg font-medium font-hubot text-center text-lg-start">{{ __('You can reach us anytime')}}</h4>
+                            <div class="row mt-3">
+                                <div class="col-6 pe-xl-4 mb-4">
+                                    <label class="font-inter-regular text-sm d-block mb-1" for="sz_firstname">{{ __('First name')}}<span class="text-rose-500">*</span></label>
+                                    <input name="sz_firstname" id="sz_firstname" class="input-control w-100" type="text" placeholder="{{ __('First name')}}" value="{{ old('sz_firstname') }}">
+                                    @if ( $errors->has('sz_firstname') )
+                                        <span class="text-danger d-block">{{ $errors->first('sz_firstname') }}</span>
+                                    @endif
+                                </div>
+                                <div class="col-6 ps-xl-4 mb-4">
+                                    <label class="font-inter-regular text-sm d-block mb-1" for="sz_lastname">{{ __('Last name')}}<span class="text-rose-500">*</span></label>
+                                    <input name="sz_lastname" id="sz_lastname" class="input-control w-100" type="text" placeholder="{{ __('Last name')}}" value="{{ old('sz_lastname') }}">
+                                    @if ( $errors->has('sz_lastname') )
+                                        <span class="text-danger d-block">{{ $errors->first('sz_lastname') }}</span>
+                                    @endif
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label class="font-inter-regular text-sm d-block mb-1" for="sz_email">{{ __('Email')}}<span class="text-rose-500">*</span></label>
+                                    <input name="sz_email" id="sz_email" class="input-control w-100" type="text" placeholder="you@company.com" value="{{ old('sz_email') }}">
+                                    @if ( $errors->has('sz_email') )
+                                        <span class="text-danger d-block">{{ $errors->first('sz_email') }}</span>
+                                    @endif
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label class="font-inter-regular text-sm d-block mb-1" for="phone">{{ __('Phone number')}}<span class="text-rose-500">*</span></label>
+                                    <input type="hidden" name="country_dial_code" id="country_dial_code">
+                                    <input type="hidden" name="country_iso_code" id="country_iso_code">
+                                    <input type="text" class="input-control w-100" name="sz_phone" id="phone" value="{{ old('sz_phone') }}">
+                                    <label id="phone-error" class="error d-none" for="phone"></label>
+                                    @if ( $errors->has('sz_phone') )
+                                        <span class="text-danger error">{{ $errors->first('sz_phone') }}</span>
+                                    @endif
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label class="font-inter-regular text-sm d-block mb-1" for="sz_message">{{ __('Message')}}</label>
+                                    <textarea name="sz_message" id="sz_message" class="input-control w-100 py-3 h-100" rows="3" cols="40">{{ old('sz_message') }}</textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label text-sm font-inter-regular text-slate-900" for="flexCheckDefault">
+                                            Nota: Prin trimiterea acestui formular, îți exprimi acordul pentru prelucrarea datelor tale cu caracter personal <a href="javascript:;" class="font-inter-semibold text-neutrino-blue-400 text-decoration-none">Vezi mai multe</a>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-4 mt-md-5">
+                                    <button type="submit" class="button-dark w-100">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-xl-4">
+                    <div class="contact-card border border-slate-100 bg-white mt-4 mt-lg-0">
+                        <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3">{{ __('Get in Touch')}}</h3>
+                        <div class="d-flex mb-3">
+                            <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">{{ __('Tel')}}.</div>
+                            <a href="{{ __('tel')}}:79315994" class="text-decoration-none text-slate-900 font-inter-semibold text-sm">79315994</a>
+                        </div>
+                        {{--<div class="d-flex mb-3">
+                            <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Email</div>
+                            <a href="mailto:runmaxlimited@gmail.com" class="text-slate-900 font-inter-semibold text-sm">runmaxlimited@gmail.com</a>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">Support</div>
+                            <a href="mailto:support@skotz.co.uk" class="text-slate-900 font-inter-semibold text-sm">support@skotz.co.uk</a>
+                        </div>--}}
+                        <div class="d-flex">
+                            <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">{{ __('Address')}}</div>
+                            <div class="text-decoration-none text-slate-900 font-inter-regular text-sm">
+                                <b>{{ __('"INVERTOR LUX" SRL')}}</b></br>
+                                {!! __('Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>str. Muncesti 400/1<br/>c/f 1018600028767<br>') !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-card border border-slate-100 bg-white mt-4">
+                        <h3 class="text-lg text-slate-900 font-hubot font-medium mb-3">{{ __('Customer Support Hours')}}</h3>
+                        <div class="text-slate-900 text-sm font-inter-semibold mb-3">{{ __('Monday – Friday')}}: <span class="font-inter-regular">9:00 AM – 6:00 PM</span></div>
+                        <div class="text-slate-900 text-sm font-inter-semibold mb-0">{{ __('Saturday')}}: <span class="font-inter-regular">10:00 AM – 4:00 PM</span></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -448,4 +502,91 @@
 
     @include('latestScooter')
 
+@endsection
+
+@section('script')
+<link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
+<script src="{{ asset('assets/js/intel.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
+
+<script>
+    const input = document.querySelector('#phone');
+    const errorMap = ["Phone number is invalid.", "Invalid country code", "Too short", "Too long"];
+
+    const iti = window.intlTelInput(input, {
+        initialCountry: "md",
+        preferredCountries: ['md','gb', 'pk'],
+        separateDialCode:true,
+        nationalMode:false,
+        utilsScript: "{{ asset('assets/js/intel2.js') }}"
+    });
+
+    $.validator.addMethod('inttel', function (value, element) {
+        if (value.trim() == '' || iti.isValidNumber()) {
+            return true;
+        }
+        return false;
+    }, function (result, element) {
+            return errorMap[iti.getValidationError()] || errorMap[0];
+    });
+
+    input.addEventListener('keyup', () => {
+        if (iti.isValidNumber()) {
+            $('#country_dial_code').val(iti.s.dialCode);
+            $('#country_iso_code').val(iti.j);
+        }
+    });
+    input.addEventListener("countrychange", function() {
+        if (iti.isValidNumber()) {
+            $('#country_dial_code').val(iti.s.dialCode);
+            $('#country_iso_code').val(iti.j);
+        }
+    });
+    $(document).ready(function(){
+        $("#contactUs").validate({
+            rules: {
+                sz_firstname: {
+                    required: true,
+                },
+                sz_lastname: {
+                    required: true,
+                },
+                sz_email: {
+                    email: true,
+                    required: true,
+                },
+                sz_phone: {
+                    required: true,
+                    inttel: true,
+                },
+            },
+            messages: {
+                sz_firstname: {
+                    required: "First name is required."
+                },
+                sz_lastname: {
+                    required: "Last name is required."
+                },
+                sz_email: {
+                    required: "Email is required."
+                },
+                sz_phone: {
+                    required: "Phone is required.",
+                },
+            },
+            errorPlacement: function(error, element) {
+                error.appendTo(element.parent("div"));
+                var phoneError = $("#phone-error");
+                phoneError.removeClass('d-none');
+            },
+            submitHandler:function(form) {
+                if(!this.beenSubmitted) {
+                    this.beenSubmitted = true;
+                    $('button[type="submit"]').attr('disabled', true);
+                    form.submit();
+                }
+            }
+        });
+    });
+</script>
 @endsection
