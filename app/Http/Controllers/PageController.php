@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InformationPages;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -11,6 +12,11 @@ class PageController extends Controller
         return view('pages.aboutUs');
     }
 
+    public function Promo()
+    {
+        $information = InformationPages::where('slug','Promo')->first();
+        return view('pages.promo', compact('information'));
+    }
     public function testimonial()
     {
         return view('pages.testimonial');

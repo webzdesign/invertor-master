@@ -4,7 +4,7 @@
         <p class="text-slate-100 text-xl text-base-mob mb-0">{{ __('There are 8 up-down flow direction modes to choose from: 5 fixed position modes and 3 swing modes.')}}</p>
         <div class="latest-video position-relative mt-sm-4 mt-3">
             <img class="cover-img" src="{{ asset( 'assets/images/inv-video-img.png' ) }}" alt="video-img" width="100%" height="100%">
-            <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="https://www.youtube.com/embed/T3VUFXetSCk?si=1VVOASVR3t5kgaHm">
+            <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="https://www.youtube.com/embed/mHvsqa0dkxg?si=CfPDyIb3Ows9p-vy">
                 <svg width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_67_17706)">
                     <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"/>

@@ -211,6 +211,9 @@ select {
 .text-neutrino-blue-600 {
     color: var(--neutrino-blue-600) !important;
 }
+.text-neutrino-blue-400{
+    color: var(--neutrino-blue-400) !important;
+}
 
 
 .bg-purple-300{
@@ -218,6 +221,9 @@ select {
 }
 .bg-pumpkin-orange-500 {
     background-color: var(--pumpkin-orange-500) !important;
+}
+.bg-slate-50 {
+    background-color: var(--slate-50) !important;
 }
 .bg-slate-100 {
     background-color: var(--slate-100) !important;
@@ -415,4 +421,9 @@ select {
 .size-36{
     width: 36px;
     height: 36px;
+}
+
+.form-check-input:checked {
+    background-color: var(--neutrino-blue-400);
+    border-color: var(--neutrino-blue-400);
 }
