@@ -947,16 +947,18 @@ class HomeController extends Controller
             
             Quotation::updateQuotationNumber($quotation->id);
 
-            if( !empty($request->productId) ) {
+            if( !empty($request->productId)) {
                 foreach ($request->productId as $key => $productId) {
-                    $product = Product::find(decrypt($productId));
+                    if(decrypt($productId) != 0) {
+                        $product = Product::find(decrypt($productId));
 
-                    $quotation->items()->create([
-                        "product_id" => $product->id,
-                        "category_id" => $product->category_id,
-                        "name" => $product->name,
-                        "quantity" => $request->quantity[$key] ?? 1,
-                    ]);
+                        $quotation->items()->create([
+                            "product_id" => $product->id,
+                            "category_id" => $product->category_id,
+                            "name" => $product->name,
+                            "quantity" => $request->quantity[$key] ?? 1,
+                        ]);
+                    }
                 }
             }
 
@@ -975,6 +977,9 @@ class HomeController extends Controller
            
 
         } catch (\Exception $e) {
+            echo '<pre>';
+            print_r($e->getMessage());
+            exit;
             Log::error($e->getMessage());
             DB::rollBack();
         }
