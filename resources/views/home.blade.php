@@ -45,7 +45,7 @@
                                     <h1 class="fadeItem text-neutrino-blue-600 font-bebas">
                                         <a class="text-decoration-none text-neutrino-blue-600" href="{{ route('productDetail', $slider_product->slug) }}">
                                             <!-- {{ $p_name }} -->
-                                            {{__('BUY AN')}} <span class="position-relative text-white">{{__('AIR CONDITIONER')}}.</span> {{__('GET A')}} <span class="position-relative text-white">{{__('FREE INSTALLATION GIFT')}}</span> {{__('CERTIFICATE')}}! 
+                                            {{__('BUY AN')}} <span class="position-relative text-white">{{__('AIR CONDITIONER')}}.</span> {{__('GET A')}} <span class="position-relative text-white">{{__('FREE INSTALLATION GIFT')}}</span> {{__('CERTIFICATE')}}!
                                         </a>
                                     </h1>
                                     <p class="fadeItem text-gray-500 font-inter-regular text-lg my-sm-4 my-2 text-sm-mob text-lg-start text-center mx-auto mx-lg-0">
@@ -578,6 +578,6 @@
         });
 
     });
-    
+
 </script>
 @endsection

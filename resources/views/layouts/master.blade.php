@@ -5,7 +5,7 @@
         @include('layouts.partials.head')
     </head>
     <body>
-       
+
         @php
             $cart = session()->get('cart', []);
             $cartCount = count($cart);
@@ -71,6 +71,70 @@
                 </div>
             </div>
         </div>
+
+        {{-- write review modal --}}
+        <div class="modal fade lead-form-modal" id="writeReviewModal" tabindex="-1" aria-labelledby="writeReviewModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header align-items-baseline p-0">
+                        <h1 class="modal-title text-slate-900 font-semibold" id="writeReviewModalLabel">{!! __('Write A Review') !!}</h1>
+                        <button type="button" class="btn-close-lf w-fit bg-transparent border-0" data-bs-dismiss="modal" aria-label="Close">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.999 25L15 15M15.0011 25L25 15" stroke="#FB7E06" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M36.6673 19.9987C36.6673 10.7939 29.2053 3.33203 20.0007 3.33203C10.7959 3.33203 3.33398 10.7939 3.33398 19.9987C3.33398 29.2034 10.7959 36.6654 20.0007 36.6654C29.2053 36.6654 36.6673 29.2034 36.6673 19.9987Z" stroke="#FB7E06" stroke-width="2.5"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0 mt-sm-4 mt-3">
+                        <form class="phone-modal-form" id="writeReviewModalForm">
+                            <div class="mb-2 w-100">
+                                <input type="hidden" name="product_id" id="product_id">
+                                <input type="text" name="is_scammers" style="display: none;">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="customer_name">{{ __('Customer Name')}}<span class="text-rose-500">*</span></label>
+                                <input type="text" class="input-control w-100" name="customer_name" id="customer_name" value="" placeholder="Customer Name">
+                            </div>
+                            <!-- Rating Section -->
+                            <div class="mb-3 w-100">
+                                <label class="font-inter-regular text-sm d-block mb-1">{{__('Add Ratings')}}<span class="text-rose-500">*</span></label>
+                                <input type="hidden" name="rating" id="rating" value="0">
+
+                                <div class="d-flex align-items-center gap-1 rating-stars">
+                                    <span class="star text-muted fs-4 cursor-pointer" data-value="1">&#9733;</span>
+                                    <span class="star text-muted fs-4 cursor-pointer" data-value="2">&#9733;</span>
+                                    <span class="star text-muted fs-4 cursor-pointer" data-value="3">&#9733;</span>
+                                    <span class="star text-muted fs-4 cursor-pointer" data-value="4">&#9733;</span>
+                                    <span class="star text-muted fs-4 cursor-pointer" data-value="5">&#9733;</span>
+                                </div>
+                                <label class="font-inter-regular text-sm d-block my-1 error text-danger" id="rating-error"></label>
+                            </div>
+                            <div class="mb-2 w-100">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="review_title">{{ __('Review Title')}}<span class="text-rose-500">*</span></label>
+                                <input type="text" class="input-control w-100" name="review_title" id="review_title" value="" placeholder="Review Title">
+                            </div>
+                            <div class="mb-2 w-100">
+                                <label class="font-inter-regular text-sm d-block mb-1" for="review_description">{{ __('Review Description')}}<span class="text-rose-500">*</span></label>
+                                <textarea name="review_description" class="form-control" id="review_description" placeholder="Review Description"></textarea>
+                            </div>
+                            <div class="overflow-hidden p-1">
+                                <div class="form-check">
+                                    <input class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" id="recommend_product" name="recommend_product" value="1" checked>
+                                    <label class="form-check-label font-inter-regular text-sm text-gray-500 cursor-pointer ms-2" for="recommend_product">
+                                        <span>
+                                            {{__('Recommends this product')}}.
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="review-success-container"></div>
+                            <div class="mt-sm-4 mt-3">
+                                <button type="submit" id="writeReviewModalFormSubmit" class="button-dark w-100">{{ __('Add Review')}}</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script>
 
             $(document).ready(function(){
@@ -146,7 +210,7 @@
                                         let paidAmount = response.grand_total - (response.total_cart_count * 35);
                                         $("#online_paid_amount").html(paidAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
                                         initQuantityButton('initialize');
-                                      
+
                                     }
                                 },
                                 error: function(xhr) {
@@ -237,7 +301,7 @@
                                     let paidAmount = response.grand_total - (response.total_cart_count * 35);
                                     $("#online_paid_amount").html(paidAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
                                     initQuantityButton();
-                                   
+
                                 }
                             }
                         },
@@ -330,7 +394,7 @@
                     'value': 1.0,
                     'event_callback': callback
                 });
-               
+
             }
             </script>
 
@@ -365,7 +429,7 @@
                     $('#phoneModalFormSubmit').attr('disabled', false);
                     $('#country_dial_code_modal').val(itiModal.s.dialCode);
                     $('#country_iso_code_modal').val(itiModal.j);
-                } 
+                }
             });
             inputModal.addEventListener("countrychange", function() {
                 if (itiModal.isValidNumber()) {
@@ -425,12 +489,12 @@
                             is_scammers: rawData.is_scammers,
                             modalRequest: true,
                         };
-                        
+
                         // form.submit();
                         $.ajax({
-                            url: "{{ route('quotation.request') }}",    
+                            url: "{{ route('quotation.request') }}",
                             method: "POST",
-                            data: data, 
+                            data: data,
                             success: function (response) {
                                 $('#phoneModalForm')[0].reset();
                                 $('#success-container').empty();
@@ -475,7 +539,7 @@
                             },
                             error: function (xhr) {
                                 console.error("Error:", xhr.responseJSON);
-                                $('#phoneModalFormSubmit').attr('disabled', false); 
+                                $('#phoneModalFormSubmit').attr('disabled', false);
                             }
                         });
                     }
@@ -483,7 +547,7 @@
 
                 $(document).on('click', '#terms_and_condtion', function () {
                     let Checked = $(this).is(':checked');
-                    
+
                     if(Checked) {
                         $('.check-one').hide();
                         $('.check-two').show();
@@ -492,6 +556,183 @@
                         $('.check-two').hide();
                     }
 
+                });
+
+
+                $(document).on('click','.writeReview',function(){
+                    $('#writeReviewModal').modal('show');
+                    let pID = $(this).data('pid');
+                    if(pID) {
+                        $(document).find('#writeReviewModalForm').find('#product_id').val(pID);
+                    }
+                });
+
+                const stars = $(".rating-stars .star");
+                const ratingInput = $("#rating");
+
+                function highlightStars(count) {
+                    stars.each(function (index) {
+                        if (index < count) {
+                            $(this).removeClass("text-muted").addClass("text-warning");
+                        } else {
+                            $(this).removeClass("text-warning").addClass("text-muted");
+                        }
+                    });
+                }
+
+                stars.on("click", function () {
+                    const value = parseInt($(this).data("value"));
+                    ratingInput.val(value);
+                    highlightStars(value);
+                });
+
+                stars.on("mouseover", function () {
+                    const hoverValue = parseInt($(this).data("value"));
+                    highlightStars(hoverValue);
+                });
+
+                stars.on("mouseout", function () {
+                    const selectedValue = parseInt(ratingInput.val()) || 0;
+                    highlightStars(selectedValue);
+                });
+
+                $('#writeReviewModal').on('hidden.bs.modal', function () {
+                    let formField = $('#writeReviewModalForm');
+                    formField.find('#product_id').val('');
+                    formField.find('#customer_name').val('');
+                    formField.find('#rating').val('');
+                    formField.find('#review_title').val('');
+                    formField.find('#review_description').val('');
+                    formField.find('#recommend_product').attr('checked',true);
+                    formField.find('#review-success-container').empty();
+                    formField.find(".rating-stars .star").addClass("text-muted");
+                    formField.find('.error').html('');
+                });
+
+                $("#writeReviewModalForm").validate({
+                    rules: {
+                        customer_name: {
+                            required: true,
+                        },
+                        review_title: {
+                            required: true,
+                        },
+                        review_description: {
+                            required: true,
+                        },
+                        rating: {
+                            required: true,
+                        }
+                    },
+                     messages: {
+                        customer_name: {
+                            required: "Customer name is required."
+                        },
+                        review_title: {
+                            required: "Review title is required."
+                        },
+                        review_description: {
+                            required: "Review description is required."
+                        },
+                        rating: {
+                            required: "Please select a rating."
+                        }
+                    },
+                    errorPlacement: function(error, element) {
+                        error.addClass('text-danger');
+                        error.appendTo(element.parent());
+                    },
+                    submitHandler:function(form) {
+                        $('#writeReviewModalFormSubmit').attr('disabled', true);
+
+                        let rating = $('#writeReviewModalForm').find('#rating').val();
+
+                        if (rating == 0) {
+                            $('#rating-error').text('Please Select Rating!');
+                            $('#writeReviewModalFormSubmit').attr('disabled', false);
+                            return;
+                        }
+
+                        const formData = new FormData(form);
+                        const rawData = Object.fromEntries(formData.entries());
+
+                        // form.submit();
+                        $.ajax({
+                            url: "{{ route('storeReview') }}",
+                            method: "POST",
+                            data: rawData,
+                            success: function (response) {
+                                const reviewTranslations = {
+                                    "review.success": @json(__('review.success')),
+                                    "review.error": @json(__('review.error'))
+                                };
+                                if(response.success) {
+
+                                    const successHtml = `
+                                        <div id="successMessage" class="success-message rounded-lg d-flex gap-2" role="alert">
+                                            <div>
+                                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M27.5 15C27.5 8.09644 21.9035 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9035 8.09644 27.5 15 27.5C21.9035 27.5 27.5 21.9035 27.5 15Z" fill="#04248C"/>
+                                                    <path d="M10 15.625L13.125 18.75L20 11.25" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                            </div>
+                                            <span class="text-sm text-slate-900" id="successText"> ${reviewTranslations[response.message]}</span>
+                                        </div>`;
+
+                                    $('#review-success-container').append(successHtml);
+
+                                    let formField = $('#writeReviewModalForm');
+                                    formField.find('#product_id').val('');
+                                    formField.find('#customer_name').val('');
+                                    formField.find('#rating').val('');
+                                    formField.find('#review_title').val('');
+                                    formField.find('#review_description').val('');
+                                    formField.find('#recommend_product').attr('checked',true);
+                                    formField.find(".rating-stars .star").addClass("text-muted");
+
+                                    if ($(document).find('.loadReviews').length) {
+                                        $(document).find('.loadReviews').click();
+                                    } else if ($(document).find('.loadMoreReviews').length) {
+                                        $(document).find('.loadMoreReviews').click();
+                                    }
+
+                                    $('#writeReviewModalFormSubmit').attr('disabled', false);
+
+                                    setTimeout(function() {
+                                        $('#writeReviewModal').modal('hide');
+                                    },1000);
+                                } else {
+                                    const errorHtml = `
+                                        <div id="errorMessage" class="alert alert-danger align-items-center gap-2 mt-3 p-3 rounded-2xl bg-red-100 text-red-900" role="alert">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill text-red-600" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                                <path d="M8 0c-.538 0-1.047.214-1.414.586L.586 6.586A2 2 0 0 0 0 8c0 .538.214 1.047.586 1.414l6 6A2 2 0 0 0 8 16a2 2 0 0 0 1.414-.586l6-6A2 2 0 0 0 16 8a2 2 0 0 0-.586-1.414l-6-6A1.995 1.995 0 0 0 8 0zM7.001 4a1 1 0 1 1 2 0v3a1 1 0 0 1-2 0V4zm1 7a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 8 11z"/>
+                                            </svg>
+                                            <span id="errorText"> ${reviewTranslations[response.message]}</span>
+                                        </div>`;
+
+                                    $('#review-success-container').html(errorHtml);
+                                    $('#writeReviewModalFormSubmit').attr('disabled', false);
+                                }
+                            },
+                            error: function (xhr) {
+                                const reviewTranslations = {
+                                    "review.success": @json(__('review.success')),
+                                    "review.error": @json(__('review.error'))
+                                };
+                                const errorHtml = `
+                                    <div id="errorMessage" class="alert alert-danger align-items-center gap-2 mt-3 p-3 rounded-2xl bg-red-100 text-red-900" role="alert">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill text-red-600" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                            <path d="M8 0c-.538 0-1.047.214-1.414.586L.586 6.586A2 2 0 0 0 0 8c0 .538.214 1.047.586 1.414l6 6A2 2 0 0 0 8 16a2 2 0 0 0 1.414-.586l6-6A2 2 0 0 0 16 8a2 2 0 0 0-.586-1.414l-6-6A1.995 1.995 0 0 0 8 0zM7.001 4a1 1 0 1 1 2 0v3a1 1 0 0 1-2 0V4zm1 7a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 8 11z"/>
+                                        </svg>
+                                        <span id="errorText"> ${reviewTranslations[response.message]}</span>
+                                    </div>`;
+
+                                $('#review-success-container').html(errorHtml);
+                                $('#writeReviewModalFormSubmit').attr('disabled', false);
+                                $('#writeReviewModalFormSubmit').attr('disabled', false);
+                            }
+                        });
+                    }
                 });
 
             });
