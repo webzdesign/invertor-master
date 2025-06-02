@@ -454,6 +454,8 @@
                     $('#success-container').empty();
                     form.find('.error').html('');
                     form.find('#productId').val('');
+                    $('.check-one').show();
+                    $('.check-two').hide();
                 });
 
                 $('#phoneModalFormSubmit').attr('disabled', true);
