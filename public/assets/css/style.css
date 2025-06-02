@@ -32,6 +32,7 @@
   --bs-gutter-x: 1rem;
   --bs-gutter-y: 1rem;
   --neutrino-blue-50:#B1BBDB;
+  --neutrino-blue-200:#E6E9F4;
   --neutrino-blue-300:#021654;
   --neutrino-blue-400:#04248C;
   --neutrino-blue-600:#031B69;
@@ -211,24 +212,35 @@ body.mobile-nav-active header #mobile-nav {
 .hero{
   background: linear-gradient(270deg, #B1BBDB 0%, #D9DEEE 25.25%, rgba(230, 233, 244, 0.5) 49.82%, #D9DEEE 74.61%, #B1BBDB 100%);
 }
-.hero .owl-dots{
+.hero .owl-dots,
+.flash-mega-sale .owl-dots{
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
 }
-.hero .owl-dots button{
+.hero .owl-dots button,
+.flash-mega-sale .owl-dots button{
   outline: none;
   border: 0;
 }
-.hero .owl-dots button span{
+.hero .owl-dots button span,
+.flash-mega-sale .owl-dots button span{
   width: 40px;
   height: 8px;
   border-radius: 50px;
   display: block;
   background-color: var(--slate-50);
 }
-.hero .owl-dots button.active span{
+.flash-mega-sale .owl-dots button span{
+  background-color: var(--neutrino-blue-200);
+}
+.flash-mega-sale .owl-dots {
+    justify-content: center;
+    margin-top: 50px;
+}
+.hero .owl-dots button.active span,
+.flash-mega-sale .owl-dots button.active span{
   background-color: var(--neutrino-blue-400);
   width: 60px;
 }
@@ -1193,4 +1205,21 @@ footer .copy-right{
 .promo-contact{
   background-color: #FDFDFD;
   padding: 80px 0;
+}
+
+.flash-mega-sale .progress{
+  width: 110px;
+  height: 10px;
+  background: #FFF2E6;
+  border-radius: 100px;
+}
+.flash-mega-sale .progress-bar{
+  background-color: #FB7E06;
+  border-radius: 100px;
+}
+.flash-mega-sale .flash-mega-sale-owl{
+  margin-top: 56px;
+}
+.flash-mega-sale .flash-mega-sale-owl .owl-stage{
+  display: flex;
 }

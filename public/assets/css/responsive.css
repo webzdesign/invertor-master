@@ -648,6 +648,22 @@
   .hero .left-slide h1 {
     max-width: 330px;
   }
+  .flash-mega-sale .owl-dots {
+    margin-top: 20px;
+  }
+  .flash-mega-sale .img-mega-sale svg{
+    width: 100px;
+  }
+  .flash-mega-sale .button-dark.button-see-all {
+    font-size: 14px;
+    padding: 7px 12px !important;
+  }
+  .flash-mega-sale .owl-dots button span {
+    width: 20px;
+  }
+  .flash-mega-sale .owl-dots button.active span {
+    width: 30px;
+  }
 }
 
 @media (max-width:420px) {
