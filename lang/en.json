@@ -248,6 +248,7 @@
     "Review Description" : "Review Description",
     "Add Review" : "Add Review",
     "Recommends this product." : "Recommends this product",
+    "Recommends this product" : "Recommends this product",
     "No Review Available!" : "No Review Available!",
     "days ago" : "days ago",
     "GET THE PRICE" : "GET THE PRICE",
@@ -255,5 +256,9 @@
     "AIR CONDITIONER" : "AIR CONDITIONER",
     "GET A" : "GET A",
     "FREE INSTALLATION GIFT" : "FREE INSTALLATION GIFT",
-    "CERTIFICATE!" : "CERTIFICATE!"
+    "CERTIFICATE!" : "CERTIFICATE!",
+    "Load More" : "Load More",
+    "no_more_product" : "No More Reviews Available!",
+    "review.success" : "Review added successfully.",
+    "review.error" : "Something went wrong!!"
 }

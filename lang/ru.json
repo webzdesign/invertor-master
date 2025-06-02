@@ -256,5 +256,10 @@
     "AIR CONDITIONER": "Кондиционер",
     "GET A": "Получить",
     "FREE INSTALLATION GIFT": "БЕСПЛАТНЫЙ подарок установки",
-    "CERTIFICATE!": "Сертификат!"
+    "CERTIFICATE!": "Сертификат!",
+    "Recommends this product": "Рекомендует этот продукт",
+    "Load More": "Загружать больше",
+    "no_more_product": "Нет больше обзоров!",
+    "review.success": "Обзор успешно добавлен.",
+    "review.error": "Что -то пошло не так !!"
 }

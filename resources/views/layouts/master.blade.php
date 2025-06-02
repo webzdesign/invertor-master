@@ -636,7 +636,8 @@
                         $('#writeReviewModalFormSubmit').attr('disabled', true);
 
                         let rating = $('#writeReviewModalForm').find('#rating').val();
-                        if (rating == '') {
+                        
+                        if (rating == 0) {
                             $('#rating-error').text('Please Select Rating!');
                             $('#writeReviewModalFormSubmit').attr('disabled', false);
                             return;
@@ -679,11 +680,17 @@
                                     formField.find('#recommend_product').attr('checked',true);
                                     formField.find(".rating-stars .star").addClass("text-muted");
 
-                                    $('#writeReviewModalFormSubmit').attr('disabled', true);
-                                    
+                                    if ($(document).find('.loadReviews').length) {
+                                        $(document).find('.loadReviews').click();
+                                    } else if ($(document).find('.loadMoreReviews').length) {
+                                        $(document).find('.loadMoreReviews').click();
+                                    }
+
+                                    $('#writeReviewModalFormSubmit').attr('disabled', false);
+
                                     setTimeout(function() {
-                                        window.location.reload();
-                                    },1900);
+                                        $('#writeReviewModal').modal('hide');
+                                    },1000);
                                 } else {
                                     const errorHtml = `
                                         <div id="errorMessage" class="alert alert-danger align-items-center gap-2 mt-3 p-3 rounded-2xl bg-red-100 text-red-900" role="alert">

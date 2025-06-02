@@ -27,6 +27,7 @@ Route::group([
     Route::get('collections/{slug?}', [HomeController::class, 'categoryshop'])->name('shopCategory');
     Route::get('products/{slug?}', [HomeController::class, 'productDetail'])->name('productDetail');
     Route::post('products/store/review', [HomeController::class, 'storeReview'])->name('storeReview');
+    Route::post('products/review/list', [HomeController::class, 'reviewListing'])->name('reviewListing');
     Route::get('cart', [HomeController::class, 'cart'])->name('cart');
     Route::post('cart/add', [HomeController::class, 'addToCart'])->name('cart.add');
     Route::post('cart/sync', [HomeController::class, 'cartSync'])->name('cart.sync');
