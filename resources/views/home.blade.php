@@ -246,10 +246,12 @@
 
                     @endphp
                     <div class="col-xl-3 col-md-4 col-sm-6 mb-5 hot-col">
-                        <a href="{{ route('productDetail', $ishot->slug) }}" class="cards border position-relative d-block text-decoration-none">
-                            <img src="{{ $first_img }}" alt="{{ $ishot->name }}" width="100%">
-                            <div class="p-3">
-                                <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold">{{ $ishot->name }}</h3>
+                        <a href="{{ route('productDetail', $ishot->slug) }}" class="cards h-100 d-flex flex-column justify-content-between border position-relative d-block text-decoration-none">
+                            <div>
+                                <img src="{{ asset( 'assets/images/inv-pro-1.png' ) }}" alt="{{ $ishot->name }}" width="100%">
+                                <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3">{{ $ishot->name }}</h3>
+                            </div>
+                            <div class="px-3 pb-3">
                                 <div class="d-flex align-items-center justify-content-between mt-3">
                                     <h4 class="font-inter-regular text-sm text-slate-900 -tracking-02 m-0">10% {{ __('Discount')}}</h4>
                                     <div class="d-flex align-items-center gap-1">
@@ -438,7 +440,7 @@
                             <img src="{{ asset( 'assets/images/inv-mega-sale.svg' ) }}" alt="mega-sale" width="100%">
                             <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3">{{ $ishot->name }}</h3>
                         </div>
-                        <div class="p-3 d-flex flex-column justify-between ">
+                        <div class="px-3 pb-3 d-flex flex-column justify-between ">
                             <div class="d-flex align-items-center justify-content-between mt-3">
                                 <h4 class="font-inter-regular text-sm text-slate-900 -tracking-02 m-0">10% {{ __('Discount')}}</h4>
                                 <div class="d-flex align-items-center gap-1">
