@@ -1,36 +1,47 @@
 @php
-    $customer_review_arr = array(
-        array(
-            'name' => ' Cristina M., Chișinău',
+use App\Models\Review;
+
+    // $customer_review_arr = array(
+    //     array(
+    //         'name' => ' Cristina M., Chișinău',
+    //         'type' => 'Customer',
+    //         'img' => 'testiicon.png',
+    //         'review_content' => ' “From the moment I requested a quote, the Invertor Lux team was attentive and efficient. They helped me choose the right air conditioner for my apartment and installed it the very next day. The whole process felt smooth and professional.”',
+    //     ),
+    //     array(
+    //         'name' => 'Andrei P., Bălți',
+    //         'type' => 'Customer',
+    //         'img' => 'testiicon.png',
+    //         'review_content' => '“I wasn’t sure which model to choose for my office, but their support team called me, asked the right questions, and gave a perfect recommendation. Delivery and installation were done in under 48 hours!”',
+    //     ),
+    //     array(
+    //         'name' => 'Irina D., Ungheni',
+    //         'type' => 'Customer',
+    //         'img' => 'testiicon.png',
+    //         'review_content' => ' “The air conditioner is working flawlessly, and the installation was done neatly without any hassle. The team respected my time and my space. Highly recommended for anyone in Moldova.”',
+    //     ),
+    //     array(
+    //         'name' => 'Vlad C., Orhei',
+    //         'type' => 'Customer',
+    //         'img' => 'testiicon.png',
+    //         'review_content' => '“I’ve worked with many service providers before, but Invertor Lux stands out. Their advice was honest, the pricing was fair, and the quality of work was impressive.”',
+    //     ),
+    //     array(
+    //         'name' => 'Natalia T., Cahul',
+    //         'type' => 'Customer',
+    //         'img' => 'testiicon.png',
+    //         'review_content' => '“This was my first time buying an AC for my store. The team took care of everything, from selecting the right model to installing it on a Sunday. That’s real customer care!”',
+    //     ),
+    // );
+    $customer_review_arr = Review::get()->map(function($reviews) {
+        return [
+            'name' => $reviews->customer_name,
+            'review_title' => $reviews->review_title,
+            'review_content' => $reviews->review_description,
             'type' => 'Customer',
             'img' => 'testiicon.png',
-            'review_content' => ' “From the moment I requested a quote, the Invertor Lux team was attentive and efficient. They helped me choose the right air conditioner for my apartment and installed it the very next day. The whole process felt smooth and professional.”',
-        ),
-        array(
-            'name' => 'Andrei P., Bălți',
-            'type' => 'Customer',
-            'img' => 'testiicon.png',
-            'review_content' => '“I wasn’t sure which model to choose for my office, but their support team called me, asked the right questions, and gave a perfect recommendation. Delivery and installation were done in under 48 hours!”',
-        ),
-        array(
-            'name' => 'Irina D., Ungheni',
-            'type' => 'Customer',
-            'img' => 'testiicon.png',
-            'review_content' => ' “The air conditioner is working flawlessly, and the installation was done neatly without any hassle. The team respected my time and my space. Highly recommended for anyone in Moldova.”',
-        ),
-        array(
-            'name' => 'Vlad C., Orhei',
-            'type' => 'Customer',
-            'img' => 'testiicon.png',
-            'review_content' => '“I’ve worked with many service providers before, but Invertor Lux stands out. Their advice was honest, the pricing was fair, and the quality of work was impressive.”',
-        ),
-        array(
-            'name' => 'Natalia T., Cahul',
-            'type' => 'Customer',
-            'img' => 'testiicon.png',
-            'review_content' => '“This was my first time buying an AC for my store. The team took care of everything, from selecting the right model to installing it on a Sunday. That’s real customer care!”',
-        ),
-    );
+        ];
+    });
 @endphp
 
 <section class="customer">
