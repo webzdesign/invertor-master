@@ -93,7 +93,7 @@
                         <div class="text-gray-500 text-sm font-inter-regular min-w-80 mb-2 mb-sm-0">{{ __('Address')}}</div>
                         <div class="text-decoration-none text-slate-900 font-inter-regular text-sm">
                             <b>{{ __('"INVERTOR LUX" SRL')}}</b></br>
-                            {!! __('Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>str. Muncesti 400/1<br/>c/f 1018600028767<br>') !!}
+                            {!! __('Legal address: MD-2002, Chisinau municipality, Republic of Moldova,<br/>Muncesti str. 400/1<br/>c/f 1018600028767<br>') !!}
                         </div>
                     </div>
                 </div>

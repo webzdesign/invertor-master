@@ -15,9 +15,7 @@
                         </li>
                         <li class="text-decoration-none text-slate-900 font-inter-regular text-sm-mob mt-3">
                             <span class="font-semibold">{{ __('"INVERTOR LUX" SRL')}}</span></br>
-                            {!! __('Adresa juridică: MD-2002, mun. Chișinău, Republica Moldova,<br/>
-                            str. Muncesti 400/1<br/>
-                            c/f 1018600028767<br>') !!}
+                            {!! __('Legal address: MD-2002, Chisinau municipality, Republic of Moldova,<br/>Muncesti str. 400/1<br/>c/f 1018600028767<br>') !!}
                             {{__('tel')}}.<a class="text-slate-900 text-decoration-none" href="{{__('tel')}}:79315994"> 79315994</a>
                         </li>
                     </ul>

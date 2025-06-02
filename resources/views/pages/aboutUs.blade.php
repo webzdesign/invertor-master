@@ -434,7 +434,7 @@
             <section class="py-3">
                 <h3 class="text-slate-900 text-2xl font-hubot font-semibold">{{ __('Contact Us')}}</h3>
 
-                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📍  <strong>{{__('Address')}}:&nbsp;</strong>&nbsp;{{ __('Șoseaua Muncești 400, Chișinău, MD-2002, Moldova')}}</p>
+                <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📍  <strong>{{__('Address')}}:&nbsp;</strong>&nbsp;{{ __('400 Muncesti Road, Chisinau, MD2002, Moldova')}}</p>
                 <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📞 <strong>{{__('Phone')}}:&nbsp;</strong>&nbsp;+373 793 15 994</p>
                 <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">🌐 <strong>{{ __('Website')}}:&nbsp;</strong>&nbsp;<a href="www.invertor.md">www.invertor.md</a> </p>
                 <p class="fs-5 lh-lg text-gray-500 text-lg font-inter-regular">📩  <strong>{{ __('Email')}}:&nbsp;</strong>&nbsp;info@invertor.md</p>
