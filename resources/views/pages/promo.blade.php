@@ -101,7 +101,7 @@
                 </div>
             </div>
             <div class="mt-sm-5 mt-4">
-                <button type="button" class="button-dark mx-auto d-table getPriceModalBtn" data-pid="{{encrypt(0)}}">{{__('Get price')}}</button>
+                <button type="button" class="button-dark mx-auto d-table getPriceModalBtn" data-pid="{{encrypt(0)}}">{{__('Get Price')}}</button>
             </div>
         </div>
     </section>

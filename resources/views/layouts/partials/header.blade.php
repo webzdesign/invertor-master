@@ -90,7 +90,7 @@
                 </li>
 
                 <li>
-                    <a class="text-decoration-none text-slate-900 {{ request()->is('promo*') ? 'active' : '' }}" href="{{ route('Promo') }}">Promo</a>
+                    <a class="text-decoration-none text-slate-900 {{ request()->is('promo*') ? 'active' : '' }}" href="{{ route('Promo') }}">{{__('Promo')}}</a>
                 </li>
 
                 <li>
