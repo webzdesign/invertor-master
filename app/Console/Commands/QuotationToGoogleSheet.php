@@ -57,7 +57,7 @@ class QuotationToGoogleSheet extends Command
                     /*"A"*/ Carbon::parse($quotation->quotation_date)->format("d-m-Y H:i:s"),
                     /*"B"*/ "",
                     /*"C"*/ $phone,
-                    /*"D"*/ "invertor.md",
+                    /*"D"*/ "",
                     /*"E"*/ "",
                     /*"F"*/ "",
                     /*"G"*/ "",

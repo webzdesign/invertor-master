@@ -53,15 +53,11 @@
                             <label id="phone_modal-error" class="error" style="color: red;" for="phone_modal"></label>
                              <div class="overflow-hidden border border-slate-700 rounded-lg p-3">
                                 <div class="form-check">
-                                    <input class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" id="terms_and_condtion"checked name="terms_and_condtion">
-                                    <label class="form-check-label font-inter-regular text-sm text-gray-500 cursor-pointer ms-2" for="checkbox1">
-                                        <span>
-                                            Prin trimiterea acestui formular, îți exprimi acordul pentru 
-                                            prelucrarea datelor tale cu caracter personal (nume, adresă de e-mail, număr 
-                                            de telefon etc.) de către Invertor Lux SRL și Iute Credit SRL, în scopul 
-                                            soluționării solicitării tale. Datele furnizate vor fi păstrate în condiții de 
-                                            siguranță și nu vor fi transmise către terți fără consimțământul tău, cu excepția 
-                                            cazurilor prevăzute de lege.
+                                    <input class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" id="terms_and_condtion" name="terms_and_condtion">
+                                    <label class="form-check-label font-inter-regular text-sm text-gray-500 cursor-pointer ms-2" for="terms_and_condtion">
+                                        <div class="check-one">{{__('Click Here To More Information')}}.</div>
+                                        <span class="check-two" style="display:none;">
+                                            {{__('By submitting this form, you express your consent to the processing of your personal data (name, email address, phone number, etc.) by Invertor Lux SRL and Iute Credit SRL, for the purpose of resolving your request. The data provided will be kept securely and will not be transmitted to third parties without your consent, except in cases required by law.')}}
                                         </span>
                                     </label>
                                 </div>
@@ -484,6 +480,20 @@
                         });
                     }
                 });
+
+                $(document).on('click', '#terms_and_condtion', function () {
+                    let Checked = $(this).is(':checked');
+                    
+                    if(Checked) {
+                        $('.check-one').hide();
+                        $('.check-two').show();
+                    } else {
+                        $('.check-one').show();
+                        $('.check-two').hide();
+                    }
+
+                });
+
             });
 
         </script>
