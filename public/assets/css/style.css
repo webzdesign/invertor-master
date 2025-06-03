@@ -209,6 +209,14 @@ body.mobile-nav-active header #mobile-nav {
 .hero {
   padding: 120px 0 40px;
 }
+.hero .gift-row{
+  margin-left: -5px;
+  margin-right: -5px;
+}
+.hero .gift-col{
+  padding-left: 5px;
+  padding-right: 5px;
+}
 .hero{
   background: linear-gradient(270deg, #B1BBDB 0%, #D9DEEE 25.25%, rgba(230, 233, 244, 0.5) 49.82%, #D9DEEE 74.61%, #B1BBDB 100%);
 }

@@ -42,7 +42,20 @@
                                     </p>
                                     <div class="row">
                                         <div class="col-xl-8">
-                                            <img src="{{ asset( 'assets/images/GIFT.png' ) }}" width="100%" class="h-auto" alt="Gift">
+                                             <div class="row gift-row">
+                                                <div class="col-3 gift-col mb-2">
+                                                    <img src="{{ asset( 'assets/images/inv-gift-01.png' ) }}" width="100%" class="h-auto" alt="Gift">
+                                                </div>
+                                                <div class="col-3 gift-col mb-2">
+                                                    <img src="{{ asset( 'assets/images/inv-gift-01.png' ) }}" width="100%" class="h-auto" alt="Gift">
+                                                </div>
+                                                <div class="col-3 gift-col mb-2">
+                                                    <img src="{{ asset( 'assets/images/inv-gift-01.png' ) }}" width="100%" class="h-auto" alt="Gift">
+                                                </div>
+                                                <div class="col-3 gift-col mb-2">
+                                                    <img src="{{ asset( 'assets/images/inv-gift-01.png' ) }}" width="100%" class="h-auto" alt="Gift">
+                                                </div>
+                                             </div>
                                         </div>
                                     </div>
                                     <div class="text-center text-lg-start">
