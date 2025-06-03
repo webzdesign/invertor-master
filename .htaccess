@@ -19,9 +19,9 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 
-    <Files .env>
-    Order allow,deny
-    Deny from all
-    ErrorDocument 404 /404.html
-    </Files>
+    # <Files .env>
+    # Order allow,deny
+    # Deny from all
+    # ErrorDocument 404 /404.html
+    # </Files>
 </IfModule>
