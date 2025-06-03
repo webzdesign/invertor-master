@@ -17,24 +17,14 @@
 <section class="hero position-relative overflow-hidden">
     <div class="container">
         <div class="owl-carousel hero__slider">
-            @if(!empty($Products) && count($Products) > 0)
-                @foreach ($Products as $slider_product)
+            @if(!empty($sliders) && count($sliders) > 0)
+                @foreach ($sliders as $slider_product)
                     <div class="owl-item-hero">
                         <div class="row align-items-center">
                             <div class="col-lg-6 left-slide">
                                 <div class="px-lg-2">
                                     @php
-                                        $breaks = array("<br />","<br>","<br/>");
-                                        $p_description = str_ireplace($breaks, "", $slider_product->slider_content);
-                                        if( mb_strlen($p_description) > 70 ){
-                                            $p_description = mb_strimwidth($p_description, 0, 70, '...');
-                                        }
-                                        $p_name = str_ireplace($breaks, "", $slider_product->slider_title);
-                                        if( mb_strlen($p_name) > 20 ){
-                                            $p_name = mb_strimwidth($p_name, 0, 20, '...');
-                                        }
-                                        $slider_yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=y1pFEns95QWdhO-W';
-                                        $slider_img = !empty($slider_product->images->first()->name) ? $slider_product->images->first()->name : '';
+                                        $slider_img = !empty($slider_product['banner']) ? $slider_product['banner'] : '';
                                     @endphp
                                     <div class="hot-d-label fadeItem bg-pumpkin-orange-500 text-white font-semibold w-fit">
                                         H
@@ -43,23 +33,20 @@
                                         </svg>T {{ __('DEALS')}}
                                     </div>
                                     <h1 class="fadeItem text-neutrino-blue-600 font-bebas">
-                                        <a class="text-decoration-none text-neutrino-blue-600" href="{{ route('productDetail', $slider_product->slug) }}">
-                                            <!-- {{ $p_name }} -->
+                                        <a class="text-decoration-none text-neutrino-blue-600" href="{{ route('productDetail', $slider_product['product_slug']) }}">
                                             {{__('BUY AN')}} <span class="position-relative text-white">{{__('AIR CONDITIONER')}}.</span> {{__('GET A')}} <span class="position-relative text-white">{{__('FREE INSTALLATION GIFT')}}</span> {{__('CERTIFICATE')}}!
                                         </a>
                                     </h1>
                                     <p class="fadeItem text-gray-500 font-inter-regular text-lg my-sm-4 my-2 text-sm-mob text-lg-start text-center mx-auto mx-lg-0">
-                                        <!-- {{ $p_description }} -->
                                         {{ __('Shop the latest energy-efficient air conditioners and receive a FREE installation gift certificate worth up to 2000 MDL!')}}
                                     </p>
-                                    {{--<h2 class="fadeItem text-lg-start text-center">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($slider_product->web_sales_price, 2) }}</h2>--}}
                                     <div class="row">
                                         <div class="col-xl-8">
                                             <img src="{{ asset( 'assets/images/GIFT.png' ) }}" width="100%" class="h-auto" alt="Gift">
                                         </div>
                                     </div>
                                     <div class="text-center text-lg-start">
-                                        <a  class="fadeItem order-btn gap-sm-4 gap-3 bg-neutrino-blue-400 d-inline-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-4 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn_ eb_OrderNowBtn_ getPriceModalBtn" data-pid="{{encrypt($slider_product->id)}}">
+                                        <a  class="fadeItem order-btn gap-sm-4 gap-3 bg-neutrino-blue-400 d-inline-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-4 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3 AddToCartBtn_ eb_OrderNowBtn_ getPriceModalBtn" data-pid="{{encrypt($slider_product['product_id'])}}">
                                             {{ __('GET THE PRICE')}}
                                             <div>
                                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -73,7 +60,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="ps-lg-5">
-                                    <img src="{{ asset( 'assets/images/inv-slider-01.png' ) }}" alt="product" width="100%">
+                                    <img src="{{ url( 'admin/storage/app/public/sliders-images'.'/'.$slider_img ) }}" alt="product" width="100%">
                                 </div>
                                 <div class="position-absolute end-0 top-0">
                                     <div class="d-lg-flex align-items-start text-center justify-content-end position-relative">
@@ -119,7 +106,6 @@
                             </div>
                         </div>
                     </div>
-                    @break
                 @endforeach
             @endif
         </div>
@@ -248,7 +234,7 @@
                     <div class="col-xl-3 col-md-4 col-sm-6 mb-5 hot-col">
                         <a href="{{ route('productDetail', $ishot->slug) }}" class="cards h-100 d-flex flex-column justify-content-between border position-relative d-block text-decoration-none">
                             <div>
-                                <img src="{{ asset( 'assets/images/inv-pro-1.png' ) }}" alt="{{ $ishot->name }}" width="100%">
+                                <img src="{{ $first_img }}" alt="{{ $ishot->name }}" width="100%">
                                 <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3">{{ $ishot->name }}</h3>
                             </div>
                             <div class="px-3 pb-3">
@@ -292,7 +278,7 @@
                                     </svg>
                                 </div>
                                 <button type="button" class="button-dark mt-3 text-base h-40 d-flex align-items-center justify-content-center px-4 mx-auto ">
-                                    GET THE PRICE
+                                    {{__('GET THE PRICE')}}
                                 </button>
                             </div>
                             <div class="hot-d-label position-absolute bg-neutrino-blue-400 text-white font-semibold">
@@ -436,7 +422,7 @@
                 <div class="item h-100">
                     <a href="{{ route('productDetail', $ishot->slug) }}" class="cards d-flex flex-column justify-content-between h-100 border position-relative d-block text-decoration-none">
                         <div>
-                            <img src="{{ asset( 'assets/images/inv-pro-1.png' ) }}" alt="{{ $ishot->name }}" width="100%">
+                            <img src="{{ $first_img }}" alt="{{ $ishot->name }}" width="100%">
                             <img src="{{ asset( 'assets/images/inv-mega-sale.svg' ) }}" alt="mega-sale" width="100%">
                             <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3">{{ $ishot->name }}</h3>
                         </div>
