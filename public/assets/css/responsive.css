@@ -14,7 +14,16 @@
     opacity: 0;
   }
 }
-
+@media (min-width:768px) {
+  .product .brand-col{
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .product .brand-row{
+    margin-left: -25px;
+    margin-right: -25px;
+  }
+}
 /* @media (max-width:1500px) {
   .why-choose .right-side {
     padding: 10px 120px;
@@ -663,6 +672,19 @@
   }
   .flash-mega-sale .owl-dots button.active span {
     width: 30px;
+  }
+  .product .nav-tabs li button {
+    padding: 6px 18px;
+    font-size: 14px !important;
+  }
+  .product .nav-tabs{
+    gap: 10px;
+  }
+  .flash-mega-sale .flash-mega-sale-owl {
+    margin-top: 26px;
+  }
+  .flash-mega-sale {
+    padding-top: 12px;
   }
 }
 

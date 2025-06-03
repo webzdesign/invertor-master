@@ -485,69 +485,114 @@
                 <a href="{{ route('shop') }}" class="button-dark mt-3">{{ __('See our collections')}}</a>
             </div>
         </div>
-        <div class="row mt-5">
-            @foreach ($Products as $p_key => $product)
-                @php
-                    $sz_discount_flag = 0;
-                    if( !empty($product->web_sales_old_price) && $product->web_sales_old_price > $product->web_sales_price ){
-                        $sz_discount_flag = 1;
-                        $sz_discount_pr = ( $product->web_sales_old_price - $product->web_sales_price ) / $product->web_sales_old_price * 100;
-                        $sz_discount_pr = number_format($sz_discount_pr, 2);
-                        $sz_save_price = $product->web_sales_old_price - $product->web_sales_price;
-                    }
-                    $first_img = !empty($product->images->first()->name) ? $product->images->first()->name : '';
-                @endphp
-                <div class="col-lg-6 mb-5">
-                    <a href="{{ route('productDetail', $product->slug) }}">
-                        <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                            <!-- <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_img }}" alt="{{ $product->name }}" > -->
-                            <img class="sz_product_image" src="{{ asset( 'assets/images/inv-pro-1.png' ) }}" alt="{{ $product->name }}">
-                            <!-- <div class="ws_sec position-absolute">
-                                <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
-                                @if( $sz_discount_flag == '1' )
-                                    <label class="saleLbl bg-neutrino-blue-400 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
-                                @endif
-                            </div> -->
-                        </div>
-                    </a>
-                    <div class="text-lg-start text-center">
-                        <label class="mt-sm-4 mt-3 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
-                            {{__('Free Gift Available')}}
-                        </label>
-                        <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-2">{{ $product->name }}</h2>
-                        <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
-                            <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
-                                {{--<h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_price, 2) }}</h2>
-                                @if( $sz_discount_flag == '1' )
-                                    <h6 class="text-base text-gray-400 mb-0 font-inter-regular text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_old_price, 2) }}</h6>
-                                @endif
-                                <div>
-                                    @if( $sz_discount_flag == '1' )
-                                        {!! $sale_season_icon !!}
-                                    @endif
-                                </div>--}}
-                            </div>
-                            {{--@if( $sz_discount_flag == '1' )
-                                <label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
-                            @endif--}}
-                            {{--<label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
-                                Free Gift Available
-                            </label>--}}
-                        </div>
-
-                        <button class="button-dark mt-3 AddToCartBtn_ d-flex align-items-center gap-2 mx-auto mx-lg-0 getPriceModalBtn" data-pid="{{ encrypt( $product->id ) }}">
-                            {{ __('Get Price')}}
-                            <span class="sz_add_to_cart_circle align-text-top ms-1 leading-0 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
-                                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
-                                    <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </span>
-                        </button>
-
+        <div class="my-sm-5 my-4">
+            <ul class="nav nav-tabs border-0 flex-nowrap overflow-auto" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold active" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-selected="true">All Category</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab"  aria-selected="false">Climatizoare</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab"  aria-selected="false">Climatizoare</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab"  aria-selected="false">Climatizoare</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab5" type="button" role="tab"  aria-selected="false">Climatizoare</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab6" type="button" role="tab"  aria-selected="false">Climatizoare</button>
+                </li>
+            </ul>
+            <div class="mt-4">
+                <div class="row brand-row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col">
+                        <img src="{{ asset( 'assets/images/inv-brand-1.png' ) }}" alt="brand" width="100%">
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col">
+                        <img src="{{ asset( 'assets/images/inv-brand-2.png' ) }}" alt="brand" width="100%">
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col">
+                        <img src="{{ asset( 'assets/images/inv-brand-1.png' ) }}" alt="brand" width="100%">
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col">
+                        <img src="{{ asset( 'assets/images/inv-brand-3.png' ) }}" alt="brand" width="100%">
                     </div>
                 </div>
-            @endforeach
+            </div>
+            <div class="tab-content mt-sm-5 mt-4" id="myTabContent">
+                <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                    <div class="row">
+                        @foreach ($Products as $p_key => $product)
+                            @php
+                                $sz_discount_flag = 0;
+                                if( !empty($product->web_sales_old_price) && $product->web_sales_old_price > $product->web_sales_price ){
+                                    $sz_discount_flag = 1;
+                                    $sz_discount_pr = ( $product->web_sales_old_price - $product->web_sales_price ) / $product->web_sales_old_price * 100;
+                                    $sz_discount_pr = number_format($sz_discount_pr, 2);
+                                    $sz_save_price = $product->web_sales_old_price - $product->web_sales_price;
+                                }
+                                $first_img = !empty($product->images->first()->name) ? $product->images->first()->name : '';
+                            @endphp
+                            <div class="col-lg-6 mb-5">
+                                <a href="{{ route('productDetail', $product->slug) }}">
+                                    <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
+                                        <!-- <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_img }}" alt="{{ $product->name }}" > -->
+                                        <img class="sz_product_image" src="{{ asset( 'assets/images/inv-pro-1.png' ) }}" alt="{{ $product->name }}">
+                                        <!-- <div class="ws_sec position-absolute">
+                                            <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
+                                            @if( $sz_discount_flag == '1' )
+                                                <label class="saleLbl bg-neutrino-blue-400 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
+                                            @endif
+                                        </div> -->
+                                    </div>
+                                </a>
+                                <div class="text-lg-start text-center">
+                                    <label class="mt-sm-4 mt-3 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
+                                        {{__('Free Gift Available')}}
+                                    </label>
+                                    <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-2">{{ $product->name }}</h2>
+                                    <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
+                                        <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
+                                            {{--<h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_price, 2) }}</h2>
+                                            @if( $sz_discount_flag == '1' )
+                                                <h6 class="text-base text-gray-400 mb-0 font-inter-regular text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_old_price, 2) }}</h6>
+                                            @endif
+                                            <div>
+                                                @if( $sz_discount_flag == '1' )
+                                                    {!! $sale_season_icon !!}
+                                                @endif
+                                            </div>--}}
+                                        </div>
+                                        {{--@if( $sz_discount_flag == '1' )
+                                            <label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
+                                        @endif--}}
+                                        {{--<label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
+                                            Free Gift Available
+                                        </label>--}}
+                                    </div>
+    
+                                    <button class="button-dark mt-3 AddToCartBtn_ d-flex align-items-center gap-2 mx-auto mx-lg-0 getPriceModalBtn" data-pid="{{ encrypt( $product->id ) }}">
+                                        {{ __('Get Price')}}
+                                        <span class="sz_add_to_cart_circle align-text-top ms-1 leading-0 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
+                                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
+                                                <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                    </button>
+    
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <!-- <div class="tab-pane fade" id="tab2" role="tabpanel">
+                    quoted_printable_encodeq
+                </div> -->
+            </div>
         </div>
     </div>
 </section>

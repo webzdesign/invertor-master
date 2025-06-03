@@ -51,7 +51,7 @@
     </section>
     <section class="bg-neutrino-blue-500 copy-right">
         <div class="container">
-            <div class="d-flex flex-column flex-lg-row align-items-center justify-content-between">
+            <div class="d-flex flex-column flex-xl-row align-items-center justify-content-between">
                 <ul class="m-0 p-0 d-flex align-items-center gap-4 justify-content-center flex-shrink-0 flex-wrap flex-md-nowrap">
                     <li>
                         <a href="{{ route( 'terms-conditions' ) }}" aria-label="Terms and Conditions" class="text-decoration-none text-white font-inter-regular text-sm-mob">{{ __('Terms')}}</a>
@@ -69,7 +69,7 @@
                 @php
                     $links = App\Helpers\Helper::getsocialLink();
                 @endphp
-                <ul class="d-inline-flex gap-3 m-0 p-0 justify-content-center w-100 mt-lg-0 mt-4">
+                <ul class="d-inline-flex gap-3 m-0 p-0 justify-content-center w-100 mt-xl-0 mt-4">
                     @if($links->facebookUrl != '')
                     <li>
                         <a href="{{$links->facebookUrl}}" target="_blank" aria-label="{{$links->facebookUrl}}">
@@ -122,7 +122,7 @@
                     @endif
 
                 </ul>
-                {{-- <div class="text-center my-lg-0 my-4">
+                {{-- <div class="text-center my-xl-0 my-4">
                     <svg width="276" height="42" viewBox="0 0 276 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_715_5185)">
                         <path d="M58.125 0H5.625C2.7255 0 0.375 2.3505 0.375 5.25V36.75C0.375 39.6495 2.7255 42 5.625 42H58.125C61.0245 42 63.375 39.6495 63.375 36.75V5.25C63.375 2.3505 61.0245 0 58.125 0Z" fill="#252525"/>
@@ -165,7 +165,7 @@
                         </defs>
                     </svg>
                 </div> --}}
-                <div class="text-white font-inter-regular text-center flex-shrink-0  mt-lg-0 mt-4">©{{ date("Y") }} {{ __('Copyright By')}} INVERTOR LUX</div>
+                <div class="text-white font-inter-regular text-center flex-shrink-0  mt-xl-0 mt-4">©{{ date("Y") }} {{ __('Copyright By')}} INVERTOR LUX</div>
             </div> 
         </div>
     </section>

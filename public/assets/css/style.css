@@ -459,6 +459,20 @@ body.mobile-nav-active header #mobile-nav {
 .product .top-content p {
   max-width: 380px;
 }
+.product .nav-tabs{
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
+.product .nav-tabs li button{
+  border:1px solid var(--neutrino-blue-400) !important;
+  padding: 12px 32px;
+}
+.product .nav-tabs li button.active{
+  background-color: var(--neutrino-blue-400);
+  color: white !important;
+}
 
 #imgZoomModal .modal-body {
   height: calc(100vh - 100px);
