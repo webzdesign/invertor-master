@@ -51,7 +51,7 @@
                                                     }
                                                 @endphp
                                                 @if (!empty($gift_images))
-                                                    @foreach ($gift_images as $gift_image)
+                                                    @foreach (array_filter($gift_images) as $gift_image)
                                                     @if (file_exists('admin/storage/app/public/sliders-images'.'/'.$gift_image))
                                                         <div class="col-3 gift-col mb-2">
                                                             <img src="{{ env('APP_Image_URL').'storage/sliders-images/'.$gift_image }}" width="100%" class="h-auto" alt="Gift">
