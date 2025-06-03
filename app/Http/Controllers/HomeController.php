@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InformationPages;
 use App\Models\Quotation;
 use App\Models\Review;
 use App\Models\Slider;
@@ -61,7 +62,9 @@ class HomeController extends Controller
             ];
         });
 
-        return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products','sliders'));
+        $information = InformationPages::where('slug','Promo')->first();
+
+        return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products','sliders','information'));
     }
 
     public function shop(Request $request)

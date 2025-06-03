@@ -34,27 +34,31 @@
                                     </div>
                                     <h1 class="fadeItem text-neutrino-blue-600 font-bebas">
                                         <a class="text-decoration-none text-neutrino-blue-600" href="{{ route('productDetail', $slider_product['product_slug']) }}">
-                                            {{__('BUY AN')}} <span class="position-relative text-white">{{__('AIR CONDITIONER')}}.</span> {{__('GET A')}} <span class="position-relative text-white">{{__('FREE INSTALLATION GIFT')}}</span> {{__('CERTIFICATE')}}!
+                                            {{-- {{__('BUY AN')}} <span class="position-relative text-white">{{__('AIR CONDITIONER')}}.</span> {{__('GET A')}} <span class="position-relative text-white">{{__('FREE INSTALLATION GIFT')}}</span> {{__('CERTIFICATE')}}! --}}
+                                            {!! $slider_product['title'] !!}
                                         </a>
                                     </h1>
-                                    <p class="fadeItem text-gray-500 font-inter-regular text-lg my-sm-4 my-2 text-sm-mob text-lg-start text-center mx-auto mx-lg-0">
+                                    {{-- <p class="fadeItem text-gray-500 font-inter-regular text-lg my-sm-4 my-2 text-sm-mob text-lg-start text-center mx-auto mx-lg-0">
                                         {{ __('Shop the latest energy-efficient air conditioners and receive a FREE installation gift certificate worth up to 2000 MDL!')}}
-                                    </p>
+                                    </p> --}}
                                     <div class="row">
                                         <div class="col-xl-8">
                                              <div class="row gift-row">
-                                                <div class="col-3 gift-col mb-2">
-                                                    <img src="{{ asset( 'assets/images/inv-gift-01.png' ) }}" width="100%" class="h-auto" alt="Gift">
-                                                </div>
-                                                <div class="col-3 gift-col mb-2">
-                                                    <img src="{{ asset( 'assets/images/inv-gift-01.png' ) }}" width="100%" class="h-auto" alt="Gift">
-                                                </div>
-                                                <div class="col-3 gift-col mb-2">
-                                                    <img src="{{ asset( 'assets/images/inv-gift-01.png' ) }}" width="100%" class="h-auto" alt="Gift">
-                                                </div>
-                                                <div class="col-3 gift-col mb-2">
-                                                    <img src="{{ asset( 'assets/images/inv-gift-01.png' ) }}" width="100%" class="h-auto" alt="Gift">
-                                                </div>
+                                                @php
+                                                    $gift_images = [];
+                                                    if(!empty($slider_product['gift_banners']) && is_array(explode(',',$slider_product['gift_banners']))) {
+                                                        $gift_images = explode(',',$slider_product['gift_banners']);
+                                                    }
+                                                @endphp
+                                                @if (!empty($gift_images))
+                                                    @foreach ($gift_images as $gift_image)
+                                                    @if (file_exists('admin/storage/app/public/sliders-images'.'/'.$gift_image))
+                                                        <div class="col-3 gift-col mb-2">
+                                                            <img src="{{ env('APP_Image_URL').'storage/sliders-images/'.$gift_image }}" width="100%" class="h-auto" alt="Gift">
+                                                        </div>
+                                                    @endif
+                                                    @endforeach
+                                                @endif
                                              </div>
                                         </div>
                                     </div>
@@ -73,7 +77,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="ps-lg-5">
-                                    <img src="{{ url( 'admin/storage/app/public/sliders-images'.'/'.$slider_img ) }}" alt="product" width="100%">
+                                    @if (file_exists('admin/storage/app/public/sliders-images/'.$slider_img))
+                                        <img src="{{ env('APP_Image_URL').'storage/sliders-images/'.$slider_img }}" alt="product" width="100%">
+                                    @endif
                                 </div>
                                 <div class="position-absolute end-0 top-0">
                                     <div class="d-lg-flex align-items-start text-center justify-content-end position-relative">
@@ -376,11 +382,22 @@
     </div>
 </section>
 
-<section>
-    <div class="p-3">
-        <img src="{{ asset( 'assets/images/promo-banner.png' ) }}" alt="Promotion" width="100%">
-    </div>
-</section>
+@if (!empty($information->page_banner))
+    @php
+        $banners = json_decode($information->page_banner);
+        $lang = config('app.locale'); 
+        $image = $banners->$lang->image ?? null;
+        $BannerimagePath = 'admin/public/storage/information-images/' . $image;
+    @endphp
+
+    @if ($image && file_exists($BannerimagePath))
+        <section>
+            <div class="p-3">
+                <img src="{{ env('APP_Image_URL').'storage/information-images/'.  $image }}" alt="Promotion" width="100%">
+            </div>
+        </section>
+    @endif
+@endif
 
 @if (!empty($is_hot_products) && count($is_hot_products) > 0)
 <section class="flash-mega-sale hot-deals">
@@ -487,22 +504,22 @@
         <div class="my-sm-5 my-4">
             <ul class="nav nav-tabs border-0 flex-nowrap overflow-auto" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold active" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-selected="true">All Category</button>
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold active" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-selected="true">{{__('All Category')}}</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab"  aria-selected="false">Climatizoare</button>
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab"  aria-selected="false">{{__('Climatizoare')}}</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab"  aria-selected="false">Climatizoare</button>
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab"  aria-selected="false">{{__('Climatizoare')}}</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab"  aria-selected="false">Climatizoare</button>
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab"  aria-selected="false">{{__('Climatizoare')}}</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab5" type="button" role="tab"  aria-selected="false">Climatizoare</button>
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab5" type="button" role="tab"  aria-selected="false">{{__('Climatizoare')}}</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab6" type="button" role="tab"  aria-selected="false">Climatizoare</button>
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab6" type="button" role="tab"  aria-selected="false">{{__('Climatizoare')}}</button>
                 </li>
             </ul>
             <div class="mt-4">
