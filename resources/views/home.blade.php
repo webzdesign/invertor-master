@@ -506,37 +506,37 @@
                 <li class="nav-item" role="presentation">
                     <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold active" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-selected="true">{{__('All Category')}}</button>
                 </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab2" type="button" role="tab"  aria-selected="false">{{__('Climatizoare')}}</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab3" type="button" role="tab"  aria-selected="false">{{__('Climatizoare')}}</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab4" type="button" role="tab"  aria-selected="false">{{__('Climatizoare')}}</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab5" type="button" role="tab"  aria-selected="false">{{__('Climatizoare')}}</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#tab6" type="button" role="tab"  aria-selected="false">{{__('Climatizoare')}}</button>
-                </li>
+
+                @if (!empty($categorys) && count($categorys) > 0)
+                    @foreach ($categorys as $category)
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#{{$category->slug}}" type="button" role="tab"  aria-selected="false">{{$category->name}}</button>
+                        </li>
+                    @endforeach
+                @endif
             </ul>
-            <div class="mt-4">
-                <div class="row brand-row">
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col">
-                        <img src="{{ asset( 'assets/images/inv-brand-1.png' ) }}" alt="brand" width="100%">
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col">
-                        <img src="{{ asset( 'assets/images/inv-brand-2.png' ) }}" alt="brand" width="100%">
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col">
-                        <img src="{{ asset( 'assets/images/inv-brand-1.png' ) }}" alt="brand" width="100%">
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col">
-                        <img src="{{ asset( 'assets/images/inv-brand-3.png' ) }}" alt="brand" width="100%">
+            <div class="tab-content mt-4">
+                <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+                    <div class="row brand-row">
+                        @foreach ($brands as $brand)
+                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col rounded-2xl" data-brand=".brand-{{$brand->name}}" aria-selected="false" type="button">
+                                <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" alt="brand" width="100%">
+                            </div>
+                        @endforeach
                     </div>
                 </div>
+
+                @foreach ($categorys as $category)
+                    <div class="tab-pane fade" id="{{ $category->slug }}" role="tabpanel">
+                        <div class="row brand-row">
+                            @foreach ($brands->where('category_id', $category->id) as $brand)
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col" data-brand=".brand-{{$brand->name}}" aria-selected="false" type="button">
+                                    <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" alt="brand" width="100%">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
             </div>
             <div class="tab-content mt-sm-5 mt-4" id="myTabContent">
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel">
@@ -552,7 +552,7 @@
                                 }
                                 $first_img = !empty($product->images->first()->name) ? $product->images->first()->name : '';
                             @endphp
-                            <div class="col-lg-6 mb-5">
+                            <div class="col-lg-6 mb-5 product-rows brand-{{$product->brand}}" id="brand-{{$product->brand}}">
                                 <a href="{{ route('productDetail', $product->slug) }}">
                                     <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
                                         <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_img }}" alt="{{ $product->name }}" >
@@ -766,6 +766,24 @@
             }
         })
 
+    });
+
+    $(document).on('click', '.brand-col', function() {
+        let brandName = $(this).data('brand');
+        $(document).find('.product-rows').hide();
+        
+        if ($(brandName).length > 0) {
+            $(document).find(brandName).show();
+        } else {
+            // $(document).find('.product-rows').show();
+        }
+        
+        $('.brand-col img').css({ 'border': 'none' });
+
+        $(this).find('img').css({
+                    'border': '2px solid #292929',
+                    'border-radius': '10px'
+                }); 
     });
 
 </script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brands;
 use App\Models\InformationPages;
 use App\Models\Quotation;
 use App\Models\Review;
@@ -64,7 +65,10 @@ class HomeController extends Controller
 
         $information = InformationPages::where('slug','Promo')->first();
 
-        return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products','sliders','information'));
+        $categorys = Category::where('status',1)->get();
+        $brands = Brands::where('status',1)->get();
+
+        return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products','sliders','information','categorys','brands'));
     }
 
     public function shop(Request $request)
@@ -1129,6 +1133,23 @@ class HomeController extends Controller
                     </div>';
         }
         return response()->json(['html' => $html, 'review_count' => (!empty($reviews) ? count($reviews) : 0), 'total_review' => $reviewTotal]);
+    }
+
+    public function showBrands(Request $request){
+
+        $brands = Brands::where('status',1)->get();
+
+        if(!empty($brands)) {
+            return response()->json([
+                'success' => 1,
+                'brands' => $brands
+            ]);
+        } else {
+            return response()->json([
+                'success' => 0,
+                'message' => "something went wrong!!" 
+            ]);
+        }
     }
 
 }
