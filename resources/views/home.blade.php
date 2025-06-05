@@ -454,7 +454,7 @@
 
                 @endphp
                 <div class="item h-100">
-                    <a href="{{ route('productDetail', $ishot->slug) }}" class="cards d-flex flex-column justify-content-between h-100 border position-relative d-block text-decoration-none">
+                    <a href="{{ route('productDetail', $ishot->slug) }}" class="cards overflow-hidden d-flex flex-column justify-content-between h-100 border position-relative d-block text-decoration-none">
                         <div>
                             <img src="{{ $first_img }}" alt="{{ $ishot->name }}" width="100%">
                             <img src="{{ asset( 'assets/images/inv-mega-sale.svg' ) }}" alt="mega-sale" width="100%">

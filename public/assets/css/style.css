@@ -1144,6 +1144,9 @@ footer .copy-right{
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.08);
   border-radius: 8px;
 }
+.hot-deals .cards img{
+  border-top-right-radius: 8px;
+}
 .hot-deals .hot-d-label{
   padding: 12px 24px 12px 16px;
   letter-spacing: -0.3px;
