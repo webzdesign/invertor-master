@@ -325,7 +325,7 @@
     <section style="">
         <div class="container">
             <section class="py-2">
-                <h1 text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob>{{ __('About Invertor Lux – Moldova’s Air Conditioning Partner')}}</h1>
+                <h1 text-slate-900 text-4xl font-hubot font-semibold mb-3 text-32px-mob>{{__('About')}} Invertor Lux – {{__('Moldova’s Air Conditioning Partner')}}</h1>
                 <p class="fs-5">{{ __('Your Comfort is Our Craft. Your Satisfaction is Our Promise.')}}</p>
             </section>
 
