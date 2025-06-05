@@ -39,6 +39,6 @@ return [
         'measurementId' => env('GA_MEASUREMENT_ID'),
     ],
 
-    'asset_version' => "1.0.7"
+    'asset_version' => "1.0.8"
 
 ];

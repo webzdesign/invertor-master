@@ -4,7 +4,7 @@
 @section('url', '/product/' . $product->slug)
 @section('conversion')
 <script>
-    gtag('event', 'conversion', {'send_to': 'AW-16832855332/BGUeCOmh4ZcaEKT6w9o-'});
+    // gtag('event', 'conversion', {'send_to': 'AW-16832855332/BGUeCOmh4ZcaEKT6w9o-'});
   </script>
 @endsection
 

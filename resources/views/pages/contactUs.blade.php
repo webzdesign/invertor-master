@@ -5,7 +5,7 @@
 
 @section('conversion')
 <script>
-    gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
+    // gtag('event', 'conversion', {'send_to': 'AW-16832855332/qYrtCNWc4ZcaEKT6w9o-'});
   </script>
 @endsection
 @section('content')
