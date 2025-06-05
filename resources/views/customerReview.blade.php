@@ -39,7 +39,7 @@ use App\Models\Review;
             'review_title' => $reviews->review_title,
             'review_content' => $reviews->review_description,
             'type' => 'Customer',
-            'img' => 'testiicon.png',
+            'img' => 'Avater2.jpg',
         ];
     });
 @endphp
@@ -60,7 +60,7 @@ use App\Models\Review;
                                 </svg>
                                 <p class="sz_review_content text-gray-500 text-2xl font-inter-medium mt-lg-5 mt-4">{{ __($customer_review['review_content']) }}</p>
                                 <div class="d-md-flex gap-4 mt-lg-5 mt-4">
-                                    <img class="avatar" src="{{ asset( 'assets/images/Avater.png' ) }}" alt="Avatar">
+                                    <img class="avatar" src="{{ asset( 'assets/images/' . $customer_review['img'] ) }}" alt="{{$customer_review['img']}}">
                                     <div class="my-auto">
                                         <h3 class="text-gray-800 font-hubot font-medium mb-1">{{ $customer_review['name'] }}</h3>
                                         <p class="text-gray-800 font-inter-regular mb-0">{{ __($customer_review['type']) }}</p>

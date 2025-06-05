@@ -53,13 +53,13 @@
                             <label id="phone_modal-error" class="error" style="color: red;" for="phone_modal"></label>
                              <div class="overflow-hidden border border-slate-700 rounded-lg p-3">
                                 <div class="form-check">
-                                    <input class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" id="terms_and_condtion" name="terms_and_condtion">
-                                    <label class="form-check-label font-inter-regular text-sm text-gray-500 cursor-pointer ms-2" for="terms_and_condtion">
-                                        <div class="check-one">{{__('Click Here To More Information')}}.</div>
-                                        <span class="check-two" style="display:none;">
-                                            {{__('By submitting this form, you express your consent to the processing of your personal data (name, email address, phone number, etc.) by Invertor Lux SRL and Iute Credit SRL, for the purpose of resolving your request. The data provided will be kept securely and will not be transmitted to third parties without your consent, except in cases required by law.')}}
-                                        </span>
-                                    </label>
+                                    <input class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" id="terms_and_condtion" name="terms_and_condtion" checked>
+                                    {{-- <label class="form-check-label font-inter-regular text-sm text-gray-500 cursor-pointer ms-2" for="terms_and_condtion">
+                                    </label> --}}
+                                    <div class="check-one cursor-pointer" onclick="hideInfo('check-two');">{{__('Click Here To More Information')}}.</div>
+                                    <span class="check-two cursor-pointer" onclick="hideInfo('check-one');" style="display: none;">
+                                        {{__('By submitting this form, you express your consent to the processing of your personal data (name, email address, phone number, etc.) by Invertor Lux SRL and Iute Credit SRL, for the purpose of resolving your request. The data provided will be kept securely and will not be transmitted to third parties without your consent, except in cases required by law.')}}
+                                    </span>
                                 </div>
                             </div>
                             <div id="success-container"></div>
@@ -136,6 +136,15 @@
         </div>
 
         <script>
+            function hideInfo(className) {
+                if(className == 'check-two') {
+                    $('.check-one').hide();
+                    $('.check-two').show();
+                } else {
+                    $('.check-one').show();
+                    $('.check-two').hide();
+                }
+            }
 
             $(document).ready(function(){
                 $(".fade-owl-slider").owlCarousel({
@@ -311,9 +320,9 @@
                     });
 
                 });
-                $('body').on('click', '.AddToCartBtn', function(e){
-                    gtag_report_conversion();
-                });
+                // $('body').on('click', '.AddToCartBtn', function(e){
+                //     gtag_report_conversion();
+                // });
                 $(document).on('click', '.sz_remove_cart', function(e){
                     var pid = $(this).data("pid");
 
@@ -383,19 +392,19 @@
         </script>
 
         <script>
-            function gtag_report_conversion(url) {
-                var callback = function () {
-                    if (typeof(url) != 'undefined') {
-                        window.location = url;
-                    }
-                };
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-16832855332/h41sCNTt1JcaEKT6w9o-',
-                    'value': 1.0,
-                    'event_callback': callback
-                });
+            // function gtag_report_conversion(url) {
+            //     var callback = function () {
+            //         if (typeof(url) != 'undefined') {
+            //             window.location = url;
+            //         }
+            //     };
+            //     gtag('event', 'conversion', {
+            //         'send_to': 'AW-16832855332/h41sCNTt1JcaEKT6w9o-',
+            //         'value': 1.0,
+            //         'event_callback': callback
+            //     });
 
-            }
+            // }
             </script>
 
         <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
@@ -546,20 +555,6 @@
                         });
                     }
                 });
-
-                $(document).on('click', '#terms_and_condtion', function () {
-                    let Checked = $(this).is(':checked');
-
-                    if(Checked) {
-                        $('.check-one').hide();
-                        $('.check-two').show();
-                    } else {
-                        $('.check-one').show();
-                        $('.check-two').hide();
-                    }
-
-                });
-
 
                 $(document).on('click','.writeReview',function(){
                     $('#writeReviewModal').modal('show');
