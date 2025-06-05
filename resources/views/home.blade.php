@@ -782,12 +782,13 @@
             // $(document).find('.product-rows').show();
         }
         
-        $('.brand-col img').css({ 'border': 'none' });
+        $('.brand-col img').css({ 'outline': 'none' });
 
         $(this).find('img').css({
-                    'border': '2px solid #292929',
-                    'border-radius': '10px'
-                }); 
+            'outline': '2px solid #04248c',
+            'outline-offset':'3px',
+            'border-radius': '10px'
+        }); 
     });
 
 </script>
