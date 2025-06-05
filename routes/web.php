@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Helpers\Helper;
 use App\Http\Middleware\SetLocale;
 use Illuminate\Support\Facades\Route;
