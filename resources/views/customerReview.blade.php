@@ -39,7 +39,7 @@ use App\Models\Review;
             'review_title' => $reviews->review_title,
             'review_content' => $reviews->review_description,
             'type' => 'Customer',
-            'img' => 'Avater2.jpg',
+            'img' => 'Avater2.png',
         ];
     });
 @endphp
