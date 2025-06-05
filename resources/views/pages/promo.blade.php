@@ -9,22 +9,30 @@
 @endsection
 
 @section('content')
+@if (!empty($information->page_banner))
      @php
         $banners = json_decode($information->page_banner);
         $lang = config('app.locale'); 
         $image = $banners->$lang->image ?? null;
+        $mobimage = $banners->$lang->mob_image ?? null;
         $BannerimagePath = 'admin/public/storage/information-images/' . $image;
+        $MobBannerimagePath = 'admin/public/storage/information-images/' . $mobimage;
     @endphp
 
-    @if (file_exists($BannerimagePath) && $image)
-        <section class="strore-banner p-2 position-relative">
-            <img src="{{ env('APP_Image_URL').'storage/information-images/'.$image }}" alt="{{ $information->page_title }} Banner" width="100%">
-            {{-- <img src="{{ asset('assets/images/promo-banner.png') }}" alt="Promo" width="100%"> --}}
-            {{-- <h2 class="text-dark position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">
-                {{ __('Promo')}}
-            </h2>  --}}
-        </section>
-    @endif
+    <section class="strore-banner p-2 position-relative">
+        @if($image && file_exists($BannerimagePath))
+            <img src="{{ env('APP_Image_URL').'storage/information-images/'.$image }}" alt="{{ $information->page_title }} Banner" class="rounded-3xl d-none d-sm-block" width="100%">
+        @endif
+        @if($mobimage && file_exists($MobBannerimagePath))
+            <img src="{{ env('APP_Image_URL').'storage/information-images/'.$mobimage}}" alt="Promotion" width="100%" class="d-sm-none rounded-2xl">
+        @endif
+        
+        {{-- <img src="{{ asset('assets/images/promo-banner.png') }}" alt="Promo" width="100%"> --}}
+        {{-- <h2 class="text-dark position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">
+            {{ __('Promo')}}
+        </h2>  --}}
+    </section>
+@endif
 
     <section class="promo-content">
         <div class="container">

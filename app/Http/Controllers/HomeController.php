@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brands;
+use App\Models\Gifts;
 use App\Models\InformationPages;
 use App\Models\Quotation;
 use App\Models\Review;
@@ -52,12 +53,12 @@ class HomeController extends Controller
 
         $is_hot_products = Product::with('images')->where('status',1)->where('is_hot',1)->orderBy('id','DESC')->limit(4)->get();
         
-        $sliders = Slider::with('product:id,slug,name')->where('status',1)->get()->map(function($slider) {
+        $sliders = Slider::with('product:id,slug,name,category_id')->where('status',1)->get()->map(function($slider) {
             return [
                 'title' => $slider->title,
                 'product_id' => $slider->product->id,
+                'gift_banners' => Gifts::select(['id','category_id','gift_title','gift_images'])->where('status',1)->where('category_id',$slider->product->category_id)->get(),
                 'banner' => $slider->main_image,
-                'gift_banners' => $slider->gift_images,
                 'product_slug' => $slider->product->slug,
                 'product_name' => $slider->product->name,
             ];
