@@ -28,7 +28,7 @@ $(document).ready(function(){
             touchDrag: false,
             mouseDrag: false,
             smartSpeed: 1200,
-            autoHeight: false,
+            autoHeight: true,
             autoplay: false,
             animateOut: 'fadeOut',
             animateIn: 'fadeIn',
