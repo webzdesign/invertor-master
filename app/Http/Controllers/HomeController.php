@@ -609,7 +609,7 @@ class HomeController extends Controller
             $name .= ' ' . $request->sz_lastname;
         }
         $sz_message = !empty($request->sz_message) ? strip_tags($request->sz_message) : '';
-        $contact = ContactUs::create([ 'name' => $name, 'email' => $request->sz_email, 'phone' => $request->sz_phone, 'message' => $sz_message, 'form' => $request->whichform ]);
+        $contact = ContactUs::create([ 'name' => $name, 'email' => $request->sz_email, 'phone' => $request->sz_phone, 'message' => $sz_message, 'form' => $request->whichform, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code ]);
 
         $this->sendContactEmailToAdmin($contact);
 

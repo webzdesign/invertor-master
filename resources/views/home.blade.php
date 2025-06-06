@@ -523,7 +523,7 @@
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel">
                     <div class="row brand-row">
                         @foreach ($brands as $brand)
-                            <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col rounded-2xl" data-brand=".brand-{{$brand->name}}" aria-selected="false" type="button">
+                            <div class="col-lg-3 col-md-4 col-6 mb-4 brand-col rounded-2xl" data-brand=".brand-{{$brand->name}}" aria-selected="false" type="button">
                                 <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" alt="brand" width="100%">
                             </div>
                         @endforeach
@@ -534,7 +534,7 @@
                     <div class="tab-pane fade" id="{{ $category->slug }}" role="tabpanel">
                         <div class="row brand-row">
                             @foreach ($brands->where('category_id', $category->id) as $brand)
-                                <div class="col-lg-3 col-md-4 col-sm-6 mb-4 brand-col" data-brand=".brand-{{$brand->name}}" aria-selected="false" type="button">
+                                <div class="col-lg-3 col-md-4 col-6 mb-4 brand-col" data-brand=".brand-{{$brand->name}}" aria-selected="false" type="button">
                                     <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" alt="brand" width="100%">
                                 </div>
                             @endforeach
