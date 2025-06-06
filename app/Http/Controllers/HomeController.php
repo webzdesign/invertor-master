@@ -608,8 +608,15 @@ class HomeController extends Controller
         if( !empty($request->sz_lastname) ){
             $name .= ' ' . $request->sz_lastname;
         }
-        $sz_message = !empty($request->sz_message) ? strip_tags($request->sz_message) : '';
-        $contact = ContactUs::create([ 'name' => $name, 'email' => $request->sz_email, 'phone' => $request->sz_phone, 'message' => $sz_message, 'form' => $request->whichform, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code ]);
+
+        $cleanMessage = '';
+        if(!empty($request->sz_message)) {
+            $rawMessage = $request->sz_message;
+            $cleanMessage = mb_convert_encoding($rawMessage, 'UTF-8', 'UTF-8');
+            $cleanMessage = preg_replace('/[^\P{C}\n]+/u', '', $cleanMessage);
+        }
+        
+        $contact = ContactUs::create([ 'name' => $name, 'email' => $request->sz_email, 'phone' => $request->sz_phone, 'message' => $cleanMessage, 'form' => $request->whichform, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code ]);
 
         $this->sendContactEmailToAdmin($contact);
 
