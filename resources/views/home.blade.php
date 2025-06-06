@@ -403,7 +403,7 @@
     </section>
 @endif
 
-@if (!empty($is_hot_products) && count($is_hot_products) > 0)
+{{-- @if (!empty($is_hot_products) && count($is_hot_products) > 0)
 <section class="flash-mega-sale hot-deals">
     <div class="container">
         <div class="d-flex align-items-center justify-content-between flex-wrap">
@@ -494,7 +494,7 @@
         </div>
     </div>
 </section>
-@endif
+@endif --}}
 
 <section class="product">
     <div class="container">
