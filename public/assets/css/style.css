@@ -341,7 +341,7 @@ body.mobile-nav-active header #mobile-nav {
   transition: all, 0.3s;
 }
 
-.hero .left-slide h1 span::after{
+/* .hero .left-slide h1 span::after{
   content: '';
   background-color: var(--neutrino-blue-400);
   position: absolute;
@@ -352,6 +352,13 @@ body.mobile-nav-active header #mobile-nav {
   z-index: -1;
   border-radius: 8px;
   transform: translate(-50%, -50%);
+} */
+
+.hero .left-slide h1 mark {
+  background-color: #04248c !important;
+  border-radius: 8px !important;
+  padding: 0 5px !important;
+  margin: 2px -5px !important;
 }
 
 .hero .left-slide p {
