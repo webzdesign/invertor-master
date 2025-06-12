@@ -39,7 +39,9 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $Products = Product::with('images')->orderByRaw("FIELD(id, 13) DESC")->where('status',1)->limit(4)->get();
+        $categorys = Category::where('status',1)->get();
+        
+        $Products = Product::with('images')->orderByRaw("FIELD(id, 13) DESC")->where('status',1)->limit(value: 4)->get();
        
         $tuya_d8_url = '';
         if( !empty($Products) ){
@@ -66,7 +68,7 @@ class HomeController extends Controller
 
         $information = InformationPages::where('slug','Promo')->first();
 
-        $categorys = Category::where('status',1)->get();
+        
         $brands = Brands::where('status',1)->get();
 
         return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products','sliders','information','categorys','brands'));

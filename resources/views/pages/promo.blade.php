@@ -173,9 +173,12 @@
                                 <div class="col-12 mt-4">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                        <label class="form-check-label text-sm font-inter-regular text-slate-900" for="flexCheckDefault">
-                                            {{__('Note')}}: {{__('By submitting this form, you consent to the processing of your personal data')}} <a href="javascript:;" class="font-inter-semibold text-neutrino-blue-400 text-decoration-none">{{__('See more')}}</a>
-                                        </label>
+                                        {{-- <label class="form-check-label text-sm font-inter-regular text-slate-900" for="flexCheckDefault">
+                                        </label> --}}
+                                        <div class="check-one cursor-pointer">{{__('Note')}}: {{__('By submitting this form, you consent to the processing of your personal data')}} <a href="javascript:;" class="font-inter-semibold text-neutrino-blue-400 text-decoration-none" onclick="hideInfo('check-two');">{{__('See more')}}</a>.</div>
+                                        <span class="check-two cursor-pointer" onclick="hideInfo('check-one');" style="display: none;">
+                                            {{__('Note: By submitting this form, you consent to the processing of your personal data (name, surname, email address, phone number, etc.) by Invertor Lux SRL and Iute Credit SRL for the purpose of processing your request. The data provided will be kept secure and will not be disclosed to third parties without your consent, except in cases provided by law')}}.
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-12 mt-4 mt-md-5">
