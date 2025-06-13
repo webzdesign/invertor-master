@@ -508,13 +508,13 @@
         <div class="my-sm-5 my-4">
             <ul class="nav nav-tabs border-0 flex-nowrap overflow-auto" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold active" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-selected="true">{{__('All Category')}}</button>
+                    <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold productCallCategory active" data-bs-toggle="tab" data-bs-target="#tab1" type="button" role="tab" aria-selected="true" data-params="" >{{__('All Category')}}</button>
                 </li>
 
                 @if (!empty($categorys) && count($categorys) > 0)
                     @foreach ($categorys as $category)
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold" data-bs-toggle="tab" data-bs-target="#{{$category->slug}}" type="button" role="tab"  aria-selected="false">{{$category->name}}</button>
+                            <button class="nav-link whitespace-nowrap text-slate-900 text-lg rounded-lg font-semibold productCallCategory" data-bs-toggle="tab" data-bs-target="#{{$category->slug}}" type="button" role="tab"  aria-selected="false" data-params="{{$category->id}}">{{$category->name}}</button>
                         </li>
                     @endforeach
                 @endif
@@ -523,7 +523,7 @@
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel">
                     <div class="row brand-row">
                         @foreach ($brands as $brand)
-                            <div class="col-lg-3 col-md-4 col-6 mb-4 brand-col rounded-2xl" data-brand=".brand-{{$brand->name}}" aria-selected="false" type="button">
+                            <div class="col-lg-3 col-md-4 col-6 mb-4 brand-col rounded-2xl productCallBrand" data-brand=".brand-{{$brand->name}}" data-catid=""  data-brandid="{{$brand->id}}" aria-selected="false" type="button">
                                 <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" alt="brand" width="100%">
                             </div>
                         @endforeach
@@ -534,7 +534,7 @@
                     <div class="tab-pane fade" id="{{ $category->slug }}" role="tabpanel">
                         <div class="row brand-row">
                             @foreach ($brands->where('category_id', $category->id) as $brand)
-                                <div class="col-lg-3 col-md-4 col-6 mb-4 brand-col" data-brand=".brand-{{$brand->name}}" aria-selected="false" type="button">
+                                <div class="col-lg-3 col-md-4 col-6 mb-4 brand-col productCallBrand" data-brand=".brand-{{$brand->name}}" data-catid="{{$category->id}}"  data-brandid="{{$brand->id}}" aria-selected="false" type="button">
                                     <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" alt="brand" width="100%">
                                 </div>
                             @endforeach
@@ -544,69 +544,8 @@
             </div>
             <div class="tab-content mt-sm-5 mt-4" id="myTabContent">
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel">
-                    <div class="row">
-                        @foreach ($Products as $p_key => $product)
-                            @php
-                                $sz_discount_flag = 0;
-                                if( !empty($product->web_sales_old_price) && $product->web_sales_old_price > $product->web_sales_price ){
-                                    $sz_discount_flag = 1;
-                                    $sz_discount_pr = ( $product->web_sales_old_price - $product->web_sales_price ) / $product->web_sales_old_price * 100;
-                                    $sz_discount_pr = number_format($sz_discount_pr, 2);
-                                    $sz_save_price = $product->web_sales_old_price - $product->web_sales_price;
-                                }
-                                $first_img = !empty($product->images->first()->name) ? $product->images->first()->name : '';
-                            @endphp
-                            <div class="col-lg-6 mb-5 product-rows brand-{{$product->brand}}" id="brand-{{$product->brand}}">
-                                <a href="{{ route('productDetail', $product->slug) }}">
-                                    <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                                        <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $first_img }}" alt="{{ $product->name }}" >
-                                        {{-- <img class="sz_product_image" src="{{ asset( 'assets/images/inv-pro-1.png' ) }}" alt="{{ $product->name }}"> --}}
-                                        <!-- <div class="ws_sec position-absolute">
-                                            <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
-                                            @if( $sz_discount_flag == '1' )
-                                                <label class="saleLbl bg-neutrino-blue-400 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label>
-                                            @endif
-                                        </div> -->
-                                    </div>
-                                </a>
-                                <div class="text-lg-start text-center">
-                                    <label class="mt-sm-4 mt-3 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
-                                        {{__('Free Gift Available')}}
-                                    </label>
-                                    <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-2">{{ $product->name }}</h2>
-                                    <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
-                                        <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
-                                            {{--<h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_price, 2) }}</h2>
-                                            @if( $sz_discount_flag == '1' )
-                                                <h6 class="text-base text-gray-400 mb-0 font-inter-regular text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_old_price, 2) }}</h6>
-                                            @endif
-                                            <div>
-                                                @if( $sz_discount_flag == '1' )
-                                                    {!! $sale_season_icon !!}
-                                                @endif
-                                            </div>--}}
-                                        </div>
-                                        {{--@if( $sz_discount_flag == '1' )
-                                            <label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
-                                        @endif--}}
-                                        {{--<label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
-                                            Free Gift Available
-                                        </label>--}}
-                                    </div>
-    
-                                    <button class="button-dark mt-3 AddToCartBtn_ d-flex align-items-center gap-2 mx-auto mx-lg-0 getPriceModalBtn" data-pid="{{ encrypt( $product->id ) }}">
-                                        {{ __('Get Price')}}
-                                        <span class="sz_add_to_cart_circle align-text-top ms-1 leading-0 {{ empty($cart_products[$product->id]) ? 'd-none' : '' }}">
-                                            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
-                                                <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </span>
-                                    </button>
-    
-                                </div>
-                            </div>
-                        @endforeach
+                    <div class="row" id="productsPanal">
+                      
                     </div>
                 </div>
                 <!-- <div class="tab-pane fade" id="tab2" role="tabpanel">
@@ -770,25 +709,147 @@
             }
         })
 
-    });
+        $(document).on('click', '.productCallCategory', function() {
+            let catid = $(this).data('params'); 
+            $('.productCallBrand img').removeClass('brand-active');
+            let params = {
+                brandid : '',
+                catid : catid
+            };
+            produtsDataList(params);
+        });
 
-    $(document).on('click', '.brand-col', function() {
-        let brandName = $(this).data('brand');
-        $(document).find('.product-rows').hide();
+        $(document).on('click', '.productCallBrand', function() {
+            let brand = $(this).data('brand');
+            let brandid = $(this).data('brandid');
+            let catid = $(this).data('catid');
+            let img = $(this).find('img');
+            
+            let isAlreadyActive = img.hasClass('brand-active');
+
+            $('.productCallBrand img').removeClass('brand-active');
+
+            if (!isAlreadyActive) {
+                img.addClass('brand-active');
+            }
+            
+            let params = {
+                brandid: !isAlreadyActive ? brandid : '',
+                catid: catid
+            };
+
+            produtsDataList(params);
+        });
+
+        let cart_products = @json($cart_products);
+        let imgPath = @json(env( 'APP_Image_URL' ));
+        let CurencyIcon = @json(env( 'SZ_CURRENCY_SYMBOL' ));
+
+        produtsDataList();
         
-        if ($(brandName).length > 0) {
-            $(document).find(brandName).show();
-        } else {
-            // $(document).find('.product-rows').show();
+        function produtsDataList(params = {}) {            
+            $.ajax({
+                url: '{{ route('produtsDataList') }}',
+                type: 'POST',
+                data: {
+                    params: params
+                },
+                success: function(response) {
+                    if(response.success) {
+                        let Products = response.data;
+                        $('#productsPanal').empty();
+                        if(Products.length > 0) {
+
+                            let html = '';
+                            const TranslationsKeys = {
+                                "Free.Gift.Available": @json(__('Free Gift Available')),
+                                "Get.Price": @json(__('Get Price'))
+                            };
+                            Products.forEach(product => { 
+                                let sz_discount_flag = 0;
+                                let sz_discount_pr = 0;
+                                let sz_save_price = 0;
+                                
+                                if (product.web_sales_old_price && product.web_sales_old_price > product.web_sales_price) {
+                                    sz_discount_flag = 1;
+                                    sz_save_price = product.web_sales_old_price - product.web_sales_price;
+                                    sz_discount_pr = ((sz_save_price) / product.web_sales_old_price) * 100;
+                                    sz_discount_pr = sz_discount_pr.toFixed(2);
+                                }
+                                
+                                let first_img = product.images?.[0]?.name ?? '';
+                                let brandClass = `brand-${product.brand}`;
+                                let cartClass = cart_products[product.id] ? '' : 'd-none';
+
+                                html += `
+                                        <div class="col-lg-6 mb-5 product-rows ${brandClass}" id="${brandClass}">
+                                            <a href="${product.urlLink}">
+                                                <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
+                                                    <img class="sz_product_image" src="${imgPath}storage/product-images/${first_img}" alt="${product.name }" >
+                                                    <!-- <div class="ws_sec position-absolute">
+                                                        <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label> -->`;
+                                                        if( sz_discount_flag == '1' ) {
+                                                            html += `<!-- <label class="saleLbl bg-neutrino-blue-400 w-50 ms-auto mt-2 d-block mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">Sale 🔥</label> --> `;
+                                                        }
+                                                    html += `<!-- </div> -->`;
+                                                html += `</div>
+                                            </a>
+                                            <div class="text-lg-start text-center">
+                                                <label class="mt-sm-4 mt-3 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
+                                                    ${TranslationsKeys['Free.Gift.Available']}
+                                                </label>
+                                                <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-2">${product.name}</h2>
+                                                <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
+                                                    <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
+                                                        <!-- <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">
+                                                            ${CurencyIcon} ${product.web_sales_price.toFixed(2)}
+                                                            </h2> -->`;
+                                                        if (sz_discount_flag === 1) {
+                                                            html += `<!-- <h6 class="text-base text-gray-400 mb-0 font-inter-regular text-decoration-line-through">${CurencyIcon} ${product.web_sales_old_price.toFixed(2)}</h6> -->`;
+                                                        }
+
+                                                        html += `<!-- <div> -->`;
+                                                            if( sz_discount_flag == '1' ){
+                                                                html +=`<!-- {!! $sale_season_icon !!} -->`;
+                                                            }
+                                                        html += `<!-- </div> -->`; 
+                                                    html += `</div>`;
+
+                                                    if( sz_discount_flag == '1' ) {
+                                                        html += `<!-- label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save ${sz_discount_pr}% (${CurencyIcon}${sz_save_price})</label -->`;
+                                                    }
+
+                                                    html += `<!-- label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
+                                                        Free Gift Available
+                                                    </label -->
+                                                </div>
+                                                <button class="button-dark mt-3 AddToCartBtn_ d-flex align-items-center gap-2 mx-auto mx-lg-0 getPriceModalBtn" data-pid="${product.id}">
+                                                    ${TranslationsKeys['Get.Price']}
+                                                    <span class="sz_add_to_cart_circle align-text-top ms-1 leading-0 ${cartClass}">
+                                                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M22.8125 12C22.8125 6.47715 18.3353 2 12.8125 2C7.28965 2 2.8125 6.47715 2.8125 12C2.8125 17.5228 7.28965 22 12.8125 22C18.3353 22 22.8125 17.5228 22.8125 12Z" stroke="white" stroke-width="1.5"/>
+                                                            <path d="M8.8125 12.5L11.3125 15L16.8125 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                
+                                            </div>
+                                        </div>
+                                `;
+                            });
+
+                            $('#productsPanal').append(html);
+                        }
+                    } else {
+                        console.log('Server returned error:', response.error);
+                        console.log('message', response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX error:', error);
+                }
+            });
         }
-        
-        $('.brand-col img').css({ 'outline': 'none' });
-
-        $(this).find('img').css({
-            'outline': '2px solid #04248c',
-            'outline-offset':'3px',
-            'border-radius': '10px'
-        }); 
     });
 
 </script>

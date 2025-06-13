@@ -74,6 +74,38 @@ class HomeController extends Controller
         return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products','sliders','information','categorys','brands'));
     }
 
+    public function produtsDataList(Request $request) 
+    {
+        try {
+            $params = $request->input('params');
+            
+            $Products = Product::with('images')
+                ->when(!empty($params['catid']), function ($query) use ($params) {
+                    $query->where('category_id', $params['catid']);
+                })
+                ->when(!empty($params['brandid']), function ($query) use ($params) {
+                    $query->where('brand_id', $params['brandid']);
+                })
+                ->where('status', 1)
+                ->orderBy('id','DESC')
+                ->limit(4)
+                ->get()->map(function ($product) {
+                    $product->id = encrypt($product->id);
+                    $product->urlLink = route('productDetail', $product->slug);
+                    return $product;
+                });
+                
+            return response()->json(['success' => 1, 'data' => $Products]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => 0,
+                'message' => 'Something went wrong while fetching product data.',
+                'error' => $e->getMessage()
+            ], 200);
+        }
+    }
+
     public function shop(Request $request)
     {
 
@@ -117,7 +149,16 @@ class HomeController extends Controller
     }
     public function productDetail($slug)
     {
-        $product = Product::with('images')->where('slug', $slug)->first();
+        $product = Product::with('images')->where('slug', $slug)->get()->map(function($item){
+            $brandName = '';
+            $brand = Brands::where('id',$item->brand_id);
+            if($brand->exists()) {
+                $brand = $brand->first();
+                $brandName = $brand->name;
+            }
+            $item->brand = $brandName;
+            return $item; 
+        })->first();
         if (!$product) {
             abort(404);
         }
