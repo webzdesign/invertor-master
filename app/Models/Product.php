@@ -16,13 +16,13 @@ class Product extends Model
     {
         return $this->belongsTo(User::class, 'added_by');
     }
-    
+
     public function updatedby()
     {
         return $this->belongsTo(User::class, 'updated_by')->withDefault([
             'name' => '-',
         ]);
-    }    
+    }
 
     public function scopeActive($query)
     {
@@ -32,6 +32,11 @@ class Product extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function brand_info()
+    {
+        return $this->belongsTo(Brands::class,'brand_id', 'id');
     }
 
     public function images()

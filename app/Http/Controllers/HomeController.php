@@ -40,9 +40,9 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $categorys = Category::where('status',1)->get();
-        
+
         $Products = Product::with('images')->orderByRaw("FIELD(id, 13) DESC")->where('status',1)->limit(value: 4)->get();
-       
+
         $tuya_d8_url = '';
         if( !empty($Products) ){
             foreach ($Products as $product) {
@@ -54,7 +54,7 @@ class HomeController extends Controller
         $sale_season_icon = $this->getSeasonSellIcon();
 
         $is_hot_products = Product::with('images')->where('status',1)->where('is_hot',1)->orderBy('id','DESC')->limit(4)->get();
-        
+
         $sliders = Slider::with('product:id,slug,name,category_id')->where('status',1)->get()->map(function($slider) {
             return [
                 'title' => $slider->title,
@@ -68,17 +68,17 @@ class HomeController extends Controller
 
         $information = InformationPages::where('slug','Promo')->first();
 
-        
+
         $brands = Brands::where('status',1)->get();
 
         return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products','sliders','information','categorys','brands'));
     }
 
-    public function produtsDataList(Request $request) 
+    public function produtsDataList(Request $request)
     {
         try {
             $params = $request->input('params');
-            
+
             $Products = Product::with('images')
                 ->when(!empty($params['catid']), function ($query) use ($params) {
                     $query->where('category_id', $params['catid']);
@@ -94,7 +94,7 @@ class HomeController extends Controller
                     $product->urlLink = route('productDetail', $product->slug);
                     return $product;
                 });
-                
+
             return response()->json(['success' => 1, 'data' => $Products]);
 
         } catch (\Exception $e) {
@@ -149,19 +149,8 @@ class HomeController extends Controller
     }
     public function productDetail($slug)
     {
-        $product = Product::with('images')->where('slug', $slug)->get()->map(function($item){
-            $brandName = '';
-            $brand = Brands::where('id',$item->brand_id);
-            if($brand->exists()) {
-                $brand = $brand->first();
-                $brandName = $brand->name;
-            }
-            $item->brand = $brandName;
-            return $item; 
-        })->first();
-        if (!$product) {
-            abort(404);
-        }
+        $product = Product::with(['images','brand_info'])->where('slug', $slug)->firstOrFail();
+
         $othersProducts = Product::with('images')->where('id', '!=', $product->id)->where('status',1)->limit(2)->get();
         $sale_season_icon = $this->getSeasonSellIcon();
         $getCategory =  Category::where('id',$product->category_id)->first();
@@ -658,7 +647,7 @@ class HomeController extends Controller
             $cleanMessage = mb_convert_encoding($rawMessage, 'UTF-8', 'UTF-8');
             $cleanMessage = preg_replace('/[^\P{C}\n]+/u', '', $cleanMessage);
         }
-        
+
         $contact = ContactUs::create([ 'name' => $name, 'email' => $request->sz_email, 'phone' => $request->sz_phone, 'message' => $cleanMessage, 'form' => $request->whichform, 'country_dial_code' => $request->country_dial_code, 'country_iso_code' => $request->country_iso_code ]);
 
         $this->sendContactEmailToAdmin($contact);
@@ -996,7 +985,7 @@ class HomeController extends Controller
         try {
             if ($request->filled('is_scammers')) {
                 return response()->json([
-                    'success' => false,                        
+                    'success' => false,
                     'message' => 'quotation.error'
                 ]);
             }
@@ -1007,7 +996,7 @@ class HomeController extends Controller
                     $purchase_source = substr($purchase_source, 0, 255);
                 }
             }
-            
+
             $quotation = Quotation::create([
                 "customer_name" => $request->customer_name,
                 "post_code" => $request->post_code,
@@ -1017,7 +1006,7 @@ class HomeController extends Controller
                 "purchase_source" => $purchase_source,
                 "quotation_date" => now()->toDateTimeString()
             ]);
-            
+
             Quotation::updateQuotationNumber($quotation->id);
 
             if( !empty($request->productId)) {
@@ -1039,15 +1028,15 @@ class HomeController extends Controller
             session()->forget('cart');
 
             Artisan::call('quotation:add-to-google-sheet', ['ids' => $quotation->id]);
-            
-            
+
+
             return response()->json([
                 'success' => true,
                 'quotation_id' => encrypt($quotation->id),
                 // 'redirect_url' => route('quotation.successfully-requested',['id' => encrypt($quotation->id)]),
                 'message' => 'quotation.success'
             ]);
-           
+
 
         } catch (\Exception $e) {
             echo '<pre>';
@@ -1058,10 +1047,10 @@ class HomeController extends Controller
         }
 
         return response()->json([
-            'success' => false,                        
+            'success' => false,
             'message' => 'quotation.error'
         ]);
-        
+
     }
 
     public function quotationSuccessfullyRequested($quotationId)
@@ -1098,27 +1087,27 @@ class HomeController extends Controller
                 ]);
             } else {
                 return response()->json([
-                    'success' => false,                        
+                    'success' => false,
                     'message' => 'review.error'
                 ]);
             }
         } catch (\Throwable $e) {
             return response()->json([
-                'success' => false,                        
+                'success' => false,
                 'message' => 'review.error'
             ]);
         }
 
-    }   
+    }
 
     public function reviewListing(Request $request){
         $productId = decrypt($request->product_id);
         $page = $request->get('page', 1);
-        $limit = $page * 2; 
+        $limit = $page * 2;
         $reviews = Review::where('product_id', $productId)
             ->where('status', 1)
             ->orderBy('id', 'DESC');
-        
+
         $reviewTotal = $reviews->count();
         $reviews = $reviews->limit($limit)->get();
 
@@ -1128,9 +1117,9 @@ class HomeController extends Controller
             $html .= '<div class="review-card py-3 border-bottom border-gray-300">
                         <div class="d-flex align-items-center gap-1">
                             <div class="leading-0">';
-                            for ($i=0; $i < 5 ; $i++) { 
+                            for ($i=0; $i < 5 ; $i++) {
                                 if ($i <= $review->rating) {
-                                    $color = '#F7B408';   
+                                    $color = '#F7B408';
                                 } else {
                                     $color = '#E0E0E0';
                                 }
@@ -1141,11 +1130,11 @@ class HomeController extends Controller
                                         </svg>';
                                 }
 
-                                $dayCount = $review->created_at->format('M d'); 
+                                $dayCount = $review->created_at->format('M d');
                                 if($review->created_at->diffInDays(now()) > 1) {
                                     $dayCount .= ' - ' .(int)$review->created_at->diffInDays(now()) .' '. __('days ago') ;
                                 }
-                                
+
                     $html .='</div>
                             <p class="m-0 text-sm text-gray-500 font-inter-regular">'.$dayCount.'</p>
                         </div>
@@ -1198,7 +1187,7 @@ class HomeController extends Controller
         } else {
             return response()->json([
                 'success' => 0,
-                'message' => "something went wrong!!" 
+                'message' => "something went wrong!!"
             ]);
         }
     }
