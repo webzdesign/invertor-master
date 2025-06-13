@@ -145,7 +145,7 @@
                     </div>
                     <div class="d-flex align-items-center my-3">
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">{{ __('Brand')}}</h6>
-                        <h6 class="mb-0 text-slate-900 font-inter-semibold">{{ $product->brand }}</h6>
+                        <h6 class="mb-0 text-slate-900 font-inter-semibold">{{ $product->brand_info->name ?? '' }}</h6>
                     </div>
                     <div class="d-flex align-items-center mb-3">
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">{{ __('Condition')}}</h6>
