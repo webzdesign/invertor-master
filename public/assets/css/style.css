@@ -1255,3 +1255,9 @@ footer .copy-right{
 .flash-mega-sale .flash-mega-sale-owl .owl-stage{
   display: flex;
 }
+
+.brand-active {
+  outline: 2px solid #04248c;
+  outline-offset : 3px;
+  border-radius : 10px;
+}
