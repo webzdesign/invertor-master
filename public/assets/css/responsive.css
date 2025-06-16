@@ -355,6 +355,9 @@
 }
 
 @media (max-width:576px) {
+  .max-sm-w-100px{
+    width: 100px !important;
+  }
   .text-xs-mob{
     font-size: 12px !important;
   }
@@ -499,7 +502,6 @@
     height: 80px;
     border-radius: 8px;
   }
-
   .hero .right-slide .img-video,
   .hero .right-slide .arrow {
     display: none;

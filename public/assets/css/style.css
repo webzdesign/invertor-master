@@ -1258,6 +1258,6 @@ footer .copy-right{
 
 .brand-active {
   outline: 2px solid #04248c;
-  outline-offset : 3px;
-  border-radius : 10px;
+  outline-offset : 2px;
+  border-radius : 4px;
 }

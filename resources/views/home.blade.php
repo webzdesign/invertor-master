@@ -521,10 +521,10 @@
             </ul>
             <div class="tab-content mt-4">
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel">
-                    <div class="row brand-row">
+                    <div class="d-flex overflow-auto gap-sm-4 gap-2 p-2">
                         @foreach ($brands as $brand)
-                            <div class="col-lg-3 col-md-4 col-6 mb-4 brand-col rounded-2xl productCallBrand" data-brand=".brand-{{$brand->name}}" data-catid=""  data-brandid="{{$brand->id}}" aria-selected="false" type="button">
-                                <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" alt="brand" width="100%">
+                            <div class="rounded-2xl productCallBrand" data-brand=".brand-{{$brand->name}}" data-catid=""  data-brandid="{{$brand->id}}" aria-selected="false" type="button">
+                                <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" alt="brand" width="150" height="100%" class="object-fit-contain max-sm-w-100px">
                             </div>
                         @endforeach
                     </div>
@@ -532,10 +532,10 @@
 
                 @foreach ($categorys as $category)
                     <div class="tab-pane fade" id="{{ $category->slug }}" role="tabpanel">
-                        <div class="row brand-row">
+                        <div class="d-flex overflow-auto gap-sm-4 gap-2 p-2">
                             @foreach ($brands->where('category_id', $category->id) as $brand)
-                                <div class="col-lg-3 col-md-4 col-6 mb-4 brand-col productCallBrand" data-brand=".brand-{{$brand->name}}" data-catid="{{$category->id}}"  data-brandid="{{$brand->id}}" aria-selected="false" type="button">
-                                    <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" alt="brand" width="100%">
+                                <div class="rounded-2xl productCallBrand" data-brand=".brand-{{$brand->name}}" data-catid="{{$category->id}}"  data-brandid="{{$brand->id}}" aria-selected="false" type="button">
+                                    <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" width="150" height="100%" class="object-fit-contain max-sm-w-100px">
                                 </div>
                             @endforeach
                         </div>
