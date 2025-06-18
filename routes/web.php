@@ -10,6 +10,7 @@ use App\Http\Middleware\PreventBackButtonMiddleware;
 use Illuminate\Support\Facades\App;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Cookie;
 
 // Define your 404 route
 Route::get('/404', function () {
@@ -67,8 +68,9 @@ Route::fallback(function () {
 
 Route::get('language/{locale}', function ($locale) {
     if (in_array($locale, Helper::getMultiLang())) {
-        session(['locale' => $locale]);
-        App::setLocale($locale);
+        // session(['locale' => $locale]);
+        // App::setLocale($locale);
+        return redirect()->back()->withCookie(cookie('locale', $locale, 43200));
     }
     return redirect()->back();
 })->name('change.language');
