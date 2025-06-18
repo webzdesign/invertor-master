@@ -67,11 +67,6 @@
                                     <path d="M7.5 11H14.5M11 7.5V14.5" stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </button>
-                            {{-- <button class="zoom-btn d-flex align-items-center justify-content-center border-0 bg-slate-100 rounded-pill">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3 8.7998C3 6.03838 5.23858 3.7998 8 3.7998C9.40389 3.7998 10.6726 4.74712 11.5808 5.78333C11.8003 6.03375 12.1997 6.03375 12.4192 5.78333C13.3274 4.74712 14.5961 3.7998 16 3.7998C18.7614 3.7998 21 6.03838 21 8.7998C21 12.8817 15.9642 17.5713 13.4264 19.6755C12.5922 20.3672 11.4078 20.3672 10.5736 19.6755C8.03577 17.5713 3 12.8817 3 8.7998Z" stroke="#5D5D5D" stroke-width="1.5"/>
-                                </svg>
-                            </button> --}}
                         </div>
                     </div>
                     <div class="slider slider-nav">
@@ -97,19 +92,7 @@
                     <label class="saleLbl bg-violet-500 w-fit px-2 d-block mb-2 text-white text-sm py-1 pointer-event-none rounded-pill mt-lg-0 mt-4">{{ __('Sale')}} 🔥</label>
                 @endif
                 <h1 class="text-slate-900 font-bebas text-6xl text-4xl-mob {{ $sz_discount_flag != '1' ? 'mt-lg-0 mt-3' : '' }}">{{ $product->name }} Inverter AC – Energy Efficient & Whisper Quiet</h1>
-                {{--<div class="d-flex align-items-center gap-3 mb-2">
-                    <h3 class="text-4xl text-3xl-laptop mb-0 text-blue-500 font-bebas">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h3>
-                    @if( $sz_discount_flag == '1' )
-                        <h4 class="text-2xl mx-0 mb-0 font-bebas text-gray-600 text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_old_price, 2) }}</h4>
-                        <div>
-                            @if( $sz_discount_flag == '1' )
-                                {!! $sale_season_icon !!}
-                            @endif
-                        </div>
-                        <label class="whitespace-nowrap rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-block d-none">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
-                        <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-none whitespace-nowrap">SAVE {{ $sz_discount_pr }}%</label>
-                    @endif
-                </div>--}}
+              
                 <p class="text-gray-500 font-inter-regular text-xl text-base-mob">{{ $product->slider_content }}</p>
                 <div class="d-flex align-items-center gap-2">
                     <div>
@@ -163,17 +146,6 @@
                         <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular me-4">{{ __('Available Power Capacity')}}</h6>
                         <h6 class="mb-0 text-slate-900 font-inter-semibold">  {{ $product->available_power_capacity}}</h6>
                     </div>
-                    {{-- <div class="d-flex align-items-center mb-2">
-                        <h6 class="min-w-100 mb-0 text-gray-500 font-inter-regular">Color</h6>
-                        <div class="d-flex gap-1">
-                            <div class="form-check">
-                                <input class="form-check-input cursor-pointer shadow-none border-0 w-5" type="radio" name="radio" id="radio1" style="background-color: red;" checked>
-                              </div>
-                            <div class="form-check">
-                                <input class="form-check-input cursor-pointer shadow-none border-0 w-5" type="radio" name="radio" id="radio2" style="background-color: black;">
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
                 <div class="d-flex gap-4 mt-4 sz_add_to_cart-sec">
                     <div class="add-quantity-btn-product d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none" data-shared-id="sz_qty_btn">
@@ -211,210 +183,61 @@
                             <div class="accordion-body px-0">{!! $product->description !!}</div>
                         </div>
                     </div>
-                    {{-- <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11 6H21" stroke="#282930" stroke-width="1.5" stroke-linecap="round"/>
-                                            <path d="M11 12H21" stroke="#282930" stroke-width="1.5" stroke-linecap="round"/>
-                                            <path d="M11 18H21" stroke="#282930" stroke-width="1.5" stroke-linecap="round"/>
-                                            <path d="M3 7.39286C3 7.39286 4 8.04466 4.5 9C4.5 9 6 5.25 8 4" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M3 18.3929C3 18.3929 4 19.0447 4.5 20C4.5 20 6 16.25 8 15" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    Specifications
-                                </div>
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body px-0">
-                                Specifications
-                            </div>
-                        </div>
-                    </div> --}}
-                    {{--@if( !empty($product->shipping_and_payment) )
-                        <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    <div class="d-flex align-items-center gap-2">
-                                        <div>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M17 20C18.1046 20 19 19.1046 19 18C19 16.8954 18.1046 16 17 16C15.8954 16 15 16.8954 15 18C15 19.1046 15.8954 20 17 20Z" stroke="#282930" stroke-width="1.5"/>
-                                                <path d="M7 20C8.10457 20 9 19.1046 9 18C9 16.8954 8.10457 16 7 16C5.89543 16 5 16.8954 5 18C5 19.1046 5.89543 20 7 20Z" stroke="#282930" stroke-width="1.5"/>
-                                                <path d="M5 17.9724C3.90328 17.9178 3.2191 17.7546 2.73223 17.2678C2.24536 16.7809 2.08222 16.0967 2.02755 15M9 18H15M19 17.9724C20.0967 17.9178 20.7809 17.7546 21.2678 17.2678C22 16.5355 22 15.357 22 13V11H17.3C16.5555 11 16.1832 11 15.882 10.9021C15.2731 10.7043 14.7957 10.2269 14.5979 9.61803C14.5 9.31677 14.5 8.94451 14.5 8.2C14.5 7.08323 14.5 6.52485 14.3532 6.07295C14.0564 5.15964 13.3404 4.44358 12.4271 4.14683C11.9752 4 11.4168 4 10.3 4H2" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M2 8H8" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M2 11H6" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M14.5 6H16.3212C17.7766 6 18.5042 6 19.0964 6.35371C19.6886 6.70742 20.0336 7.34811 20.7236 8.6295L22 11" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                        </div>
-                                        Shipping & Payment
-                                    </div>
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                <div class="accordion-body px-0">
-                                    <p class="font-inter-regular">{!! $product->shipping_and_payment !!}</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endif--}}
-                    {{-- <div class="accordion-item border-0 border-top border-slate-100 rounded-0 py-sm-4 py-3">
-                        <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed bg-transparent shadow-none text-slate-800 font-hubot font-medium p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                <div class="d-flex align-items-center gap-2">
-                                    <div>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M17 20C18.1046 20 19 19.1046 19 18C19 16.8954 18.1046 16 17 16C15.8954 16 15 16.8954 15 18C15 19.1046 15.8954 20 17 20Z" stroke="#282930" stroke-width="1.5"/>
-                                            <path d="M7 20C8.10457 20 9 19.1046 9 18C9 16.8954 8.10457 16 7 16C5.89543 16 5 16.8954 5 18C5 19.1046 5.89543 20 7 20Z" stroke="#282930" stroke-width="1.5"/>
-                                            <path d="M5 17.9724C3.90328 17.9178 3.2191 17.7546 2.73223 17.2678C2.24536 16.7809 2.08222 16.0967 2.02755 15M9 18H15M19 17.9724C20.0967 17.9178 20.7809 17.7546 21.2678 17.2678C22 16.5355 22 15.357 22 13V11H17.3C16.5555 11 16.1832 11 15.882 10.9021C15.2731 10.7043 14.7957 10.2269 14.5979 9.61803C14.5 9.31677 14.5 8.94451 14.5 8.2C14.5 7.08323 14.5 6.52485 14.3532 6.07295C14.0564 5.15964 13.3404 4.44358 12.4271 4.14683C11.9752 4 11.4168 4 10.3 4H2" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M2 8H8" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M2 11H6" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M14.5 6H16.3212C17.7766 6 18.5042 6 19.0964 6.35371C19.6886 6.70742 20.0336 7.34811 20.7236 8.6295L22 11" stroke="#282930" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                                    </div>
-                                    What's in the Box?
-                                </div>
-                            </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                            <div class="accordion-body px-0">
-                                What's in the Box?
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
     </div>
 </section>
 @php
-    // $yt_url = 'https://www.youtube.com/embed/T3VUFXetSCk?si=1VVOASVR3t5kgaHm';
-    // if( $product->unique_number == '012' ){
-    //     $first_img = asset('/assets/images/pro7.png');
-    //     $second_img = asset('/assets/images/pro8.png');
-    //     $last_img = asset('/assets/images/pro9.png');
-    // } else if( $product->unique_number == '013' ){
-    //     $first_img = asset('/assets/images/pro10.png');
-    //     $second_img = asset('/assets/images/pro11.png');
-    //     $last_img = asset('/assets/images/pro12.png');
-    //     $yt_url = 'https://www.youtube.com/embed/QgJkwPvnpQg?si=4j3hgX6dNsNhtjEs';
-    // } else {
-    //     $first_img = !empty($product->images[1]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[1]->name : '';
-    //     $second_img = !empty($product->images[2]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[2]->name : '';
-    //     $last_img = !empty($product->images[3]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[3]->name : '';
-    //     $yt_url = $product->youtube_video_url;
-    // }
+    $last_img= 0;
+    $lastimgs = $product->images->toArray();
+    if(count($lastimgs) > 1) {
+        $last_img = end($lastimgs)['name'];
+    }
+    $yt_url = !empty($product->youtube_video_url) ? $product->youtube_video_url : null;
 
-    $first_img = !empty($product->images[1]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[1]->name : '';
-    $second_img = !empty($product->images[2]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[2]->name : '';
-    $last_img = !empty($product->images[3]->name) ? env('APP_Image_URL') . 'storage/product-images/' . $product->images[3]->name : '';
-    $yt_url = $product->youtube_video_url;
 @endphp
-@if( !empty($first_img) || !empty($second_img) || !empty($last_img) )
+@if( !empty($product->images) )
     <section class="why-choose-product bg-gray-50">
-        <h2 class="text-6xl text-4xl-mob font-bebas text-slate-900 mb-sm-5 mb-3 px-3 px-sm-0">Why Choose the {{ $product->name }}?</h2>
+        <h2 class="text-6xl text-4xl-mob font-bebas text-slate-900 mb-sm-5 mb-3 px-3 px-sm-0">{{__('Why Choose the')}} {{ $product->name }}?</h2>
         <div class="row m-0">
-            @if( !empty($first_img) )
-                <div class="col-sm-6 mb-4">
-                    <img class="sz_banner_img" src="{{ $first_img }}" alt="{{ $first_img }}">
-                </div>
-            @endif
-            @if( !empty($second_img) )
-                <div class="col-sm-6 mb-4">
-                    <img class="sz_banner_img" src="{{ $second_img }}" alt="{{ $second_img }}">
-                </div>
-            @endif
-            @if( !empty($last_img) )
-                <div class="col-12 mb-4">
-                    <div class="position-relative">
-                        <img class="sz_banner_img" src="{{ $last_img }}" alt="{{ $last_img }}">
-                        @if (!empty($yt_url))
-                            <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="{{ $yt_url }}">
-                                <svg class="icon-play" width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_67_17706)">
-                                    <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"></rect>
-                                    <path d="M58.0273 97.668C35.9353 97.668 18.0273 79.76 18.0273 57.668C18.0273 35.576 35.9353 17.668 58.0273 17.668C80.1193 17.668 98.0273 35.576 98.0273 57.668C98.0273 79.76 80.1193 97.668 58.0273 97.668ZM52.5153 43.328C52.2746 43.1674 51.9948 43.075 51.7058 43.0609C51.4167 43.0467 51.1292 43.1111 50.8739 43.2474C50.6186 43.3837 50.4051 43.5867 50.256 43.8347C50.1069 44.0827 50.0279 44.3666 50.0273 44.656V70.68C50.0279 70.9694 50.1069 71.2532 50.256 71.5012C50.4051 71.7493 50.6186 71.9523 50.8739 72.0885C51.1292 72.2248 51.4167 72.2893 51.7058 72.2751C51.9948 72.2609 52.2746 72.1686 52.5153 72.008L72.0313 59C72.2508 58.8539 72.4308 58.6559 72.5553 58.4235C72.6798 58.1911 72.7449 57.9316 72.7449 57.668C72.7449 57.4043 72.6798 57.1448 72.5553 56.9124C72.4308 56.68 72.2508 56.482 72.0313 56.336L52.5113 43.328H52.5153Z" fill="#FEFEFE"></path>
-                                    </g>
-                                    <defs>
-                                    <clipPath id="clip0_67_17706">
-                                    <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="white"></rect>
-                                    </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                        @endif
+            @foreach($product->images as $image)
+                @if ($image->name != $last_img)
+                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                        <img class="sz_banner_img" src="{{ env('APP_Image_URL') . 'storage/product-images/' . $image->name }}" alt="{{ $image->name }}">
                     </div>
-                </div>
-            @endif
-            <!-- <div class="col-12 mb-4">
-                <div class="position-relative">
-                    <img class="sz_banner_img rounded-lg" src="{{ asset( 'assets/images/inv-video-bg.png' ) }}" alt="video">
-                        <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="{{ $yt_url }}">
-                            <svg class="icon-play" width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g clip-path="url(#clip0_67_17706)">
-                                <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"></rect>
-                                <path d="M58.0273 97.668C35.9353 97.668 18.0273 79.76 18.0273 57.668C18.0273 35.576 35.9353 17.668 58.0273 17.668C80.1193 17.668 98.0273 35.576 98.0273 57.668C98.0273 79.76 80.1193 97.668 58.0273 97.668ZM52.5153 43.328C52.2746 43.1674 51.9948 43.075 51.7058 43.0609C51.4167 43.0467 51.1292 43.1111 50.8739 43.2474C50.6186 43.3837 50.4051 43.5867 50.256 43.8347C50.1069 44.0827 50.0279 44.3666 50.0273 44.656V70.68C50.0279 70.9694 50.1069 71.2532 50.256 71.5012C50.4051 71.7493 50.6186 71.9523 50.8739 72.0885C51.1292 72.2248 51.4167 72.2893 51.7058 72.2751C51.9948 72.2609 52.2746 72.1686 52.5153 72.008L72.0313 59C72.2508 58.8539 72.4308 58.6559 72.5553 58.4235C72.6798 58.1911 72.7449 57.9316 72.7449 57.668C72.7449 57.4043 72.6798 57.1448 72.5553 56.9124C72.4308 56.68 72.2508 56.482 72.0313 56.336L52.5113 43.328H52.5153Z" fill="#FEFEFE"></path>
-                                </g>
-                                <defs>
-                                <clipPath id="clip0_67_17706">
-                                <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="white"></rect>
-                                </clipPath>
-                                </defs>
-                            </svg>
+                @else
+                    <div class="col-12 mb-4">
+                        <div class="position-relative">
+                            <img class="sz_banner_img" src="{{ env('APP_Image_URL') . 'storage/product-images/' . $last_img }}" alt="{{ $last_img }}">
+                            @if (!empty($yt_url))
+                                <div class="position-absolute top-50 left-50 translate-middle cursor-pointer sz_youtube_video_btn" data-youtubeUrl="{{ $yt_url }}">
+                                    <svg class="icon-play" width="116" height="115" viewBox="0 0 116 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_67_17706)">
+                                        <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="black" fill-opacity="0.25"></rect>
+                                        <path d="M58.0273 97.668C35.9353 97.668 18.0273 79.76 18.0273 57.668C18.0273 35.576 35.9353 17.668 58.0273 17.668C80.1193 17.668 98.0273 35.576 98.0273 57.668C98.0273 79.76 80.1193 97.668 58.0273 97.668ZM52.5153 43.328C52.2746 43.1674 51.9948 43.075 51.7058 43.0609C51.4167 43.0467 51.1292 43.1111 50.8739 43.2474C50.6186 43.3837 50.4051 43.5867 50.256 43.8347C50.1069 44.0827 50.0279 44.3666 50.0273 44.656V70.68C50.0279 70.9694 50.1069 71.2532 50.256 71.5012C50.4051 71.7493 50.6186 71.9523 50.8739 72.0885C51.1292 72.2248 51.4167 72.2893 51.7058 72.2751C51.9948 72.2609 52.2746 72.1686 52.5153 72.008L72.0313 59C72.2508 58.8539 72.4308 58.6559 72.5553 58.4235C72.6798 58.1911 72.7449 57.9316 72.7449 57.668C72.7449 57.4043 72.6798 57.1448 72.5553 56.9124C72.4308 56.68 72.2508 56.482 72.0313 56.336L52.5113 43.328H52.5153Z" fill="#FEFEFE"></path>
+                                        </g>
+                                        <defs>
+                                        <clipPath id="clip0_67_17706">
+                                        <rect x="0.523438" y="0.337891" width="115.008" height="114.662" rx="57.3309" fill="white"></rect>
+                                        </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            @endif
                         </div>
                     </div>
-                </div>
-            </div> -->
+                @endif
+            @endforeach
     </section>
 @endif
-{{-- <section class="customer-review bg-gray-500 py-5">
-    <div class="container">
-        <div class="d-md-flex align-items-center justify-content-between">
-            <h2 class="text-slate-50 text-4xl font-bebas mb-md-0 text-center text-md-start mb-3">CUSTOMER REVIEWS</h2>
-            <div class="d-flex gap-3 justify-content-center justify-content-lg-end">
-                <a href="javascript:;" class="button-dark">Write a review</a>
-                <a href="javascript:;" class="button-light">Ask a question</a>
-            </div>
-        </div>
-    </div>
-</section>--}}
 
 <section class="review" id="reviewWrapper">
    <div class="container">
         <h2 class="font-bebas text-4xl-mob my-0">{{ __('CUSTOMER REVIEWS')}}</h2>
         <div class="mt-3 d-flex gap-3">
-            {{-- <a href="javascript:;" class="text-white bg-slate-900 font-semibold text-lg text-sm-mob py-sm-3 py-2 px-sm-4 px-3 rounded-full text-decoration-none">Write a review</a> --}}
             <span class="text-white bg-slate-900 font-semibold text-lg text-sm-mob py-sm-3 py-2 px-sm-4 px-3 rounded-full text-decoration-none cursor-pointer writeReview" data-pid="{{ encrypt($product->id) }}">{{__('Write a review')}}</span>
-            {{-- <a href="javascript:;" class="text-white text-lg text-sm-mob font-semibold py-sm-3 py-2 px-sm-4 px-3 rounded-full text-decoration-none bg-gray-500">Ask a question</a> --}}
         </div>
-        {{-- <div class="r-pagination bg-slate-100 p-3 mt-4 d-flex align-items-center justify-content-between flex-wrap">
-            <div class="text-lg text-sm-mob font-inter-regular text-slate-900">
-                <span>1 - 3 of <b>8 reviews</b></span>
-            </div>
-            <div class="d-flex align-items-center gap-2">
-                <label class="text-lg text-sm-mob font-inter-regular text-slate-900 flex-shrink-0">Short by: </label>
-                <div class="d-flex position-relative">
-                    <select class="border-0 bg-transparent p-0 pe-4 text-lg text-sm-mob font-inter-semibold text-slate-900 h-auto">
-                        <option value="1">Most Recent</option>
-                        <option value="1">Recent</option>
-                    </select>
-                    <div class="position-absolute translate-middle-y top-50 right-0 leading-0">
-                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 1.58703L0.875913 0.695312L6 5.95646L11.1241 0.695312L12 1.58703L6 7.69531L0 1.58703Z" fill="#292929"/>
-                        </svg>
-                    </div>
-                </div>
-                <button type="button" class="bg-gray-500 rounded-lg size-36 d-flex align-items-center justify-content-center border-0 ms-4">
-                    <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15.1927 9.19531H0.786579C0.351837 9.19531 0 8.74799 0 8.19531C0 7.64264 0.351855 7.19531 0.786579 7.19531H15.2134C15.6482 7.19531 16 7.64264 16 8.19531C16 8.74799 15.6481 9.19531 15.1928 9.19531H15.1927Z" fill="#FEFEFE"/>
-                        <path d="M15.1927 3.19531H0.786579C0.351837 3.19531 0 2.74799 0 2.19531C0 1.64264 0.351855 1.19531 0.786579 1.19531H15.2134C15.6482 1.19531 16 1.64264 16 2.19531C16 2.74799 15.6481 3.19531 15.1928 3.19531H15.1927Z" fill="#FEFEFE"/>
-                        <path d="M15.1927 15.1953H0.786579C0.351837 15.1953 0 14.748 0 14.1953C0 13.6426 0.351855 13.1953 0.786579 13.1953H15.2134C15.6482 13.1953 16 13.6426 16 14.1953C16 14.748 15.6481 15.1953 15.1928 15.1953H15.1927Z" fill="#FEFEFE"/>
-                    </svg>
-                </button>
-            </div>
-        </div> --}}
         <div id="reviews-listing">
 
         </div>
@@ -459,23 +282,6 @@
                                 {{ $o_product->name }}
                             </a>
                         </h2>
-                        {{--<div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
-                            <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
-                                <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($o_product->web_sales_price, 2) }}</h2>
-                                @if( $sz_o_discount_flag == '1' )
-                                    <h6 class="text-base text-gray-400 mb-0 font-inter-regular text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }} {{ number_format($o_product->web_sales_old_price, 2) }}</h6>
-                                @endif
-                                <div>
-                                    @if( $sz_o_discount_flag == '1' )
-                                        {!! $sale_season_icon !!}
-                                    @endif
-                                </div>
-                            </div>
-                            @if( $sz_o_discount_flag == '1' )
-                                <label class="mt-sm-0 mt-2 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center">You save {{ $sz_o_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_o_save_price }})</label>
-                            @endif
-                        </div>--}}
-
                         <button class="button-dark mt-3 AddToCartBtn_ getPriceModalBtn d-flex align-items-center gap-2 mx-auto mx-lg-0" data-pid="{{ encrypt( $o_product->id ) }}">
                             {{ __('Get Price')}}
                             <span class="sz_add_to_cart_circle {{ empty($cart_products[$o_product->id]) ? 'd-none' : '' }}">
@@ -502,35 +308,9 @@
                 </div>
                 <div>
                     <h3 class="text-slate-900 text-3xl text-2xl-mob font-bebas mb-0">{{ $product->name }}</h3>
-                    {{--<div class="d-flex align-items-center gap-sm-3 gap-2 mb-2">
-                        <h4 class="whitespace-nowrap text-blue-500 font-bebas text-2xl mb-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h4>
-                        @if( $sz_discount_flag == '1' )
-                            <h4 class="whitespace-nowrap text-2xl text-xl-mob mx-0 mb-0 font-bebas text-gray-600 text-decoration-line-through">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($product->web_sales_old_price, 2) }}</h4>
-                            <div>
-                                @if( $sz_discount_flag == '1' )
-                                    {!! $sale_season_icon !!}
-                                @endif
-                            </div>
-                            <label class="rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-block d-none">You save {{ $sz_discount_pr }}% ({{ env( 'SZ_CURRENCY_SYMBOL' ) . $sz_save_price }})</label>
-                            <label class="rounded-pill text-xs-mob text-slate-50 text-sm mb-0 font-hubot bg-blue-500 py-1 px-2 text-center d-sm-none whitespace-nowrap">SAVE {{ $sz_discount_pr }}%</label>
-                        @endif
-                    </div>--}}
                 </div>
             </div>
         </div>
-        {{-- <div class="col-xl-3">
-            <div class="d-flex align-items-center justify-content-center gap-5">
-                <h4 class="mb-0 text-gray-500 font-inter-semibold text-lg">Select Color</h4>
-                <div class="d-flex gap-1">
-                    <div class="form-check">
-                        <input class="form-check-input cursor-pointer shadow-none border-0 w-5" type="radio" name="radio" id="radio1" style="background-color: red;" checked="">
-                        </div>
-                    <div class="form-check">
-                        <input class="form-check-input cursor-pointer shadow-none border-0 w-5" type="radio" name="radio" id="radio2" style="background-color: black;">
-                    </div>
-                </div>
-            </div>
-        </div> --}}
         <div class="col-lg-6 mt-lg-0 mt-2">
             <div class="d-flex gap-md-4 gap-3 justify-content-start justify-content-lg-end sz_add_to_cart-sec">
                 <div class="add-quantity-btn-product d-flex align-items-center justify-content-between px-3 text-slate-900 font-hubot font-semibold text-lg border border-slate-100 rounded-pill user-select-none sz_add_quantity_floating" data-shared-id="sz_qty_btn">
