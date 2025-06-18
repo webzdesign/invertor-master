@@ -10,6 +10,7 @@ use App\Models\Review;
 use App\Models\Slider;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 use Stripe\Charge;
 use Stripe\Stripe;
 use App\Models\User;
@@ -90,6 +91,7 @@ class HomeController extends Controller
                 ->orderBy('id','DESC')
                 ->limit(4)
                 ->get()->map(function ($product) {
+                    // $product->name = Str::limit($product->name,'25','...');
                     $product->id = encrypt($product->id);
                     $product->urlLink = route('productDetail', $product->slug);
                     return $product;
@@ -151,7 +153,7 @@ class HomeController extends Controller
     {
         $product = Product::with(['images','brand_info'])->where('slug', $slug)->firstOrFail();
 
-        $othersProducts = Product::with('images')->where('id', '!=', $product->id)->where('status',1)->limit(2)->get();
+        $othersProducts = Product::with('images')->where('id', '!=', $product->id)->where('status',1)->limit(4)->get();
         $sale_season_icon = $this->getSeasonSellIcon();
         $getCategory =  Category::where('id',$product->category_id)->first();
 
@@ -1039,9 +1041,6 @@ class HomeController extends Controller
 
 
         } catch (\Exception $e) {
-            echo '<pre>';
-            print_r($e->getMessage());
-            exit;
             Log::error($e->getMessage());
             DB::rollBack();
         }

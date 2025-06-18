@@ -250,10 +250,10 @@
 
                     @endphp
                     <div class="col-xl-3 col-md-4 col-sm-6 mb-5 hot-col">
-                       <a href="{{ route('productDetail', $ishot->slug) }}" class="cards h-100 d-flex flex-column justify-content-between border position-relative d-block text-decoration-none">
+                       <a href="{{ route('productDetail', $ishot->slug) }}" title="{{ $ishot->name }}" class="cards h-100 d-flex flex-column justify-content-between border position-relative d-block text-decoration-none">
                             <div>
                                 <img src="{{ $first_img }}" alt="{{ $ishot->name }}" width="100%">
-                                <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3">{{ $ishot->name }}</h3>
+                                <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3 line-clamp-1">{{ $ishot->name }}</h3>
                             </div>
                             <div class="px-3 pb-3">
                                 <div class="d-flex align-items-center justify-content-between mt-3">
@@ -454,11 +454,11 @@
 
                 @endphp
                 <div class="item h-100">
-                    <a href="{{ route('productDetail', $ishot->slug) }}" class="cards overflow-hidden d-flex flex-column justify-content-between h-100 border position-relative d-block text-decoration-none">
+                    <a href="{{ route('productDetail', $ishot->slug) }}" title="{{ $ishot->name }}" class="cards overflow-hidden d-flex flex-column justify-content-between h-100 border position-relative d-block text-decoration-none">
                         <div>
                             <img src="{{ $first_img }}" alt="{{ $ishot->name }}" width="100%">
                             <img src="{{ asset( 'assets/images/inv-mega-sale.svg' ) }}" alt="mega-sale" width="100%">
-                            <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3">{{ $ishot->name }}</h3>
+                            <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3 line-clamp-1">{{ $ishot->name }}</h3>
                         </div>
                         <div class="px-3 pb-3 d-flex flex-column justify-between ">
                             <div class="d-flex align-items-center justify-content-between mt-3">
@@ -782,10 +782,10 @@
                                 let cartClass = cart_products[product.id] ? '' : 'd-none';
 
                                 html += `
-                                        <div class="col-lg-6 mb-5 product-rows ${brandClass}" id="${brandClass}">
+                                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4 mb-sm-5 product-rows ${brandClass}" id="${brandClass}">
                                             <a href="${product.urlLink}">
                                                 <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                                                    <img class="sz_product_image" src="${imgPath}storage/product-images/${first_img}" alt="${product.name }" >
+                                                    <img class="sz_product_image" src="${imgPath}storage/product-images/${first_img}" alt="${product.name}" >
                                                     <!-- <div class="ws_sec position-absolute">
                                                         <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label> -->`;
                                                         if( sz_discount_flag == '1' ) {
@@ -798,7 +798,7 @@
                                                 <label class="mt-sm-4 mt-3 rounded-pill text-slate-50 text-sm mb-0 font-hubot bg-pumpkin-orange-500 py-1 px-2 text-center">
                                                     ${TranslationsKeys['Free.Gift.Available']}
                                                 </label>
-                                                <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-2">${product.name}</h2>
+                                                    <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-2"><a href="${product.urlLink}" class="line-clamp-1 text-gray-950 text-decoration-none" title="${product.name}">${product.name}</a></h2>
                                                 <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                                                     <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                                                         <!-- <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">

@@ -441,7 +441,7 @@
                     }
                     $o_product_img = !empty($o_product->images->first()->name) ? $o_product->images->first()->name : '';
                 @endphp
-                <div class="col-lg-6 mb-5">
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
                     <a href="{{ route('productDetail', $o_product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
                             <img class="sz_product_image" src="{{ env( 'APP_Image_URL' ) . 'storage/product-images/' . $o_product_img }}" alt="{{ $o_product->name }} AC installed in Moldova">
@@ -454,7 +454,11 @@
                         </div>
                     </a>
                     <div class="text-lg-start text-center">
-                        <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4">{{ $o_product->name }}</h2>
+                        <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4 line-clamp-1" title="{{ $o_product->name }}">
+                            <a href="{{ route('productDetail', $o_product->slug) }}" class="line-clamp-1 text-gray-950 text-decoration-none" title="{{ $o_product->name }}">
+                                {{ $o_product->name }}
+                            </a>
+                        </h2>
                         {{--<div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                             <div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                                 <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) }}{{ number_format($o_product->web_sales_price, 2) }}</h2>

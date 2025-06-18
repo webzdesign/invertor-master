@@ -49,7 +49,7 @@
         </div>
     </div>
 </section> --}}
-
+@if (!$products->isEmpty())
 <section class="product store-product">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-between mb-5">
@@ -92,7 +92,7 @@
                     }
                     $first_img = !empty($product->images->first()->name) ? $product->images->first()->name : '';
                 @endphp
-                <div class="col-lg-6 mb-4 mb-sm-5">
+                <div class="col-xl-3 col-lg-4 col-md-6 mb-4 mb-sm-5">
                     <a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
                             <img class="pro-img sz_product_image mw-100" src="{{ env('APP_Image_URL').'storage/product-images/'. $first_img }}" alt="{{ $product->name }}">
@@ -105,7 +105,7 @@
                         </div>
                     </a>
                     <div class="text-lg-start text-center">
-                        <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4"><a class="text-gray-950 text-decoration-none" href="{{ route('productDetail', $product->slug) }}">{{ $product->name }}</a></h2>
+                        <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4"><a class="line-clamp-1 text-gray-950 text-decoration-none" title="{{ $product->name }}" href="{{ route('productDetail', $product->slug) }}">{{ $product->name }}</a></h2>
                         <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                             {{--<div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                                 <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h2>
@@ -159,7 +159,19 @@
         @endif --}}
     </div>
 </section>
+ @else 
+ <section>
+    <div class="container empty-product-section text-center py-5">
+        <h1 class="font-bebas text-slate-900">{{__('No Products Available')}}</h1>
+        <center>
+            <p class="text-slate-900 text-xl text-base-mob mb-0">{{__("We're sorry, there are currently no products available in this category")}}.</p>
+            <p class="text-slate-900 text-xl text-base-mob mb-0">{{__('Please check back later or explore our other categories for more great items')}}!</p>
+            <a href="{{ route('shop') }}" class="button-dark mt-4">{{ __('See our collections')}}</a>
+        </center>
+    </div>
+</section>    
 
+            @endif
 @include('latestScooter')
 
 @include('customerReview')

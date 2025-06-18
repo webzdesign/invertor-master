@@ -82,7 +82,7 @@ class Helper {
 
     // get categories
     public static function getCategories(){
-        return Category::has('product')->where('status',1)->get();
+        return Category::where('status',1)->get();
     }
     public function getStates(Request $request) {
         $states = State::where('country_id', $request->id)->active()->select('id', 'name as text')->pluck('text', 'id')->toArray();
