@@ -59,15 +59,17 @@
                                 </div>
                             @endforeach
                         </div>
-                        <div class="position-absolute top-0 right-0 d-flex gap-3">
-                            <button id="zoomBtn" class="zoom-btn d-flex align-items-center justify-content-center border-0 bg-slate-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#imgZoomModal">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.5 17.5L22 22" stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="#5D5D5D" stroke-width="1.5" stroke-linejoin="round"/>
-                                    <path d="M7.5 11H14.5M11 7.5V14.5" stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </button>
-                        </div>
+                        @if (!$product->images->isEmpty())
+                            <div class="position-absolute top-0 right-0 d-flex gap-3">
+                                <button id="zoomBtn" class="zoom-btn d-flex align-items-center justify-content-center border-0 bg-slate-100 rounded-pill" data-bs-toggle="modal" data-bs-target="#imgZoomModal">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.5 17.5L22 22" stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z" stroke="#5D5D5D" stroke-width="1.5" stroke-linejoin="round"/>
+                                        <path d="M7.5 11H14.5M11 7.5V14.5" stroke="#5D5D5D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        @endif
                     </div>
                     <div class="slider slider-nav">
                         @foreach ($product->images as $imageKey => $image)
@@ -344,7 +346,7 @@
         <div class="modal-content border-slate-200">
             <div class="modal-body text-center">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                <img src="{{ asset('/assets/images/pro1.png') }}" alt="Daikin inverter AC front view">
+                <img src="" alt="">
             </div>
         </div>
     </div>
