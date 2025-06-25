@@ -4,12 +4,6 @@
 @section('description', config('app.name') .' Lux offers expert consultation, fast delivery, and professional installation of air conditioners in Moldova. Personalized quotes, fast service, and total comfort.')
 @section('url', url()->current())
 
-@section('conversion')
-    <script>
-    // gtag('event', 'conversion', {'send_to': 'AW-16832855332/SSujCJHi45caEKT6w9o-'});
-  </script>
-@endsection
-
 @section('content')
 @php
     $cart_products = session()->get('cart', []);
@@ -53,7 +47,7 @@
                                                     @foreach ($gift_images as $gift_image)
                                                     @if (file_exists('admin/storage/app/public/gifts-images'.'/'.$gift_image->gift_images))
                                                         <div class="col-3 gift-col mb-2">
-                                                            <img src="{{ env('APP_Image_URL').'storage/gifts-images/'.$gift_image->gift_images }}" width="100%" class="h-auto" alt="Gift">
+                                                            <img src="{{ env('APP_Image_URL').'storage/gifts-images/'.$gift_image->gift_images }}" width="100%" height="100%" class="" alt="Gift">
                                                         </div>
                                                     @endif
                                                     @endforeach
@@ -77,7 +71,7 @@
                             <div class="col-lg-6">
                                 <div class="ps-lg-5">
                                     @if (file_exists('admin/storage/app/public/sliders-images/'.$slider_img))
-                                        <img src="{{ env('APP_Image_URL').'storage/sliders-images/'.$slider_img }}" alt="product" width="100%">
+                                        <img src="{{ env('APP_Image_URL').'storage/sliders-images/'.$slider_img }}" alt="product" width="100%" height="100%">
                                     @endif
                                 </div>
                                 <div class="position-absolute end-0 top-0">
@@ -133,7 +127,7 @@
             </div>
             <div class="owl-dots"></div>
         </div>
-        <div class="spec border border-neutrino-blue-50 rounded-lg py-4 mt-sm-5 mt-4 position-relative z-1">
+        <!-- <div class="spec border border-neutrino-blue-50 rounded-lg py-4 mt-sm-5 mt-4 position-relative z-1">
             <ul class="d-flex align-items-center flex-wrap m-0 py-0 px-3">
                 <li class="text-center">
                     <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -215,9 +209,9 @@
                     <div class="font-semibold text-lg text-base-mob m-0 text-slate-900">{{ __('Transparent pricing')}}</div>
                 </li>
             </ul>
-        </div>
+        </div> -->
         <!-- <div class="hero-banner position-absolute end-0 top-0">
-            <img class="" src="{{ asset( 'assets/images/Hero-inv-1.png' ) }}" alt="Home and office air conditioning">
+            <img class="" src="{{ asset( 'assets/images/Hero-inv-1.png' ) }}" loading="lazy" alt="Home and office air conditioning">
         </div> -->
     </div>
 </section>
@@ -252,7 +246,7 @@
                     <div class="col-xl-3 col-md-4 col-sm-6 mb-5 hot-col">
                        <a href="{{ route('productDetail', $ishot->slug) }}" title="{{ $ishot->name }}" class="cards h-100 d-flex flex-column justify-content-between border position-relative d-block text-decoration-none">
                             <div>
-                                <img src="{{ $first_img }}" alt="{{ $ishot->name }}" width="100%">
+                                <img src="{{ $first_img }}" alt="{{ $ishot->name }}" loading="lazy" width="100%" height="85%">
                                 <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3 line-clamp-1">{{ $ishot->name }}</h3>
                             </div>
                             <div class="px-3 pb-3">
@@ -317,7 +311,7 @@
     <div class="row m-0">
         <div class="col-xxl-4 left-side p-0">
             <div class="position-relative">
-                <img src="{{ asset( 'assets/images/Cool-Comfort-Smarter-Living.png' ) }}" alt="Cool-Comfort-Smarter-Living" width="100%" height="100%">
+                <img src="{{ asset( 'assets/images/Cool-Comfort-Smarter-Living.webp' ) }}" alt="Cool-Comfort-Smarter-Living" loading="lazy" width="100%" height="100%">
                 <h2 class="text-white px-3 font-bebas position-absolute top-0 text-center mt-5 w-100">{!! __('Cool Comfort & <br/> Smarter Living') !!}</h2>
                 <a href="{{ $tuya_d8_url }}" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn">{{ __('Top Brands')}}</a>
             </div>
@@ -394,10 +388,10 @@
     <section>
         <div class="p-3">
             @if($image && file_exists($BannerimagePath))
-                <img src="{{ env('APP_Image_URL').'storage/information-images/'.  $image }}" alt="{{ $image }} banner" width="100%" class="rounded-3xl d-none d-sm-block">
+                <img src="{{ env('APP_Image_URL').'storage/information-images/'.  $image }}" alt="{{ $image }} banner" loading="lazy" width="100%" height="100%" class="rounded-3xl d-none d-sm-block">
             @endif
             @if($mobimage && file_exists($MobBannerimagePath))
-                <img src="{{ env('APP_Image_URL').'storage/information-images/'.  $mobimage }}" alt="{{ $mobimage }} banner" width="100%" class="d-sm-none rounded-2xl">
+                <img src="{{ env('APP_Image_URL').'storage/information-images/'.  $mobimage }}" alt="{{ $mobimage }} banner" loading="lazy" width="100%" height="100%" class="d-sm-none rounded-2xl">
             @endif
         </div>
     </section>
@@ -456,8 +450,8 @@
                 <div class="item h-100">
                     <a href="{{ route('productDetail', $ishot->slug) }}" title="{{ $ishot->name }}" class="cards overflow-hidden d-flex flex-column justify-content-between h-100 border position-relative d-block text-decoration-none">
                         <div>
-                            <img src="{{ $first_img }}" alt="{{ $ishot->name }}" width="100%">
-                            <img src="{{ asset( 'assets/images/inv-mega-sale.svg' ) }}" alt="mega-sale" width="100%">
+                            <img loading="lazy" src="{{ $first_img }}" alt="{{ $ishot->name }}" width="100%">
+                            <img loading="lazy" src="{{ asset( 'assets/images/inv-mega-sale.svg' ) }}" alt="mega-sale" width="100%">
                             <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3 line-clamp-1">{{ $ishot->name }}</h3>
                         </div>
                         <div class="px-3 pb-3 d-flex flex-column justify-between ">
@@ -524,7 +518,7 @@
                     <div class="d-flex overflow-auto gap-sm-4 gap-2 p-2">
                         @foreach ($brands as $brand)
                             <div class="rounded-2xl productCallBrand" data-brand=".brand-{{$brand->name}}" data-catid=""  data-brandid="{{$brand->id}}" aria-selected="false" type="button">
-                                <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" alt="brand" width="150" height="100%" class="object-fit-contain max-sm-w-100px">
+                                <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" loading="lazy" alt="brand" width="150" height="100%" class="object-fit-contain max-sm-w-100px">
                             </div>
                         @endforeach
                     </div>
@@ -535,7 +529,7 @@
                         <div class="d-flex overflow-auto gap-sm-4 gap-2 p-2">
                             @foreach ($brands->where('category_id', $category->id) as $brand)
                                 <div class="rounded-2xl productCallBrand" data-brand=".brand-{{$brand->name}}" data-catid="{{$category->id}}"  data-brandid="{{$brand->id}}" aria-selected="false" type="button">
-                                    <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" width="150" height="100%" class="object-fit-contain max-sm-w-100px">
+                                    <img src="{{ env('APP_Image_URL'). 'storage/brands-images/'. $brand->brand_logo }}" loading="lazy" width="150" height="100%" class="object-fit-contain max-sm-w-100px">
                                 </div>
                             @endforeach
                         </div>
@@ -564,7 +558,7 @@
                 <div class="premier-card bg-neutrino-blue-300 rounded-lg pb-0 overflow-hidden h-100 d-flex flex-column justify-content-between">
                     <h3 class="text-slate-50 font-bebas">{{ __('Your Journey, Reimagined')}}</h3>
                     <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">{{ __('Check Out Our Line of Cutting Edge E-Scooters')}}</p>
-                    <img src="{{ asset( 'assets/images/inv-01.png' ) }}" alt="Check Out Our Line of Cutting Edge invertor"  width="100%" height="100%">
+                    <img src="{{ asset( 'assets/images/inv-01.webp' ) }}" loading="lazy" alt="Check Out Our Line of Cutting Edge invertor"  width="100%" height="100%">
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6 mb-4">
@@ -573,7 +567,7 @@
                         <h3 class="text-slate-50 font-bebas">{{ __('Artificial intelligence algorithm of the inverter')}}</h3>
                         <p class="text-xl text-slate-50 font-inter-regular mb-2 mt-3">{{ __('Artificial intelligence technology allows you to reach the set temperature faster and maintain it more accurately during operation.')}}</p>
                     </div>
-                    <img src="{{ asset( 'assets/images/inv-02.png' ) }}" alt="Artificial intelligence technology allows you to reach the set temperature faster and maintain it more accurately during operation"  width="100%" height="100%">
+                    <img src="{{ asset( 'assets/images/inv-02.webp' ) }}" loading="lazy" alt="Artificial intelligence technology allows you to reach the set temperature faster and maintain it more accurately during operation"  width="100%" height="100%">
                 </div>
             </div>
         </div>
@@ -587,7 +581,7 @@
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-6">
-                        <img src="{{ asset( 'assets/images/inv-03.png' ) }}" alt="IoT Wi-Fi control of TCL home appliances with one APP, support deep neural network voice control. TCL HOME APP. The Wi-Fi module is not included in the delivery of the air conditioner (it is purchased as an option)."  width="100%" height="100%">
+                        <img src="{{ asset( 'assets/images/inv-03.webp' ) }}" loading="lazy" alt="IoT Wi-Fi control of TCL home appliances with one APP, support deep neural network voice control. TCL HOME APP. The Wi-Fi module is not included in the delivery of the air conditioner (it is purchased as an option)."  width="100%" height="100%">
                     </div>
                 </div>
             </div>
@@ -601,16 +595,16 @@
     <div class="container">
         <div class="owl-carousel owl-theme our-partner-owl">
             <div class="item d-flex align-items-center justify-content-center h-100">
-                <img src="{{ asset( 'assets/images/inv-tcl.svg' ) }}" alt="TCL" width="100%">
+                <img src="{{ asset( 'assets/images/inv-tcl.svg' ) }}" alt="TCL" loading="lazy" width="100%" height="100%">
             </div>
             <div class="item d-flex align-items-center justify-content-center h-100">
-                <img src="{{ asset( 'assets/images/inv-general.svg' ) }}" alt="general" width="100%">
+                <img src="{{ asset( 'assets/images/inv-general.svg' ) }}" alt="general" loading="lazy" width="100%" height="100%">
             </div>
             <div class="item d-flex align-items-center justify-content-center h-100">
-                <img src="{{ asset( 'assets/images/inv-gree.svg' ) }}" alt="gree" width="100%">
+                <img src="{{ asset( 'assets/images/inv-gree.svg' ) }}" alt="gree" loading="lazy" width="100%" height="100%">
             </div>
             <div class="item d-flex align-items-center justify-content-center h-100">
-                <img src="{{ asset( 'assets/images/inv-kaisai.svg' ) }}" alt="kaisai" width="100%">
+                <img src="{{ asset( 'assets/images/inv-kaisai.svg' ) }}" alt="kaisai" loading="lazy" width="100%" height="100%">
             </div>
         </div>
     </div>
@@ -785,7 +779,7 @@
                                         <div class="col-xl-3 col-lg-4 col-md-6 mb-4 mb-sm-5 product-rows ${brandClass}" id="${brandClass}">
                                             <a href="${product.urlLink}">
                                                 <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                                                    <img class="sz_product_image" src="${imgPath}storage/product-images/${first_img}" alt="${product.name}" >
+                                                    <img class="sz_product_image" src="${imgPath}storage/product-images/${first_img}" alt="${product.name}" width="100%" height="100%" >
                                                     <!-- <div class="ws_sec position-absolute">
                                                         <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label> -->`;
                                                         if( sz_discount_flag == '1' ) {

@@ -261,7 +261,7 @@
                 });
 
                 $(".loader").fadeOut();
-                $("#preloder").delay(200).fadeOut("slow");
+                $("#preloder").fadeOut();
 
                 $('body').on('click', '.AddToCartBtn', function(e){
                     e.preventDefault();
@@ -413,6 +413,17 @@
         @yield('script')
 
         <script>
+            $(document).ready(function() {
+                $.fn.hasAttr = function(attribute) {
+                    var attr = $(this).attr(attribute);
+                    return typeof attr !== typeof undefined && attr !== false;
+                };
+                
+                if (!$(document).find('img').hasAttr('loading')) {
+                    $(document).find('img').attr('loading','lazy');
+                }
+            });
+
             const inputModal = document.querySelector('#phone_modal');
             const errorMapModal = ["Phone number is invalid.", "Invalid country code", "Too short", "Too long"];
 

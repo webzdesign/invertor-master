@@ -16,8 +16,8 @@
 @endphp
 
 <section class="strore-banner p-2 position-relative">
-    <img src="{{ asset( 'assets/images/inv-our-store-banner.png' ) }}" alt="Split AC models in Moldova" width="100%" class="d-none d-sm-block">
-    <img src="{{ asset( 'assets/images/inv-our-store-banner-mob.png' ) }}" alt="Split AC models in Moldova" width="100%" class="d-sm-none">
+    <img src="{{ asset( 'assets/images/inv-our-store-banner.webp' ) }}" alt="Split AC models in Moldova" width="100%" class="d-none d-sm-block">
+    <img src="{{ asset( 'assets/images/inv-our-store-banner-mob.webp' ) }}" alt="Split AC models in Moldova" width="100%" class="d-sm-none">
     <h2 class="text-slate-50 position-absolute top-50 translate-middle left-50 font-bebas whitespace-nowrap mb-0">
         <!-- @if($categoryName !='') {{$categoryName}} @else Our Store @endif -->
         {{ __('Our Store')}}
@@ -56,7 +56,9 @@
             <h1 class="font-bebas text-32px-mob">{!! __('Explore Our Air Conditioner</br> Collection') !!}</h1>
             <div class="top-content">
                 <p class="text-xl text-gray-500 font-inter-medium text-base-mob">{{ __('We have the right model for your needs and budget.')}}</p>
-                <a href="{{ route('shop') }}" class="button-dark mt-3">{{ __('See our collections')}}</a>
+                @if (!request()->routeIs('shop'))
+                    <a href="{{ route('shop') }}" class="button-dark mt-3">{{ __('See our collections')}}</a>
+                @endif
             </div>
         </div>
         <div class="d-flex justify-content-between align-items-center gap-3 mb-4">

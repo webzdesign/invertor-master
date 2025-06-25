@@ -1,20 +1,3 @@
-{{-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFLENS9J52"></script> --}}
-<script>
-  // window.dataLayer = window.dataLayer || [];
-  // function gtag(){dataLayer.push(arguments);}
-  // gtag('js', new Date());
-
-  // gtag('config', 'G-ZFLENS9J52');
-</script>
-{{-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16832855332"></script> --}}
-<script>
-  // window.dataLayer = window.dataLayer || [];
-  // function gtag(){dataLayer.push(arguments);}
-  // gtag('js', new Date());
-
-  // gtag('config', 'AW-16832855332');
-</script>
-
 @php
 use App\Models\Setting;
  $setting = Setting::select('favicon')->first();
@@ -57,12 +40,12 @@ use App\Models\Setting;
 <link rel="stylesheet" href="{{ asset( 'assets/css/owl.carousel.min.css' ) . '?v=' . config('services.asset_version') }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/slick-theme.min.css' ) . '?v=' . config('services.asset_version') }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/slick.min.css' ) . '?v=' . config('services.asset_version') }}">
-<link rel="stylesheet" href="{{ asset( 'assets/css/style.css' ) . '?v=' . config('services.asset_version') }}">
+<link rel="stylesheet" href="{{ asset( 'assets/css/style.css' ) . '?v=' . config('services.asset_version') }}" >
 <link rel="stylesheet" href="{{ asset( 'assets/css/utilities.css' ) . '?v=' . config('services.asset_version') }}">
 <link rel="stylesheet" href="{{ asset( 'assets/css/responsive.css' ) . '?v=' . config('services.asset_version') }}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hubot+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hubot+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" >
 
 <!-- Meta Pixel Code -->
 <script>
