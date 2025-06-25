@@ -391,22 +391,6 @@
             });
         </script>
 
-        <script>
-            // function gtag_report_conversion(url) {
-            //     var callback = function () {
-            //         if (typeof(url) != 'undefined') {
-            //             window.location = url;
-            //         }
-            //     };
-            //     gtag('event', 'conversion', {
-            //         'send_to': 'AW-16832855332/h41sCNTt1JcaEKT6w9o-',
-            //         'value': 1.0,
-            //         'event_callback': callback
-            //     });
-
-            // }
-            </script>
-
         <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
         <script src="{{ asset('assets/js/intel.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
