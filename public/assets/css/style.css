@@ -625,18 +625,18 @@ footer .copy-right{
   line-height: 66px;
 }
 
-.store-product input {
+.store-product .search-input {
   width: 420px;
   height: 48px;
   padding-left: 42px;
 }
 
-.store-product input::placeholder {
+.store-product .search-input::placeholder {
   color: var(--gray-900);
   opacity: 1;
 }
 
-.store-product input::-ms-input-placeholder {
+.store-product .search-input::-ms-input-placeholder {
   color: var(--gray-900);
 }
 

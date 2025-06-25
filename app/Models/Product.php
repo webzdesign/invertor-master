@@ -65,4 +65,12 @@ class Product extends Model
 
         return null;
     }
+
+    public function product_filter_option_info() {
+        return $this->hasMany(ProductCategoryFilters::class,'product_id', 'id');
+    }
+
+    public function filter_option() {
+        return $this->hasMany(ProductCategoryFilters::class,'product_id', 'id');
+    }
 }

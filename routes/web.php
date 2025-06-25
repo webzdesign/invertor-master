@@ -59,6 +59,8 @@ Route::group([
     Route::get('pages/refund-and-return-policy', [PageController::class, 'refundPolicy'])->name('refund-policy');
     Route::get('pages/shipping-policy', [PageController::class, 'shippingPolicy'])->name('shipping-policy');
     Route::get('pages/promo', [PageController::class, 'Promo'])->name('Promo');
+    
+    Route::post('getFilteredProducts', [HomeController::class, 'getFilteredProducts'])->name('getFilteredProducts');
 });
 
 

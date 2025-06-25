@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brands;
+use App\Models\CategoryFilters;
 use App\Models\Gifts;
 use App\Models\InformationPages;
+use App\Models\ProductCategoryFilters;
 use App\Models\Quotation;
 use App\Models\Review;
 use App\Models\Slider;
@@ -111,7 +113,7 @@ class HomeController extends Controller
     public function shop(Request $request)
     {
 
-        /* // for shop page paginaion
+        // for shop page paginaion
         $perPage = 8;
         $page = 1;
         if (isset($request->page) && $request->page != '') {
@@ -123,20 +125,23 @@ class HomeController extends Controller
             $skip = ($page - 1) * $perPage;
         }
 
-        $products = Product::with('images')->active();
+        $products = Product::with(['images'])->active();
         $totalProducts = $products->count();
         $products = $products->skip($skip)->take($perPage);
 
         $products = $products->get();
+        
+        $filters = $this->getFiltesOptionsData();
 
+        $categoryName = '';
         $totalPages = ceil($totalProducts / $perPage);
 
-        return view('shop', compact('products', 'totalProducts', 'totalPages', 'page')); */
-        $products = Product::with('images')->active();
-        $products = $products->get();
-        $categoryName = '';
-        $sale_season_icon = $this->getSeasonSellIcon();
-        return view('shop', compact( 'products', 'sale_season_icon','categoryName' ));
+        return view('shop', compact('products', 'totalProducts', 'totalPages', 'page','categoryName','filters')); 
+        // $products = Product::with('images')->active();
+        // $products = $products->get();
+        // $categoryName = '';
+        // $sale_season_icon = $this->getSeasonSellIcon();
+        // return view('shop', compact( 'products', 'sale_season_icon','categoryName' ));
 
     }
     public function categoryshop(Request $request){
@@ -146,7 +151,8 @@ class HomeController extends Controller
         $products = $products->get();
         $categoryName = $getCategory->name;
         $sale_season_icon = $this->getSeasonSellIcon();
-        return view('shop', compact( 'products', 'sale_season_icon','categoryName'));
+        $filters = $this->getFiltesOptionsData();
+        return view('shop', compact( 'products', 'sale_season_icon','categoryName','filters'));
 
     }
     public function productDetail($slug)
@@ -1190,5 +1196,101 @@ class HomeController extends Controller
             ]);
         }
     }
+
+    public function getFiltesOptionsData(){
+        $filters = CategoryFilters::with(['options'])->select(['id','name','selection'])->get();
+        return $filters;
+    } 
+
+    public function getFilteredProducts(Request $request) {
+        
+            $ids = [
+                'option_id' => $request->option_id,
+                'filter_id' => $request->filter_id,
+                'cat_slug' => $request->categoryName,
+                'sort_by' => $request->sort_by ?? 'ASC',
+                'search' => $request->search,
+                'page' => $request->page ?? 1 
+            ];
+            
+            $filter = $request->filter;
+
+            $perPage = 8;
+            $page = $ids['page'] ?? 1;
+            $skip = ($page - 1) * $perPage;
+
+        try {
+            $getCategory = '';
+            
+            if(!empty($ids['cat_slug'])) {
+                $getCategory =  Category::where('slug',$ids['cat_slug'])->first();
+            }
+
+            if ($filter == 1 && !empty($filter)) {
+                
+                $productIds = ProductCategoryFilters::select('product_id', DB::raw('COUNT(DISTINCT category_filter_id) as count'))
+                    ->whereIn('category_filter_id', $ids['option_id'])
+                    ->whereIn('category_filter_option_id', $ids['filter_id'])
+                    ->whereNull('deleted_at')
+                    ->groupBy('product_id')
+                    ->having('count', '=',  count($ids['option_id']))
+                    ->pluck('product_id');
+               
+                $query = Product::with('images')
+                                    ->select(['id','name'])
+                                    ->when(!empty($ids['cat_slug']), function($q) use ($ids, $getCategory) {
+                                    $q->where('category_id', $getCategory->id); 
+                                    })
+                                    ->whereIn('id', $productIds)
+                                    ->where('status', 1);
+            } else {
+                $query = Product::with('images')
+                                    ->select(['id','name'])
+                                    ->when(!empty($ids['cat_slug']), function($q) use ($ids, $getCategory) {
+                                        $q->where('category_id', $getCategory->id); 
+                                    })
+                                    ->where('status', 1);
+            }
+            
+            $query = $query->when(!empty($ids['search']), function($q) use ($ids) {
+                                $q->where('name','LIKE','%'.$ids['search'].'%');
+                            })->orderBy('created_at',$ids['sort_by']);
+            
+            $totalProducts = $query->count();
+
+            $products = $query->skip($skip)->take($perPage)->get();
+            
+            $totalPages = ceil($totalProducts / $perPage);
+
+            $html = view('components.product-box', compact('products'))->render();
+            
+            $pagination = view('components.product-pagination', compact('totalProducts','totalPages','page','ids'))->render();            
+            
+            if(!empty($products) && $totalProducts > 0) {
+                return response()->json([
+                    'success' => 1,
+                    'html' => $html,
+                    'pagination' => $pagination
+                ]);
+            } else {
+                return response()->json([
+                    'success' => 0,
+                    'html' => [],
+                    'message' => 'Product not found!!',
+                    'pagination' => null
+                ]);
+            }
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => 0,
+                'html' => [],
+                'message' => 'Something went wrong!!',
+                'error' => $th->getMessage(),
+                'line_no' => $th->getLine()
+            ]);
+        }
+
+    }
+
 
 }
