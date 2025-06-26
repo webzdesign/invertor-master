@@ -253,7 +253,7 @@
     </div>
 </section>
 
-<section class="product">
+{{-- <section class="product">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
             <h2 class="font-bebas text-4xl-mob">{{ __('Related Product')}}</h2>
@@ -303,7 +303,7 @@
             @endforeach
         </div>
     </div>
-</section>
+</section> --}}
 
 <div class="fixed-add-to-cart">
     <div class="row w-100 align-items-center">

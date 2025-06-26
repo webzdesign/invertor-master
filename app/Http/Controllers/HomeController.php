@@ -153,12 +153,12 @@ class HomeController extends Controller
     {
         $product = Product::with(['images','brand_info'])->where('slug', $slug)->firstOrFail();
 
-        $othersProducts = Product::with('images')->where('id', '!=', $product->id)->where('status',1)->limit(4)->get();
+        // $othersProducts = Product::with('images')->where('id', '!=', $product->id)->where('status',1)->limit(4)->get();
         $sale_season_icon = $this->getSeasonSellIcon();
         $getCategory =  Category::where('id',$product->category_id)->first();
 
-        $reviews = Review::where('product_id',$product->id)->where('status',1)->orderBy('id','DESC')->limit(4)->get();
-        return view('productDetail', compact('product', 'othersProducts', 'sale_season_icon','getCategory','reviews'));
+        // $reviews = Review::where('product_id',$product->id)->where('status',1)->orderBy('id','DESC')->limit(4)->get();
+        return view('productDetail', compact('product', 'sale_season_icon','getCategory'));
     }
 
     public function addToCart(Request $request)
