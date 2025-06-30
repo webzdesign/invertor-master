@@ -127,7 +127,7 @@
             </div>
             <div class="owl-dots"></div>
         </div>
-        <!-- <div class="spec border border-neutrino-blue-50 rounded-lg py-4 mt-sm-5 mt-4 position-relative z-1">
+        <div class="spec border border-neutrino-blue-50 rounded-lg py-4 mt-sm-5 mt-4 position-relative z-1">
             <ul class="d-flex align-items-center flex-wrap m-0 py-0 px-3">
                 <li class="text-center">
                     <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -209,10 +209,10 @@
                     <div class="font-semibold text-lg text-base-mob m-0 text-slate-900">{{ __('Transparent pricing')}}</div>
                 </li>
             </ul>
-        </div> -->
-        <!-- <div class="hero-banner position-absolute end-0 top-0">
+        </div> 
+        {{-- <div class="hero-banner position-absolute end-0 top-0">
             <img class="" src="{{ asset( 'assets/images/Hero-inv-1.png' ) }}" loading="lazy" alt="Home and office air conditioning">
-        </div> -->
+        </div>  --}}
     </div>
 </section>
 
