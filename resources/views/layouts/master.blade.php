@@ -401,11 +401,15 @@
         {{-- google rechaptcha --}}
         <script src="https://www.google.com/recaptcha/api.js?render={{ config('google.google_recaptchav3.site_key') }}"></script>
         <script>
-            grecaptcha.ready(function () {
-                grecaptcha.execute('{{ config('google.google_recaptchav3.site_key') }}', {action: 'submit'}).then(function (token) {
-                    document.getElementById('g_recaptcha_response').value = token;
+             function executeRecaptcha() {
+                grecaptcha.ready(function () {
+                    grecaptcha.execute('{{ config('google.google_recaptchav3.site_key') }}', { action: 'submit' }).then(function (token) {
+                        document.getElementById('g_recaptcha_response').value = token;
+                    });
                 });
-            });
+            }
+
+            executeRecaptcha();
         </script>
         {{-- google rechaptcha end --}}
 
@@ -522,6 +526,7 @@
                             data.productId = productIds;
                         }
 
+                        executeRecaptcha();
                         $.ajax({
                             url: "{{ route('quotation.request') }}",
                             method: "POST",
