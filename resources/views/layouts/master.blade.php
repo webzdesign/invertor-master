@@ -533,8 +533,6 @@
                             method: "POST",
                             data: data,
                             success: function (response) {
-                                executeRecaptcha();
-
                                 $('#phoneModalForm')[0].reset();
                                 $('#success-container').empty();
                                 grecaptcha.reset();
