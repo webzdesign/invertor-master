@@ -70,16 +70,16 @@ return [
     |
     */
     'config' => [],
-    'google_recaptchav3' => [
+    'google_recaptchav2' => [
         /*
             google recaptcha-v3 site key
         */
-        'site_key' => env('GOOGLE_RECAPTCHA_V3_SITE_KEY','6LfxvXorAAAAAMIVAUyJp1cswO8udV7LCNjJQnm1'),
+        'site_key' => env('GOOGLE_RECAPTCHA_V3_SITE_KEY','6LcIz3orAAAAABOpXrptEd8q2a9o_rubaK0C1odx'),
 
         /*
             google recaptcha-v3 secret key
         */
-        'secret_key' => env('GOOGLE_RECAPTCHA_V3_SECRET_KEY','6LfxvXorAAAAANfLlf2VSIm7-ktvDsHUytekJvQj'),
+        'secret_key' => env('GOOGLE_RECAPTCHA_V3_SECRET_KEY','6LcIz3orAAAAAA9Kcro8rHc80Jtr7NaYd1sIEVg4'),
 
     ]
 ];

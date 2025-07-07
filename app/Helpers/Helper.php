@@ -627,17 +627,17 @@ class Helper {
         return ['en', 'ro', 'ru'];
     } 
 
-    public static function verifyGoogleRecaptchaV3($token, $ip)
+    public static function verifyGoogleRecaptchaV2($token, $ip)
     {
         $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret'   => config('google.google_recaptchav3.secret_key'),
+            'secret'   => config('google.google_recaptchav2.secret_key'),
             'response' => $token,
             'remoteip' => $ip,
         ]);
-
+        
         $result = $response->json();
-
-        if (!($result['success'] ?? false) || ($result['score'] ?? 0) < 0.5) {
+        
+        if (!$result['success']) {
             return ['success' => 0, 'message' => 'recaptcha.error'];
         }
 

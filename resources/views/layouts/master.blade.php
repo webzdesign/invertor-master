@@ -52,7 +52,7 @@
                                 <input type="text" class="input-control w-100" name="sz_phone_modal" id="phone_modal" value="">
                             </div>
                             <label id="phone_modal-error" class="error" style="color: red;" for="phone_modal"></label>
-                             <div class="overflow-hidden border border-slate-700 rounded-lg p-3">
+                             <div class="overflow-hidden border border-slate-700 rounded-lg p-3 mb-3">
                                 <div class="form-check">
                                     <input class="form-check-input shadow-none cursor-pointer border-slate-200" type="checkbox" id="terms_and_condtion" name="terms_and_condtion" checked>
                                     {{-- <label class="form-check-label font-inter-regular text-sm text-gray-500 cursor-pointer ms-2" for="terms_and_condtion">
@@ -65,7 +65,9 @@
                             </div>
                             <div id="success-container"></div>
                             {{-- google rechaptcha input --}}
-                            <input type="hidden" name="g_recaptcha_response" id="g_recaptcha_response">
+                            {{-- <input type="hidden" name="g_recaptcha_response" id="g_recaptcha_response"> --}}
+                            <div class="g-recaptcha" data-sitekey="{{ config('google.google_recaptchav2.site_key') }}"></div>
+                            <div class="text-danger" id="recaptchaError" style="display: none;"></div>
                             <div class="mt-sm-4 mt-3">
                                 <button type="submit" id="phoneModalFormSubmit" class="button-dark w-100">{{ __('Get the offer')}}</button>
                             </div>
@@ -399,18 +401,7 @@
         <script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
         
         {{-- google rechaptcha --}}
-        <script src="https://www.google.com/recaptcha/api.js?render={{ config('google.google_recaptchav3.site_key') }}"></script>
-        <script>
-             function executeRecaptcha() {
-                grecaptcha.ready(function () {
-                    grecaptcha.execute('{{ config('google.google_recaptchav3.site_key') }}', { action: 'submit' }).then(function (token) {
-                        document.getElementById('g_recaptcha_response').value = token;
-                    });
-                });
-            }
-
-            executeRecaptcha();
-        </script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         {{-- google rechaptcha end --}}
 
         @yield('script')
@@ -506,9 +497,20 @@
                     submitHandler:function(form) {
                         $('#phoneModalFormSubmit').attr('disabled', true);
 
+                        let recaptchaResponse = grecaptcha.getResponse();
+                        
+                        let gError = $('#recaptchaError');
+
+                        if (recaptchaResponse.length === 0) {
+                            gError.text('Please complete the reCAPTCHA.').show();
+                            $('#phoneModalFormSubmit').attr('disabled', false);
+                            return false;
+                        } else {
+                            gError.hide();
+                        }
+
                         const formData = new FormData(form);
                         const rawData = Object.fromEntries(formData.entries());
-                        console.log(rawData);
                         
                         const productIds = formData.getAll('productId[]');
                         const data = {
@@ -518,7 +520,7 @@
                             // productId: productIds,
                             is_scammers: rawData.is_scammers,
                             quotation_types: rawData.quotation_types,
-                            g_recaptcha_response : rawData.g_recaptcha_response,
+                            g_recaptcha_response : rawData['g-recaptcha-response'],
                             modalRequest: true,
                         };
 
@@ -526,7 +528,6 @@
                             data.productId = productIds;
                         }
 
-                        executeRecaptcha();
                         $.ajax({
                             url: "{{ route('quotation.request') }}",
                             method: "POST",
@@ -534,6 +535,7 @@
                             success: function (response) {
                                 $('#phoneModalForm')[0].reset();
                                 $('#success-container').empty();
+                                grecaptcha.reset();
 
                                 const translations = {
                                     "quotation.success": @json(__('quotation.success')),
@@ -543,7 +545,7 @@
 
                                 if (response.success)  {
                                     const successHtml = `
-                                        <div id="successMessage" class="success-message rounded-lg d-flex gap-2 mt-1" role="alert">
+                                        <div id="successMessage" class="success-message rounded-lg d-flex gap-2 mt-1 mb-1" role="alert">
                                             <div>
                                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M27.5 15C27.5 8.09644 21.9035 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9035 8.09644 27.5 15 27.5C21.9035 27.5 27.5 21.9035 27.5 15Z" fill="#04248C"/>

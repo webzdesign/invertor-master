@@ -985,7 +985,6 @@ class HomeController extends Controller
     {
         DB::beginTransaction();
         try {
-
             $token = $request->g_recaptcha_response;
             $requestIP = $request->ip();
 
@@ -997,7 +996,7 @@ class HomeController extends Controller
                 ]);
             }
 
-            $recaptcha = Helper::verifyGoogleRecaptchaV3($token, $requestIP);
+            $recaptcha = Helper::verifyGoogleRecaptchaV2($token, $requestIP);
 
             if (!$recaptcha['success']) {
                 return response()->json([
