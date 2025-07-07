@@ -466,6 +466,7 @@
                 });
 
                 $('#getPriceModal').on('hidden.bs.modal', function () {
+                    grecaptcha.reset();
                     let form = $('#phoneModalForm');
                     form[0].reset();
                     $('#success-container').empty();
@@ -473,6 +474,8 @@
                     form.find('#productId').val('');
                     $('.check-one').show();
                     $('.check-two').hide();
+                    $('#phoneModalFormSubmit').attr('disabled', true);
+                    $('#recaptchaError').text('').hide();
                 });
 
                 $('#phoneModalFormSubmit').attr('disabled', true);
