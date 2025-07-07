@@ -69,5 +69,17 @@ return [
     | NOTE: If client id is specified here, it will get over written by the one above.
     |
     */
-    'config' => []
+    'config' => [],
+    'google_recaptchav3' => [
+        /*
+            google recaptcha-v3 site key
+        */
+        'site_key' => env('GOOGLE_RECAPTCHA_V3_SITE_KEY','6LfxvXorAAAAAMIVAUyJp1cswO8udV7LCNjJQnm1'),
+
+        /*
+            google recaptcha-v3 secret key
+        */
+        'secret_key' => env('GOOGLE_RECAPTCHA_V3_SECRET_KEY','6LfxvXorAAAAANfLlf2VSIm7-ktvDsHUytekJvQj'),
+
+    ]
 ];

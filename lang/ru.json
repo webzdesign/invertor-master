@@ -310,5 +310,6 @@
     "Appointment" : "Встреча",
     "Creation" : "Создание",
     "By submitting this form, you express your consent to the processing of your personal data (name, email address, phone number, etc.) by Invertor Lux SRL and Iute Credit SRL, for the purpose of resolving your request. The data provided will be kept securely and will not be transmitted to third parties without your consent, except in cases required by law." : "Отправляя эту форму, вы выражаете свое согласие на обработку ваших персональных данных (имя, адрес электронной почты, номер телефона и т. д.) компаниями Invertor Lux SRL и Iute Credit SRL в целях решения вашего запроса. Предоставленные данные будут храниться в безопасности и не будут передаваться третьим лицам без вашего согласия, за исключением случаев, предусмотренных законом.",
-    "Thank you for contacting us!" : "Спасибо, что обратились к нам!"
+    "Thank you for contacting us!" : "Спасибо, что обратились к нам!",
+    "recaptcha.error" : "reCAPTCHA не прошла проверку."
 }

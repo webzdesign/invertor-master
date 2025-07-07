@@ -64,6 +64,8 @@
                                 </div>
                             </div>
                             <div id="success-container"></div>
+                            {{-- google rechaptcha input --}}
+                            <input type="hidden" name="g_recaptcha_response" id="g_recaptcha_response">
                             <div class="mt-sm-4 mt-3">
                                 <button type="submit" id="phoneModalFormSubmit" class="button-dark w-100">{{ __('Get the offer')}}</button>
                             </div>
@@ -395,6 +397,18 @@
         <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
         <script src="{{ asset('assets/js/intel.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
+        
+        {{-- google rechaptcha --}}
+        <script src="https://www.google.com/recaptcha/api.js?render={{ config('google.google_recaptchav3.site_key') }}"></script>
+        <script>
+            grecaptcha.ready(function () {
+                grecaptcha.execute('{{ config('google.google_recaptchav3.site_key') }}', {action: 'submit'}).then(function (token) {
+                    document.getElementById('g_recaptcha_response').value = token;
+                });
+            });
+        </script>
+        {{-- google rechaptcha end --}}
+
         @yield('script')
 
         <script>
@@ -490,6 +504,7 @@
 
                         const formData = new FormData(form);
                         const rawData = Object.fromEntries(formData.entries());
+                        console.log(rawData);
                         
                         const productIds = formData.getAll('productId[]');
                         const data = {
@@ -499,6 +514,7 @@
                             // productId: productIds,
                             is_scammers: rawData.is_scammers,
                             quotation_types: rawData.quotation_types,
+                            g_recaptcha_response : rawData.g_recaptcha_response,
                             modalRequest: true,
                         };
 
@@ -506,7 +522,6 @@
                             data.productId = productIds;
                         }
 
-                        // form.submit();
                         $.ajax({
                             url: "{{ route('quotation.request') }}",
                             method: "POST",
@@ -517,7 +532,8 @@
 
                                 const translations = {
                                     "quotation.success": @json(__('quotation.success')),
-                                    "quotation.error": @json(__('quotation.error'))
+                                    "quotation.error": @json(__('quotation.error')),
+                                    "recaptcha.error": @json(__('recaptcha.error')),
                                 };
 
                                 if (response.success)  {

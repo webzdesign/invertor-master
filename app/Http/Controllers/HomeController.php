@@ -985,6 +985,27 @@ class HomeController extends Controller
     {
         DB::beginTransaction();
         try {
+
+            $token = $request->g_recaptcha_response;
+            $requestIP = $request->ip();
+
+            if (empty($token)) {
+                return response()->json([
+                    'success' => 0, 
+                    'token' => 'Token not found!!',
+                    'message' => 'recaptcha.error'
+                ]);
+            }
+
+            $recaptcha = Helper::verifyGoogleRecaptchaV3($token, $requestIP);
+
+            if (!$recaptcha['success']) {
+                return response()->json([
+                    'success' => 0,
+                    'message' => $recaptcha['message']
+                ]);
+            }
+
             if ($request->filled('is_scammers')) {
                 return response()->json([
                     'success' => false,

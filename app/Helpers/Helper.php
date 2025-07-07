@@ -8,7 +8,7 @@ use App\Models\{State, Stock, City, User};
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Number;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Http;
 class Helper {
 
     public static $appLogo = 'assets/images/logo.png';
@@ -626,5 +626,22 @@ class Helper {
     public static function getMultiLang() {
         return ['en', 'ro', 'ru'];
     } 
+
+    public static function verifyGoogleRecaptchaV3($token, $ip)
+    {
+        $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+            'secret'   => config('google.google_recaptchav3.secret_key'),
+            'response' => $token,
+            'remoteip' => $ip,
+        ]);
+
+        $result = $response->json();
+
+        if (!($result['success'] ?? false) || ($result['score'] ?? 0) < 0.5) {
+            return ['success' => 0, 'message' => 'recaptcha.error'];
+        }
+
+        return ['success' => 1];
+    }
 
 }
