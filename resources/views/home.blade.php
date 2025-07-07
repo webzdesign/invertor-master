@@ -313,9 +313,12 @@
             <div class="position-relative">
                 <img src="{{ asset( 'assets/images/Cool-Comfort-Smarter-Living.webp' ) }}" alt="Cool-Comfort-Smarter-Living" loading="lazy" width="100%" height="100%">
                 <h2 class="text-white px-3 font-bebas position-absolute top-0 text-center mt-5 w-100">{!! __('Cool Comfort & <br/> Smarter Living') !!}</h2>
-                <a href="{{ $tuya_d8_url }}" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn">{{ __('Top Brands')}}</a>
+                <span style="left: 83%;" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn getPriceModalBtn" data-type="2">{{ __('Appointment')}}</span>
+                {{-- <a href="{{ $tuya_d8_url }}" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn ">{{ __('Top Brands')}}</a> --}}
+                <span style="right: -38%;" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn getPriceModalBtn" data-type="3">{{ __('Creation')}}</span>
             </div>
         </div>
+        
         <div class="col-xxl-8 right-side my-auto">
             <div class="row whyRight w-100 mx-auto">
                 <div class="col-md-6">

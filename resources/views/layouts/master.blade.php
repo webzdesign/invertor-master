@@ -44,6 +44,7 @@
                         <form class="phone-modal-form" id="phoneModalForm" >
                             <div class="mb-1 w-100" id="phoneModalData">
                                 <input type="hidden" name="productId[]" id="productId">
+                                <input type="hidden" name="quotation_types" id="quotation_types">
                                 <input type="text" name="is_scammers" style="display: none;">
                                 <label class="font-inter-regular text-sm d-block mb-1" for="phone">{{ __('Phone number')}}<span class="text-rose-500">*</span></label>
                                 <input type="hidden" name="country_dial_code_modal" id="country_dial_code_modal">
@@ -447,6 +448,9 @@
                 $(document).on('click','.getPriceModalBtn',function(){
                     $('#getPriceModal').modal('show');
                     let pID = $(this).data('pid');
+                    let type = $(this).data('type');
+                    
+                    $(document).find('#phoneModalForm').find('#phoneModalData').find('#quotation_types').val(type);
                     if(pID) {
                         $(document).find('#phoneModalForm').find('#phoneModalData').find('#productId').val(pID);
                     }
@@ -486,15 +490,21 @@
 
                         const formData = new FormData(form);
                         const rawData = Object.fromEntries(formData.entries());
+                        
                         const productIds = formData.getAll('productId[]');
                         const data = {
                             country_dial_code: rawData.country_dial_code_modal,
                             country_iso_code: rawData.country_iso_code_modal,
                             phone: rawData.sz_phone_modal,
-                            productId: productIds,
+                            // productId: productIds,
                             is_scammers: rawData.is_scammers,
+                            quotation_types: rawData.quotation_types,
                             modalRequest: true,
                         };
+
+                        if(productIds != '') {
+                            data.productId = productIds;
+                        }
 
                         // form.submit();
                         $.ajax({
@@ -512,7 +522,7 @@
 
                                 if (response.success)  {
                                     const successHtml = `
-                                        <div id="successMessage" class="success-message rounded-lg d-flex gap-2" role="alert">
+                                        <div id="successMessage" class="success-message rounded-lg d-flex gap-2 mt-1" role="alert">
                                             <div>
                                                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M27.5 15C27.5 8.09644 21.9035 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9035 8.09644 27.5 15 27.5C21.9035 27.5 27.5 21.9035 27.5 15Z" fill="#04248C"/>

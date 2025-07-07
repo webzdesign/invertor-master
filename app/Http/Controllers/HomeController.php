@@ -654,7 +654,7 @@ class HomeController extends Controller
 
         $this->sendContactEmailToAdmin($contact);
 
-        return redirect()->back()->with('success', 'Thank you for contacting us!');
+        return redirect()->back()->with('success', __('Thank you for contacting us!'));
     }
 
     protected function sendContactEmailToAdmin($contact)
@@ -999,6 +999,8 @@ class HomeController extends Controller
                 }
             }
 
+            $quotation_types = !empty($request->quotation_types) ? $request->quotation_types : 1;
+
             $quotation = Quotation::create([
                 "customer_name" => $request->customer_name,
                 "post_code" => $request->post_code,
@@ -1006,12 +1008,13 @@ class HomeController extends Controller
                 "country_dial_code" => $request->country_dial_code ?? null,
                 "country_iso_code" => $request->country_iso_code ?? null,
                 "purchase_source" => $purchase_source,
-                "quotation_date" => now()->toDateTimeString()
+                "quotation_date" => now()->toDateTimeString(),
+                "quotation_types" => $quotation_types 
             ]);
 
             Quotation::updateQuotationNumber($quotation->id);
 
-            if( !empty($request->productId)) {
+            if( !empty($request->productId) && $request->productId != '0') {
                 foreach ($request->productId as $key => $productId) {
                     if(decrypt($productId) != 0) {
                         $product = Product::find(decrypt($productId));

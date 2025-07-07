@@ -58,7 +58,7 @@
                                 <input type="hidden" name="country_dial_code" id="country_dial_code">
                                 <input type="hidden" name="country_iso_code" id="country_iso_code">
                                 <input type="text" class="input-control w-100" name="sz_phone" id="phone" value="{{ old('sz_phone') }}">
-                                <label id="phone-error" class="error d-none" for="phone"></label>
+                                {{-- <label id="phone-error" class="error d-none" for="phone"></label> --}}
                                 @if ( $errors->has('sz_phone') )
                                     <span class="text-danger error">{{ $errors->first('sz_phone') }}</span>
                                 @endif
@@ -196,9 +196,15 @@
                 },
             },
             errorPlacement: function(error, element) {
-                error.appendTo(element.parent("div"));
-                var phoneError = $("#phone-error");
-                phoneError.removeClass('d-none');
+                const fieldName = element.attr('name');
+
+                if (fieldName === 'sz_phone') {
+                    error.addClass('text-danger');
+
+                    element.closest('.iti').after(error);
+                } else {
+                    error.addClass('text-danger').appendTo(element.closest("div"));
+                } 
             },
             submitHandler:function(form) {
                 if(!this.beenSubmitted) {
