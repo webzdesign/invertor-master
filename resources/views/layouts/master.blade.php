@@ -397,7 +397,7 @@
         <link rel="stylesheet" href="{{ asset('assets/css/intel.css') }}">
         <script src="{{ asset('assets/js/intel.min.js') }}"></script>
         <script src="{{ asset('assets/js/jquery-validate.min.js') }}"></script>
-        
+
         {{-- google rechaptcha --}}
         <script src="https://www.google.com/recaptcha/api.js?render={{ config('google.google_recaptchav3.site_key') }}"></script>
         <script>
@@ -421,7 +421,7 @@
                     var attr = $(this).attr(attribute);
                     return typeof attr !== typeof undefined && attr !== false;
                 };
-                
+
                 if (!$(document).find('img').hasAttr('loading')) {
                     $(document).find('img').attr('loading','lazy');
                 }
@@ -467,7 +467,7 @@
                     $('#getPriceModal').modal('show');
                     let pID = $(this).data('pid');
                     let type = $(this).data('type');
-                    
+
                     $(document).find('#phoneModalForm').find('#phoneModalData').find('#quotation_types').val(type);
                     if(pID) {
                         $(document).find('#phoneModalForm').find('#phoneModalData').find('#productId').val(pID);
@@ -509,7 +509,7 @@
                         const formData = new FormData(form);
                         const rawData = Object.fromEntries(formData.entries());
                         console.log(rawData);
-                        
+
                         const productIds = formData.getAll('productId[]');
                         const data = {
                             country_dial_code: rawData.country_dial_code_modal,
@@ -526,12 +526,13 @@
                             data.productId = productIds;
                         }
 
-                        executeRecaptcha();
                         $.ajax({
                             url: "{{ route('quotation.request') }}",
                             method: "POST",
                             data: data,
                             success: function (response) {
+                                executeRecaptcha();
+
                                 $('#phoneModalForm')[0].reset();
                                 $('#success-container').empty();
 
