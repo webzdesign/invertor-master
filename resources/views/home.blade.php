@@ -19,8 +19,8 @@
                                 <div class="px-lg-2">
                                     @php
                                         $slider_img = !empty($slider_product['banner']) ? $slider_product['banner'] : '';
-                                        $lang = config('app.locale'); 
-                                        $title = json_decode($slider_product['title']); 
+                                        $lang = config('app.locale');
+                                        $title = json_decode($slider_product['title']);
                                     @endphp
                                     <div class="hot-d-label fadeItem bg-pumpkin-orange-500 text-white font-semibold w-fit">
                                         H
@@ -209,7 +209,7 @@
                     <div class="font-semibold text-lg text-base-mob m-0 text-slate-900">{{ __('Transparent pricing')}}</div>
                 </li>
             </ul>
-        </div> 
+        </div>
         {{-- <div class="hero-banner position-absolute end-0 top-0">
             <img class="" src="{{ asset( 'assets/images/Hero-inv-1.png' ) }}" loading="lazy" alt="Home and office air conditioning">
         </div>  --}}
@@ -313,12 +313,12 @@
             <div class="position-relative">
                 <img src="{{ asset( 'assets/images/Cool-Comfort-Smarter-Living.webp' ) }}" alt="Cool-Comfort-Smarter-Living" loading="lazy" width="100%" height="100%">
                 <h2 class="text-white px-3 font-bebas position-absolute top-0 text-center mt-5 w-100">{!! __('Cool Comfort & <br/> Smarter Living') !!}</h2>
-                <span style="left: 83%;" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn getPriceModalBtn" data-type="2">{{ __('Appointment')}}</span>
+                <span class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn getPriceModalBtn cursor-pointer" data-type="2">{{ __('Appointment')}}</span>
                 {{-- <a href="{{ $tuya_d8_url }}" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn ">{{ __('Top Brands')}}</a> --}}
-                <span style="right: -38%;" class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn getPriceModalBtn" data-type="3">{{ __('Creation')}}</span>
+                <span class="position-absolute border border-gray-400 text-white font-manrope-semibold rounded-pill text-xl translate-middle-x whitespace-nowrap bg-pumpkin-orange-500 sz_tuya_d8_btn sz_tuya_d8_btn_2 getPriceModalBtn cursor-pointer" data-type="3">{{ __('Creation')}}</span>
             </div>
         </div>
-        
+
         <div class="col-xxl-8 right-side my-auto">
             <div class="row whyRight w-100 mx-auto">
                 <div class="col-md-6">
@@ -381,7 +381,7 @@
 @if (!empty($information->page_banner))
     @php
         $banners = json_decode($information->page_banner);
-        $lang = config('app.locale'); 
+        $lang = config('app.locale');
         $image = $banners->$lang->image ?? null;
         $mobimage = $banners->$lang->mob_image ?? null;
         $BannerimagePath = 'admin/public/storage/information-images/' . $image;
@@ -478,7 +478,7 @@
                                     <h4 class="font-inter-regular text-sm text-slate-400 m-0">50{{ __('k')}} {{ __('Sold')}}</h4>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap"> 
+                            <div class="d-flex align-items-center justify-content-between mt-3 flex-wrap">
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
@@ -542,7 +542,7 @@
             <div class="tab-content mt-sm-5 mt-4" id="myTabContent">
                 <div class="tab-pane fade show active" id="tab1" role="tabpanel">
                     <div class="row" id="productsPanal">
-                      
+
                     </div>
                 </div>
                 <!-- <div class="tab-pane fade" id="tab2" role="tabpanel">
@@ -707,7 +707,7 @@
         })
 
         $(document).on('click', '.productCallCategory', function() {
-            let catid = $(this).data('params'); 
+            let catid = $(this).data('params');
             $('.productCallBrand img').removeClass('brand-active');
             let params = {
                 brandid : '',
@@ -721,7 +721,7 @@
             let brandid = $(this).data('brandid');
             let catid = $(this).data('catid');
             let img = $(this).find('img');
-            
+
             let isAlreadyActive = img.hasClass('brand-active');
 
             $('.productCallBrand img').removeClass('brand-active');
@@ -729,7 +729,7 @@
             if (!isAlreadyActive) {
                 img.addClass('brand-active');
             }
-            
+
             let params = {
                 brandid: !isAlreadyActive ? brandid : '',
                 catid: catid
@@ -743,8 +743,8 @@
         let CurencyIcon = @json(env( 'SZ_CURRENCY_SYMBOL' ));
 
         produtsDataList();
-        
-        function produtsDataList(params = {}) {            
+
+        function produtsDataList(params = {}) {
             $.ajax({
                 url: '{{ route('produtsDataList') }}',
                 type: 'POST',
@@ -762,18 +762,18 @@
                                 "Free.Gift.Available": @json(__('Free Gift Available')),
                                 "Get.Price": @json(__('Get Price'))
                             };
-                            Products.forEach(product => { 
+                            Products.forEach(product => {
                                 let sz_discount_flag = 0;
                                 let sz_discount_pr = 0;
                                 let sz_save_price = 0;
-                                
+
                                 if (product.web_sales_old_price && product.web_sales_old_price > product.web_sales_price) {
                                     sz_discount_flag = 1;
                                     sz_save_price = product.web_sales_old_price - product.web_sales_price;
                                     sz_discount_pr = ((sz_save_price) / product.web_sales_old_price) * 100;
                                     sz_discount_pr = sz_discount_pr.toFixed(2);
                                 }
-                                
+
                                 let first_img = product.images?.[0]?.name ?? '';
                                 let brandClass = `brand-${product.brand}`;
                                 let cartClass = cart_products[product.id] ? '' : 'd-none';
@@ -809,7 +809,7 @@
                                                             if( sz_discount_flag == '1' ){
                                                                 html +=`<!-- {!! $sale_season_icon !!} -->`;
                                                             }
-                                                        html += `<!-- </div> -->`; 
+                                                        html += `<!-- </div> -->`;
                                                     html += `</div>`;
 
                                                     if( sz_discount_flag == '1' ) {
@@ -829,7 +829,7 @@
                                                         </svg>
                                                     </span>
                                                 </button>
-                
+
                                             </div>
                                         </div>
                                 `;
