@@ -324,5 +324,6 @@
     "last_name.required" : "Last name is required.",
     "email.required" : "Email is required.",
     "email.formate" : "Please enter a valid email address.",
-    "Write A Review" : "Write A Review"
+    "Write A Review" : "Write A Review",
+    "ARROW DELIVERY" : "ARROW DELIVERY"
 }

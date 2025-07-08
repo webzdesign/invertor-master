@@ -326,5 +326,6 @@
     "last_name.required" : "Numele de familie este obligatoriu.",
     "email.required" : "E-mailul este obligatoriu.",
     "email.formate" : "Vă rugăm să introduceți o adresă de email validă",
-    "Write A Review" : "Scrie o recenzie"
+    "Write A Review" : "Scrie o recenzie",
+    "ARROW DELIVERY" : "SĂGEATĂ LIVRARE"
 }

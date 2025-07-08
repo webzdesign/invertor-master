@@ -72,7 +72,9 @@ class HomeController extends Controller
 
         $brands = Brands::where('status',1)->get();
 
-        return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products','sliders','information','categorys','brands'));
+        $tomorrow = mktime(0, 0, 0, date("m") , date("d")+1, date("Y"));
+
+        return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products','sliders','information','categorys','brands','tomorrow'));
     }
 
     public function produtsDataList(Request $request)
