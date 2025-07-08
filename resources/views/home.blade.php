@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="text-center text-lg-start">
                                         <a  class="fadeItem order-btn gap-sm-4 gap-3 bg-neutrino-blue-400 d-inline-flex align-items-center justify-content-between rounded-pill ps-4 pe-2 mt-4 cursor-pointer text-decoration-none text-white font-semibold text-lg mb-3 text-uppercase AddToCartBtn_ eb_OrderNowBtn_ getPriceModalBtn" data-pid="{{encrypt($slider_product['product_id'])}}">
-                                            {{ __('ARROW DELIVERY') .'  '. date('d/m/Y',$tomorrow)}}
+                                            {{ __('ARROW DELIVERY') .'  '. $tomorrow}}
                                             <div>
                                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <rect width="40" height="40" rx="20" fill="#F3F3F3"/>

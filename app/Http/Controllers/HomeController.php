@@ -72,7 +72,7 @@ class HomeController extends Controller
 
         $brands = Brands::where('status',1)->get();
 
-        $tomorrow = mktime(0, 0, 0, date("m") , date("d")+1, date("Y"));
+        $tomorrow = now()->addDay()->format('d/m/Y');
 
         return view('home', compact('Products', 'tuya_d8_url', 'sale_season_icon','is_hot_products','sliders','information','categorys','brands','tomorrow'));
     }
