@@ -43,7 +43,7 @@ class HomeController extends Controller
         $categorys = Category::where('status',1)->get();
 
         $Products = Product::with('images')->orderByRaw("FIELD(id, 13) DESC")->where('status',1)->limit(value: 4)->get();
-
+        
         $tuya_d8_url = '';
         if( !empty($Products) ){
             foreach ($Products as $product) {
@@ -93,7 +93,7 @@ class HomeController extends Controller
                 ->orderBy('id','DESC')
                 ->limit(4)
                 ->get()->map(function ($product) {
-                    // $product->name = Str::limit($product->name,'25','...');
+                    $product->name = $product->tname;
                     $product->id = encrypt($product->id);
                     $product->urlLink = route('productDetail', $product->slug);
                     return $product;

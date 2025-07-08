@@ -97,7 +97,7 @@
                 <div class="col-xl-3 col-lg-4 col-md-6 mb-4 mb-sm-5">
                     <a class="text-decoration-none text-slate-900" href="{{ route('productDetail', $product->slug) }}">
                         <div class="product-card border text-center border-slate-200 rounded-3xl overflow-hidden position-relative">
-                            <img class="pro-img sz_product_image mw-100" src="{{ env('APP_Image_URL').'storage/product-images/'. $first_img }}" alt="{{ $product->name }}">
+                            <img class="pro-img sz_product_image mw-100" src="{{ env('APP_Image_URL').'storage/product-images/'. $first_img }}" alt="{{ $product->tname }}">
                             <!-- <div class="ws_sec position-absolute">
                                 <label class="warrantyLabel mb-0 text-white text-sm py-1 pointer-event-none rounded-pill">1-year warranty</label>
                                 @if( $sz_discount_flag == '1' )
@@ -107,7 +107,7 @@
                         </div>
                     </a>
                     <div class="text-lg-start text-center">
-                        <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4"><a class="line-clamp-1 text-gray-950 text-decoration-none" title="{{ $product->name }}" href="{{ route('productDetail', $product->slug) }}">{{ $product->name }}</a></h2>
+                        <h2 class="text-lg text-gray-950 font-inter-semibold mb-0 mt-4"><a class="line-clamp-1 text-gray-950 text-decoration-none" title="{{ $product->tname }}" href="{{ route('productDetail', $product->slug) }}">{{ $product->tname }}</a></h2>
                         <div class="d-sm-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                             {{--<div class="d-flex align-items-center gap-3 justify-content-lg-start justify-content-center">
                                 <h2 class="text-lg mb-0 text-gray-950 font-inter-semibold mt-0">{{ env( 'SZ_CURRENCY_SYMBOL' ) . number_format($product->web_sales_price, 2) }}</h2>

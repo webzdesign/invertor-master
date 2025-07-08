@@ -11,7 +11,9 @@ class Product extends Model
     use HasFactory, SoftDeletes;
 
     public $guarded = [];
-
+    protected $casts = [
+        'languages' => 'object',
+    ];
     public function addedby()
     {
         return $this->belongsTo(User::class, 'added_by');
@@ -65,4 +67,34 @@ class Product extends Model
 
         return null;
     }
+    public function getTnameAttribute() {
+        $locale = app()->getLocale();
+
+        if (isset($this->languages->{$locale}->name) && !empty($this->languages->{$locale}->name)) {
+            return $this->languages->{$locale}->name;
+        }
+
+        return $this->name;
+    }
+
+    public function getTdescriptionAttribute() {
+        $locale = app()->getLocale();
+
+        // if (isset($this->languages->{$locale}->description) && !empty($this->languages->{$locale}->description)) {
+        //     return $this->languages->{$locale}->description;
+        // }
+
+        return $this->description;
+    }
+
+    public function getTslidercontentAttribute() {
+        $locale = app()->getLocale();
+
+        if (isset($this->languages->{$locale}->slider_content) && !empty($this->languages->{$locale}->slider_content)) {
+            return $this->languages->{$locale}->slider_content;
+        }
+
+        return $this->slider_content;
+    }
+
 }

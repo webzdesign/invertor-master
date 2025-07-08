@@ -41,7 +41,7 @@
                     <path d="M9 18.5C9 18.5 15 14.0811 15 12.5C15 10.9188 9 6.5 9 6.5" stroke="#292929" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </li>
-            <li class="font-inter-regular text-xl text-decoration-none text-slate-900">{{ $product->name }}</li>
+            <li class="font-inter-regular text-xl text-decoration-none text-slate-900">{{ $product->tname }}</li>
         </ul>
     </div>
 </section>
@@ -93,9 +93,9 @@
                 @if( $sz_discount_flag == '1' )
                     <label class="saleLbl bg-violet-500 w-fit px-2 d-block mb-2 text-white text-sm py-1 pointer-event-none rounded-pill mt-lg-0 mt-4">{{ __('Sale')}} 🔥</label>
                 @endif
-                <h1 class="text-slate-900 font-bebas text-6xl text-4xl-mob {{ $sz_discount_flag != '1' ? 'mt-lg-0 mt-3' : '' }}">{{ $product->name }} Inverter AC – Energy Efficient & Whisper Quiet</h1>
+                <h1 class="text-slate-900 font-bebas text-6xl text-4xl-mob {{ $sz_discount_flag != '1' ? 'mt-lg-0 mt-3' : '' }}">{{ $product->tname }} {{__('Inverter AC – Energy Efficient & Whisper Quiet')}}</h1>
               
-                <p class="text-gray-500 font-inter-regular text-xl text-base-mob">{{ $product->slider_content }}</p>
+                <p class="text-gray-500 font-inter-regular text-xl text-base-mob">{{ $product->tslidercontent }}</p>
                 <div class="d-flex align-items-center gap-2">
                     <div>
 
@@ -205,7 +205,7 @@
     
     @endphp
     <section class="why-choose-product bg-gray-50">
-        <h2 class="text-6xl text-4xl-mob font-bebas text-slate-900 mb-sm-5 mb-3 px-3 px-sm-0">{{__('Why Choose the')}} {{ $product->name }}?</h2>
+        <h2 class="text-6xl text-4xl-mob font-bebas text-slate-900 mb-sm-5 mb-3 px-3 px-sm-0">{{__('Why Choose the')}} {{ $product->tname }}?</h2>
         <div class="row m-0">
             @foreach($images as $image)
                 <div class="col-xl-3 col-lg-4 col-md-6 mb-4">

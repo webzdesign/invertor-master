@@ -244,10 +244,10 @@
 
                     @endphp
                     <div class="col-xl-3 col-md-4 col-sm-6 mb-5 hot-col">
-                       <a href="{{ route('productDetail', $ishot->slug) }}" title="{{ $ishot->name }}" class="cards h-100 d-flex flex-column justify-content-between border position-relative d-block text-decoration-none">
+                       <a href="{{ route('productDetail', $ishot->slug) }}" title="{{ $ishot->tname }}" class="cards h-100 d-flex flex-column justify-content-between border position-relative d-block text-decoration-none">
                             <div>
-                                <img src="{{ $first_img }}" alt="{{ $ishot->name }}" loading="lazy" width="100%" height="85%">
-                                <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3 line-clamp-1">{{ $ishot->name }}</h3>
+                                <img src="{{ $first_img }}" alt="{{ $ishot->tname }}" loading="lazy" width="100%" height="85%">
+                                <h3 class="text-slate-900 text-sm -tracking-02 font-inter-semibold px-3 pt-3 line-clamp-1">{{ $ishot->tname }}</h3>
                             </div>
                             <div class="px-3 pb-3">
                                 <div class="d-flex align-items-center justify-content-between mt-3">
