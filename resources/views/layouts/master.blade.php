@@ -82,7 +82,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header align-items-baseline p-0">
-                        <h1 class="modal-title text-slate-900 font-semibold" id="writeReviewModalLabel">{!! __('Write A Review') !!}</h1>
+                        <h1 class="modal-title text-slate-900 font-semibold" id="writeReviewModalLabel">{{ __('Write A Review') }}</h1>
                         <button type="button" class="btn-close-lf w-fit bg-transparent border-0" data-bs-dismiss="modal" aria-label="Close">
                             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M24.999 25L15 15M15.0011 25L25 15" stroke="#FB7E06" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -419,7 +419,7 @@
             });
 
             const inputModal = document.querySelector('#phone_modal');
-            const errorMapModal = ["Phone number is invalid.", "Invalid country code", "Too short", "Too long"];
+            const errorMapModal = ["@lang('phone.formate')", "@lang('Invalid country code')", "@lang('Too short')", "@lang('Too long')"];
 
             const itiModal = window.intlTelInput(inputModal, {
                 initialCountry: "md",
@@ -490,8 +490,8 @@
                     },
                     messages: {
                         sz_phone_modal: {
-                            required: "Phone is required.",
-                            number : 'Phone number is invalid formate'
+                            required: "@lang('phone.required')",
+                            number : "@lang('phone.formate')"
                         },
                     },
                     errorPlacement: function(error, element) {
@@ -505,7 +505,7 @@
                         let gError = $('#recaptchaError');
 
                         if (recaptchaResponse.length === 0) {
-                            gError.text('Please complete the reCAPTCHA.').show();
+                            gError.text("@lang('recaptcha.required')").show();
                             $('#phoneModalFormSubmit').attr('disabled', false);
                             return false;
                         } else {
@@ -541,9 +541,9 @@
                                 grecaptcha.reset();
 
                                 const translations = {
-                                    "quotation.success": @json(__('quotation.success')),
-                                    "quotation.error": @json(__('quotation.error')),
-                                    "recaptcha.error": @json(__('recaptcha.error')),
+                                    "quotation.success": "@lang('quotation.success')",
+                                    "quotation.error": "@lang('quotation.error')",
+                                    "recaptcha.error": "@lang('recaptcha.error')",
                                 };
 
                                 if (response.success)  {
@@ -654,16 +654,16 @@
                     },
                      messages: {
                         customer_name: {
-                            required: "Customer name is required."
+                            required: "@lang('customer_name.required')"
                         },
                         review_title: {
-                            required: "Review title is required."
+                            required: "@lang('review_title.required')"
                         },
                         review_description: {
-                            required: "Review description is required."
+                            required: "@lang('review_description.required')"
                         },
                         rating: {
-                            required: "Please select a rating."
+                            required: "@lang('rating.required')"
                         }
                     },
                     errorPlacement: function(error, element) {
@@ -691,8 +691,8 @@
                             data: rawData,
                             success: function (response) {
                                 const reviewTranslations = {
-                                    "review.success": @json(__('review.success')),
-                                    "review.error": @json(__('review.error'))
+                                    "review.success": "@lang('review.success')",
+                                    "review.error": "@lang('review.error')"
                                 };
                                 if(response.success) {
 
@@ -744,8 +744,8 @@
                             },
                             error: function (xhr) {
                                 const reviewTranslations = {
-                                    "review.success": @json(__('review.success')),
-                                    "review.error": @json(__('review.error'))
+                                    "review.success": "@lang('review.success')",
+                                    "review.error": "@lang('review.error')"
                                 };
                                 const errorHtml = `
                                     <div id="errorMessage" class="alert alert-danger align-items-center gap-2 mt-3 p-3 rounded-2xl bg-red-100 text-red-900" role="alert">

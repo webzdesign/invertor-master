@@ -132,7 +132,7 @@
 
 <script>
     const input = document.querySelector('#phone');
-    const errorMap = ["Phone number is invalid.", "Invalid country code", "Too short", "Too long"];
+    const errorMap = ["@lang('phone.formate')", "@lang('Invalid country code')", "@lang('Too short')", "@lang('Too long')"];
 
     const iti = window.intlTelInput(input, {
         initialCountry: "md",
@@ -183,16 +183,17 @@
             },
             messages: {
                 sz_firstname: {
-                    required: "First name is required."
+                    required: "@lang('first_name.required')"
                 },
                 sz_lastname: {
-                    required: "Last name is required."
+                    required: "@lang('last_name.required')"
                 },
                 sz_email: {
-                    required: "Email is required."
+                    required: "@lang('email.required')",
+                    email : "@lang('email.formate')"
                 },
                 sz_phone: {
-                    required: "Phone is required.",
+                    required: "@lang('phone.required')",
                 },
             },
             errorPlacement: function(error, element) {

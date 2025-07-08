@@ -500,12 +500,12 @@
                         $('#reviews-listing').append(response.html);
 
                         if(response.review_count == response.total_review) {
-                            let noProducts = @json(__('no_more_product')) ;
+                            let noProducts = "@lang('no_more_product')";
                             $('.loadReviews').html(noProducts).removeClass('loadReviews').addClass('loadMoreReviews');
                         }
 
                     } else {
-                        let noProducts = @json(__('no_more_product')) ;
+                        let noProducts = "@lang('no_more_product')";
                         $('.loadReviews').html(noProducts).removeClass('loadReviews').addClass('loadMoreReviews');
                     }
                 },

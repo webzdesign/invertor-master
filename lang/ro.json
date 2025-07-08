@@ -311,5 +311,20 @@
     "Creation" : "Creare",
     "By submitting this form, you express your consent to the processing of your personal data (name, email address, phone number, etc.) by Invertor Lux SRL and Iute Credit SRL, for the purpose of resolving your request. The data provided will be kept securely and will not be transmitted to third parties without your consent, except in cases required by law." : "Prin trimiterea acestui formular, vă exprimați consimțământul pentru prelucrarea datelor dumneavoastră cu caracter personal (nume, adresă de e-mail, număr de telefon etc.) de către Invertor Lux SRL și Iute Credit SRL, în scopul soluționării solicitării dumneavoastră. Datele furnizate vor fi păstrate în siguranță și nu vor fi transmise către terți fără consimțământul dumneavoastră, cu excepția cazurilor impuse de lege.",
     "Thank you for contacting us!" : "Vă mulțumim că ne-ați contactat!",
-    "recaptcha.error" : "Validarea reCAPTCHA a eșuat."
+    "recaptcha.error" : "Validarea reCAPTCHA a eșuat.",
+    "recaptcha.required" : "Vă rugăm să completați reCAPTCHA-ul.",
+    "phone.required" : "Este necesar telefonul.",
+    "phone.formate" : "Numărul de telefon are un format nevalid.",
+    "Invalid country code" : "Cod de țară nevalid",
+    "Too short" : "Prea scurt",
+    "Too long" : "Prea lung",
+    "customer_name.required" : "Numele clientului este obligatoriu.",
+    "review_title.required" : "Titlul recenziei este obligatoriu.",
+    "review_description.required" : "Descrierea recenziei este obligatorie.",
+    "rating.required" : "Vă rugăm să selectați o evaluare.",
+    "first_name.required" : "Prenumele este obligatoriu.",
+    "last_name.required" : "Numele de familie este obligatoriu.",
+    "email.required" : "E-mailul este obligatoriu.",
+    "email.formate" : "Vă rugăm să introduceți o adresă de email validă",
+    "Write A Review" : "Scrie o recenzie"
 }

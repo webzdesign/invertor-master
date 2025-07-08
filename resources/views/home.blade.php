@@ -759,8 +759,8 @@
 
                             let html = '';
                             const TranslationsKeys = {
-                                "Free.Gift.Available": @json(__('Free Gift Available')),
-                                "Get.Price": @json(__('Get Price'))
+                                "Free.Gift.Available": "@lang('Free Gift Available')",
+                                "Get.Price": "@lang('Get Price')"
                             };
                             Products.forEach(product => {
                                 let sz_discount_flag = 0;

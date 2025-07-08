@@ -309,5 +309,20 @@
     "Creation" : "Creation",
     "By submitting this form, you express your consent to the processing of your personal data (name, email address, phone number, etc.) by Invertor Lux SRL and Iute Credit SRL, for the purpose of resolving your request. The data provided will be kept securely and will not be transmitted to third parties without your consent, except in cases required by law." : "By submitting this form, you express your consent to the processing of your personal data (name, email address, phone number, etc.) by Invertor Lux SRL and Iute Credit SRL, for the purpose of resolving your request. The data provided will be kept securely and will not be transmitted to third parties without your consent, except in cases required by law.",
     "Thank you for contacting us!" : "Thank you for contacting us!",
-    "recaptcha.error" : "reCAPTCHA validation failed."
+    "recaptcha.error" : "reCAPTCHA validation failed.",
+    "recaptcha.required" : "Please complete reCAPTCHA.",
+    "phone.required" : "Phone is required.",
+    "phone.formate" : "Phone number is invalid formate.",
+    "Invalid country code" : "Invalid country code",
+    "Too short" : "Too short",
+    "Too long" : "Too long",
+    "customer_name.required" : "Customer name is required.",
+    "review_title.required" : "Review title is required.",
+    "review_description.required" : "Review description is required.",
+    "rating.required" : "Please select a rating.",
+    "first_name.required" : "First name is required.",
+    "last_name.required" : "Last name is required.",
+    "email.required" : "Email is required.",
+    "email.formate" : "Please enter a valid email address.",
+    "Write A Review" : "Write A Review"
 }
