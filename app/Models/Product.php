@@ -77,16 +77,6 @@ class Product extends Model
         return $this->name;
     }
 
-    public function getTdescriptionAttribute() {
-        $locale = app()->getLocale();
-
-        // if (isset($this->languages->{$locale}->description) && !empty($this->languages->{$locale}->description)) {
-        //     return $this->languages->{$locale}->description;
-        // }
-
-        return $this->description;
-    }
-
     public function getTslidercontentAttribute() {
         $locale = app()->getLocale();
 
